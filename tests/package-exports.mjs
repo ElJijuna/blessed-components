@@ -13,6 +13,8 @@ const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
+const pureTextModule = await import('../dist/text/index.js');
+const blessedTextModule = await import('../dist/text/blessed.js');
 const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
 const primitivesModule = await import('../dist/primitives/index.js');
@@ -48,6 +50,11 @@ const [statEsmSource, statCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [textEsmSource, textCjsSource] = await Promise.all(
+  ['../dist/text/index.js', '../dist/text/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [coreEsmSource, coreCjsSource] = await Promise.all(
   ['../dist/core/index.js', '../dist/core/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -71,6 +78,8 @@ assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
+assert.equal(typeof pureTextModule.renderText, 'function');
+assert.equal(typeof blessedTextModule.text, 'function');
 assert.equal(typeof coreModule.visibleWidth, 'function');
 assert.equal(typeof scaleModule.sampleSeries, 'function');
 assert.equal(typeof primitivesModule.createViewport, 'function');
@@ -107,6 +116,10 @@ for (const source of [sparklineEsmSource, sparklineCjsSource]) {
 
 for (const source of [statEsmSource, statCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Stat entry must not import Blessed.');
+}
+
+for (const source of [textEsmSource, textCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Text entry must not import Blessed.');
 }
 
 for (const source of [coreEsmSource, coreCjsSource]) {

@@ -246,7 +246,7 @@ npm subpaths:
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
 | `collections`    | `List`                                    |
-| `data-display`   | `Badge`, `Stat`                           |
+| `data-display`   | `Badge`, `Stat`, `Text`                   |
 | `feedback`       | `ProgressBar`                             |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | Reserved for interactive form components |
@@ -335,7 +335,7 @@ High value, low complexity, excellent early components.
 
 | Component         | Purpose                                               | Decision | Priority |
 | ----------------- | ----------------------------------------------------- | -------- | -------- |
-| `Text`            | Safe themed text with truncation and wrapping.        | Adapt    | P0       |
+| `Text`            | Safe themed text with truncation and wrapping.        | Available | P0       |
 | `Heading`         | Hierarchical terminal heading styles.                 | Build    | P1       |
 | `Label`           | Stable labels for controls and values.                | Build    | P1       |
 | `MutedText`       | Secondary information using semantic theme tokens.    | Build    | P1       |

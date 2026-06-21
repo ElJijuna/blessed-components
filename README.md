@@ -4,8 +4,8 @@ Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
 > **Project status:** early development. `Badge`, `List`, `MetricBars`,
-> `ProgressBar`, `Sparkline`, and `Stat` are available; more components are
-> coming soon.
+> `ProgressBar`, `Sparkline`, `Stat`, and `Text` are available; more components
+> are coming soon.
 
 ## Goals
 
@@ -35,6 +35,7 @@ npm install blessed blessed-components
 | [`MetricBars`](./src/components/visualization/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
 | [`Stat`](./src/components/data-display/stat/README.md) | Display a label, value, trend, and description. | Available |
 | [`List`](./src/components/collections/list/README.md) | Navigate and select typed items with bounded rendering. | Available |
+| [`Text`](./src/components/data-display/text/README.md) | Render safe, cell-aware terminal text. | Available |
 
 ### Composition
 

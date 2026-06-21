@@ -11,6 +11,7 @@ import {
   progressBar,
   sparkline,
   stat,
+  text,
 } from '../../src/index.js';
 
 function updateAndDestroy<TData>(handle: BlessedComponentHandle<TData>, data: TData): void {
@@ -39,6 +40,10 @@ describe('Blessed component handle contract', () => {
       data: { items: [{ id: 'one', label: 'One' }] },
       parent: screen,
     });
+    const textHandle = text({
+      data: { content: 'Ready' },
+      parent: screen,
+    });
     const handles = [badgeHandle, progressHandle, sparklineHandle, statHandle];
     const bars = metricBars({
       data: { barWidth: 2, metrics: [{ label: 'CPU', value: 50 }] },
@@ -55,6 +60,7 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(listHandle, {
       items: [{ id: 'two', label: 'Two' }],
     });
+    updateAndDestroy(textHandle, { content: 'Done' });
     updateAndDestroy(bars, {
       barWidth: 2,
       metrics: [{ label: 'CPU', value: 75 }],

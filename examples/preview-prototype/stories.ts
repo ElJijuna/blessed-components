@@ -1,8 +1,32 @@
-import { badge, list, metricBars, progressBar, sparkline, stat } from '../../src/index.js';
+import { badge, list, metricBars, progressBar, sparkline, stat, text } from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'text/safe-wrap',
+    title: 'Text / Safe Wrap',
+    description: 'Cell-aware wrapping strips terminal markup and uses a semantic tone.',
+    mount(parent) {
+      return text({
+        parent,
+        box: {
+          top: 2,
+          left: 3,
+          height: 5,
+          width: 38,
+          border: 'line',
+        },
+        data: {
+          align: 'center',
+          content:
+            '\u001B[31mDeploying\u001B[0m {red-fg}红色{/red-fg} service across terminal cells.',
+          tone: 'info',
+          verticalAlign: 'middle',
+        },
+      });
+    },
+  }),
   defineStory({
     id: 'list/commands',
     title: 'List / Commands',

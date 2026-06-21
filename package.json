@@ -89,6 +89,16 @@
       "import": "./dist/stat/blessed.js",
       "require": "./dist/stat/blessed.cjs"
     },
+    "./text": {
+      "types": "./dist/text/index.d.ts",
+      "import": "./dist/text/index.js",
+      "require": "./dist/text/index.cjs"
+    },
+    "./text/blessed": {
+      "types": "./dist/text/blessed.d.ts",
+      "import": "./dist/text/blessed.js",
+      "require": "./dist/text/blessed.cjs"
+    },
     "./core": {
       "types": "./dist/core/index.d.ts",
       "import": "./dist/core/index.js",

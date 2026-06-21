@@ -40,6 +40,8 @@ export default defineConfig({
     'sparkline/index': 'src/components/visualization/sparkline/index.ts',
     'stat/blessed': 'src/adapters/blessed/stat.ts',
     'stat/index': 'src/components/data-display/stat/index.ts',
+    'text/blessed': 'src/adapters/blessed/text.ts',
+    'text/index': 'src/components/data-display/text/index.ts',
   },
   format: ['esm', 'cjs'],
   outExtension({ format }) {

@@ -17,6 +17,8 @@
     "src/adapters/blessed/sparkline.ts",
     "src/components/data-display/stat/index.ts",
     "src/adapters/blessed/stat.ts",
+    "src/components/data-display/text/index.ts",
+    "src/adapters/blessed/text.ts",
     "src/adapters/blessed/types.ts"
   ],
   "entryPointStrategy": "expand",
