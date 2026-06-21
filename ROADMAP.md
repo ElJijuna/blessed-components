@@ -240,6 +240,17 @@ examples/
 `components` compose core logic and primitives. `adapters/blessed` owns Blessed
 elements and events.
 
+### Primitive implementation status
+
+| Primitive     | Shared behavior                                             | Status    |
+| ------------- | ----------------------------------------------------------- | --------- |
+| `Collection`  | Ordered identity, lookup, disabled items, looping navigation | Available |
+| `Selection`   | Single and multiple selection with deterministic ordering   | Available |
+| `FocusScope`  | Focus capture, trapping, traversal, and restoration          | Available |
+| `Viewport`    | Two-dimensional bounds, resizing, and visibility             | Available |
+| `ScrollArea`  | Line/page movement and scrollbar metrics                     | Available |
+| `Overlay`     | Layer stack, modal blocking, Escape, and focus return        | Available |
+
 ## Component opportunity analysis
 
 Legend:

@@ -22,6 +22,7 @@ const unexpectedSourceFiles = paths.filter(
   (path) =>
     path.startsWith('src/') &&
     path !== 'src/core/README.md' &&
+    path !== 'src/primitives/README.md' &&
     !/^src\/components\/[^/]+\/README\.md$/.test(path),
 );
 

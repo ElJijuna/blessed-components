@@ -117,6 +117,34 @@ import { visibleWidth } from 'blessed-components/core/width';
 
 See the [core reference](./src/core/README.md).
 
+### Headless primitives
+
+Primitives compose core algorithms into reusable behavior without choosing
+presentation or creating Blessed elements:
+
+- `Collection` provides stable ordered identity and enabled-item navigation.
+- `Selection` provides single and multiple selection state.
+- `FocusScope` captures, traps, and restores focus identifiers.
+- `Viewport` provides bounded two-dimensional offsets and visibility.
+- `ScrollArea` provides line, page, and scrollbar behavior.
+- `Overlay` provides layer ordering, modal blocking, Escape dismissal, and
+  focus-return metadata.
+
+```ts
+import { createSelectionModel } from 'blessed-components/primitives/selection';
+
+const selection = createSelectionModel({
+  items: [
+    { id: 'one' },
+    { id: 'two' },
+  ],
+});
+
+selection.select('two');
+```
+
+See the [primitives reference](./src/primitives/README.md).
+
 ## Development
 
 Requires Node.js 22.14 or newer.

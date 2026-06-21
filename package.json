@@ -88,6 +88,16 @@
       "types": "./dist/core/*.d.ts",
       "import": "./dist/core/*.js",
       "require": "./dist/core/*.cjs"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "import": "./dist/primitives/index.js",
+      "require": "./dist/primitives/index.cjs"
+    },
+    "./primitives/*": {
+      "types": "./dist/primitives/*/index.d.ts",
+      "import": "./dist/primitives/*/index.js",
+      "require": "./dist/primitives/*/index.cjs"
     }
   },
   "files": [
@@ -96,6 +106,7 @@
     "README.md",
     "ROADMAP.md",
     "src/core/README.md",
+    "src/primitives/README.md",
     "src/components/*/README.md"
   ],
   "sideEffects": false,

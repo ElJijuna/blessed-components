@@ -13,6 +13,8 @@ const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
 const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
+const primitivesModule = await import('../dist/primitives/index.js');
+const selectionModule = await import('../dist/primitives/selection/index.js');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -43,6 +45,11 @@ const [coreEsmSource, coreCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [primitivesEsmSource, primitivesCjsSource] = await Promise.all(
+  ['../dist/primitives/index.js', '../dist/primitives/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
@@ -56,6 +63,8 @@ assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
 assert.equal(typeof coreModule.visibleWidth, 'function');
 assert.equal(typeof scaleModule.sampleSeries, 'function');
+assert.equal(typeof primitivesModule.createViewport, 'function');
+assert.equal(typeof selectionModule.createSelectionModel, 'function');
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
@@ -83,6 +92,10 @@ for (const source of [statEsmSource, statCjsSource]) {
 
 for (const source of [coreEsmSource, coreCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Core entry must not import Blessed.');
+}
+
+for (const source of [primitivesEsmSource, primitivesCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Primitives entry must not import Blessed.');
 }
 
 console.log('Package subpath exports verified.');
