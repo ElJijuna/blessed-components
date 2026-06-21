@@ -23,6 +23,8 @@ export default defineConfig({
     'core/truncate': 'src/core/truncate.ts',
     'core/width': 'src/core/width.ts',
     index: 'src/index.ts',
+    'list/blessed': 'src/adapters/blessed/list.ts',
+    'list/index': 'src/components/collections/list/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
     'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
     'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',

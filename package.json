@@ -49,6 +49,16 @@
       "import": "./dist/metric-bars/blessed.js",
       "require": "./dist/metric-bars/blessed.cjs"
     },
+    "./list": {
+      "types": "./dist/list/index.d.ts",
+      "import": "./dist/list/index.js",
+      "require": "./dist/list/index.cjs"
+    },
+    "./list/blessed": {
+      "types": "./dist/list/blessed.d.ts",
+      "import": "./dist/list/blessed.js",
+      "require": "./dist/list/blessed.cjs"
+    },
     "./progress-bar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js",

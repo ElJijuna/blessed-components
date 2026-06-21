@@ -1,8 +1,43 @@
-import { badge, metricBars, progressBar, sparkline, stat } from '../../src/index.js';
+import { badge, list, metricBars, progressBar, sparkline, stat } from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'list/commands',
+    title: 'List / Commands',
+    description: 'Interactive selection with disabled rows and bounded scrolling.',
+    mount(parent) {
+      return list({
+        parent,
+        box: {
+          top: 1,
+          left: 3,
+          height: 9,
+          width: 42,
+          border: 'line',
+          style: {
+            border: {
+              fg: 'cyan',
+            },
+          },
+        },
+        data: {
+          defaultValue: 'test',
+          items: [
+            { id: 'lint', label: 'Run ESLint' },
+            { id: 'test', label: 'Run test suite' },
+            { id: 'build', label: 'Build package' },
+            { disabled: true, id: 'publish', label: 'Publish release (locked)' },
+            { id: 'docs', label: 'Generate API documentation' },
+            { id: 'preview', label: 'Open component preview' },
+            { id: 'audit', label: 'Audit package contents' },
+            { id: 'clean', label: 'Clean generated artifacts' },
+          ],
+        },
+      });
+    },
+  }),
   defineStory({
     id: 'badge/tones',
     title: 'Badge / Tones',

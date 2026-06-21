@@ -5,6 +5,7 @@
  * Blessed. Interactive components may compose headless primitives.
  */
 
+export * from './collections/index.js';
 export * from './data-display/index.js';
 export * from './feedback/index.js';
 export * from './input/index.js';

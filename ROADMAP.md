@@ -214,6 +214,7 @@ src/
     selection/
     viewport/
   components/
+    collections/
     data-display/
     feedback/
     input/
@@ -244,6 +245,7 @@ npm subpaths:
 
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
+| `collections`    | `List`                                    |
 | `data-display`   | `Badge`, `Stat`                           |
 | `feedback`       | `ProgressBar`                             |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
@@ -382,7 +384,7 @@ virtualization primitives.
 
 | Component      | Purpose                                                    | Decision    | Priority |
 | -------------- | ---------------------------------------------------------- | ----------- | -------- |
-| `List`         | Typed items, selection, empty state, and render callbacks. | Adapt       | P1       |
+| `List`         | Typed items, selection, empty state, and bounded rendering. | Available   | P1       |
 | `VirtualList`  | Render large lists using visible rows only.                | Build       | P2       |
 | `GroupedList`  | Sections with sticky or repeated headings.                 | Build       | P2       |
 | `Table`        | Typed columns, alignment, truncation, and selection.       | Build       | P1       |

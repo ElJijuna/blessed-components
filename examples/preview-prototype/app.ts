@@ -141,7 +141,11 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
 
   screen.key('tab', () => {
     if (screen.focused === navigation) {
-      viewport.focus();
+      if (currentHandle?.focus === undefined) {
+        viewport.focus();
+      } else {
+        currentHandle.focus();
+      }
     } else {
       navigation.focus();
     }

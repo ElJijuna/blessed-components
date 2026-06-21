@@ -8,6 +8,7 @@ import type blessed from 'blessed';
  */
 export interface PreviewStoryHandle {
   destroy(): void;
+  focus?(): void;
 }
 
 export interface PreviewStory {

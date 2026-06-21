@@ -3,12 +3,14 @@ import { access } from 'node:fs/promises';
 
 const expectedComponents = [
   'src/components/data-display/badge/index.ts',
+  'src/components/collections/list/index.ts',
   'src/components/data-display/stat/index.ts',
   'src/components/feedback/progress-bar/index.ts',
   'src/components/visualization/metric-bars/index.ts',
   'src/components/visualization/sparkline/index.ts',
 ];
 const legacyComponents = [
+  'src/components/data-display/list/index.ts',
   'src/components/badge/index.ts',
   'src/components/stat/index.ts',
   'src/components/progress-bar/index.ts',

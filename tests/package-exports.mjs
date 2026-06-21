@@ -5,6 +5,8 @@ const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
+const pureListModule = await import('../dist/list/index.js');
+const blessedListModule = await import('../dist/list/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
@@ -23,6 +25,11 @@ const [badgeEsmSource, badgeCjsSource] = await Promise.all(
 );
 const [metricBarsEsmSource, metricBarsCjsSource] = await Promise.all(
   ['../dist/metric-bars/index.js', '../dist/metric-bars/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [listEsmSource, listCjsSource] = await Promise.all(
+  ['../dist/list/index.js', '../dist/list/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -56,6 +63,8 @@ assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
+assert.equal(typeof pureListModule.renderList, 'function');
+assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
@@ -78,6 +87,10 @@ for (const source of [badgeEsmSource, badgeCjsSource]) {
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure MetricBars entry must not import Blessed.');
+}
+
+for (const source of [listEsmSource, listCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure List entry must not import Blessed.');
 }
 
 for (const source of [pureEsmSource, pureCjsSource]) {

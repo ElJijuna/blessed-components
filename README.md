@@ -3,8 +3,9 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `Badge`, `MetricBars`, `ProgressBar`,
-> `Sparkline`, and `Stat` are available; more components are coming soon.
+> **Project status:** early development. `Badge`, `List`, `MetricBars`,
+> `ProgressBar`, `Sparkline`, and `Stat` are available; more components are
+> coming soon.
 
 ## Goals
 
@@ -33,6 +34,7 @@ npm install blessed blessed-components
 | [`Sparkline`](./src/components/visualization/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
 | [`MetricBars`](./src/components/visualization/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
 | [`Stat`](./src/components/data-display/stat/README.md) | Display a label, value, trend, and description. | Available |
+| [`List`](./src/components/collections/list/README.md) | Navigate and select typed items with bounded rendering. | Available |
 
 ### Composition
 
@@ -96,9 +98,9 @@ examples/
 Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
 
-Current component source categories are `data-display`, `feedback`, and
-`visualization`. Public npm subpaths remain component-oriented, for example
-`blessed-components/stat` and `blessed-components/sparkline`.
+Current component source categories are `collections`, `data-display`,
+`feedback`, and `visualization`. Public npm subpaths remain component-oriented,
+for example `blessed-components/list` and `blessed-components/sparkline`.
 
 ### Core utilities
 

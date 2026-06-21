@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import {
   type BlessedComponentHandle,
   badge,
+  list,
   metricBars,
   progressBar,
   sparkline,
@@ -34,6 +35,10 @@ describe('Blessed component handle contract', () => {
       parent: screen,
     });
     const statHandle = stat({ data: { label: 'Jobs', value: 4 }, parent: screen });
+    const listHandle = list({
+      data: { items: [{ id: 'one', label: 'One' }] },
+      parent: screen,
+    });
     const handles = [badgeHandle, progressHandle, sparklineHandle, statHandle];
     const bars = metricBars({
       data: { barWidth: 2, metrics: [{ label: 'CPU', value: 50 }] },
@@ -47,6 +52,9 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
     updateAndDestroy(statHandle, { label: 'Jobs', value: 5 });
+    updateAndDestroy(listHandle, {
+      items: [{ id: 'two', label: 'Two' }],
+    });
     updateAndDestroy(bars, {
       barWidth: 2,
       metrics: [{ label: 'CPU', value: 75 }],
