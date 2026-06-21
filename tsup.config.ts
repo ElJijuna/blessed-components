@@ -3,7 +3,11 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   clean: true,
   dts: true,
-  entry: ['src/index.ts'],
+  entry: {
+    index: 'src/index.ts',
+    'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
+    'progress-bar/index': 'src/components/progress-bar/index.ts',
+  },
   format: ['esm', 'cjs'],
   outExtension({ format }) {
     return {

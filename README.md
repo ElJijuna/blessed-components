@@ -3,8 +3,8 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** foundation stage. The package structure and automated
-> release pipeline are ready; UI components are coming soon.
+> **Project status:** early development. `ProgressBar` is available; more
+> components are coming soon.
 
 ## Goals
 
@@ -16,8 +16,6 @@ Composable, typed terminal UI components for
 - TypeScript types included with every release.
 
 ## Installation
-
-Components are not available yet. Once the first component ships:
 
 ```sh
 npm install blessed blessed-components
@@ -31,7 +29,7 @@ npm install blessed blessed-components
 
 | Component     | Purpose                                              | Priority |
 | ------------- | ---------------------------------------------------- | -------- |
-| `ProgressBar` | Render one bounded horizontal progress bar.          | P0       |
+| [`ProgressBar`](./src/components/progress-bar/README.md) | Render one bounded horizontal progress bar. | Available |
 | `Sparkline`   | Render compact time-series data with Unicode blocks. | P0       |
 | `MetricBars`  | Render labeled metrics as aligned progress bars.     | P0       |
 | `Stat`        | Display a label and highlighted value.               | P0       |
@@ -134,46 +132,6 @@ Development follows vertical TDD slices:
 
 Tests should use public interfaces and observable output. Internal mocks and
 large snapshots are avoided.
-
-## Releases
-
-[semantic-release](https://github.com/semantic-release/semantic-release)
-publishes from `main`.
-
-Commit messages follow
-[Conventional Commits](https://www.conventionalcommits.org/):
-
-```text
-fix: clamp progress values
-feat: add progress bar renderer
-feat!: change component update contract
-```
-
-Release mapping:
-
-| Commit          | Release |
-| --------------- | ------- |
-| `fix:`          | Patch   |
-| `feat:`         | Minor   |
-| Breaking change | Major   |
-
-The release workflow:
-
-1. Validates formatting, linting, types, tests, and build.
-2. Calculates the next version from commits.
-3. Publishes the package to npm.
-4. Creates a GitHub release with generated notes.
-
-### npm trusted publishing setup
-
-Before the first release, configure an npm trusted publisher for:
-
-- Organization or user: `ElJijuna`
-- Repository: `blessed-components`
-- Workflow filename: `release.yml`
-
-The workflow uses GitHub Actions OIDC and npm provenance. No long-lived
-`NPM_TOKEN` is required.
 
 ## License
 

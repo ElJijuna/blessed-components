@@ -28,13 +28,24 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./progress-bar": {
+      "types": "./dist/progress-bar/index.d.ts",
+      "import": "./dist/progress-bar/index.js",
+      "require": "./dist/progress-bar/index.cjs"
+    },
+    "./progress-bar/blessed": {
+      "types": "./dist/progress-bar/blessed.d.ts",
+      "import": "./dist/progress-bar/blessed.js",
+      "require": "./dist/progress-bar/blessed.cjs"
     }
   },
   "files": [
     "dist",
     "LICENSE",
     "README.md",
-    "ROADMAP.md"
+    "ROADMAP.md",
+    "src/components/*/README.md"
   ],
   "sideEffects": false,
   "engines": {
@@ -53,10 +64,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "semantic-release",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
+    "test:package": "node tests/package-exports.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build && npm run test:package",
     "prepublishOnly": "npm run validate"
   },
   "peerDependencies": {

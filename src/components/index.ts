@@ -3,4 +3,4 @@
  *
  * ProgressBar will be the first tracer-bullet implementation.
  */
-export {};
+export * from './progress-bar/index.js';
