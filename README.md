@@ -115,6 +115,7 @@ npm run test:watch
 npm run lint
 npm run lint:fix
 npm run biome:check
+npm run preview
 npm run typecheck
 npm run format
 npm run format:check
@@ -122,6 +123,18 @@ npm run format:check
 
 ESLint and Biome extend the shared `super-configs` presets. Biome owns
 formatting and import organization; Prettier is not used.
+
+### Terminal component preview
+
+Run the prototype component workbench:
+
+```sh
+npm run preview
+```
+
+Use arrow keys and Enter to select stories, `r` to reload, `Tab` to move
+focus, and `q` to quit. The prototype currently previews ProgressBar and
+Sparkline stories through their public Blessed adapters.
 
 ## Testing
 
