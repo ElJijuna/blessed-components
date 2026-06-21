@@ -1,8 +1,60 @@
-import { progressBar, sparkline, stat } from '../../src/index.js';
+import { metricBars, progressBar, sparkline, stat } from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'metric-bars/score',
+    title: 'MetricBars / Score',
+    description: 'Aligned quality metrics sharing one numeric domain.',
+    mount(parent) {
+      return metricBars({
+        parent,
+        box: {
+          top: 2,
+          left: 3,
+          height: 6,
+          width: 60,
+        },
+        data: {
+          barWidth: 16,
+          label: 'Overall',
+          metrics: [
+            { label: 'Quality', value: 78 },
+            { label: 'Popularity', value: 99 },
+            { label: 'Maintenance', value: 82 },
+          ],
+          value: '85%',
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'metric-bars/ascii',
+    title: 'MetricBars / ASCII',
+    description: 'ASCII fallback with a custom numeric range.',
+    mount(parent) {
+      return metricBars({
+        parent,
+        box: {
+          top: 2,
+          left: 3,
+          height: 3,
+          width: 56,
+        },
+        data: {
+          barWidth: 12,
+          characters: { empty: '-', filled: '#' },
+          max: 20,
+          metrics: [
+            { label: 'Workers', value: 15 },
+            { label: 'Queues', value: 12 },
+          ],
+          min: 10,
+        },
+      });
+    },
+  }),
   defineStory({
     id: 'progress-bar/basic',
     title: 'ProgressBar / Basic',

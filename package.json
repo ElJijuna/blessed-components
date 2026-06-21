@@ -29,6 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./metric-bars": {
+      "types": "./dist/metric-bars/index.d.ts",
+      "import": "./dist/metric-bars/index.js",
+      "require": "./dist/metric-bars/index.cjs"
+    },
+    "./metric-bars/blessed": {
+      "types": "./dist/metric-bars/blessed.d.ts",
+      "import": "./dist/metric-bars/blessed.js",
+      "require": "./dist/metric-bars/blessed.cjs"
+    },
     "./progress-bar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js",
@@ -88,7 +98,7 @@
     "preview": "tsx examples/preview-prototype/app.ts",
     "release": "semantic-release",
     "test": "vitest run",
-    "test:package": "node tests/package-exports.mjs",
+    "test:package": "node tests/package-exports.mjs && node tests/package-contents.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package",

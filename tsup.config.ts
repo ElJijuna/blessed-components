@@ -5,6 +5,8 @@ export default defineConfig({
   dts: true,
   entry: {
     index: 'src/index.ts',
+    'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
+    'metric-bars/index': 'src/components/metric-bars/index.ts',
     'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
     'progress-bar/index': 'src/components/progress-bar/index.ts',
     'sparkline/blessed': 'src/adapters/blessed/sparkline.ts',

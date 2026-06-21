@@ -386,7 +386,7 @@ quality, or maintenance advantage.
 | ------------------ | --------------------------------------------------- | ------------ | -------- |
 | `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
 | `MultiSparkline`   | Aligned compact series with labels.                 | Build        | P1       |
-| `MetricBars`       | Labeled horizontal metric bars.                     | Build        | P0       |
+| `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
 | `Gauge`            | One bounded value with label and thresholds.        | Build        | P1       |
 | `StackedGauge`     | Composition of portions in one track.               | Build        | P2       |
 | `BulletChart`      | Actual value against target and qualitative ranges. | Build        | P2       |

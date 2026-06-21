@@ -3,8 +3,8 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `ProgressBar`, `Sparkline`, and `Stat`
-> are available; more components are coming soon.
+> **Project status:** early development. `MetricBars`, `ProgressBar`,
+> `Sparkline`, and `Stat` are available; more components are coming soon.
 
 ## Goals
 
@@ -31,7 +31,7 @@ npm install blessed blessed-components
 | ------------- | ---------------------------------------------------- | -------- |
 | [`ProgressBar`](./src/components/progress-bar/README.md) | Render one bounded horizontal progress bar. | Available |
 | [`Sparkline`](./src/components/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
-| `MetricBars`  | Render labeled metrics as aligned progress bars.     | P0       |
+| [`MetricBars`](./src/components/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
 | [`Stat`](./src/components/stat/README.md) | Display a label, value, trend, and description. | Available |
 
 ### Composition
@@ -133,8 +133,8 @@ npm run preview
 ```
 
 Use arrow keys and Enter to select stories, `r` to reload, `Tab` to move
-focus, and `q` to quit. The prototype currently previews ProgressBar and
-Sparkline and Stat stories through their public Blessed adapters.
+focus, and `q` to quit. The prototype previews MetricBars, ProgressBar,
+Sparkline, and Stat stories through their public Blessed adapters.
 
 ## Testing
 

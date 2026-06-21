@@ -1,12 +1,19 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
+const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
+const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
+const [metricBarsEsmSource, metricBarsCjsSource] = await Promise.all(
+  ['../dist/metric-bars/index.js', '../dist/metric-bars/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [pureEsmSource, pureCjsSource] = await Promise.all(
   ['../dist/progress-bar/index.js', '../dist/progress-bar/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -23,12 +30,18 @@ const [statEsmSource, statCjsSource] = await Promise.all(
   ),
 );
 
+assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
+assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
+
+for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure MetricBars entry must not import Blessed.');
+}
 
 for (const source of [pureEsmSource, pureCjsSource]) {
   assert.equal(
