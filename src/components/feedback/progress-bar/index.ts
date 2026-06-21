@@ -220,4 +220,4 @@ export function renderProgressBar({
   return `${prefix}${track} ${valueText}`;
 }
 
-import { clamp, normalizeValue } from '../../core/scale.js';
+import { clamp, normalizeValue } from '../../../core/scale.js';

@@ -15,6 +15,7 @@ const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
 const primitivesModule = await import('../dist/primitives/index.js');
 const selectionModule = await import('../dist/primitives/selection/index.js');
+const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -65,6 +66,11 @@ assert.equal(typeof coreModule.visibleWidth, 'function');
 assert.equal(typeof scaleModule.sampleSeries, 'function');
 assert.equal(typeof primitivesModule.createViewport, 'function');
 assert.equal(typeof selectionModule.createSelectionModel, 'function');
+assert.equal(
+  rootTypes.includes('BlessedComponentHandle'),
+  true,
+  'Root declarations must export the shared Blessed adapter handle.',
+);
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');

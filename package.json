@@ -107,7 +107,7 @@
     "ROADMAP.md",
     "src/core/README.md",
     "src/primitives/README.md",
-    "src/components/*/README.md"
+    "src/components/*/*/README.md"
   ],
   "sideEffects": false,
   "engines": {
@@ -130,7 +130,7 @@
     "preview": "tsx examples/preview-prototype/app.ts",
     "release": "semantic-release",
     "test": "vitest run",
-    "test:package": "node tests/package-exports.mjs && node tests/package-contents.mjs",
+    "test:package": "node tests/package-architecture.mjs && node tests/package-exports.mjs && node tests/package-contents.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package",

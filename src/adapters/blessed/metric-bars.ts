@@ -4,7 +4,8 @@ import {
   type MetricBarItem,
   type RenderMetricBarsOptions,
   renderMetricBars,
-} from '../../components/metric-bars/index.js';
+} from '../../components/visualization/metric-bars/index.js';
+import type { BlessedComponentHandle } from './types.js';
 
 /**
  * Blessed box options supported by the MetricBars adapter.
@@ -31,23 +32,8 @@ export interface MetricBarsOptions<TMetric extends MetricBarItem = MetricBarItem
  * The handle owns one box, never owns the parent screen, and never calls
  * `screen.render()`.
  */
-export interface MetricBarsHandle<TMetric extends MetricBarItem = MetricBarItem> {
-  /** Underlying Blessed box used for standard element operations. */
-  readonly element: blessed.Widgets.BoxElement;
-
-  /** Destroys and detaches the owned box without destroying its parent. */
-  destroy(): void;
-
-  /**
-   * Replaces renderer data while preserving the Blessed element.
-   *
-   * @param data - Complete renderer data replacing the previous data.
-   *
-   * @throws `RangeError`
-   * Propagates validation errors from {@link renderMetricBars}.
-   */
-  setData(data: RenderMetricBarsOptions<TMetric>): void;
-}
+export type MetricBarsHandle<TMetric extends MetricBarItem = MetricBarItem> =
+  BlessedComponentHandle<RenderMetricBarsOptions<TMetric>, blessed.Widgets.BoxElement>;
 
 /**
  * Creates display-only MetricBars backed by a Blessed `BoxElement`.

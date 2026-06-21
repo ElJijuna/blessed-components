@@ -172,20 +172,19 @@ Do not add both modes to display-only components.
 
 ## Common component handle
 
-Candidate interface:
+Blessed adapters implement the published `BlessedComponentHandle` contract:
 
 ```ts
-interface ComponentHandle<TData, TElement> {
+interface BlessedComponentHandle<TData, TElement> {
   readonly element: TElement
   setData(data: TData): void
-  focus(): void
-  render(): void
   destroy(): void
 }
 ```
 
-Adopt only after the first vertical slice. Returning an extended Blessed
-element may produce a smaller API. The tracer bullet must decide this.
+Display adapters do not expose `focus()` because they are not interactive and
+do not expose `render()` because applications own screen render batching.
+Interactive handles may extend this contract with focused behavior.
 
 ## Target architecture
 
@@ -239,6 +238,22 @@ examples/
 `core` must not import Blessed. `primitives` model shared behavior.
 `components` compose core logic and primitives. `adapters/blessed` owns Blessed
 elements and events.
+
+Existing components are physically categorized without changing their public
+npm subpaths:
+
+| Source category  | Available components                      |
+| ---------------- | ----------------------------------------- |
+| `data-display`   | `Badge`, `Stat`                           |
+| `feedback`       | `ProgressBar`                             |
+| `visualization`  | `MetricBars`, `Sparkline`                 |
+| `input`          | Reserved for interactive form components |
+| `layout`         | Reserved for visual layout components    |
+| `navigation`     | Reserved for navigation components       |
+
+Pure renderers own content and character overrides. Semantic color and style
+tokens are applied by adapters, while terminal capability detection selects
+safe defaults. This keeps core renderers deterministic and no-color friendly.
 
 ### Primitive implementation status
 
@@ -304,8 +319,8 @@ predictable, typed composition and responsive rules.
 | `Spacer`        | Flexible or fixed empty space.                          | Build    | P2       |
 | `Divider`       | Horizontal or vertical separator with optional label.   | Build    | P1       |
 | `AspectRatio`   | Preserve cell-aware proportions.                        | Research | P3       |
-| `Viewport`      | Measure and expose available inner dimensions.          | Build    | P1       |
-| `ScrollArea`    | Consistent scrollbar, paging, and scroll events.        | Adapt    | P1       |
+| `Viewport`      | Visual wrapper around the available headless primitive. | Build    | P1       |
+| `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Adapt    | P1       |
 | `Resizable`     | Keyboard/mouse resize behavior for one region.          | Research | P3       |
 | `Collapsible`   | Show or hide a region while preserving state.           | Build    | P2       |
 | `Accordion`     | Multiple collapsible sections with keyboard navigation. | Build    | P2       |
@@ -476,7 +491,7 @@ global key cleanup.
 
 | Component       | Purpose                                         | Decision | Priority |
 | --------------- | ----------------------------------------------- | -------- | -------- |
-| `Overlay`       | Shared screen layer and dismissal behavior.     | Build    | P1       |
+| `Overlay`       | Visual screen layer over the available stack primitive. | Build    | P1       |
 | `Dialog`        | Modal content with focus capture and restore.   | Build    | P1       |
 | `ConfirmDialog` | Confirm or cancel a consequential action.       | Build    | P1       |
 | `PromptDialog`  | Request one value in a modal flow.              | Adapt    | P2       |

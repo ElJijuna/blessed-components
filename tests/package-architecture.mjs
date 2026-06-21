@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import { access } from 'node:fs/promises';
+
+const expectedComponents = [
+  'src/components/data-display/badge/index.ts',
+  'src/components/data-display/stat/index.ts',
+  'src/components/feedback/progress-bar/index.ts',
+  'src/components/visualization/metric-bars/index.ts',
+  'src/components/visualization/sparkline/index.ts',
+];
+const legacyComponents = [
+  'src/components/badge/index.ts',
+  'src/components/stat/index.ts',
+  'src/components/progress-bar/index.ts',
+  'src/components/metric-bars/index.ts',
+  'src/components/sparkline/index.ts',
+];
+
+for (const path of expectedComponents) {
+  await access(path);
+}
+
+for (const path of legacyComponents) {
+  await assert.rejects(access(path), undefined, `Legacy component path still exists: ${path}`);
+}
+
+console.log('Component source architecture verified.');

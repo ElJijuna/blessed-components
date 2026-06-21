@@ -3,7 +3,8 @@ import blessed from 'blessed';
 import {
   type RenderProgressBarOptions,
   renderProgressBar,
-} from '../../components/progress-bar/index.js';
+} from '../../components/feedback/progress-bar/index.js';
+import type { BlessedComponentHandle } from './types.js';
 
 /**
  * Blessed box options supported by the ProgressBar adapter.
@@ -48,36 +49,10 @@ export interface ProgressBarOptions {
  * and never calls `screen.render()`, allowing callers to batch several updates
  * into one terminal render.
  */
-export interface ProgressBarHandle {
-  /**
-   * Underlying Blessed box.
-   *
-   * Use this for standard Blessed operations such as positioning, showing,
-   * hiding, or applying styles.
-   */
-  readonly element: blessed.Widgets.BoxElement;
-
-  /**
-   * Destroys and detaches the owned box from its parent.
-   *
-   * This does not destroy the parent or screen. Do not use the handle after
-   * calling this method.
-   */
-  destroy(): void;
-
-  /**
-   * Re-renders component content using new data.
-   *
-   * The underlying element is preserved. This method does not call
-   * `screen.render()`; call it explicitly when updates should become visible.
-   *
-   * @param data - Complete renderer data replacing the previous data.
-   *
-   * @throws `RangeError`
-   * Propagates validation errors from {@link renderProgressBar}.
-   */
-  setData(data: RenderProgressBarOptions): void;
-}
+export type ProgressBarHandle = BlessedComponentHandle<
+  RenderProgressBarOptions,
+  blessed.Widgets.BoxElement
+>;
 
 /**
  * Creates a display-only ProgressBar backed by a Blessed `BoxElement`.
@@ -90,9 +65,9 @@ export interface ProgressBarHandle {
  *
  * - renders initial content through {@link renderProgressBar};
  * - disables Blessed tags to keep dynamic text literal;
- * - updates the existing element through {@link ProgressBarHandle.setData};
+ * - updates the existing element through `setData`;
  * - leaves screen rendering under caller control;
- * - detaches its element through {@link ProgressBarHandle.destroy}.
+ * - detaches its element through `destroy`.
  *
  * @param options - Parent node, renderer data, and optional box settings.
  * @returns A handle for the created element, updates, and cleanup.

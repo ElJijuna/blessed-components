@@ -1,6 +1,10 @@
 import blessed from 'blessed';
 
-import { type RenderSparklineOptions, renderSparkline } from '../../components/sparkline/index.js';
+import {
+  type RenderSparklineOptions,
+  renderSparkline,
+} from '../../components/visualization/sparkline/index.js';
+import type { BlessedComponentHandle } from './types.js';
 
 /**
  * Blessed box options supported by the Sparkline adapter.
@@ -27,29 +31,10 @@ export interface SparklineOptions {
  * The handle owns one box, never owns the parent screen, and never calls
  * `screen.render()`.
  */
-export interface SparklineHandle {
-  /** Underlying Blessed box used for standard element operations. */
-  readonly element: blessed.Widgets.BoxElement;
-
-  /**
-   * Destroys and detaches the owned box.
-   *
-   * The parent and screen remain alive.
-   */
-  destroy(): void;
-
-  /**
-   * Replaces renderer data while preserving the Blessed element.
-   *
-   * Call `screen.render()` after one or more updates to flush visible output.
-   *
-   * @param data - Complete renderer data replacing the previous data.
-   *
-   * @throws `RangeError`
-   * Propagates validation errors from {@link renderSparkline}.
-   */
-  setData(data: RenderSparklineOptions): void;
-}
+export type SparklineHandle = BlessedComponentHandle<
+  RenderSparklineOptions,
+  blessed.Widgets.BoxElement
+>;
 
 /**
  * Creates a display-only Sparkline backed by a Blessed `BoxElement`.

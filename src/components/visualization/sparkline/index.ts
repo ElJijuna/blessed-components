@@ -1,4 +1,4 @@
-import { clamp, sampleSeries } from '../../core/scale.js';
+import { clamp, sampleSeries } from '../../../core/scale.js';
 
 const DEFAULT_CHARACTERS = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'] as const;
 

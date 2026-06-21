@@ -1,9 +1,9 @@
-import { visibleWidth } from '../../core/width.js';
+import { visibleWidth } from '../../../core/width.js';
 import {
   type ProgressBarCharacters,
   type ProgressBarValueContext,
   renderProgressBar,
-} from '../progress-bar/index.js';
+} from '../../feedback/progress-bar/index.js';
 
 /**
  * Minimum data required for one MetricBars row.

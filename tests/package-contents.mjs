@@ -23,7 +23,7 @@ const unexpectedSourceFiles = paths.filter(
     path.startsWith('src/') &&
     path !== 'src/core/README.md' &&
     path !== 'src/primitives/README.md' &&
-    !/^src\/components\/[^/]+\/README\.md$/.test(path),
+    !/^src\/components\/[^/]+\/[^/]+\/README\.md$/.test(path),
 );
 
 assert.deepEqual(

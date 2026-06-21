@@ -1,6 +1,7 @@
 import blessed from 'blessed';
 
-import { type RenderBadgeOptions, renderBadge } from '../../components/badge/index.js';
+import { type RenderBadgeOptions, renderBadge } from '../../components/data-display/badge/index.js';
+import type { BlessedComponentHandle } from './types.js';
 
 /**
  * Blessed box options supported by the Badge adapter.
@@ -27,25 +28,7 @@ export interface BadgeOptions {
  * The handle owns one box, never owns the parent screen, and never calls
  * `screen.render()`.
  */
-export interface BadgeHandle {
-  /** Underlying Blessed box used for standard element operations. */
-  readonly element: blessed.Widgets.BoxElement;
-
-  /** Destroys and detaches the owned box without destroying its parent. */
-  destroy(): void;
-
-  /**
-   * Replaces renderer data while preserving the Blessed element.
-   *
-   * Call `screen.render()` when updates should become visible.
-   *
-   * @param data - Complete renderer data replacing the previous data.
-   *
-   * @throws `RangeError`
-   * Propagates validation errors from {@link renderBadge}.
-   */
-  setData(data: RenderBadgeOptions): void;
-}
+export type BadgeHandle = BlessedComponentHandle<RenderBadgeOptions, blessed.Widgets.BoxElement>;
 
 /**
  * Creates a display-only Badge backed by a Blessed `BoxElement`.

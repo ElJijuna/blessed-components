@@ -29,10 +29,10 @@ npm install blessed blessed-components
 
 | Component     | Purpose                                              | Priority |
 | ------------- | ---------------------------------------------------- | -------- |
-| [`ProgressBar`](./src/components/progress-bar/README.md) | Render one bounded horizontal progress bar. | Available |
-| [`Sparkline`](./src/components/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
-| [`MetricBars`](./src/components/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
-| [`Stat`](./src/components/stat/README.md) | Display a label, value, trend, and description. | Available |
+| [`ProgressBar`](./src/components/feedback/progress-bar/README.md) | Render one bounded horizontal progress bar. | Available |
+| [`Sparkline`](./src/components/visualization/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
+| [`MetricBars`](./src/components/visualization/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
+| [`Stat`](./src/components/data-display/stat/README.md) | Display a label, value, trend, and description. | Available |
 
 ### Composition
 
@@ -40,7 +40,7 @@ npm install blessed blessed-components
 | ---------- | ----------------------------------------------------- | -------- |
 | `Card`     | Frame content with an optional title and footer.      | P1       |
 | `KeyValue` | Display aligned label/value rows.                     | P1       |
-| [`Badge`](./src/components/badge/README.md) | Display compact semantic status text. | Available |
+| [`Badge`](./src/components/data-display/badge/README.md) | Display compact semantic status text. | Available |
 | `Divider`  | Separate terminal content horizontally or vertically. | P1       |
 | `Stack`    | Arrange components with consistent spacing.           | P2       |
 
@@ -83,7 +83,8 @@ See [ROADMAP.md](./ROADMAP.md) for milestones, proposed APIs, and TDD strategy.
 ```text
 src/
   core/         framework-independent rendering primitives
-  components/   pure component renderers
+  primitives/   headless interaction and state machines
+  components/   categorized pure component renderers
   adapters/     Blessed widget adapters
 tests/
   public-api/           behavior through exported APIs
@@ -94,6 +95,10 @@ examples/
 
 Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
+
+Current component source categories are `data-display`, `feedback`, and
+`visualization`. Public npm subpaths remain component-oriented, for example
+`blessed-components/stat` and `blessed-components/sparkline`.
 
 ### Core utilities
 

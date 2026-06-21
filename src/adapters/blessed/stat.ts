@@ -1,6 +1,7 @@
 import blessed from 'blessed';
 
-import { type RenderStatOptions, renderStat } from '../../components/stat/index.js';
+import { type RenderStatOptions, renderStat } from '../../components/data-display/stat/index.js';
+import type { BlessedComponentHandle } from './types.js';
 
 /**
  * Blessed box options supported by the Stat adapter.
@@ -27,29 +28,7 @@ export interface StatOptions {
  * The handle owns one box. It does not own the parent screen and never calls
  * `screen.render()`.
  */
-export interface StatHandle {
-  /** Underlying Blessed box used for standard element operations. */
-  readonly element: blessed.Widgets.BoxElement;
-
-  /**
-   * Destroys and detaches the owned box.
-   *
-   * The parent and screen remain alive.
-   */
-  destroy(): void;
-
-  /**
-   * Replaces renderer data while preserving the Blessed element.
-   *
-   * Call `screen.render()` after updates should become visible.
-   *
-   * @param data - Complete renderer data replacing the previous data.
-   *
-   * @throws `RangeError`
-   * Propagates validation errors from {@link renderStat}.
-   */
-  setData(data: RenderStatOptions): void;
-}
+export type StatHandle = BlessedComponentHandle<RenderStatOptions, blessed.Widgets.BoxElement>;
 
 /**
  * Creates a display-only Stat backed by a Blessed `BoxElement`.
