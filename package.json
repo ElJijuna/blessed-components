@@ -1,0 +1,81 @@
+{
+  "name": "blessed-components",
+  "version": "0.0.1",
+  "description": "Composable, typed terminal UI components for Blessed.",
+  "keywords": [
+    "blessed",
+    "cli",
+    "components",
+    "terminal",
+    "tui"
+  ],
+  "homepage": "https://github.com/ElJijuna/blessed-components#readme",
+  "bugs": {
+    "url": "https://github.com/ElJijuna/blessed-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElJijuna/blessed-components.git"
+  },
+  "license": "MIT",
+  "author": "pilmee <pilmee@gmail.com> (https://github.com/ElJijuna)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "ROADMAP.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "packageManager": "npm@11.16.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf coverage dist",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "release": "semantic-release",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
+    "prepublishOnly": "npm run validate"
+  },
+  "peerDependencies": {
+    "blessed": "^0.1.81"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^12.0.8",
+    "@semantic-release/npm": "^13.1.5",
+    "@semantic-release/release-notes-generator": "^14.1.1",
+    "@types/blessed": "^0.1.27",
+    "@types/node": "^22.20.0",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "eslint": "^10.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.4",
+    "semantic-release": "^25.0.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1",
+    "vitest": "^4.1.9"
+  }
+}
