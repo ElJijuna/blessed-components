@@ -29,6 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./badge": {
+      "types": "./dist/badge/index.d.ts",
+      "import": "./dist/badge/index.js",
+      "require": "./dist/badge/index.cjs"
+    },
+    "./badge/blessed": {
+      "types": "./dist/badge/blessed.d.ts",
+      "import": "./dist/badge/blessed.js",
+      "require": "./dist/badge/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

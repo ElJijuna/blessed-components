@@ -3,7 +3,7 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `MetricBars`, `ProgressBar`,
+> **Project status:** early development. `Badge`, `MetricBars`, `ProgressBar`,
 > `Sparkline`, and `Stat` are available; more components are coming soon.
 
 ## Goals
@@ -40,7 +40,7 @@ npm install blessed blessed-components
 | ---------- | ----------------------------------------------------- | -------- |
 | `Card`     | Frame content with an optional title and footer.      | P1       |
 | `KeyValue` | Display aligned label/value rows.                     | P1       |
-| `Badge`    | Display compact semantic status text.                 | P1       |
+| [`Badge`](./src/components/badge/README.md) | Display compact semantic status text. | Available |
 | `Divider`  | Separate terminal content horizontally or vertically. | P1       |
 | `Stack`    | Arrange components with consistent spacing.           | P2       |
 
@@ -133,7 +133,7 @@ npm run preview
 ```
 
 Use arrow keys and Enter to select stories, `r` to reload, `Tab` to move
-focus, and `q` to quit. The prototype previews MetricBars, ProgressBar,
+focus, and `q` to quit. The prototype previews Badge, MetricBars, ProgressBar,
 Sparkline, and Stat stories through their public Blessed adapters.
 
 ## Testing

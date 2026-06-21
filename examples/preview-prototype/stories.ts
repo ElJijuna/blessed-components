@@ -1,8 +1,68 @@
-import { metricBars, progressBar, sparkline, stat } from '../../src/index.js';
+import { badge, metricBars, progressBar, sparkline, stat } from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'badge/tones',
+    title: 'Badge / Tones',
+    description: 'Semantic status badges remain meaningful without color.',
+    mount(parent) {
+      const elements = [
+        badge({
+          parent,
+          box: { top: 1, left: 3, height: 1, width: 24 },
+          data: { text: 'Queued', tone: 'info' },
+        }),
+        badge({
+          parent,
+          box: { top: 3, left: 3, height: 1, width: 24 },
+          data: { text: 'Passed', tone: 'success' },
+        }),
+        badge({
+          parent,
+          box: { top: 5, left: 3, height: 1, width: 24 },
+          data: { text: 'Delayed', tone: 'warning' },
+        }),
+        badge({
+          parent,
+          box: { top: 7, left: 3, height: 1, width: 24 },
+          data: { text: 'Failed', tone: 'danger' },
+        }),
+      ];
+
+      return {
+        destroy() {
+          for (const element of elements) {
+            element.destroy();
+          }
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'badge/ascii',
+    title: 'Badge / ASCII',
+    description: 'Custom delimiters and markers for ASCII-only terminals.',
+    mount(parent) {
+      return badge({
+        parent,
+        box: { top: 2, left: 3, height: 1, width: 30 },
+        data: {
+          delimiters: { close: '>', open: '<' },
+          markers: {
+            danger: 'x',
+            info: 'i',
+            neutral: '-',
+            success: '+',
+            warning: '!',
+          },
+          text: 'Passed',
+          tone: 'success',
+        },
+      });
+    },
+  }),
   defineStory({
     id: 'metric-bars/score',
     title: 'MetricBars / Score',

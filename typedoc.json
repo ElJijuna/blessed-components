@@ -3,6 +3,8 @@
   "extends": ["super-configs/typedoc"],
   "entryPoints": [
     "src/index.ts",
+    "src/components/badge/index.ts",
+    "src/adapters/blessed/badge.ts",
     "src/components/metric-bars/index.ts",
     "src/adapters/blessed/metric-bars.ts",
     "src/components/progress-bar/index.ts",

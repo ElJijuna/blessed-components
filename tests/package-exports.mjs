@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
+const pureBadgeModule = await import('../dist/badge/index.js');
+const blessedBadgeModule = await import('../dist/badge/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
@@ -9,6 +11,11 @@ const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
+const [badgeEsmSource, badgeCjsSource] = await Promise.all(
+  ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [metricBarsEsmSource, metricBarsCjsSource] = await Promise.all(
   ['../dist/metric-bars/index.js', '../dist/metric-bars/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -30,6 +37,8 @@ const [statEsmSource, statCjsSource] = await Promise.all(
   ),
 );
 
+assert.equal(typeof pureBadgeModule.renderBadge, 'function');
+assert.equal(typeof blessedBadgeModule.badge, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
@@ -38,6 +47,10 @@ assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
+
+for (const source of [badgeEsmSource, badgeCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
+}
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure MetricBars entry must not import Blessed.');

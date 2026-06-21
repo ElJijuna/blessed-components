@@ -316,7 +316,7 @@ High value, low complexity, excellent early components.
 | `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
 | `KeyValue`        | Aligned label/value rows.                             | Build    | P1       |
 | `DescriptionList` | Responsive term/description groups.                   | Build    | P2       |
-| `Badge`           | Compact semantic status.                              | Build    | P1       |
+| `Badge`           | Compact semantic status.                              | Available | P1       |
 | `Tag`             | Removable or static categorization token.             | Build    | P2       |
 | `Pill`            | Rounded-character compact label where supported.      | Defer    | P3       |
 | `Timestamp`       | Formatted absolute or relative time.                  | Build    | P2       |

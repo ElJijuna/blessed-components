@@ -4,6 +4,8 @@ export default defineConfig({
   clean: true,
   dts: true,
   entry: {
+    'badge/blessed': 'src/adapters/blessed/badge.ts',
+    'badge/index': 'src/components/badge/index.ts',
     index: 'src/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
     'metric-bars/index': 'src/components/metric-bars/index.ts',
