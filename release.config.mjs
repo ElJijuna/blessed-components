@@ -15,5 +15,12 @@ export default {
     ],
     '@semantic-release/npm',
     '@semantic-release/github',
+    [
+      '@semantic-release/exec',
+      {
+        successCmd:
+          'if [ -n "$GITHUB_OUTPUT" ]; then echo "published=true" >> "$GITHUB_OUTPUT"; echo "version=<%= nextRelease.version %>" >> "$GITHUB_OUTPUT"; fi',
+      },
+    ],
   ],
 };

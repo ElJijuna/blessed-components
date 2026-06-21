@@ -108,6 +108,8 @@ Useful commands:
 
 ```sh
 npm run build
+npm run docs
+npm run docs:check
 npm test
 npm run test:watch
 npm run lint
@@ -132,6 +134,13 @@ Development follows vertical TDD slices:
 
 Tests should use public interfaces and observable output. Internal mocks and
 large snapshots are avoided.
+
+## Releases and documentation
+
+`semantic-release` publishes packages from `main`. After a real npm release
+succeeds, the same workflow generates TypeDoc for the released version and
+deploys `docs/api` to GitHub Pages. Commits that produce no release do not
+deploy documentation.
 
 ## License
 

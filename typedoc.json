@@ -1,0 +1,17 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "extends": ["super-configs/typedoc"],
+  "entryPoints": [
+    "src/index.ts",
+    "src/components/progress-bar/index.ts",
+    "src/adapters/blessed/progress-bar.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "out": "docs/api",
+  "readme": "README.md",
+  "exclude": ["**/*.test.ts", "**/*.spec.ts", "tests/**"],
+  "navigationLinks": {
+    "GitHub": "https://github.com/ElJijuna/blessed-components",
+    "Roadmap": "https://github.com/ElJijuna/blessed-components/blob/main/ROADMAP.md"
+  }
+}

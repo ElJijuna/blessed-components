@@ -58,6 +58,8 @@
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf coverage dist",
+    "docs": "typedoc --options typedoc.json",
+    "docs:check": "typedoc --options typedoc.json --emit none",
     "biome:check": "biome check .",
     "format": "biome check --write .",
     "format:check": "biome check .",
@@ -68,7 +70,7 @@
     "test:package": "node tests/package-exports.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build && npm run test:package",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package",
     "prepublishOnly": "npm run validate"
   },
   "peerDependencies": {
@@ -77,6 +79,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/exec": "^7.1.0",
     "@semantic-release/github": "^12.0.8",
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.1",
@@ -87,6 +90,7 @@
     "semantic-release": "^25.0.5",
     "super-configs": "^1.15.0",
     "tsup": "^8.5.1",
+    "typedoc": "^0.28.19",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   }
