@@ -47,9 +47,11 @@
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf coverage dist",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "biome:check": "biome check .",
+    "format": "biome check --write .",
+    "format:check": "biome check .",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "release": "semantic-release",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
@@ -61,7 +63,7 @@
     "blessed": "^0.1.81"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@biomejs/biome": "^2.5.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/github": "^12.0.8",
     "@semantic-release/npm": "^13.1.5",
@@ -69,13 +71,11 @@
     "@types/blessed": "^0.1.27",
     "@types/node": "^22.20.0",
     "conventional-changelog-conventionalcommits": "^9.3.1",
-    "eslint": "^10.5.0",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.4",
+    "eslint": "^9.39.4",
     "semantic-release": "^25.0.5",
+    "super-configs": "^1.15.0",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.1",
     "vitest": "^4.1.9"
   }
 }

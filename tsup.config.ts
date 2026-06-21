@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   clean: true,
@@ -8,11 +8,11 @@ export default defineConfig({
   outExtension({ format }) {
     return {
       js: format === 'cjs' ? '.cjs' : '.js',
-    }
+    };
   },
   platform: 'node',
   sourcemap: true,
   splitting: false,
   target: 'node22',
   treeshake: true,
-})
+});

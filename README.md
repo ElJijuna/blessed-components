@@ -113,9 +113,15 @@ npm run build
 npm test
 npm run test:watch
 npm run lint
+npm run lint:fix
+npm run biome:check
 npm run typecheck
 npm run format
+npm run format:check
 ```
+
+ESLint and Biome extend the shared `super-configs` presets. Biome owns
+formatting and import organization; Prettier is not used.
 
 ## Testing
 
