@@ -4,7 +4,9 @@
   "entryPoints": [
     "src/index.ts",
     "src/components/progress-bar/index.ts",
-    "src/adapters/blessed/progress-bar.ts"
+    "src/adapters/blessed/progress-bar.ts",
+    "src/components/sparkline/index.ts",
+    "src/adapters/blessed/sparkline.ts"
   ],
   "entryPointStrategy": "expand",
   "out": "docs/api",

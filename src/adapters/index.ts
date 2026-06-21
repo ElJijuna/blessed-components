@@ -4,3 +4,4 @@
  * Adapters will connect pure renderers to Blessed elements and lifecycle.
  */
 export * from './blessed/progress-bar.js';
+export * from './blessed/sparkline.js';

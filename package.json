@@ -38,6 +38,16 @@
       "types": "./dist/progress-bar/blessed.d.ts",
       "import": "./dist/progress-bar/blessed.js",
       "require": "./dist/progress-bar/blessed.cjs"
+    },
+    "./sparkline": {
+      "types": "./dist/sparkline/index.d.ts",
+      "import": "./dist/sparkline/index.js",
+      "require": "./dist/sparkline/index.cjs"
+    },
+    "./sparkline/blessed": {
+      "types": "./dist/sparkline/blessed.d.ts",
+      "import": "./dist/sparkline/blessed.js",
+      "require": "./dist/sparkline/blessed.cjs"
     }
   },
   "files": [

@@ -3,8 +3,8 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `ProgressBar` is available; more
-> components are coming soon.
+> **Project status:** early development. `ProgressBar` and `Sparkline` are
+> available; more components are coming soon.
 
 ## Goals
 
@@ -30,7 +30,7 @@ npm install blessed blessed-components
 | Component     | Purpose                                              | Priority |
 | ------------- | ---------------------------------------------------- | -------- |
 | [`ProgressBar`](./src/components/progress-bar/README.md) | Render one bounded horizontal progress bar. | Available |
-| `Sparkline`   | Render compact time-series data with Unicode blocks. | P0       |
+| [`Sparkline`](./src/components/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
 | `MetricBars`  | Render labeled metrics as aligned progress bars.     | P0       |
 | `Stat`        | Display a label and highlighted value.               | P0       |
 
