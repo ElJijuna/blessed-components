@@ -155,6 +155,9 @@ succeeds, the same workflow generates TypeDoc for the released version and
 deploys `docs/api` to GitHub Pages. Commits that produce no release do not
 deploy documentation.
 
+Each release also updates [CHANGELOG.md](./CHANGELOG.md) and commits the
+generated changelog and package version with a `[skip ci]` release commit.
+
 ## License
 
 [MIT](./LICENSE)

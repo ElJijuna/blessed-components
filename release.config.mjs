@@ -13,7 +13,23 @@ export default {
         preset: 'conventionalcommits',
       },
     ],
+    [
+      '@semantic-release/changelog',
+      {
+        changelogFile: 'CHANGELOG.md',
+        changelogTitle: '# Changelog',
+      },
+    ],
     '@semantic-release/npm',
+    [
+      '@semantic-release/git',
+      {
+        assets: ['CHANGELOG.md', 'package.json'],
+        message: `chore(release): \${nextRelease.version} [skip ci]
+
+\${nextRelease.notes}`,
+      },
+    ],
     '@semantic-release/github',
     [
       '@semantic-release/exec',
