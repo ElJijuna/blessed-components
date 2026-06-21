@@ -48,6 +48,16 @@
       "types": "./dist/sparkline/blessed.d.ts",
       "import": "./dist/sparkline/blessed.js",
       "require": "./dist/sparkline/blessed.cjs"
+    },
+    "./stat": {
+      "types": "./dist/stat/index.d.ts",
+      "import": "./dist/stat/index.js",
+      "require": "./dist/stat/index.cjs"
+    },
+    "./stat/blessed": {
+      "types": "./dist/stat/blessed.d.ts",
+      "import": "./dist/stat/blessed.js",
+      "require": "./dist/stat/blessed.cjs"
     }
   },
   "files": [

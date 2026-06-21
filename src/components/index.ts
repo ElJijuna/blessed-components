@@ -5,3 +5,4 @@
  */
 export * from './progress-bar/index.js';
 export * from './sparkline/index.js';
+export * from './stat/index.js';

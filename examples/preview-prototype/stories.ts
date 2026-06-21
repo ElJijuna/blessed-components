@@ -1,4 +1,4 @@
-import { progressBar, sparkline } from '../../src/index.js';
+import { progressBar, sparkline, stat } from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
@@ -92,6 +92,53 @@ export const stories: readonly PreviewStory[] = [
           emptyText: 'No download data',
           values: [],
           width: 20,
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'stat/revenue',
+    title: 'Stat / Revenue',
+    description: 'Primary value with unit, trend, and supporting description.',
+    mount(parent) {
+      return stat({
+        parent,
+        box: {
+          top: 2,
+          left: 3,
+          height: 3,
+          width: 48,
+        },
+        data: {
+          description: 'Compared with previous month',
+          label: 'Monthly revenue',
+          trend: {
+            direction: 'up',
+            value: '12.5%',
+          },
+          value: '$84K',
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'stat/compact',
+    title: 'Stat / Compact',
+    description: 'Inline layout with an attached percentage unit.',
+    mount(parent) {
+      return stat({
+        parent,
+        box: {
+          top: 2,
+          left: 3,
+          height: 1,
+          width: 30,
+        },
+        data: {
+          label: 'Overall',
+          layout: 'inline',
+          unit: '%',
+          value: 85,
         },
       });
     },

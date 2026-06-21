@@ -9,6 +9,8 @@ export default defineConfig({
     'progress-bar/index': 'src/components/progress-bar/index.ts',
     'sparkline/blessed': 'src/adapters/blessed/sparkline.ts',
     'sparkline/index': 'src/components/sparkline/index.ts',
+    'stat/blessed': 'src/adapters/blessed/stat.ts',
+    'stat/index': 'src/components/stat/index.ts',
   },
   format: ['esm', 'cjs'],
   outExtension({ format }) {

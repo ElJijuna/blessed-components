@@ -6,7 +6,9 @@
     "src/components/progress-bar/index.ts",
     "src/adapters/blessed/progress-bar.ts",
     "src/components/sparkline/index.ts",
-    "src/adapters/blessed/sparkline.ts"
+    "src/adapters/blessed/sparkline.ts",
+    "src/components/stat/index.ts",
+    "src/adapters/blessed/stat.ts"
   ],
   "entryPointStrategy": "expand",
   "out": "docs/api",

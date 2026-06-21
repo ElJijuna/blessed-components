@@ -5,3 +5,4 @@
  */
 export * from './blessed/progress-bar.js';
 export * from './blessed/sparkline.js';
+export * from './blessed/stat.js';

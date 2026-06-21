@@ -244,6 +244,7 @@ elements and events.
 
 Legend:
 
+- **Available**: implemented, documented, and published through public exports.
 - **Build**: strong fit and clear differentiation.
 - **Adapt**: wrap or compose existing Blessed behavior with better contracts.
 - **Research**: valuable, but API or terminal behavior needs validation.
@@ -312,7 +313,7 @@ High value, low complexity, excellent early components.
 | `MutedText`       | Secondary information using semantic theme tokens.    | Build    | P1       |
 | `Code`            | Inline code with safe escaping.                       | Build    | P2       |
 | `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Build    | P2       |
-| `Stat`            | Label, value, unit, trend, and description.           | Build    | P0       |
+| `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
 | `KeyValue`        | Aligned label/value rows.                             | Build    | P1       |
 | `DescriptionList` | Responsive term/description groups.                   | Build    | P2       |
 | `Badge`           | Compact semantic status.                              | Build    | P1       |
@@ -330,7 +331,7 @@ These components share bounded values, semantic tones, and live updates.
 
 | Component            | Purpose                                                 | Decision | Priority |
 | -------------------- | ------------------------------------------------------- | -------- | -------- |
-| `ProgressBar`        | One determinate horizontal progress bar.                | Build    | P0       |
+| `ProgressBar`        | One determinate horizontal progress bar.                | Available | P0       |
 | `ProgressStack`      | Segmented progress across categories.                   | Build    | P1       |
 | `ProgressList`       | Multiple labeled progress rows.                         | Build    | P1       |
 | `Spinner`            | Indeterminate activity indicator.                       | Build    | P1       |
@@ -383,7 +384,7 @@ quality, or maintenance advantage.
 
 | Component          | Purpose                                             | Decision     | Priority |
 | ------------------ | --------------------------------------------------- | ------------ | -------- |
-| `Sparkline`        | Compact single-series trend.                        | Build        | P0       |
+| `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
 | `MultiSparkline`   | Aligned compact series with labels.                 | Build        | P1       |
 | `MetricBars`       | Labeled horizontal metric bars.                     | Build        | P0       |
 | `Gauge`            | One bounded value with label and thresholds.        | Build        | P1       |
