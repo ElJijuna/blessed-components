@@ -15,6 +15,18 @@ describe('MetricBars', () => {
     ).toBe('Quality    ██░░ 50%\nPopularity ████ 100%');
   });
 
+  it('aligns labels by terminal cells instead of JavaScript string length', () => {
+    expect(
+      renderMetricBars({
+        barWidth: 2,
+        metrics: [
+          { label: '红色', value: 50 },
+          { label: 'Blue', value: 100 },
+        ],
+      }),
+    ).toBe('红色 █░ 50%\nBlue ██ 100%');
+  });
+
   it('renders an optional overall heading separated from metrics', () => {
     expect(
       renderMetricBars({

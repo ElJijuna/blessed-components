@@ -208,8 +208,9 @@ export function renderProgressBar({
     throw new RangeError('ProgressBar value must be finite.');
   }
 
-  const clampedValue = Math.min(max, Math.max(min, value));
-  const percentage = Math.round(((clampedValue - min) / (max - min)) * 100);
+  const domain = { max, min };
+  const clampedValue = clamp(value, min, max);
+  const percentage = Math.round(normalizeValue(clampedValue, domain) * 100);
   const filledWidth = Math.round((percentage / 100) * width);
   const track =
     characters.filled.repeat(filledWidth) + characters.empty.repeat(width - filledWidth);
@@ -218,3 +219,5 @@ export function renderProgressBar({
 
   return `${prefix}${track} ${valueText}`;
 }
+
+import { clamp, normalizeValue } from '../../core/scale.js';

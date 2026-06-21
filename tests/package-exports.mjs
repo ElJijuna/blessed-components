@@ -11,6 +11,8 @@ const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
+const coreModule = await import('../dist/core/index.js');
+const scaleModule = await import('../dist/core/scale.js');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -36,6 +38,11 @@ const [statEsmSource, statCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [coreEsmSource, coreCjsSource] = await Promise.all(
+  ['../dist/core/index.js', '../dist/core/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
@@ -47,6 +54,8 @@ assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
+assert.equal(typeof coreModule.visibleWidth, 'function');
+assert.equal(typeof scaleModule.sampleSeries, 'function');
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
@@ -70,6 +79,10 @@ for (const source of [sparklineEsmSource, sparklineCjsSource]) {
 
 for (const source of [statEsmSource, statCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Stat entry must not import Blessed.');
+}
+
+for (const source of [coreEsmSource, coreCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Core entry must not import Blessed.');
 }
 
 console.log('Package subpath exports verified.');

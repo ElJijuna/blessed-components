@@ -256,24 +256,24 @@ These unlock almost every visual component and should be built first.
 
 | Utility              | Purpose                                                   | Decision | Priority |
 | -------------------- | --------------------------------------------------------- | -------- | -------- |
-| `visibleWidth`       | Measure text while ignoring Blessed tags and ANSI codes.  | Build    | P0       |
-| `truncate`           | End, middle, and start truncation by terminal cell width. | Build    | P0       |
-| `wrapText`           | Cell-aware wrapping with indentation.                     | Build    | P0       |
-| `escapeTags`         | Prevent dynamic text from becoming Blessed markup.        | Build    | P0       |
-| `scaleValue`         | Map numeric domains into cell or glyph ranges.            | Build    | P0       |
-| `clamp`              | Bound values safely.                                      | Build    | P0       |
-| `sampleSeries`       | Downsample time-series data to available width.           | Build    | P0       |
-| `formatNumber`       | Locale-aware compact and full numbers.                    | Build    | P0       |
-| `formatPercent`      | Consistent percentages and precision.                     | Build    | P0       |
-| `formatBytes`        | IEC/SI byte formatting.                                   | Build    | P1       |
-| `formatDuration`     | Human and clock duration formats.                         | Build    | P1       |
-| `formatRate`         | Values per second or interval.                            | Build    | P1       |
-| `formatDateTime`     | Terminal-friendly timestamps.                             | Build    | P1       |
-| `detectCapabilities` | Unicode, color depth, mouse, and terminal features.       | Build    | P1       |
-| `createKeymap`       | Normalized key bindings with help metadata.               | Build    | P1       |
-| `createTheme`        | Merge semantic tokens and component overrides.            | Build    | P1       |
-| `renderToString`     | Render pure models for tests and static terminal output.  | Build    | P1       |
-| `diffRows`           | Identify changed rows for high-frequency updates.         | Research | P2       |
+| `visibleWidth`       | Measure text while ignoring Blessed tags and ANSI codes.  | Available | P0       |
+| `truncate`           | End, middle, and start truncation by terminal cell width. | Available | P0       |
+| `wrapText`           | Cell-aware wrapping with indentation.                     | Available | P0       |
+| `escapeTags`         | Prevent dynamic text from becoming Blessed markup.        | Available | P0       |
+| `scaleValue`         | Map numeric domains into cell or glyph ranges.            | Available | P0       |
+| `clamp`              | Bound values safely.                                      | Available | P0       |
+| `sampleSeries`       | Downsample time-series data to available width.           | Available | P0       |
+| `formatNumber`       | Locale-aware compact and full numbers.                    | Available | P0       |
+| `formatPercent`      | Consistent percentages and precision.                     | Available | P0       |
+| `formatBytes`        | IEC/SI byte formatting.                                   | Available | P1       |
+| `formatDuration`     | Human and clock duration formats.                         | Available | P1       |
+| `formatRate`         | Values per second or interval.                            | Available | P1       |
+| `formatDateTime`     | Terminal-friendly timestamps.                             | Available | P1       |
+| `detectCapabilities` | Unicode, color depth, mouse, and terminal features.       | Available | P1       |
+| `createKeymap`       | Normalized key bindings with help metadata.               | Available | P1       |
+| `createTheme`        | Merge semantic tokens and component overrides.            | Available | P1       |
+| `renderToString`     | Render pure models for tests and static terminal output.  | Available | P1       |
+| `diffRows`           | Identify changed rows for high-frequency updates.         | Available | P2       |
 
 ### 2. Layout and composition
 

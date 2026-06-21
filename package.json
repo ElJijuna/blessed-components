@@ -78,6 +78,16 @@
       "types": "./dist/stat/blessed.d.ts",
       "import": "./dist/stat/blessed.js",
       "require": "./dist/stat/blessed.cjs"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js",
+      "require": "./dist/core/index.cjs"
+    },
+    "./core/*": {
+      "types": "./dist/core/*.d.ts",
+      "import": "./dist/core/*.js",
+      "require": "./dist/core/*.cjs"
     }
   },
   "files": [
@@ -85,6 +95,7 @@
     "LICENSE",
     "README.md",
     "ROADMAP.md",
+    "src/core/README.md",
     "src/components/*/README.md"
   ],
   "sideEffects": false,

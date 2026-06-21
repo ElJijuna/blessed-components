@@ -1,3 +1,5 @@
+import { clamp, sampleSeries } from '../../core/scale.js';
+
 const DEFAULT_CHARACTERS = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'] as const;
 
 /**
@@ -168,22 +170,14 @@ export function renderSparkline({
   }
 
   const constantIndex = Math.floor((characters.length - 1) / 2);
-  const samples =
-    values.length <= width
-      ? values
-      : Array.from({ length: width }, (_, index) => {
-          const start = Math.floor((index * values.length) / width);
-          const end = Math.floor(((index + 1) * values.length) / width);
-
-          return Math.max(...values.slice(start, end));
-        });
+  const samples = sampleSeries(values, width);
   const sparkline = samples
     .map((value) => {
       if (min === max) {
         return characters[constantIndex];
       }
 
-      const clampedValue = Math.min(max, Math.max(min, value));
+      const clampedValue = clamp(value, min, max);
       const ratio = (clampedValue - min) / (max - min);
       const index =
         clampedValue >= max ? characters.length - 1 : Math.floor(ratio * (characters.length - 1));

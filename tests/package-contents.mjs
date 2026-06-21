@@ -19,7 +19,10 @@ const forbiddenPaths = paths.filter(
     path.includes('.story.'),
 );
 const unexpectedSourceFiles = paths.filter(
-  (path) => path.startsWith('src/') && !/^src\/components\/[^/]+\/README\.md$/.test(path),
+  (path) =>
+    path.startsWith('src/') &&
+    path !== 'src/core/README.md' &&
+    !/^src\/components\/[^/]+\/README\.md$/.test(path),
 );
 
 assert.deepEqual(

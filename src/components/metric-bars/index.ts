@@ -1,3 +1,4 @@
+import { visibleWidth } from '../../core/width.js';
 import {
   type ProgressBarCharacters,
   type ProgressBarValueContext,
@@ -153,7 +154,9 @@ export function renderMetricBars<TMetric extends MetricBarItem>({
     return emptyText;
   }
 
-  const labelWidth = Math.max(...metrics.map(({ label }) => label.length));
+  const labelWidth = Math.max(
+    ...metrics.map(({ label: metricLabel }) => visibleWidth(metricLabel)),
+  );
   const rows = metrics
     .map((metric) =>
       renderProgressBar({
@@ -164,7 +167,7 @@ export function renderMetricBars<TMetric extends MetricBarItem>({
               formatValue: (context: ProgressBarValueContext) =>
                 formatValue({ ...context, metric }),
             }),
-        label: metric.label.padEnd(labelWidth),
+        label: metric.label.padEnd(metric.label.length + labelWidth - visibleWidth(metric.label)),
         max,
         min,
         value: metric.value,

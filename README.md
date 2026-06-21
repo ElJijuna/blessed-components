@@ -95,6 +95,28 @@ examples/
 Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
 
+### Core utilities
+
+The framework-independent core provides terminal-aware text measurement,
+truncation, wrapping, cropping, numeric scaling, series sampling, formatting,
+capability detection, character sets, themes, events, focus, keymaps, layout,
+and render models.
+
+Import the complete core:
+
+```ts
+import { formatBytes, truncateText, visibleWidth } from 'blessed-components/core';
+```
+
+Or use focused, tree-shakable subpaths:
+
+```ts
+import { sampleSeries } from 'blessed-components/core/scale';
+import { visibleWidth } from 'blessed-components/core/width';
+```
+
+See the [core reference](./src/core/README.md).
+
 ## Development
 
 Requires Node.js 22.14 or newer.
