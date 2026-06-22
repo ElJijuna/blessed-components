@@ -28,6 +28,8 @@ export default defineConfig({
     'core/width': 'src/core/width.ts',
     'divider/blessed': 'src/adapters/blessed/divider.ts',
     'divider/index': 'src/components/layout/divider/index.ts',
+    'dialog/blessed': 'src/adapters/blessed/dialog.ts',
+    'dialog/index': 'src/components/overlays/dialog/index.ts',
     index: 'src/index.ts',
     'list/blessed': 'src/adapters/blessed/list.ts',
     'list/index': 'src/components/collections/list/index.ts',

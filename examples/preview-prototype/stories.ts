@@ -7,6 +7,12 @@ import {
   cardHeader,
   cardRoot,
   cardTitle,
+  dialogBody,
+  dialogContent,
+  dialogDescription,
+  dialogFooter,
+  dialogRoot,
+  dialogTitle,
   divider,
   list,
   metricBars,
@@ -21,6 +27,43 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'dialog/basic',
+    title: 'Dialog / Basic',
+    description: 'Modal composition with title, description, body, footer, and focus capture.',
+    mount(parent) {
+      const root = dialogRoot({
+        data: {
+          defaultOpen: true,
+          id: 'preview-dialog',
+        },
+        parent,
+      });
+      const content = dialogContent({
+        box: { height: 10, left: 4, top: 1, width: 52 },
+        parent: root.element,
+      });
+
+      dialogTitle({
+        data: { content: 'Deploy service' },
+        parent: content.element,
+      });
+      dialogDescription({
+        data: { content: 'Production environment' },
+        parent: content.element,
+      });
+      dialogBody({
+        data: { content: 'All checks passed.\nContinue with deployment?' },
+        parent: content.element,
+      });
+      dialogFooter({
+        data: { content: 'Tab move focus · Esc close' },
+        parent: content.element,
+      });
+
+      return root;
+    },
+  }),
   defineStory({
     id: 'spinner/loading',
     title: 'Spinner / Loading',

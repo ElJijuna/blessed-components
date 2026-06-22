@@ -3,9 +3,9 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `Badge`, `Box`, `Card`, `Divider`,
-> `List`, `MetricBars`, `ProgressBar`, `Sparkline`, `Spinner`, `Stack`, `Stat`,
-> and `Text` are available; more components are coming soon.
+> **Project status:** early development. `Badge`, `Box`, `Card`, `Dialog`,
+> `Divider`, `List`, `MetricBars`, `ProgressBar`, `Sparkline`, `Spinner`,
+> `Stack`, `Stat`, and `Text` are available; more components are coming soon.
 
 ## Goals
 
@@ -80,6 +80,12 @@ npm install blessed blessed-components
 | `Form`           | Compose terminal inputs.     | P3       |
 | `CommandPalette` | Search and execute commands. | P3       |
 
+### Overlays
+
+| Component | Purpose | Priority |
+| --- | --- | --- |
+| [`Dialog`](./src/components/overlays/dialog/README.md) | Show modal content with trapped and restored focus. | Available |
+
 See [ROADMAP.md](./ROADMAP.md) for milestones, proposed APIs, and TDD strategy.
 
 ## Architecture
@@ -100,9 +106,10 @@ examples/
 Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
 
-Current component source categories are `collections`, `data-display`,
-`feedback`, and `visualization`. Public npm subpaths remain component-oriented,
-for example `blessed-components/list` and `blessed-components/sparkline`.
+Current component source categories include `collections`, `data-display`,
+`feedback`, `layout`, `overlays`, and `visualization`. Public npm subpaths
+remain component-oriented, for example `blessed-components/list` and
+`blessed-components/dialog`.
 
 ### Core utilities
 

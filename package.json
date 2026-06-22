@@ -69,6 +69,16 @@
       "import": "./dist/divider/blessed.js",
       "require": "./dist/divider/blessed.cjs"
     },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "import": "./dist/dialog/index.js",
+      "require": "./dist/dialog/index.cjs"
+    },
+    "./dialog/blessed": {
+      "types": "./dist/dialog/blessed.d.ts",
+      "import": "./dist/dialog/blessed.js",
+      "require": "./dist/dialog/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

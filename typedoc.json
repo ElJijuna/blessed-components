@@ -13,6 +13,8 @@
     "src/adapters/blessed/card.ts",
     "src/components/layout/divider/index.ts",
     "src/adapters/blessed/divider.ts",
+    "src/components/overlays/dialog/index.ts",
+    "src/adapters/blessed/dialog.ts",
     "src/components/layout/stack/index.ts",
     "src/adapters/blessed/stack.ts",
     "src/components/collections/list/index.ts",

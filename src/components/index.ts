@@ -11,4 +11,5 @@ export * from './feedback/index.js';
 export * from './input/index.js';
 export * from './layout/index.js';
 export * from './navigation/index.js';
+export * from './overlays/index.js';
 export * from './visualization/index.js';
