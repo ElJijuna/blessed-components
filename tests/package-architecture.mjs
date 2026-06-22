@@ -6,6 +6,7 @@ const expectedComponents = [
   'src/components/input/button/index.ts',
   'src/components/layout/card/index.ts',
   'src/components/layout/divider/index.ts',
+  'src/components/layout/scroll-area/index.ts',
   'src/components/layout/stack/index.ts',
   'src/components/layout/viewport/index.ts',
   'src/components/overlays/dialog/index.ts',

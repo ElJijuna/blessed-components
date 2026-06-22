@@ -19,6 +19,7 @@ import {
   list,
   metricBars,
   progressBar,
+  scrollArea,
   sparkline,
   spinner,
   stack,
@@ -30,6 +31,41 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'scroll-area/logs',
+    title: 'ScrollArea / Logs',
+    description: 'Focusable vertical content with keyboard, wheel, and visible scrollbar.',
+    mount(parent) {
+      const logs = scrollArea({
+        box: {
+          border: 'line',
+          height: 10,
+          left: 3,
+          top: 1,
+          width: 48,
+        },
+        data: {
+          borderTone: 'primary',
+          contentHeight: 18,
+          scrollbarTone: 'primary',
+        },
+        parent,
+      });
+
+      for (let row = 0; row < 18; row += 1) {
+        text({
+          box: { height: 1, left: 1, right: 1, top: row },
+          data: {
+            content: `${String(row + 1).padStart(2, '0')}  service event ${row + 1}`,
+            tone: row % 4 === 0 ? 'info' : 'foreground',
+          },
+          parent: logs.contentElement,
+        });
+      }
+
+      return logs;
+    },
+  }),
   defineStory({
     id: 'viewport/canvas',
     title: 'Viewport / Canvas',

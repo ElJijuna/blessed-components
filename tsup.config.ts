@@ -41,6 +41,8 @@ export default defineConfig({
     'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
     'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
     'progress-bar/index': 'src/components/feedback/progress-bar/index.ts',
+    'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
+    'scroll-area/index': 'src/components/layout/scroll-area/index.ts',
     'primitives/collection/index': 'src/primitives/collection/index.ts',
     'primitives/focus-scope/index': 'src/primitives/focus-scope/index.ts',
     'primitives/index': 'src/primitives/index.ts',

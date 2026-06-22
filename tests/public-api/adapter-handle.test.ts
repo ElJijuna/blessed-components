@@ -16,6 +16,7 @@ import {
   list,
   metricBars,
   progressBar,
+  scrollArea,
   sparkline,
   spinner,
   stack,
@@ -70,6 +71,11 @@ describe('Blessed component handle contract', () => {
       data: { values: [1, 2], width: 2 },
       parent: screen,
     });
+    const scrollAreaHandle = scrollArea({
+      box: { height: 2, width: 8 },
+      data: { contentHeight: 4 },
+      parent: screen,
+    });
     const spinnerHandle = spinner({
       data: { autoStart: false, label: 'Loading' },
       parent: screen,
@@ -102,6 +108,7 @@ describe('Blessed component handle contract', () => {
       dialogHandle,
       keyValueHandle,
       progressHandle,
+      scrollAreaHandle,
       sparklineHandle,
       spinnerHandle,
       stackHandle,
@@ -127,6 +134,7 @@ describe('Blessed component handle contract', () => {
       items: [{ key: 'Status', value: 'Done' }],
     });
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
+    updateAndDestroy(scrollAreaHandle, { contentHeight: 5 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
     updateAndDestroy(spinnerHandle, { autoStart: false, label: 'Done' });
     updateAndDestroy(stackHandle, {});

@@ -21,6 +21,8 @@ const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
+const pureScrollAreaModule = await import('../dist/scroll-area/index.js');
+const blessedScrollAreaModule = await import('../dist/scroll-area/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureSpinnerModule = await import('../dist/spinner/index.js');
@@ -95,6 +97,11 @@ const [pureEsmSource, pureCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [scrollAreaEsmSource, scrollAreaCjsSource] = await Promise.all(
+  ['../dist/scroll-area/index.js', '../dist/scroll-area/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [sparklineEsmSource, sparklineCjsSource] = await Promise.all(
   ['../dist/sparkline/index.js', '../dist/sparkline/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -166,6 +173,8 @@ assert.equal(typeof pureListModule.renderList, 'function');
 assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
+assert.equal(typeof pureScrollAreaModule.renderScrollAreaScrollbar, 'function');
+assert.equal(typeof blessedScrollAreaModule.scrollArea, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureSpinnerModule.renderSpinner, 'function');
@@ -235,6 +244,10 @@ for (const source of [pureEsmSource, pureCjsSource]) {
     false,
     'Pure ProgressBar entry must not import Blessed.',
   );
+}
+
+for (const source of [scrollAreaEsmSource, scrollAreaCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure ScrollArea entry must not import Blessed.');
 }
 
 for (const source of [sparklineEsmSource, sparklineCjsSource]) {

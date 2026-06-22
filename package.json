@@ -129,6 +129,16 @@
       "import": "./dist/progress-bar/blessed.js",
       "require": "./dist/progress-bar/blessed.cjs"
     },
+    "./scroll-area": {
+      "types": "./dist/scroll-area/index.d.ts",
+      "import": "./dist/scroll-area/index.js",
+      "require": "./dist/scroll-area/index.cjs"
+    },
+    "./scroll-area/blessed": {
+      "types": "./dist/scroll-area/blessed.d.ts",
+      "import": "./dist/scroll-area/blessed.js",
+      "require": "./dist/scroll-area/blessed.cjs"
+    },
     "./sparkline": {
       "types": "./dist/sparkline/index.d.ts",
       "import": "./dist/sparkline/index.js",

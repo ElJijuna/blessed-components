@@ -27,6 +27,8 @@
     "src/adapters/blessed/metric-bars.ts",
     "src/components/feedback/progress-bar/index.ts",
     "src/adapters/blessed/progress-bar.ts",
+    "src/components/layout/scroll-area/index.ts",
+    "src/adapters/blessed/scroll-area.ts",
     "src/components/visualization/sparkline/index.ts",
     "src/adapters/blessed/sparkline.ts",
     "src/components/feedback/spinner/index.ts",
