@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.0](https://github.com/ElJijuna/blessed-components/compare/v1.2.0...v1.3.0) (2026-06-22)
+
+### Features
+
+* add Button component with Blessed adapter, documentation, and tests ([75e53b5](https://github.com/ElJijuna/blessed-components/commit/75e53b5c239f6d10d4536202cc36302ed7f221e2))
+* add Dialog component with controlled state and focus management ([7e535b9](https://github.com/ElJijuna/blessed-components/commit/7e535b9e032837b7de2d87015746008b0ef0df91))
+* add Divider component with Blessed adapter and update documentation ([68024a3](https://github.com/ElJijuna/blessed-components/commit/68024a39b7585d1e24b0ff3febe15ef6e005c5bb))
+* add examples for component gallery, dashboard, and process monitor with documentation ([3669d5b](https://github.com/ElJijuna/blessed-components/commit/3669d5b30e404096ce0d6d853c2209670818d468))
+* add KeyValue component with Blessed adapter and documentation ([ae0b67a](https://github.com/ElJijuna/blessed-components/commit/ae0b67a9f2e927d66c8318295864203d2b6ec09c))
+* add ScrollArea component with Blessed adapter, documentation, and tests ([09f359b](https://github.com/ElJijuna/blessed-components/commit/09f359bf74d7e0b4a60735a178d69b3b8bd8c057))
+* add Spinner component with Blessed adapter and update documentation ([a62d603](https://github.com/ElJijuna/blessed-components/commit/a62d603e83e3d59243fa14883461d8fa456b9fa6))
+* add Viewport component with Blessed adapter, documentation, and tests ([bafe8e1](https://github.com/ElJijuna/blessed-components/commit/bafe8e1090eff3c0357dc29a5b768ff4b6a7c828))
+* enhance MetricBars and ProgressBar adapters with semantic color support and update documentation ([a76569d](https://github.com/ElJijuna/blessed-components/commit/a76569df17e51337b5df7b6dd5c8ba69422361eb))
+* enhance ScrollArea adapter with improved handling and new tests for clipping behavior ([4efd51f](https://github.com/ElJijuna/blessed-components/commit/4efd51f664f25761fd0269c9ec386dd92a219250))
+
 ## [1.2.0](https://github.com/ElJijuna/blessed-components/compare/v1.1.0...v1.2.0) (2026-06-22)
 
 ### Features
