@@ -588,6 +588,31 @@ Build as examples first. Promote lower-level pieces only after reuse appears.
 | `PackageExplorer`     | search, dependency tree, metadata, versions      |
 | `FileManager`         | tree, list, preview, actions, dialogs            |
 | `LogDashboard`        | filters, virtual log viewer, histogram, timeline |
+
+## Runnable examples
+
+Examples remain outside the published package and consume only public
+component APIs.
+
+| Example | Artifact | Purpose | Status |
+| --- | --- | --- | --- |
+| `component-gallery` | Pattern | Browse and lifecycle-test every component story. | Available |
+| `dashboard` | Template | Compose display components into a service dashboard. | Available |
+| `process-monitor` | Block | Demonstrate live updates, render batching, and cleanup. | Available |
+
+Run interactively:
+
+```sh
+npm run example:gallery
+npm run example:dashboard
+npm run example:process-monitor
+```
+
+Run all lifecycle smoke tests:
+
+```sh
+npm run examples:smoke
+```
 | `KubernetesDashboard` | resource table, status, events, logs             |
 | `QueueMonitor`        | rates, depth, workers, failures, retries         |
 | `CI Dashboard`        | pipelines, jobs, duration, logs, artifacts       |

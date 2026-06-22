@@ -212,6 +212,10 @@
     "clean": "rm -rf coverage dist",
     "docs": "typedoc --options typedoc.json",
     "docs:check": "typedoc --options typedoc.json --emit none",
+    "example:dashboard": "tsx examples/dashboard/app.ts",
+    "example:gallery": "tsx examples/component-gallery/app.ts",
+    "example:process-monitor": "tsx examples/process-monitor/app.ts",
+    "examples:smoke": "npm run example:gallery -- --smoke && npm run example:dashboard -- --smoke && npm run example:process-monitor -- --smoke",
     "biome:check": "biome check .",
     "format": "biome check --write .",
     "format:check": "biome check .",
@@ -223,7 +227,7 @@
     "test:package": "node tests/package-architecture.mjs && node tests/package-exports.mjs && node tests/package-contents.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package && npm run examples:smoke",
     "prepublishOnly": "npm run validate"
   },
   "peerDependencies": {

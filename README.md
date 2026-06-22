@@ -102,7 +102,9 @@ tests/
   public-api/           behavior through exported APIs
   blessed-integration/  integration with real Blessed elements
 examples/
-  dashboard/            executable component showcase
+  component-gallery/    interactive stories for every component
+  dashboard/            composed service-dashboard template
+  process-monitor/      live system metrics and lifecycle example
 ```
 
 Renderers remain independent from Blessed. Adapters own element updates,
@@ -194,15 +196,28 @@ formatting and import organization; Prettier is not used.
 
 ### Terminal component preview
 
-Run the prototype component workbench:
+Run the component gallery:
 
 ```sh
-npm run preview
+npm run example:gallery
 ```
 
 Use arrow keys and Enter to select stories, `r` to reload, `Tab` to move
 focus, and `q` to quit. The prototype previews Badge, MetricBars, ProgressBar,
-Sparkline, and Stat stories through their public Blessed adapters.
+available component stories through their public Blessed adapters.
+
+Run the composed application examples:
+
+```sh
+npm run example:dashboard
+npm run example:process-monitor
+```
+
+Verify every example without an interactive terminal:
+
+```sh
+npm run examples:smoke
+```
 
 ## Testing
 

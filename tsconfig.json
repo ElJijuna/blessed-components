@@ -25,6 +25,7 @@
   },
   "include": [
     "eslint.config.js",
+    "examples",
     "release.config.mjs",
     "src",
     "tests",
