@@ -58,6 +58,8 @@ export default defineConfig({
     'stat/index': 'src/components/data-display/stat/index.ts',
     'text/blessed': 'src/adapters/blessed/text.ts',
     'text/index': 'src/components/data-display/text/index.ts',
+    'viewport/blessed': 'src/adapters/blessed/viewport.ts',
+    'viewport/index': 'src/components/layout/viewport/index.ts',
   },
   format: ['esm', 'cjs'],
   outExtension({ format }) {

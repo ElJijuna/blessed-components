@@ -250,7 +250,7 @@ npm subpaths:
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | `Button`                                  |
-| `layout`         | `Box`, `Card`, `Divider`, `Stack`         |
+| `layout`         | `Box`, `Card`, `Divider`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
 | `overlays`       | `Dialog`                                  |
 
@@ -322,7 +322,7 @@ predictable, typed composition and responsive rules.
 | `Spacer`        | Flexible or fixed empty space.                          | Build    | P2       |
 | `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |
 | `AspectRatio`   | Preserve cell-aware proportions.                        | Research | P3       |
-| `Viewport`      | Visual wrapper around the available headless primitive. | Build    | P1       |
+| `Viewport`      | Visual wrapper around the available headless primitive. | Available | P1       |
 | `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Adapt    | P1       |
 | `Resizable`     | Keyboard/mouse resize behavior for one region.          | Research | P3       |
 | `Collapsible`   | Show or hide a region while preserving state.           | Build    | P2       |

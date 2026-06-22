@@ -129,6 +129,11 @@ export function createViewport(options: CreateViewportOptions): ViewportModel {
     return snapshot();
   };
 
+  scrollTo({
+    ...(options.x === undefined ? {} : { x: options.x }),
+    ...(options.y === undefined ? {} : { y: options.y }),
+  });
+
   return {
     ensureVisible(rect) {
       validateSize(rect, 'Visible rectangle');

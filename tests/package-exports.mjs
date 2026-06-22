@@ -31,6 +31,8 @@ const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
 const pureTextModule = await import('../dist/text/index.js');
 const blessedTextModule = await import('../dist/text/blessed.js');
+const pureViewportModule = await import('../dist/viewport/index.js');
+const blessedViewportModule = await import('../dist/viewport/blessed.js');
 const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
 const primitivesModule = await import('../dist/primitives/index.js');
@@ -118,6 +120,11 @@ const [textEsmSource, textCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [viewportEsmSource, viewportCjsSource] = await Promise.all(
+  ['../dist/viewport/index.js', '../dist/viewport/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [coreEsmSource, coreCjsSource] = await Promise.all(
   ['../dist/core/index.js', '../dist/core/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -169,6 +176,8 @@ assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
 assert.equal(typeof pureTextModule.renderText, 'function');
 assert.equal(typeof blessedTextModule.text, 'function');
+assert.equal(typeof pureViewportModule.calculateViewportLayout, 'function');
+assert.equal(typeof blessedViewportModule.viewport, 'function');
 assert.equal(typeof coreModule.visibleWidth, 'function');
 assert.equal(typeof scaleModule.sampleSeries, 'function');
 assert.equal(typeof primitivesModule.createViewport, 'function');
@@ -246,6 +255,10 @@ for (const source of [statEsmSource, statCjsSource]) {
 
 for (const source of [textEsmSource, textCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Text entry must not import Blessed.');
+}
+
+for (const source of [viewportEsmSource, viewportCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Viewport entry must not import Blessed.');
 }
 
 for (const source of [coreEsmSource, coreCjsSource]) {

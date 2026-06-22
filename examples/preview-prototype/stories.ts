@@ -24,11 +24,56 @@ import {
   stack,
   stat,
   text,
+  viewport,
 } from '@/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'viewport/canvas',
+    title: 'Viewport / Canvas',
+    description: 'Clipped two-dimensional content translated with bounded offsets.',
+    mount(parent) {
+      const canvas = viewport({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          top: 1,
+          width: 42,
+        },
+        data: {
+          borderTone: 'primary',
+          contentHeight: 16,
+          contentWidth: 70,
+        },
+        parent,
+      });
+
+      text({
+        box: { height: 1, left: 2, top: 1, width: 24 },
+        data: { content: 'Origin: x=2, y=1', tone: 'muted' },
+        parent: canvas.contentElement,
+      });
+      text({
+        box: { height: 2, left: 42, top: 10, width: 24 },
+        data: {
+          content: 'Visible after ensureVisible\nx=42, y=10',
+          tone: 'success',
+        },
+        parent: canvas.contentElement,
+      });
+      canvas.ensureVisible({
+        height: 2,
+        width: 24,
+        x: 42,
+        y: 10,
+      });
+
+      return canvas;
+    },
+  }),
   defineStory({
     id: 'button/actions',
     title: 'Button / Actions',

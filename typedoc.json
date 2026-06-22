@@ -35,6 +35,8 @@
     "src/adapters/blessed/stat.ts",
     "src/components/data-display/text/index.ts",
     "src/adapters/blessed/text.ts",
+    "src/components/layout/viewport/index.ts",
+    "src/adapters/blessed/viewport.ts",
     "src/adapters/blessed/types.ts"
   ],
   "entryPointStrategy": "expand",

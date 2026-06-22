@@ -21,3 +21,4 @@ export * from './blessed/stack.js';
 export * from './blessed/stat.js';
 export * from './blessed/text.js';
 export * from './blessed/types.js';
+export * from './blessed/viewport.js';

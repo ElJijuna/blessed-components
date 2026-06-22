@@ -3,6 +3,19 @@ import { describe, expect, it, vi } from 'vitest';
 import { createScrollArea, createViewport } from '@/primitives/index.js';
 
 describe('viewport and scroll-area primitives', () => {
+  it('applies and clamps initial viewport offsets', () => {
+    const viewport = createViewport({
+      contentHeight: 20,
+      contentWidth: 40,
+      height: 5,
+      width: 10,
+      x: 50,
+      y: 8,
+    });
+
+    expect(viewport.snapshot()).toMatchObject({ x: 30, y: 8 });
+  });
+
   it('clamps scrolling and preserves valid offsets after resize', () => {
     const viewport = createViewport({
       contentHeight: 100,

@@ -179,6 +179,16 @@
       "import": "./dist/text/blessed.js",
       "require": "./dist/text/blessed.cjs"
     },
+    "./viewport": {
+      "types": "./dist/viewport/index.d.ts",
+      "import": "./dist/viewport/index.js",
+      "require": "./dist/viewport/index.cjs"
+    },
+    "./viewport/blessed": {
+      "types": "./dist/viewport/blessed.d.ts",
+      "import": "./dist/viewport/blessed.js",
+      "require": "./dist/viewport/blessed.cjs"
+    },
     "./core": {
       "types": "./dist/core/index.d.ts",
       "import": "./dist/core/index.js",

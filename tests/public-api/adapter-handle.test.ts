@@ -21,6 +21,7 @@ import {
   stack,
   stat,
   text,
+  viewport,
 } from '@/index.js';
 
 function updateAndDestroy<TData>(handle: BlessedComponentHandle<TData>, data: TData): void {
@@ -86,6 +87,11 @@ describe('Blessed component handle contract', () => {
       data: { content: 'Ready' },
       parent: screen,
     });
+    const viewportHandle = viewport({
+      box: { height: 2, width: 4 },
+      data: { contentHeight: 4, contentWidth: 8 },
+      parent: screen,
+    });
     const handles = [
       badgeHandle,
       boxHandle,
@@ -100,6 +106,7 @@ describe('Blessed component handle contract', () => {
       spinnerHandle,
       stackHandle,
       statHandle,
+      viewportHandle,
     ];
     const bars = metricBars({
       data: { barWidth: 2, metrics: [{ label: 'CPU', value: 50 }] },
@@ -128,6 +135,10 @@ describe('Blessed component handle contract', () => {
       items: [{ id: 'two', label: 'Two' }],
     });
     updateAndDestroy(textHandle, { content: 'Done' });
+    updateAndDestroy(viewportHandle, {
+      contentHeight: 5,
+      contentWidth: 10,
+    });
     updateAndDestroy(bars, {
       barWidth: 2,
       metrics: [{ label: 'CPU', value: 75 }],
