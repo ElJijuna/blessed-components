@@ -59,6 +59,16 @@
       "import": "./dist/card/blessed.js",
       "require": "./dist/card/blessed.cjs"
     },
+    "./divider": {
+      "types": "./dist/divider/index.d.ts",
+      "import": "./dist/divider/index.js",
+      "require": "./dist/divider/index.cjs"
+    },
+    "./divider/blessed": {
+      "types": "./dist/divider/blessed.d.ts",
+      "import": "./dist/divider/blessed.js",
+      "require": "./dist/divider/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

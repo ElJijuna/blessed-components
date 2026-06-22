@@ -26,6 +26,8 @@ export default defineConfig({
     'core/theme': 'src/core/theme.ts',
     'core/truncate': 'src/core/truncate.ts',
     'core/width': 'src/core/width.ts',
+    'divider/blessed': 'src/adapters/blessed/divider.ts',
+    'divider/index': 'src/components/layout/divider/index.ts',
     index: 'src/index.ts',
     'list/blessed': 'src/adapters/blessed/list.ts',
     'list/index': 'src/components/collections/list/index.ts',

@@ -7,6 +7,7 @@ import {
   cardHeader,
   cardRoot,
   cardTitle,
+  divider,
   list,
   metricBars,
   progressBar,
@@ -19,6 +20,37 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'divider/labels',
+    title: 'Divider / Labels',
+    description: 'Cell-aware labels with Unicode and semantic border tone.',
+    mount(parent) {
+      const elements = [
+        divider({
+          box: { height: 1, left: 3, top: 2, width: 42 },
+          data: { label: 'Services' },
+          parent,
+        }),
+        divider({
+          box: { height: 1, left: 3, top: 5, width: 42 },
+          data: {
+            label: '状态',
+            labelAlign: 'start',
+            tone: 'primary',
+          },
+          parent,
+        }),
+      ];
+
+      return {
+        destroy() {
+          for (const element of elements) {
+            element.destroy();
+          }
+        },
+      };
+    },
+  }),
   defineStory({
     id: 'stack/vertical',
     title: 'Stack / Vertical',

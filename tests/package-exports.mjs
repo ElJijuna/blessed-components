@@ -7,6 +7,8 @@ const pureBoxModule = await import('../dist/box/index.js');
 const blessedBoxModule = await import('../dist/box/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
+const pureDividerModule = await import('../dist/divider/index.js');
+const blessedDividerModule = await import('../dist/divider/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
@@ -38,6 +40,11 @@ const [boxEsmSource, boxCjsSource] = await Promise.all(
 );
 const [cardEsmSource, cardCjsSource] = await Promise.all(
   ['../dist/card/index.js', '../dist/card/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [dividerEsmSource, dividerCjsSource] = await Promise.all(
+  ['../dist/divider/index.js', '../dist/divider/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -98,6 +105,8 @@ assert.equal(typeof blessedCardModule.cardTitle, 'function');
 assert.equal(typeof blessedCardModule.cardDescription, 'function');
 assert.equal(typeof blessedCardModule.cardBody, 'function');
 assert.equal(typeof blessedCardModule.cardFooter, 'function');
+assert.equal(typeof pureDividerModule.renderDivider, 'function');
+assert.equal(typeof blessedDividerModule.divider, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
@@ -132,6 +141,10 @@ for (const source of [boxEsmSource, boxCjsSource]) {
 
 for (const source of [cardEsmSource, cardCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Card entry must not import Blessed.');
+}
+
+for (const source of [dividerEsmSource, dividerCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Divider entry must not import Blessed.');
 }
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {

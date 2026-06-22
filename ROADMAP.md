@@ -250,7 +250,7 @@ npm subpaths:
 | `feedback`       | `ProgressBar`                             |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | Reserved for interactive form components |
-| `layout`         | `Box`, `Card`, `Stack`                    |
+| `layout`         | `Box`, `Card`, `Divider`, `Stack`         |
 | `navigation`     | Reserved for navigation components       |
 
 Pure renderers own content and character overrides. Semantic color and style
@@ -319,7 +319,7 @@ predictable, typed composition and responsive rules.
 | `SidebarLayout` | Sidebar plus main content with collapse rules.          | Build    | P2       |
 | `Center`        | Center one child in available space.                    | Build    | P2       |
 | `Spacer`        | Flexible or fixed empty space.                          | Build    | P2       |
-| `Divider`       | Horizontal or vertical separator with optional label.   | Build    | P1       |
+| `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |
 | `AspectRatio`   | Preserve cell-aware proportions.                        | Research | P3       |
 | `Viewport`      | Visual wrapper around the available headless primitive. | Build    | P1       |
 | `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Adapt    | P1       |

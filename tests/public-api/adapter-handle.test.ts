@@ -9,6 +9,7 @@ import {
   box,
   cardBody,
   cardRoot,
+  divider,
   list,
   metricBars,
   progressBar,
@@ -40,6 +41,10 @@ describe('Blessed component handle contract', () => {
       data: { content: 'Ready' },
       parent: cardHandle.element,
     });
+    const dividerHandle = divider({
+      box: { height: 1, width: 10 },
+      parent: screen,
+    });
     const progressHandle = progressBar({
       data: { value: 50, width: 4 },
       parent: screen,
@@ -66,6 +71,7 @@ describe('Blessed component handle contract', () => {
       boxHandle,
       cardHandle,
       cardBodyHandle,
+      dividerHandle,
       progressHandle,
       sparklineHandle,
       stackHandle,
@@ -83,6 +89,7 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(boxHandle, {});
     updateAndDestroy(cardBodyHandle, { content: 'Done' });
     updateAndDestroy(cardHandle, {});
+    updateAndDestroy(dividerHandle, {});
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
     updateAndDestroy(stackHandle, {});
