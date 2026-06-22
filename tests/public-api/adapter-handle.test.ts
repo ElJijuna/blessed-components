@@ -7,6 +7,7 @@ import {
   type BlessedComponentHandle,
   badge,
   box,
+  button,
   cardBody,
   cardRoot,
   dialogRoot,
@@ -37,6 +38,10 @@ describe('Blessed component handle contract', () => {
     const badgeHandle = badge({ data: { text: 'Ready' }, parent: screen });
     const boxHandle = box({
       box: { height: 4, width: 20 },
+      parent: screen,
+    });
+    const buttonHandle = button({
+      data: { label: 'Save' },
       parent: screen,
     });
     const cardHandle = cardRoot({ parent: screen });
@@ -84,6 +89,7 @@ describe('Blessed component handle contract', () => {
     const handles = [
       badgeHandle,
       boxHandle,
+      buttonHandle,
       cardHandle,
       cardBodyHandle,
       dividerHandle,
@@ -105,6 +111,7 @@ describe('Blessed component handle contract', () => {
 
     updateAndDestroy(badgeHandle, { text: 'Done' });
     updateAndDestroy(boxHandle, {});
+    updateAndDestroy(buttonHandle, { label: 'Saved' });
     updateAndDestroy(cardBodyHandle, { content: 'Done' });
     updateAndDestroy(cardHandle, {});
     updateAndDestroy(dividerHandle, {});

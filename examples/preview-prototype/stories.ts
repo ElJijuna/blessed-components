@@ -1,6 +1,7 @@
 import {
   badge,
   box,
+  button,
   cardBody,
   cardDescription,
   cardFooter,
@@ -28,6 +29,38 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'button/actions',
+    title: 'Button / Actions',
+    description: 'Focusable action activated with Enter, Space, or mouse click.',
+    mount(parent) {
+      const handlePress = (): void => {
+        action.setData({
+          label: 'Deployed',
+          onPress: handlePress,
+          tone: 'success',
+        });
+        parent.screen.render();
+      };
+      const action = button({
+        box: { height: 1, left: 3, top: 3, width: 24 },
+        data: {
+          label: 'Deploy',
+          onPress: handlePress,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          action.destroy();
+        },
+        focus() {
+          action.focus();
+        },
+      };
+    },
+  }),
   defineStory({
     id: 'dialog/basic',
     title: 'Dialog / Basic',

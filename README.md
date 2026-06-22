@@ -3,10 +3,10 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `Badge`, `Box`, `Card`, `Dialog`,
-> `Divider`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`, `Sparkline`,
-> `Spinner`, `Stack`, `Stat`, and `Text` are available; more components are
-> coming soon.
+> **Project status:** early development. `Badge`, `Box`, `Button`, `Card`,
+> `Dialog`, `Divider`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`,
+> `Sparkline`, `Spinner`, `Stack`, `Stat`, and `Text` are available; more
+> components are coming soon.
 
 ## Goals
 
@@ -75,6 +75,7 @@ npm install blessed blessed-components
 
 | Component        | Purpose                      | Priority |
 | ---------------- | ---------------------------- | -------- |
+| [`Button`](./src/components/input/button/README.md) | Trigger a focusable terminal action. | Available |
 | `Tabs`           | Switch between views.        | P2       |
 | `Menu`           | Navigate a list of actions.  | P2       |
 | `Select`         | Choose one or more values.   | P3       |
@@ -111,7 +112,7 @@ Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
 
 Current component source categories include `collections`, `data-display`,
-`feedback`, `layout`, `overlays`, and `visualization`. Public npm subpaths
+`feedback`, `input`, `layout`, `overlays`, and `visualization`. Public npm subpaths
 remain component-oriented, for example `blessed-components/list` and
 `blessed-components/dialog`.
 

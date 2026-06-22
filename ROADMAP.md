@@ -249,7 +249,7 @@ npm subpaths:
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
-| `input`          | Reserved for interactive form components |
+| `input`          | `Button`                                  |
 | `layout`         | `Box`, `Card`, `Divider`, `Stack`         |
 | `navigation`     | Reserved for navigation components       |
 | `overlays`       | `Dialog`                                  |
@@ -466,7 +466,7 @@ consistent state, composition, and cleanup.
 
 | Component         | Purpose                                                | Decision | Priority |
 | ----------------- | ------------------------------------------------------ | -------- | -------- |
-| `Button`          | Typed action with tone, disabled, and loading states.  | Adapt    | P1       |
+| `Button`          | Typed action with tone and disabled states.            | Available | P1       |
 | `IconButton`      | Compact action with required text description.         | Build    | P2       |
 | `TextField`       | Single-line text with label, hint, and error.          | Adapt    | P1       |
 | `PasswordField`   | Masked input with reveal behavior.                     | Build    | P2       |

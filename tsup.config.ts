@@ -8,6 +8,8 @@ export default defineConfig({
     'badge/index': 'src/components/data-display/badge/index.ts',
     'box/blessed': 'src/adapters/blessed/box.ts',
     'box/index': 'src/components/layout/box/index.ts',
+    'button/blessed': 'src/adapters/blessed/button.ts',
+    'button/index': 'src/components/input/button/index.ts',
     'card/blessed': 'src/adapters/blessed/card.ts',
     'card/index': 'src/components/layout/card/index.ts',
     'core/capabilities': 'src/core/capabilities.ts',

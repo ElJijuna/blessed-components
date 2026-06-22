@@ -49,6 +49,16 @@
       "import": "./dist/box/blessed.js",
       "require": "./dist/box/blessed.cjs"
     },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.js",
+      "require": "./dist/button/index.cjs"
+    },
+    "./button/blessed": {
+      "types": "./dist/button/blessed.d.ts",
+      "import": "./dist/button/blessed.js",
+      "require": "./dist/button/blessed.cjs"
+    },
     "./card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js",

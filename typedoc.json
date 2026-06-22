@@ -9,6 +9,8 @@
     "src/adapters/blessed/badge.ts",
     "src/components/layout/box/index.ts",
     "src/adapters/blessed/box.ts",
+    "src/components/input/button/index.ts",
+    "src/adapters/blessed/button.ts",
     "src/components/layout/card/index.ts",
     "src/adapters/blessed/card.ts",
     "src/components/layout/divider/index.ts",

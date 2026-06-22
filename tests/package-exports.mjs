@@ -5,6 +5,8 @@ const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
 const pureBoxModule = await import('../dist/box/index.js');
 const blessedBoxModule = await import('../dist/box/blessed.js');
+const pureButtonModule = await import('../dist/button/index.js');
+const blessedButtonModule = await import('../dist/button/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureDividerModule = await import('../dist/divider/index.js');
@@ -48,6 +50,11 @@ const [badgeEsmSource, badgeCjsSource] = await Promise.all(
 );
 const [boxEsmSource, boxCjsSource] = await Promise.all(
   ['../dist/box/index.js', '../dist/box/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [buttonEsmSource, buttonCjsSource] = await Promise.all(
+  ['../dist/button/index.js', '../dist/button/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -126,6 +133,8 @@ assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
 assert.equal(typeof pureBoxModule.resolveBoxTheme, 'function');
 assert.equal(typeof blessedBoxModule.box, 'function');
+assert.equal(typeof pureButtonModule.renderButton, 'function');
+assert.equal(typeof blessedButtonModule.button, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -181,6 +190,10 @@ for (const source of [badgeEsmSource, badgeCjsSource]) {
 
 for (const source of [boxEsmSource, boxCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Box entry must not import Blessed.');
+}
+
+for (const source of [buttonEsmSource, buttonCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Button entry must not import Blessed.');
 }
 
 for (const source of [cardEsmSource, cardCjsSource]) {
