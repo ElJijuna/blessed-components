@@ -5,6 +5,8 @@ import {
   type RenderMetricBarsOptions,
   renderMetricBars,
 } from '../../components/visualization/metric-bars/index.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -14,13 +16,21 @@ import type { BlessedComponentHandle } from './types.js';
  */
 export type MetricBarsBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
+/** Stateful data accepted by the Blessed {@link metricBars} adapter. */
+export interface MetricBarsData<TMetric extends MetricBarItem = MetricBarItem>
+  extends RenderMetricBarsOptions<TMetric>,
+    Omit<BoxData, 'foregroundTone'> {
+  /** Semantic foreground token. @defaultValue `'foreground'` */
+  tone?: keyof ThemeColors;
+}
+
 /** Options accepted by the Blessed {@link metricBars} adapter. */
 export interface MetricBarsOptions<TMetric extends MetricBarItem = MetricBarItem> {
   /** Optional dimensions, position, style, and standard Blessed box settings. */
   box?: MetricBarsBoxOptions;
 
   /** Data passed to the pure {@link renderMetricBars} renderer. */
-  data: RenderMetricBarsOptions<TMetric>;
+  data: MetricBarsData<TMetric>;
 
   /** Blessed screen or node that receives the created box. */
   parent: blessed.Widgets.Node;
@@ -33,7 +43,7 @@ export interface MetricBarsOptions<TMetric extends MetricBarItem = MetricBarItem
  * `screen.render()`.
  */
 export type MetricBarsHandle<TMetric extends MetricBarItem = MetricBarItem> =
-  BlessedComponentHandle<RenderMetricBarsOptions<TMetric>, blessed.Widgets.BoxElement>;
+  BlessedComponentHandle<MetricBarsData<TMetric>, blessed.Widgets.BoxElement>;
 
 /**
  * Creates display-only MetricBars backed by a Blessed `BoxElement`.
@@ -77,15 +87,36 @@ export type MetricBarsHandle<TMetric extends MetricBarItem = MetricBarItem> =
  */
 export function metricBars<TMetric extends MetricBarItem>({
   box,
-  data,
+  data: initialData,
   parent,
 }: MetricBarsOptions<TMetric>): MetricBarsHandle<TMetric> {
+  let data = initialData;
+
   const element = blessed.box({
     ...box,
-    content: renderMetricBars(data),
+    content: '',
     parent,
+    style: {
+      ...box?.style,
+      border: { ...box?.style?.border },
+    },
     tags: false,
   });
+  const style = createBoxStyleController(element, box);
+  const render = (): void => {
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
+
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
+    element.setContent(renderMetricBars(renderData));
+  };
+
+  render();
 
   return {
     element,
@@ -93,7 +124,8 @@ export function metricBars<TMetric extends MetricBarItem>({
       element.destroy();
     },
     setData(nextData) {
-      element.setContent(renderMetricBars(nextData));
+      data = nextData;
+      render();
     },
   };
 }

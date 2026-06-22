@@ -88,6 +88,7 @@ const score = metricBars({
   data: {
     barWidth: 16,
     label: 'Overall',
+    tone: 'primary',
     value: '85%',
     metrics: [
       { label: 'Quality', value: 78 },
@@ -112,6 +113,27 @@ screen.render();
 score.destroy();
 ```
 
+### Semantic colors
+
+MetricBars uses the shared Box theme contract:
+
+```ts
+score.setData({
+  barWidth: 16,
+  metrics: [
+    { label: 'Quality', value: 85 },
+    { label: 'Popularity', value: 99 },
+  ],
+  theme,
+  tone: 'success',
+  value: '90%',
+});
+```
+
+`tone` controls foreground color. `backgroundTone` and `borderTone` are also
+available. Explicit Blessed styles win. Semantic colors become undefined in
+no-color mode.
+
 ## Renderer API
 
 | Option | Type | Default | Description |
@@ -125,6 +147,9 @@ score.destroy();
 | `value` | `string \| number` | — | Overall heading value. |
 | `formatValue` | `(context) => string` | Percentage | Per-row value formatter. |
 | `emptyText` | `string` | `No metrics` | Output when metrics are empty. |
+
+Adapter `MetricBarsData<TMetric>` adds `tone`, `backgroundTone`, `borderTone`,
+`theme`, and `capabilities` to renderer data.
 
 Rows remain in input order. Labels are padded to the longest label, and values
 are clamped through the same `ProgressBar` contract.

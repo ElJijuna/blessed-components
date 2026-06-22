@@ -98,6 +98,7 @@ const upload = progressBar({
   },
   data: {
     label: 'Uploaded',
+    tone: 'primary',
     value: 25,
     width: 20,
   },
@@ -119,6 +120,26 @@ upload.destroy();
 The adapter owns only its `BoxElement`. It updates content through `setData`
 and detaches the element through `destroy`. Rendering remains the caller's
 responsibility, allowing multiple updates to be batched.
+
+### Semantic colors
+
+ProgressBar uses the shared Box theme contract:
+
+```ts
+upload.setData({
+  backgroundTone: 'background',
+  borderTone: 'border',
+  label: 'Uploaded',
+  theme,
+  tone: 'success',
+  value: 75,
+  width: 20,
+});
+```
+
+`tone` controls foreground color. `backgroundTone` and `borderTone` control
+their matching styles. Explicit Blessed styles win. Semantic colors become
+undefined in no-color mode.
 
 ## Renderer API
 
@@ -156,7 +177,7 @@ interface ProgressBarValueContext {
 | Option | Type | Description |
 | --- | --- | --- |
 | `parent` | `blessed.Widgets.Node` | Parent Blessed node. |
-| `data` | `RenderProgressBarOptions` | Renderer data. |
+| `data` | `ProgressBarData` | Renderer data plus Box theme fields. |
 | `box` | `ProgressBarBoxOptions` | Blessed box options except `parent`, `content`, and `tags`. |
 
 Returns:
@@ -164,10 +185,13 @@ Returns:
 ```ts
 interface ProgressBarHandle {
   readonly element: blessed.Widgets.BoxElement;
-  setData(data: RenderProgressBarOptions): void;
+  setData(data: ProgressBarData): void;
   destroy(): void;
 }
 ```
+
+`ProgressBarData` adds `tone`, `backgroundTone`, `borderTone`, `theme`, and
+`capabilities` to `RenderProgressBarOptions`.
 
 ## Accessibility and terminal compatibility
 

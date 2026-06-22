@@ -4,6 +4,7 @@ import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
 import { progressBar } from '../../src/adapters/blessed/progress-bar.js';
+import { createTheme } from '../../src/core/theme.js';
 
 describe('Blessed ProgressBar adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {
@@ -28,6 +29,48 @@ describe('Blessed ProgressBar adapter', () => {
       component.destroy();
 
       expect(screen.children).not.toContain(component.element);
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('updates semantic color through the shared Box theme contract', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const theme = createTheme({
+      colors: {
+        danger: 'magenta',
+        success: 'green',
+      },
+    });
+
+    try {
+      const component = progressBar({
+        box: { height: 1, width: 20 },
+        data: {
+          capabilities: { colorLevel: 1 },
+          theme,
+          tone: 'success',
+          value: 25,
+          width: 4,
+        },
+        parent: screen,
+      });
+
+      expect(component.element.style.fg).toBe('green');
+
+      component.setData({
+        capabilities: { colorLevel: 1 },
+        theme,
+        tone: 'danger',
+        value: 75,
+        width: 4,
+      });
+
+      expect(component.element.style.fg).toBe('magenta');
     } finally {
       screen.destroy();
     }

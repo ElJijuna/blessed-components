@@ -4,6 +4,8 @@ import {
   type RenderProgressBarOptions,
   renderProgressBar,
 } from '../../components/feedback/progress-bar/index.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -17,9 +19,13 @@ import type { BlessedComponentHandle } from './types.js';
  */
 export type ProgressBarBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
-/**
- * Options accepted by the Blessed {@link progressBar} adapter.
- */
+/** Stateful data accepted by the Blessed {@link progressBar} adapter. */
+export interface ProgressBarData extends RenderProgressBarOptions, Omit<BoxData, 'foregroundTone'> {
+  /** Semantic foreground token. @defaultValue `'foreground'` */
+  tone?: keyof ThemeColors;
+}
+
+/** Options accepted by the Blessed {@link progressBar} adapter. */
 export interface ProgressBarOptions {
   /**
    * Optional Blessed box configuration.
@@ -32,7 +38,7 @@ export interface ProgressBarOptions {
   /**
    * Data passed to the pure {@link renderProgressBar} renderer.
    */
-  data: RenderProgressBarOptions;
+  data: ProgressBarData;
 
   /**
    * Blessed node that receives the created box as a child.
@@ -49,10 +55,7 @@ export interface ProgressBarOptions {
  * and never calls `screen.render()`, allowing callers to batch several updates
  * into one terminal render.
  */
-export type ProgressBarHandle = BlessedComponentHandle<
-  RenderProgressBarOptions,
-  blessed.Widgets.BoxElement
->;
+export type ProgressBarHandle = BlessedComponentHandle<ProgressBarData, blessed.Widgets.BoxElement>;
 
 /**
  * Creates a display-only ProgressBar backed by a Blessed `BoxElement`.
@@ -110,13 +113,38 @@ export type ProgressBarHandle = BlessedComponentHandle<
  * screen.destroy();
  * ```
  */
-export function progressBar({ box, data, parent }: ProgressBarOptions): ProgressBarHandle {
+export function progressBar({
+  box,
+  data: initialData,
+  parent,
+}: ProgressBarOptions): ProgressBarHandle {
+  let data = initialData;
+
   const element = blessed.box({
     ...box,
-    content: renderProgressBar(data),
+    content: '',
     parent,
+    style: {
+      ...box?.style,
+      border: { ...box?.style?.border },
+    },
     tags: false,
   });
+  const style = createBoxStyleController(element, box);
+  const render = (): void => {
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
+
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
+    element.setContent(renderProgressBar(renderData));
+  };
+
+  render();
 
   return {
     element,
@@ -124,7 +152,8 @@ export function progressBar({ box, data, parent }: ProgressBarOptions): Progress
       element.destroy();
     },
     setData(nextData) {
-      element.setContent(renderProgressBar(nextData));
+      data = nextData;
+      render();
     },
   };
 }

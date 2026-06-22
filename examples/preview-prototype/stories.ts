@@ -323,6 +323,7 @@ export const stories: readonly PreviewStory[] = [
             { label: 'Popularity', value: 99 },
             { label: 'Maintenance', value: 82 },
           ],
+          tone: 'primary',
           value: '85%',
         },
       });
@@ -369,6 +370,7 @@ export const stories: readonly PreviewStory[] = [
         },
         data: {
           label: 'Quality',
+          tone: 'success',
           value: 78,
           width: 24,
         },
