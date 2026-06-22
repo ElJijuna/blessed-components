@@ -1,13 +1,8 @@
 import blessed from 'blessed';
 
 import { type RenderTextOptions, renderText } from '../../components/data-display/text/index.js';
-import { detectCapabilities, type TerminalCapabilities } from '../../core/capabilities.js';
-import {
-  DEFAULT_THEME,
-  resolveThemeColor,
-  type Theme,
-  type ThemeColors,
-} from '../../core/theme.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -20,21 +15,7 @@ export type TextBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'paren
 /**
  * Stateful data accepted by the Blessed {@link text} adapter.
  */
-export interface TextData extends RenderTextOptions {
-  /**
-   * Explicit color capability used for deterministic rendering.
-   *
-   * When omitted, capabilities are detected from the running process.
-   */
-  capabilities?: Pick<TerminalCapabilities, 'colorLevel'>;
-
-  /**
-   * Semantic terminal theme.
-   *
-   * @defaultValue `DEFAULT_THEME`
-   */
-  theme?: Theme;
-
+export interface TextData extends RenderTextOptions, Omit<BoxData, 'foregroundTone'> {
   /**
    * Semantic foreground token.
    *
@@ -92,25 +73,29 @@ function innerDimension(
 export function text({ box, data: initialData, parent }: TextOptions): TextHandle {
   let data = initialData;
 
-  const explicitForeground = box?.style?.fg;
   const element = blessed.box({
     ...box,
     content: '',
     parent,
-    style: { ...box?.style },
+    style: {
+      ...box?.style,
+      border: { ...box?.style?.border },
+    },
     tags: false,
   });
+  const style = createBoxStyleController(element, box);
   const render = (): void => {
-    const detected = data.capabilities ?? detectCapabilities();
-    const theme = data.theme ?? DEFAULT_THEME;
-    const tone = data.tone ?? 'foreground';
-    const semanticForeground = resolveThemeColor(theme, tone, detected);
-    const width = data.width ?? innerDimension(element.width, element.iwidth) ?? 0;
-    const height = data.height ?? innerDimension(element.height, element.iheight);
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
+    const width = renderData.width ?? innerDimension(element.width, element.iwidth) ?? 0;
+    const height = renderData.height ?? innerDimension(element.height, element.iheight);
 
-    element.style.fg =
-      explicitForeground ??
-      (semanticForeground === undefined ? undefined : String(semanticForeground));
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
 
     if (width === 0 || height === 0) {
       element.setContent('');
@@ -120,7 +105,7 @@ export function text({ box, data: initialData, parent }: TextOptions): TextHandl
 
     element.setContent(
       renderText({
-        ...data,
+        ...renderData,
         ...(height === undefined ? {} : { height }),
         width,
       }),

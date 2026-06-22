@@ -4,6 +4,8 @@ import {
   type RenderSparklineOptions,
   renderSparkline,
 } from '../../components/visualization/sparkline/index.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -13,13 +15,19 @@ import type { BlessedComponentHandle } from './types.js';
  */
 export type SparklineBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
+/** Stateful data accepted by the Blessed {@link sparkline} adapter. */
+export interface SparklineData extends RenderSparklineOptions, Omit<BoxData, 'foregroundTone'> {
+  /** Semantic foreground token. @defaultValue `'foreground'` */
+  tone?: keyof ThemeColors;
+}
+
 /** Options accepted by the Blessed {@link sparkline} adapter. */
 export interface SparklineOptions {
   /** Optional position, dimensions, style, and other Blessed box settings. */
   box?: SparklineBoxOptions;
 
   /** Data passed to the pure {@link renderSparkline} renderer. */
-  data: RenderSparklineOptions;
+  data: SparklineData;
 
   /** Blessed screen or node that receives the created box. */
   parent: blessed.Widgets.Node;
@@ -31,10 +39,7 @@ export interface SparklineOptions {
  * The handle owns one box, never owns the parent screen, and never calls
  * `screen.render()`.
  */
-export type SparklineHandle = BlessedComponentHandle<
-  RenderSparklineOptions,
-  blessed.Widgets.BoxElement
->;
+export type SparklineHandle = BlessedComponentHandle<SparklineData, blessed.Widgets.BoxElement>;
 
 /**
  * Creates a display-only Sparkline backed by a Blessed `BoxElement`.
@@ -78,13 +83,34 @@ export type SparklineHandle = BlessedComponentHandle<
  * screen.destroy();
  * ```
  */
-export function sparkline({ box, data, parent }: SparklineOptions): SparklineHandle {
+export function sparkline({ box, data: initialData, parent }: SparklineOptions): SparklineHandle {
+  let data = initialData;
+
   const element = blessed.box({
     ...box,
-    content: renderSparkline(data),
+    content: '',
     parent,
+    style: {
+      ...box?.style,
+      border: { ...box?.style?.border },
+    },
     tags: false,
   });
+  const style = createBoxStyleController(element, box);
+  const render = (): void => {
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
+
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
+    element.setContent(renderSparkline(renderData));
+  };
+
+  render();
 
   return {
     element,
@@ -92,7 +118,8 @@ export function sparkline({ box, data, parent }: SparklineOptions): SparklineHan
       element.destroy();
     },
     setData(nextData) {
-      element.setContent(renderSparkline(nextData));
+      data = nextData;
+      render();
     },
   };
 }

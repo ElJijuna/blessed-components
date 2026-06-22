@@ -115,6 +115,7 @@ const revenue = stat({
   },
   data: {
     label: 'Revenue',
+    tone: 'primary',
     value: '$84K',
     trend: {
       direction: 'up',
@@ -141,6 +142,23 @@ revenue.destroy();
 The adapter never calls `screen.render()`. Applications can batch multiple
 updates into one render.
 
+### Semantic colors
+
+Stat uses the shared Box theme contract. `tone` controls foreground color;
+`backgroundTone` and `borderTone` control their matching styles.
+
+```ts
+revenue.setData({
+  label: 'Revenue',
+  theme,
+  tone: 'success',
+  value: '$91K',
+});
+```
+
+Explicit Blessed styles win. Semantic colors become undefined in no-color
+mode.
+
 ## Renderer API
 
 | Option | Type | Default | Description |
@@ -153,6 +171,9 @@ updates into one render.
 | `layout` | `'stacked' \| 'inline'` | `'stacked'` | Label/value arrangement. |
 | `trend` | `StatTrend` | — | Direction, value, and optional label. |
 | `trendCharacters` | `StatTrendCharacters` | `↑`, `↓`, `→` | Direction glyphs. |
+| `tone` | `keyof ThemeColors` | `foreground` | Semantic foreground color. |
+| `backgroundTone` | `keyof ThemeColors` | `background` | Semantic background color. |
+| `borderTone` | `keyof ThemeColors` | `border` | Semantic border color. |
 
 Numeric values and numeric trend values must be finite.
 

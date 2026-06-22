@@ -74,4 +74,37 @@ describe('Blessed Text adapter', () => {
       screen.destroy();
     }
   });
+
+  it('uses shared Box background and border tones', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const theme = createTheme({
+      colors: {
+        background: 'black',
+        border: 'magenta',
+      },
+    });
+
+    try {
+      const component = text({
+        box: { border: 'line', height: 3, width: 12 },
+        data: {
+          backgroundTone: 'background',
+          borderTone: 'border',
+          capabilities: { colorLevel: 1 },
+          content: 'Ready',
+          theme,
+        },
+        parent: screen,
+      });
+
+      expect(component.element.style.bg).toBe('black');
+      expect(component.element.style.border?.fg).toBe('magenta');
+    } finally {
+      screen.destroy();
+    }
+  });
 });

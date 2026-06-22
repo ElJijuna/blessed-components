@@ -4,13 +4,8 @@ import {
   type RenderCardRegionOptions,
   renderCardRegion,
 } from '../../components/layout/card/index.js';
-import { detectCapabilities, type TerminalCapabilities } from '../../core/capabilities.js';
-import {
-  DEFAULT_THEME,
-  resolveThemeColor,
-  type Theme,
-  type ThemeColors,
-} from '../../core/theme.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -21,22 +16,7 @@ import type { BlessedComponentHandle } from './types.js';
 export type CardBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
 /** Theme data accepted by {@link cardRoot}. */
-export interface CardRootData {
-  /** Explicit color capability used for deterministic rendering. */
-  capabilities?: Pick<TerminalCapabilities, 'colorLevel'>;
-
-  /** Semantic background token. @defaultValue `'background'` */
-  backgroundTone?: keyof ThemeColors;
-
-  /** Semantic border token. @defaultValue `'border'` */
-  borderTone?: keyof ThemeColors;
-
-  /** Semantic foreground token. @defaultValue `'foreground'` */
-  foregroundTone?: keyof ThemeColors;
-
-  /** Semantic terminal theme. @defaultValue `DEFAULT_THEME` */
-  theme?: Theme;
-}
+export type CardRootData = BoxData;
 
 /** Options accepted by {@link cardRoot}. */
 export interface CardRootOptions {
@@ -54,13 +34,7 @@ export interface CardRootOptions {
 export type CardRootHandle = BlessedComponentHandle<CardRootData, blessed.Widgets.BoxElement>;
 
 /** Stateful content and theme data shared by Card regions. */
-export interface CardRegionData extends RenderCardRegionOptions {
-  /** Explicit color capability used for deterministic rendering. */
-  capabilities?: Pick<TerminalCapabilities, 'colorLevel'>;
-
-  /** Semantic terminal theme. @defaultValue `DEFAULT_THEME` */
-  theme?: Theme;
-
+export interface CardRegionData extends RenderCardRegionOptions, Omit<BoxData, 'foregroundTone'> {
   /** Semantic foreground token. */
   tone?: keyof ThemeColors;
 }
@@ -140,7 +114,6 @@ function createCardRegion(
 ): CardRegionHandle {
   let data = initialData;
 
-  const explicitForeground = box?.style?.fg;
   const explicitBold = box?.style?.bold;
   const element = blessed.box({
     ...defaults.box,
@@ -150,22 +123,25 @@ function createCardRegion(
     style: {
       ...(defaults.bold === undefined ? {} : { bold: defaults.bold }),
       ...box?.style,
+      border: { ...box?.style?.border },
     },
     tags: false,
   });
+  const style = createBoxStyleController(element, box, {
+    foregroundTone: defaults.tone,
+  });
   const render = (): void => {
-    const {
-      capabilities = detectCapabilities(),
-      theme = DEFAULT_THEME,
-      tone = defaults.tone,
-      ...renderData
-    } = data;
-    const foreground = resolveThemeColor(theme, tone, capabilities);
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth);
     const height = renderData.height ?? innerDimension(element.height, element.iheight);
 
-    element.style.fg =
-      explicitForeground ?? (foreground === undefined ? undefined : String(foreground));
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
     element.style.bold = explicitBold ?? defaults.bold;
 
     if (width === 0 || height === 0) {
@@ -207,9 +183,6 @@ function createCardRegion(
 export function cardRoot({ box, data: initialData = {}, parent }: CardRootOptions): CardRootHandle {
   let data = initialData;
 
-  const explicitForeground = box?.style?.fg;
-  const explicitBackground = box?.style?.bg;
-  const explicitBorder = box?.style?.border?.fg;
   const element = blessed.box({
     bottom: 0,
     border: 'line',
@@ -226,22 +199,8 @@ export function cardRoot({ box, data: initialData = {}, parent }: CardRootOption
     },
     tags: false,
   });
-  const render = (): void => {
-    const capabilities = data.capabilities ?? detectCapabilities();
-    const theme = data.theme ?? DEFAULT_THEME;
-    const foreground = resolveThemeColor(theme, data.foregroundTone ?? 'foreground', capabilities);
-    const background = resolveThemeColor(theme, data.backgroundTone ?? 'background', capabilities);
-    const border = resolveThemeColor(theme, data.borderTone ?? 'border', capabilities);
-
-    element.style.fg =
-      explicitForeground ?? (foreground === undefined ? undefined : String(foreground));
-    element.style.bg =
-      explicitBackground ?? (background === undefined ? undefined : String(background));
-    element.style.border = {
-      ...element.style.border,
-      fg: explicitBorder ?? (border === undefined ? undefined : String(border)),
-    };
-  };
+  const style = createBoxStyleController(element, box);
+  const render = (): void => style.apply(data);
 
   render();
 

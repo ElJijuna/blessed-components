@@ -1,6 +1,8 @@
 import blessed from 'blessed';
 
 import { type RenderStatOptions, renderStat } from '../../components/data-display/stat/index.js';
+import type { ThemeColors } from '../../core/theme.js';
+import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -10,13 +12,19 @@ import type { BlessedComponentHandle } from './types.js';
  */
 export type StatBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
+/** Stateful data accepted by the Blessed {@link stat} adapter. */
+export interface StatData extends RenderStatOptions, Omit<BoxData, 'foregroundTone'> {
+  /** Semantic foreground token. @defaultValue `'foreground'` */
+  tone?: keyof ThemeColors;
+}
+
 /** Options accepted by the Blessed {@link stat} adapter. */
 export interface StatOptions {
   /** Optional dimensions, position, style, and standard Blessed box settings. */
   box?: StatBoxOptions;
 
   /** Data passed to the pure {@link renderStat} renderer. */
-  data: RenderStatOptions;
+  data: StatData;
 
   /** Blessed screen or node that receives the created box. */
   parent: blessed.Widgets.Node;
@@ -28,7 +36,7 @@ export interface StatOptions {
  * The handle owns one box. It does not own the parent screen and never calls
  * `screen.render()`.
  */
-export type StatHandle = BlessedComponentHandle<RenderStatOptions, blessed.Widgets.BoxElement>;
+export type StatHandle = BlessedComponentHandle<StatData, blessed.Widgets.BoxElement>;
 
 /**
  * Creates a display-only Stat backed by a Blessed `BoxElement`.
@@ -74,13 +82,34 @@ export type StatHandle = BlessedComponentHandle<RenderStatOptions, blessed.Widge
  * screen.destroy();
  * ```
  */
-export function stat({ box, data, parent }: StatOptions): StatHandle {
+export function stat({ box, data: initialData, parent }: StatOptions): StatHandle {
+  let data = initialData;
+
   const element = blessed.box({
     ...box,
-    content: renderStat(data),
+    content: '',
     parent,
+    style: {
+      ...box?.style,
+      border: { ...box?.style?.border },
+    },
     tags: false,
   });
+  const style = createBoxStyleController(element, box);
+  const render = (): void => {
+    const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
+
+    style.apply({
+      backgroundTone,
+      borderTone,
+      capabilities,
+      foregroundTone: tone,
+      theme,
+    });
+    element.setContent(renderStat(renderData));
+  };
+
+  render();
 
   return {
     element,
@@ -88,7 +117,8 @@ export function stat({ box, data, parent }: StatOptions): StatHandle {
       element.destroy();
     },
     setData(nextData) {
-      element.setContent(renderStat(nextData));
+      data = nextData;
+      render();
     },
   };
 }

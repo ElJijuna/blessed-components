@@ -4,6 +4,7 @@ import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
 import { stat } from '../../src/adapters/blessed/stat.js';
+import { createTheme } from '../../src/core/theme.js';
 
 describe('Blessed Stat adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {
@@ -32,6 +33,48 @@ describe('Blessed Stat adapter', () => {
       component.destroy();
 
       expect(screen.children).not.toContain(component.element);
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('updates semantic color through the shared Box theme contract', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const theme = createTheme({
+      colors: {
+        danger: 'red',
+        success: 'cyan',
+      },
+    });
+
+    try {
+      const component = stat({
+        box: { height: 2, width: 20 },
+        data: {
+          capabilities: { colorLevel: 1 },
+          label: 'Jobs',
+          theme,
+          tone: 'success',
+          value: 4,
+        },
+        parent: screen,
+      });
+
+      expect(component.element.style.fg).toBe('cyan');
+
+      component.setData({
+        capabilities: { colorLevel: 1 },
+        label: 'Jobs',
+        theme,
+        tone: 'danger',
+        value: 1,
+      });
+
+      expect(component.element.style.fg).toBe('red');
     } finally {
       screen.destroy();
     }

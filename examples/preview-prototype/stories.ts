@@ -321,6 +321,7 @@ export const stories: readonly PreviewStory[] = [
         data: {
           label: 'Weekly downloads',
           summary: 'peak: 3.8M',
+          tone: 'primary',
           value: '25,200,000',
           values: [
             1, 2, 3, 4, 3, 5, 6, 7, 8, 7, 6, 5, 4, 6, 7, 7, 8, 6, 5, 4, 3, 4, 5, 6, 7, 6, 5, 6, 7,
@@ -368,6 +369,7 @@ export const stories: readonly PreviewStory[] = [
         data: {
           description: 'Compared with previous month',
           label: 'Monthly revenue',
+          tone: 'success',
           trend: {
             direction: 'up',
             value: '12.5%',

@@ -113,6 +113,7 @@ const downloads = sparkline({
   },
   data: {
     label: 'Downloads',
+    tone: 'primary',
     values: [1, 3, 2, 5, 8, 6],
     width: 20,
   },
@@ -133,6 +134,25 @@ downloads.destroy();
 The adapter never calls `screen.render()`. This lets applications batch
 multiple component updates.
 
+### Semantic colors
+
+Sparkline uses the shared Box theme contract:
+
+```ts
+downloads.setData({
+  capabilities: { colorLevel: 1 },
+  label: 'Downloads',
+  theme,
+  tone: 'success',
+  values: [2, 4, 6, 8],
+  width: 20,
+});
+```
+
+`tone` controls foreground color. `backgroundTone` and `borderTone` are also
+available. Explicit Blessed styles win. Semantic colors become undefined in
+no-color mode.
+
 ## Renderer API
 
 | Option | Type | Default | Description |
@@ -146,6 +166,9 @@ multiple component updates.
 | `label` | `string` | — | Heading label. |
 | `value` | `string \| number` | — | Primary heading value. |
 | `summary` | `string` | — | Text appended after the graph. |
+| `tone` | `keyof ThemeColors` | `foreground` | Semantic foreground color. |
+| `backgroundTone` | `keyof ThemeColors` | `background` | Semantic background color. |
+| `borderTone` | `keyof ThemeColors` | `border` | Semantic border color. |
 
 ## Terminal compatibility
 

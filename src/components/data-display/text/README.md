@@ -169,6 +169,26 @@ color output is unavailable or `NO_COLOR` is active. Pass explicit
 
 An explicit `box.style.fg` takes precedence over the semantic tone.
 
+Text also accepts Box's `backgroundTone` and `borderTone`:
+
+```ts
+text({
+  parent: screen,
+  box: {
+    border: 'line',
+  },
+  data: {
+    backgroundTone: 'background',
+    borderTone: 'primary',
+    content: 'Connected',
+    tone: 'success',
+  },
+});
+```
+
+Explicit `box.style.bg` and `box.style.border.fg` take precedence over those
+semantic tokens.
+
 ## Security and accessibility
 
 Text treats content as untrusted terminal text:

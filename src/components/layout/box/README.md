@@ -105,6 +105,21 @@ panel.destroy();
 `setData()` replaces semantic style data while preserving element identity.
 Box never calls `screen.render()`.
 
+## Adapter foundation
+
+`createBoxStyleController()` applies this same contract to an existing Blessed
+`BoxElement`. Built-in `Text`, `Card`, `Sparkline`, and `Stat` adapters use it,
+so they share:
+
+- `capabilities`;
+- `theme`;
+- semantic foreground, background, and border tones;
+- explicit Blessed style precedence;
+- no-color behavior.
+
+Component adapters may expose `tone` as the ergonomic alias for
+`foregroundTone`.
+
 ## Accessibility
 
 - Box is display-only unless consumers explicitly enable Blessed interaction.
