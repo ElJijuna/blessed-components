@@ -109,6 +109,16 @@
       "import": "./dist/sparkline/blessed.js",
       "require": "./dist/sparkline/blessed.cjs"
     },
+    "./spinner": {
+      "types": "./dist/spinner/index.d.ts",
+      "import": "./dist/spinner/index.js",
+      "require": "./dist/spinner/index.cjs"
+    },
+    "./spinner/blessed": {
+      "types": "./dist/spinner/blessed.d.ts",
+      "import": "./dist/spinner/blessed.js",
+      "require": "./dist/spinner/blessed.cjs"
+    },
     "./stack": {
       "types": "./dist/stack/index.d.ts",
       "import": "./dist/stack/index.js",

@@ -12,6 +12,7 @@ import {
   metricBars,
   progressBar,
   sparkline,
+  spinner,
   stack,
   stat,
   text,
@@ -20,6 +21,26 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'spinner/loading',
+    title: 'Spinner / Loading',
+    description: 'Animated Unicode activity indicator with semantic tone.',
+    mount(parent) {
+      const loading = spinner({
+        box: { height: 1, left: 3, top: 3, width: 30 },
+        data: {
+          label: 'Deploying services',
+          onFrame() {
+            parent.screen.render();
+          },
+          tone: 'primary',
+        },
+        parent,
+      });
+
+      return loading;
+    },
+  }),
   defineStory({
     id: 'divider/labels',
     title: 'Divider / Labels',

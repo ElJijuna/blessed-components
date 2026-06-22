@@ -247,7 +247,7 @@ npm subpaths:
 | ---------------- | ----------------------------------------- |
 | `collections`    | `List`                                    |
 | `data-display`   | `Badge`, `Stat`, `Text`                   |
-| `feedback`       | `ProgressBar`                             |
+| `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | Reserved for interactive form components |
 | `layout`         | `Box`, `Card`, `Divider`, `Stack`         |
@@ -362,7 +362,7 @@ These components share bounded values, semantic tones, and live updates.
 | `ProgressBar`        | One determinate horizontal progress bar.                | Available | P0       |
 | `ProgressStack`      | Segmented progress across categories.                   | Build    | P1       |
 | `ProgressList`       | Multiple labeled progress rows.                         | Build    | P1       |
-| `Spinner`            | Indeterminate activity indicator.                       | Build    | P1       |
+| `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
 | `Status`             | State icon, label, and optional detail.                 | Build    | P1       |
 | `Alert`              | Inline information, success, warning, or error message. | Build    | P1       |
 | `Callout`            | Framed explanatory content.                             | Build    | P2       |

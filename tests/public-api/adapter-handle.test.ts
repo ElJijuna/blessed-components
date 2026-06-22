@@ -14,6 +14,7 @@ import {
   metricBars,
   progressBar,
   sparkline,
+  spinner,
   stack,
   stat,
   text,
@@ -53,6 +54,10 @@ describe('Blessed component handle contract', () => {
       data: { values: [1, 2], width: 2 },
       parent: screen,
     });
+    const spinnerHandle = spinner({
+      data: { autoStart: false, label: 'Loading' },
+      parent: screen,
+    });
     const stackHandle = stack({
       box: { height: 4, width: 20 },
       parent: screen,
@@ -74,6 +79,7 @@ describe('Blessed component handle contract', () => {
       dividerHandle,
       progressHandle,
       sparklineHandle,
+      spinnerHandle,
       stackHandle,
       statHandle,
     ];
@@ -92,6 +98,7 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(dividerHandle, {});
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
+    updateAndDestroy(spinnerHandle, { autoStart: false, label: 'Done' });
     updateAndDestroy(stackHandle, {});
     updateAndDestroy(statHandle, { label: 'Jobs', value: 5 });
     updateAndDestroy(listHandle, {
