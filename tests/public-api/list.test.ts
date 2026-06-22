@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderList } from '../../src/index.js';
+import { renderList } from '@/index.js';
 
 describe('List', () => {
   it('renders cursor, selection, disabled state, width, and viewport', () => {

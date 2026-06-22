@@ -1,4 +1,4 @@
-import { truncateText } from '../../../core/truncate.js';
+import { truncateText } from '@/core/truncate.js';
 
 /**
  * Minimum data required for one List row.

@@ -1,4 +1,4 @@
-import { clamp } from '../../core/scale.js';
+import { clamp } from '@/core/scale.js';
 
 /**
  * Two-dimensional terminal size.

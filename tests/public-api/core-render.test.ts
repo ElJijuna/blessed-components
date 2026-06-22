@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { diffRows, type RenderModel, renderToString } from '../../src/core/index.js';
+import { diffRows, type RenderModel, renderToString } from '@/core/index.js';
 
 describe('core render model', () => {
   it('renders rows and cells into plain text', () => {

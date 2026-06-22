@@ -1,4 +1,4 @@
-import { type RenderTextOptions, renderText } from '../../data-display/text/index.js';
+import { type RenderTextOptions, renderText } from '@/components/data-display/text/index.js';
 
 /**
  * Options accepted by {@link renderCardRegion}.

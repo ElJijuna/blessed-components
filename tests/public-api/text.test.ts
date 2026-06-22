@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderText } from '../../src/index.js';
+import { renderText } from '@/index.js';
 
 describe('Text', () => {
   it('sanitizes terminal markup and wraps by visible terminal cells', () => {

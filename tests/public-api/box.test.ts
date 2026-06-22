@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { createTheme, resolveBoxTheme } from '../../src/index.js';
+import { createTheme, resolveBoxTheme } from '@/index.js';
 
 describe('Box', () => {
   it('resolves semantic foreground, background, and border colors', () => {

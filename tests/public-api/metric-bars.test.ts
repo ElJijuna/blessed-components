@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderMetricBars } from '../../src/index.js';
+import { renderMetricBars } from '@/index.js';
 
 describe('MetricBars', () => {
   it('renders aligned labeled metrics in input order', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { createFocusScope, createOverlayStack } from '../../src/primitives/index.js';
+import { createFocusScope, createOverlayStack } from '@/primitives/index.js';
 
 describe('focus-scope and overlay primitives', () => {
   it('captures, traps, and restores focus identifiers', () => {

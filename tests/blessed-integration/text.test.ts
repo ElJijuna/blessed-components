@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { text } from '../../src/adapters/blessed/text.js';
-import { createTheme } from '../../src/core/theme.js';
+import { text } from '@/adapters/blessed/text.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Text adapter', () => {
   it('applies semantic theme tones and updates safe content', () => {

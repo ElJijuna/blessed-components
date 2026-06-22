@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { metricBars } from '../../src/adapters/blessed/metric-bars.js';
-import { createTheme } from '../../src/core/theme.js';
+import { metricBars } from '@/adapters/blessed/metric-bars.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed MetricBars adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {

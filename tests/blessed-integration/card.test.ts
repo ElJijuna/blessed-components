@@ -10,8 +10,8 @@ import {
   cardHeader,
   cardRoot,
   cardTitle,
-} from '../../src/adapters/blessed/card.js';
-import { createTheme } from '../../src/core/theme.js';
+} from '@/adapters/blessed/card.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Card adapter', () => {
   it('creates a themed root frame and updates it without replacing the element', () => {

@@ -2,7 +2,7 @@ import {
   type CollectionItem,
   type CollectionModel,
   createCollection,
-} from '../collection/index.js';
+} from '@/primitives/collection/index.js';
 
 /**
  * Options accepted by {@link createFocusScope}.

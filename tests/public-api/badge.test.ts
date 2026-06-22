@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderBadge } from '../../src/index.js';
+import { renderBadge } from '@/index.js';
 
 describe('Badge', () => {
   it('renders neutral text inside a compact badge', () => {

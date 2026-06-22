@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { box } from '../../src/adapters/blessed/box.js';
-import { createTheme } from '../../src/core/theme.js';
+import { box } from '@/adapters/blessed/box.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Box adapter', () => {
   it('applies semantic colors while preserving explicit Blessed style overrides', () => {

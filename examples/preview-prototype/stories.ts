@@ -16,7 +16,7 @@ import {
   stack,
   stat,
   text,
-} from '../../src/index.js';
+} from '@/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 

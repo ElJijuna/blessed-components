@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { createScrollArea, createViewport } from '../../src/primitives/index.js';
+import { createScrollArea, createViewport } from '@/primitives/index.js';
 
 describe('viewport and scroll-area primitives', () => {
   it('clamps scrolling and preserves valid offsets after resize', () => {

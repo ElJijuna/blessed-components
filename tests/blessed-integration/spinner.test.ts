@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { spinner } from '../../src/adapters/blessed/spinner.js';
-import { createTheme } from '../../src/core/theme.js';
+import { spinner } from '@/adapters/blessed/spinner.js';
+import { createTheme } from '@/core/theme.js';
 
 afterEach(() => {
   vi.useRealTimers();

@@ -1,11 +1,11 @@
-import type { TerminalCapabilities } from '../../../core/capabilities.js';
+import type { TerminalCapabilities } from '@/core/capabilities.js';
 import {
   DEFAULT_THEME,
   resolveThemeColor,
   type TerminalColor,
   type Theme,
   type ThemeColors,
-} from '../../../core/theme.js';
+} from '@/core/theme.js';
 
 /** Semantic theme configuration accepted by {@link resolveBoxTheme}. */
 export interface ResolveBoxThemeOptions {

@@ -1,6 +1,6 @@
 import blessed from 'blessed';
 
-import { type RenderBadgeOptions, renderBadge } from '../../components/data-display/badge/index.js';
+import { type RenderBadgeOptions, renderBadge } from '@/components/data-display/badge/index.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**

@@ -1,6 +1,6 @@
-import { stripBlessedTags } from '../../../core/tags.js';
-import { truncateText, wrapText } from '../../../core/truncate.js';
-import { sliceByWidth, stripAnsi, visibleWidth } from '../../../core/width.js';
+import { stripBlessedTags } from '@/core/tags.js';
+import { truncateText, wrapText } from '@/core/truncate.js';
+import { sliceByWidth, stripAnsi, visibleWidth } from '@/core/width.js';
 
 /**
  * Horizontal text alignment within a configured width.

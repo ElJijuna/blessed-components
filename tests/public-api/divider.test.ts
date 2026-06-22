@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderDivider } from '../../src/index.js';
+import { renderDivider } from '@/index.js';
 
 describe('Divider', () => {
   it('renders a fixed-width horizontal separator', () => {

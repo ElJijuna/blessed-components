@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { stat } from '../../src/adapters/blessed/stat.js';
-import { createTheme } from '../../src/core/theme.js';
+import { stat } from '@/adapters/blessed/stat.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Stat adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {

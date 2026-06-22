@@ -8,7 +8,7 @@ import {
   getColorLevel,
   resolveThemeColor,
   UNICODE_CHARACTERS,
-} from '../../src/core/index.js';
+} from '@/core/index.js';
 
 describe('core terminal policy', () => {
   it('detects color, Unicode, and mouse capabilities from explicit environment data', () => {

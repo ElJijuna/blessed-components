@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { clamp, normalizeValue, sampleSeries, scaleValue } from '../../src/core/index.js';
+import { clamp, normalizeValue, sampleSeries, scaleValue } from '@/core/index.js';
 
 describe('core scale utilities', () => {
   it('clamps and normalizes numeric domains', () => {

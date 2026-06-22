@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { createCollection, createSelectionModel } from '../../src/primitives/index.js';
+import { createCollection, createSelectionModel } from '@/primitives/index.js';
 
 describe('collection and selection primitives', () => {
   const items = [

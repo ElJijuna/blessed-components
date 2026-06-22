@@ -7,7 +7,7 @@ import {
   formatNumber,
   formatPercent,
   formatRate,
-} from '../../src/core/index.js';
+} from '@/core/index.js';
 
 describe('core format utilities', () => {
   it('formats numbers and percentages with explicit locale options', () => {

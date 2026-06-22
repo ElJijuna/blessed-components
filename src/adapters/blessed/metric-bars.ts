@@ -4,8 +4,8 @@ import {
   type MetricBarItem,
   type RenderMetricBarsOptions,
   renderMetricBars,
-} from '../../components/visualization/metric-bars/index.js';
-import type { ThemeColors } from '../../core/theme.js';
+} from '@/components/visualization/metric-bars/index.js';
+import type { ThemeColors } from '@/core/theme.js';
 import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

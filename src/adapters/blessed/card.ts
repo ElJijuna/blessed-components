@@ -1,10 +1,7 @@
 import blessed from 'blessed';
 
-import {
-  type RenderCardRegionOptions,
-  renderCardRegion,
-} from '../../components/layout/card/index.js';
-import type { ThemeColors } from '../../core/theme.js';
+import { type RenderCardRegionOptions, renderCardRegion } from '@/components/layout/card/index.js';
+import type { ThemeColors } from '@/core/theme.js';
 import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

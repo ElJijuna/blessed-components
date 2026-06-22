@@ -1,4 +1,4 @@
-import { sliceByWidth, visibleWidth } from '../../../core/width.js';
+import { sliceByWidth, visibleWidth } from '@/core/width.js';
 
 /** Direction in which a Divider extends. */
 export type DividerOrientation = 'horizontal' | 'vertical';

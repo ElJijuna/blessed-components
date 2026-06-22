@@ -3,8 +3,8 @@ import blessed from 'blessed';
 import {
   type RenderProgressBarOptions,
   renderProgressBar,
-} from '../../components/feedback/progress-bar/index.js';
-import type { ThemeColors } from '../../core/theme.js';
+} from '@/components/feedback/progress-bar/index.js';
+import type { ThemeColors } from '@/core/theme.js';
 import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

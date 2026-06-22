@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderSparkline } from '../../src/index.js';
+import { renderSparkline } from '@/index.js';
 
 describe('Sparkline', () => {
   it('scales a numeric series across the default Unicode glyphs', () => {

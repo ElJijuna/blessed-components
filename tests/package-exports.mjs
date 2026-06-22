@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 
 const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
@@ -29,6 +29,13 @@ const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
 const primitivesModule = await import('../dist/primitives/index.js');
 const selectionModule = await import('../dist/primitives/selection/index.js');
+const distEntries = await readdir(new URL('../dist', import.meta.url), {
+  recursive: true,
+});
+const publishedModulePaths = distEntries.filter((path) => /\.(?:cjs|cts|js|ts)$/.test(path));
+const publishedModuleSources = await Promise.all(
+  publishedModulePaths.map((path) => readFile(new URL(`../dist/${path}`, import.meta.url), 'utf8')),
+);
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
@@ -138,6 +145,11 @@ assert.equal(
   rootTypes.includes('BlessedComponentHandle'),
   true,
   'Root declarations must export the shared Blessed adapter handle.',
+);
+assert.equal(
+  publishedModuleSources.some((source) => source.includes('@/')),
+  false,
+  'Published modules and declarations must not contain internal @ aliases.',
 );
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {

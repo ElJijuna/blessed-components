@@ -1,8 +1,8 @@
 import blessed from 'blessed';
 
-import { resolveBoxTheme } from '../../components/layout/box/index.js';
-import { detectCapabilities, type TerminalCapabilities } from '../../core/capabilities.js';
-import type { Theme, ThemeColors } from '../../core/theme.js';
+import { resolveBoxTheme } from '@/components/layout/box/index.js';
+import { detectCapabilities, type TerminalCapabilities } from '@/core/capabilities.js';
+import type { Theme, ThemeColors } from '@/core/theme.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**

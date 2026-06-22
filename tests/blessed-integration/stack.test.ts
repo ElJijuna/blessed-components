@@ -3,7 +3,7 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { stack } from '../../src/adapters/blessed/stack.js';
+import { stack } from '@/adapters/blessed/stack.js';
 
 describe('Blessed Stack adapter', () => {
   it('lays out direct children and updates direction without replacing elements', () => {

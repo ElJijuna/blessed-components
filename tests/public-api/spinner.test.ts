@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderSpinner } from '../../src/index.js';
+import { renderSpinner } from '@/index.js';
 
 describe('Spinner', () => {
   it('renders one deterministic frame with an optional label', () => {

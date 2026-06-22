@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { calculateStackLayout } from '../../src/index.js';
+import { calculateStackLayout } from '@/index.js';
 
 describe('Stack', () => {
   it('lays out vertical items with a consistent gap and stretched cross axis', () => {

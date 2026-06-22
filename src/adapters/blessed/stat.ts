@@ -1,7 +1,7 @@
 import blessed from 'blessed';
 
-import { type RenderStatOptions, renderStat } from '../../components/data-display/stat/index.js';
-import type { ThemeColors } from '../../core/theme.js';
+import { type RenderStatOptions, renderStat } from '@/components/data-display/stat/index.js';
+import type { ThemeColors } from '@/core/theme.js';
 import { type BoxData, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

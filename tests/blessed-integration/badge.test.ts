@@ -3,7 +3,7 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { badge } from '../../src/adapters/blessed/badge.js';
+import { badge } from '@/adapters/blessed/badge.js';
 
 describe('Blessed Badge adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {

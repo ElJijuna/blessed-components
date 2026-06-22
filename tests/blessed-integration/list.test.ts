@@ -3,7 +3,7 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it, vi } from 'vitest';
 
-import { list } from '../../src/adapters/blessed/list.js';
+import { list } from '@/adapters/blessed/list.js';
 
 describe('Blessed List adapter', () => {
   it('navigates enabled items and selects the active item', () => {

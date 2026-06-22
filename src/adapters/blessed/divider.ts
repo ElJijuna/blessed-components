@@ -4,10 +4,10 @@ import {
   type DividerCharacters,
   type RenderDividerOptions,
   renderDivider,
-} from '../../components/layout/divider/index.js';
-import { detectCapabilities, type TerminalCapabilities } from '../../core/capabilities.js';
-import { createCharacterSet } from '../../core/characters.js';
-import type { ThemeColors } from '../../core/theme.js';
+} from '@/components/layout/divider/index.js';
+import { detectCapabilities, type TerminalCapabilities } from '@/core/capabilities.js';
+import { createCharacterSet } from '@/core/characters.js';
+import type { ThemeColors } from '@/core/theme.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

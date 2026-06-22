@@ -5,7 +5,7 @@ import {
   type StackAlign,
   type StackDirection,
   type StackItemSize,
-} from '../../components/layout/stack/index.js';
+} from '@/components/layout/stack/index.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 

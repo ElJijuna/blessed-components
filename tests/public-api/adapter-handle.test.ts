@@ -18,7 +18,7 @@ import {
   stack,
   stat,
   text,
-} from '../../src/index.js';
+} from '@/index.js';
 
 function updateAndDestroy<TData>(handle: BlessedComponentHandle<TData>, data: TData): void {
   handle.setData(data);

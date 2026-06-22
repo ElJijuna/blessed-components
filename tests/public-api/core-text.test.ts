@@ -7,7 +7,7 @@ import {
   truncateText,
   visibleWidth,
   wrapText,
-} from '../../src/core/index.js';
+} from '@/core/index.js';
 
 describe('core text utilities', () => {
   it('measures terminal cells while ignoring ANSI and Blessed tags', () => {

@@ -1,5 +1,5 @@
-import { stripBlessedTags } from '../../../core/tags.js';
-import { stripAnsi, visibleWidth } from '../../../core/width.js';
+import { stripBlessedTags } from '@/core/tags.js';
+import { stripAnsi, visibleWidth } from '@/core/width.js';
 
 /** Default Unicode Spinner frames. */
 export const SPINNER_UNICODE_FRAMES = Object.freeze([

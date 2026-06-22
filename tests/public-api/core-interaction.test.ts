@@ -6,7 +6,7 @@ import {
   createKeymap,
   distributeSpace,
   insetRect,
-} from '../../src/core/index.js';
+} from '@/core/index.js';
 
 describe('core interaction and layout models', () => {
   it('publishes typed events and unsubscribes listeners', () => {

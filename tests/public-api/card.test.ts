@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderCardRegion } from '../../src/index.js';
+import { renderCardRegion } from '@/index.js';
 
 describe('Card', () => {
   it('renders safe, bounded text for an independent region', () => {

@@ -4,10 +4,10 @@ import {
   type ListCharacters,
   type ListItem,
   renderList,
-} from '../../components/collections/list/index.js';
-import { createFocusScope } from '../../primitives/focus-scope/index.js';
-import { createScrollArea } from '../../primitives/scroll-area/index.js';
-import { createSelectionModel } from '../../primitives/selection/index.js';
+} from '@/components/collections/list/index.js';
+import { createFocusScope } from '@/primitives/focus-scope/index.js';
+import { createScrollArea } from '@/primitives/scroll-area/index.js';
+import { createSelectionModel } from '@/primitives/selection/index.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**

@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { divider } from '../../src/adapters/blessed/divider.js';
-import { createTheme } from '../../src/core/theme.js';
+import { divider } from '@/adapters/blessed/divider.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Divider adapter', () => {
   it('derives length, selects terminal characters, and updates semantic tone', () => {

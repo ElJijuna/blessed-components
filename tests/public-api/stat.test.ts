@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderStat } from '../../src/index.js';
+import { renderStat } from '@/index.js';
 
 describe('Stat', () => {
   it('renders a label above its primary value', () => {

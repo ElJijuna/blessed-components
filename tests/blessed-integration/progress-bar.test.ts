@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { progressBar } from '../../src/adapters/blessed/progress-bar.js';
-import { createTheme } from '../../src/core/theme.js';
+import { progressBar } from '@/adapters/blessed/progress-bar.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed ProgressBar adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {

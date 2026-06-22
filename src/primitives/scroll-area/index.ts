@@ -1,4 +1,4 @@
-import { clamp } from '../../core/scale.js';
+import { clamp } from '@/core/scale.js';
 
 /**
  * Scroll-area dimensions updated as one transaction.

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { renderProgressBar } from '../../src/index.js';
+import { renderProgressBar } from '@/index.js';
 
 describe('ProgressBar', () => {
   it('renders a value as a fixed-width Unicode track', () => {

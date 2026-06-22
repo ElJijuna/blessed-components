@@ -3,8 +3,8 @@ import { PassThrough } from 'node:stream';
 import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
-import { sparkline } from '../../src/adapters/blessed/sparkline.js';
-import { createTheme } from '../../src/core/theme.js';
+import { sparkline } from '@/adapters/blessed/sparkline.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Sparkline adapter', () => {
   it('creates, updates, and destroys a Blessed element', () => {
