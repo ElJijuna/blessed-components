@@ -31,6 +31,8 @@ export default defineConfig({
     'dialog/blessed': 'src/adapters/blessed/dialog.ts',
     'dialog/index': 'src/components/overlays/dialog/index.ts',
     index: 'src/index.ts',
+    'key-value/blessed': 'src/adapters/blessed/key-value.ts',
+    'key-value/index': 'src/components/data-display/key-value/index.ts',
     'list/blessed': 'src/adapters/blessed/list.ts',
     'list/index': 'src/components/collections/list/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',

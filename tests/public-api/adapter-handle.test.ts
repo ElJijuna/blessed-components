@@ -11,6 +11,7 @@ import {
   cardRoot,
   dialogRoot,
   divider,
+  keyValue,
   list,
   metricBars,
   progressBar,
@@ -51,6 +52,10 @@ describe('Blessed component handle contract', () => {
       data: { id: 'handle-dialog' },
       parent: screen,
     });
+    const keyValueHandle = keyValue({
+      data: { items: [{ key: 'Status', value: 'Ready' }] },
+      parent: screen,
+    });
     const progressHandle = progressBar({
       data: { value: 50, width: 4 },
       parent: screen,
@@ -83,6 +88,7 @@ describe('Blessed component handle contract', () => {
       cardBodyHandle,
       dividerHandle,
       dialogHandle,
+      keyValueHandle,
       progressHandle,
       sparklineHandle,
       spinnerHandle,
@@ -103,6 +109,9 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(cardHandle, {});
     updateAndDestroy(dividerHandle, {});
     updateAndDestroy(dialogHandle, { id: 'handle-dialog' });
+    updateAndDestroy(keyValueHandle, {
+      items: [{ key: 'Status', value: 'Done' }],
+    });
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
     updateAndDestroy(spinnerHandle, { autoStart: false, label: 'Done' });

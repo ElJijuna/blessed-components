@@ -79,6 +79,16 @@
       "import": "./dist/dialog/blessed.js",
       "require": "./dist/dialog/blessed.cjs"
     },
+    "./key-value": {
+      "types": "./dist/key-value/index.d.ts",
+      "import": "./dist/key-value/index.js",
+      "require": "./dist/key-value/index.cjs"
+    },
+    "./key-value/blessed": {
+      "types": "./dist/key-value/blessed.d.ts",
+      "import": "./dist/key-value/blessed.js",
+      "require": "./dist/key-value/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

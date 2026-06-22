@@ -11,6 +11,8 @@ const pureDividerModule = await import('../dist/divider/index.js');
 const blessedDividerModule = await import('../dist/divider/blessed.js');
 const pureDialogModule = await import('../dist/dialog/index.js');
 const blessedDialogModule = await import('../dist/dialog/blessed.js');
+const pureKeyValueModule = await import('../dist/key-value/index.js');
+const blessedKeyValueModule = await import('../dist/key-value/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
@@ -61,6 +63,11 @@ const [dividerEsmSource, dividerCjsSource] = await Promise.all(
 );
 const [dialogEsmSource, dialogCjsSource] = await Promise.all(
   ['../dist/dialog/index.js', '../dist/dialog/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [keyValueEsmSource, keyValueCjsSource] = await Promise.all(
+  ['../dist/key-value/index.js', '../dist/key-value/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -135,6 +142,8 @@ assert.equal(typeof blessedDialogModule.dialogTitle, 'function');
 assert.equal(typeof blessedDialogModule.dialogDescription, 'function');
 assert.equal(typeof blessedDialogModule.dialogBody, 'function');
 assert.equal(typeof blessedDialogModule.dialogFooter, 'function');
+assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
+assert.equal(typeof blessedKeyValueModule.keyValue, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
@@ -184,6 +193,10 @@ for (const source of [dividerEsmSource, dividerCjsSource]) {
 
 for (const source of [dialogEsmSource, dialogCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Dialog entry must not import Blessed.');
+}
+
+for (const source of [keyValueEsmSource, keyValueCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure KeyValue entry must not import Blessed.');
 }
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {

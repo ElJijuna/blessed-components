@@ -14,6 +14,7 @@ import {
   dialogRoot,
   dialogTitle,
   divider,
+  keyValue,
   list,
   metricBars,
   progressBar,
@@ -490,6 +491,34 @@ export const stories: readonly PreviewStory[] = [
           values: [],
           width: 20,
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'key-value/server',
+    title: 'KeyValue / Server',
+    description: 'Cell-aligned server metadata using semantic Box colors.',
+    mount(parent) {
+      return keyValue({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          borderTone: 'primary',
+          items: [
+            { key: 'Status', value: 'Online' },
+            { key: 'CPU', value: '42%' },
+            { key: 'Region', value: 'Lima' },
+            { key: 'Version', value: '1.2.0' },
+          ],
+          tone: 'foreground',
+        },
+        parent,
       });
     },
   }),

@@ -4,8 +4,9 @@ Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
 > **Project status:** early development. `Badge`, `Box`, `Card`, `Dialog`,
-> `Divider`, `List`, `MetricBars`, `ProgressBar`, `Sparkline`, `Spinner`,
-> `Stack`, `Stat`, and `Text` are available; more components are coming soon.
+> `Divider`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`, `Sparkline`,
+> `Spinner`, `Stack`, `Stat`, and `Text` are available; more components are
+> coming soon.
 
 ## Goals
 
@@ -34,6 +35,7 @@ npm install blessed blessed-components
 | [`Sparkline`](./src/components/visualization/sparkline/README.md) | Render compact time-series data with Unicode blocks. | Available |
 | [`MetricBars`](./src/components/visualization/metric-bars/README.md) | Render labeled metrics as aligned progress bars. | Available |
 | [`Stat`](./src/components/data-display/stat/README.md) | Display a label, value, trend, and description. | Available |
+| [`KeyValue`](./src/components/data-display/key-value/README.md) | Display aligned label/value metadata. | Available |
 | [`List`](./src/components/collections/list/README.md) | Navigate and select typed items with bounded rendering. | Available |
 | [`Text`](./src/components/data-display/text/README.md) | Render safe, cell-aware terminal text. | Available |
 
@@ -43,7 +45,7 @@ npm install blessed blessed-components
 | ---------- | ----------------------------------------------------- | -------- |
 | [`Box`](./src/components/layout/box/README.md) | Create a typed, themed container. | Available |
 | [`Card`](./src/components/layout/card/README.md) | Compose a framed header, body, and footer. | Available |
-| `KeyValue` | Display aligned label/value rows.                     | P1       |
+| [`KeyValue`](./src/components/data-display/key-value/README.md) | Display aligned label/value rows. | Available |
 | [`Badge`](./src/components/data-display/badge/README.md) | Display compact semantic status text. | Available |
 | [`Divider`](./src/components/layout/divider/README.md) | Separate content horizontally or vertically. | Available |
 | [`Stack`](./src/components/layout/stack/README.md) | Arrange children with direction, gap, and alignment. | Available |

@@ -8,6 +8,7 @@ const expectedComponents = [
   'src/components/layout/stack/index.ts',
   'src/components/overlays/dialog/index.ts',
   'src/components/data-display/badge/index.ts',
+  'src/components/data-display/key-value/index.ts',
   'src/components/collections/list/index.ts',
   'src/components/data-display/stat/index.ts',
   'src/components/data-display/text/index.ts',

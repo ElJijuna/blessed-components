@@ -246,7 +246,7 @@ npm subpaths:
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
 | `collections`    | `List`                                    |
-| `data-display`   | `Badge`, `Stat`, `Text`                   |
+| `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | Reserved for interactive form components |
@@ -343,7 +343,7 @@ High value, low complexity, excellent early components.
 | `Code`            | Inline code with safe escaping.                       | Build    | P2       |
 | `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Build    | P2       |
 | `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
-| `KeyValue`        | Aligned label/value rows.                             | Build    | P1       |
+| `KeyValue`        | Aligned label/value rows.                             | Available | P1       |
 | `DescriptionList` | Responsive term/description groups.                   | Build    | P2       |
 | `Badge`           | Compact semantic status.                              | Available | P1       |
 | `Tag`             | Removable or static categorization token.             | Build    | P2       |
