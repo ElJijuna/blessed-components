@@ -1,5 +1,6 @@
 import {
   badge,
+  box,
   cardBody,
   cardDescription,
   cardFooter,
@@ -17,6 +18,43 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'box/themed-container',
+    title: 'Box / Themed Container',
+    description: 'Composable base container using semantic border and background tokens.',
+    mount(parent) {
+      const panel = box({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          borderTone: 'primary',
+        },
+        parent,
+      });
+      const content = text({
+        box: { height: 3, left: 0, right: 0, top: 1 },
+        data: {
+          align: 'center',
+          content: 'Composable container\nwith semantic colors',
+          tone: 'info',
+        },
+        parent: panel.element,
+      });
+
+      return {
+        destroy() {
+          content.destroy();
+          panel.destroy();
+        },
+      };
+    },
+  }),
   defineStory({
     id: 'card/composition',
     title: 'Card / Composition',

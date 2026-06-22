@@ -39,6 +39,16 @@
       "import": "./dist/badge/blessed.js",
       "require": "./dist/badge/blessed.cjs"
     },
+    "./box": {
+      "types": "./dist/box/index.d.ts",
+      "import": "./dist/box/index.js",
+      "require": "./dist/box/index.cjs"
+    },
+    "./box/blessed": {
+      "types": "./dist/box/blessed.d.ts",
+      "import": "./dist/box/blessed.js",
+      "require": "./dist/box/blessed.cjs"
+    },
     "./card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js",

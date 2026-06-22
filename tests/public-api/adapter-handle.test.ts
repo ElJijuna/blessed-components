@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import {
   type BlessedComponentHandle,
   badge,
+  box,
   cardBody,
   cardRoot,
   list,
@@ -29,6 +30,10 @@ describe('Blessed component handle contract', () => {
       terminal: 'xterm-256color',
     });
     const badgeHandle = badge({ data: { text: 'Ready' }, parent: screen });
+    const boxHandle = box({
+      box: { height: 4, width: 20 },
+      parent: screen,
+    });
     const cardHandle = cardRoot({ parent: screen });
     const cardBodyHandle = cardBody({
       data: { content: 'Ready' },
@@ -53,6 +58,7 @@ describe('Blessed component handle contract', () => {
     });
     const handles = [
       badgeHandle,
+      boxHandle,
       cardHandle,
       cardBodyHandle,
       progressHandle,
@@ -68,6 +74,7 @@ describe('Blessed component handle contract', () => {
     expect(bars.element.type).toBe('box');
 
     updateAndDestroy(badgeHandle, { text: 'Done' });
+    updateAndDestroy(boxHandle, {});
     updateAndDestroy(cardBodyHandle, { content: 'Done' });
     updateAndDestroy(cardHandle, {});
     updateAndDestroy(progressHandle, { value: 75, width: 4 });

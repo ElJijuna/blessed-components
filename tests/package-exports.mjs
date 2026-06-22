@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises';
 
 const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
+const pureBoxModule = await import('../dist/box/index.js');
+const blessedBoxModule = await import('../dist/box/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
@@ -24,6 +26,11 @@ const selectionModule = await import('../dist/primitives/selection/index.js');
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [boxEsmSource, boxCjsSource] = await Promise.all(
+  ['../dist/box/index.js', '../dist/box/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -75,6 +82,8 @@ const [primitivesEsmSource, primitivesCjsSource] = await Promise.all(
 
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
+assert.equal(typeof pureBoxModule.resolveBoxTheme, 'function');
+assert.equal(typeof blessedBoxModule.box, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -106,6 +115,10 @@ assert.equal(
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
+}
+
+for (const source of [boxEsmSource, boxCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Box entry must not import Blessed.');
 }
 
 for (const source of [cardEsmSource, cardCjsSource]) {
