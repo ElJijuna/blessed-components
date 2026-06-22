@@ -7,6 +7,63 @@ import { scrollArea } from '@/adapters/blessed/scroll-area.js';
 import { createTheme } from '@/core/theme.js';
 
 describe('Blessed ScrollArea adapter', () => {
+  it('clips composable children to the visible root border', () => {
+    const input = new PassThrough();
+    const output = new PassThrough();
+
+    Object.assign(output, {
+      columns: 30,
+      isTTY: true,
+      rows: 15,
+    });
+
+    const screen = blessed.screen({
+      input,
+      output,
+      terminal: 'xterm-256color',
+    });
+
+    try {
+      const component = scrollArea({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 1,
+          top: 1,
+          width: 12,
+        },
+        data: { contentHeight: 10 },
+        parent: screen,
+      });
+
+      for (let row = 0; row < 10; row += 1) {
+        blessed.box({
+          content: `ROW${row}`,
+          height: 1,
+          left: 0,
+          parent: component.contentElement,
+          top: row,
+          width: 8,
+        });
+      }
+
+      screen.render();
+
+      const renderedScreen = screen as typeof screen & {
+        lines: [number, string][][];
+      };
+      const rendered = renderedScreen.lines
+        .map((line) => line.map((cell) => cell[1]).join(''))
+        .join('\n');
+
+      expect(rendered).toContain('└──────────┘');
+      expect(rendered).not.toContain('ROW3');
+      expect(rendered).not.toContain('ROW9');
+    } finally {
+      screen.destroy();
+    }
+  });
+
   it('scrolls composable content with keyboard, wheel, and imperative methods', () => {
     const screen = blessed.screen({
       input: new PassThrough(),
@@ -47,14 +104,14 @@ describe('Blessed ScrollArea adapter', () => {
 
       component.end();
       expect(component.offset()).toBe(7);
-      expect(child.parent).toBe(component.contentElement);
+      expect(child.parent === component.contentElement).toBe(true);
 
       component.home();
       expect(component.offset()).toBe(0);
       expect(onOffsetChange).toHaveBeenCalled();
 
       component.destroy();
-      expect(screen.children).not.toContain(component.element);
+      expect(screen.children.includes(component.element)).toBe(false);
     } finally {
       screen.destroy();
     }

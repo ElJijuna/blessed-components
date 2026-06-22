@@ -9,7 +9,10 @@ import { type BoxData, type BoxElementOptions, createBoxStyleController } from '
 import type { BlessedComponentHandle } from './types.js';
 
 /** Blessed options supported by the ScrollArea adapter. */
-export type ScrollAreaBoxOptions = Omit<BoxElementOptions, 'content' | 'keys' | 'mouse' | 'tags'>;
+export type ScrollAreaBoxOptions = Omit<
+  BoxElementOptions,
+  'content' | 'keys' | 'mouse' | 'scrollable' | 'tags'
+>;
 
 /** Stateful content, offset, keyboard, and theme data accepted by ScrollArea. */
 export interface ScrollAreaData extends BoxData {
@@ -122,12 +125,14 @@ export function scrollArea({
   parent,
 }: ScrollAreaOptions): ScrollAreaHandle {
   let data = initialData;
+  let destroyed = false;
   let focused = false;
 
   const element = blessed.box({
     ...elementOptions,
     content: '',
     parent,
+    scrollable: true,
     style: {
       ...elementOptions?.style,
       border: { ...elementOptions?.style?.border },
@@ -171,6 +176,10 @@ export function scrollArea({
   const style = createBoxStyleController(element, elementOptions);
   const scrollbarStyle = createBoxStyleController(scrollbarElement);
   const render = (): ScrollAreaMetrics => {
+    if (destroyed) {
+      return model.metrics();
+    }
+
     const size = innerSize();
     const showScrollbar = data.showScrollbar !== false;
 
@@ -227,6 +236,7 @@ export function scrollArea({
   const handle: ScrollAreaHandle = {
     contentElement,
     destroy() {
+      destroyed = true;
       element.destroy();
     },
     element,
@@ -281,10 +291,18 @@ export function scrollArea({
     }
   });
   element.on('blur', () => {
+    if (destroyed) {
+      return;
+    }
+
     focused = false;
     render();
   });
   element.on('focus', () => {
+    if (destroyed) {
+      return;
+    }
+
     focused = true;
     render();
   });
