@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises';
 
 const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
+const pureCardModule = await import('../dist/card/index.js');
+const blessedCardModule = await import('../dist/card/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
@@ -22,6 +24,11 @@ const selectionModule = await import('../dist/primitives/selection/index.js');
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [cardEsmSource, cardCjsSource] = await Promise.all(
+  ['../dist/card/index.js', '../dist/card/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -68,6 +75,13 @@ const [primitivesEsmSource, primitivesCjsSource] = await Promise.all(
 
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
+assert.equal(typeof pureCardModule.renderCardRegion, 'function');
+assert.equal(typeof blessedCardModule.cardRoot, 'function');
+assert.equal(typeof blessedCardModule.cardHeader, 'function');
+assert.equal(typeof blessedCardModule.cardTitle, 'function');
+assert.equal(typeof blessedCardModule.cardDescription, 'function');
+assert.equal(typeof blessedCardModule.cardBody, 'function');
+assert.equal(typeof blessedCardModule.cardFooter, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
@@ -92,6 +106,10 @@ assert.equal(
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
+}
+
+for (const source of [cardEsmSource, cardCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Card entry must not import Blessed.');
 }
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {

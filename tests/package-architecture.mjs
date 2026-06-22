@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
 
 const expectedComponents = [
+  'src/components/layout/card/index.ts',
   'src/components/data-display/badge/index.ts',
   'src/components/collections/list/index.ts',
   'src/components/data-display/stat/index.ts',

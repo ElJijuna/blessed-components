@@ -7,6 +7,8 @@
     "src/primitives/index.ts",
     "src/components/data-display/badge/index.ts",
     "src/adapters/blessed/badge.ts",
+    "src/components/layout/card/index.ts",
+    "src/adapters/blessed/card.ts",
     "src/components/collections/list/index.ts",
     "src/adapters/blessed/list.ts",
     "src/components/visualization/metric-bars/index.ts",

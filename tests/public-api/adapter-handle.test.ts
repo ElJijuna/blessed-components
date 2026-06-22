@@ -6,6 +6,8 @@ import { describe, expect, it } from 'vitest';
 import {
   type BlessedComponentHandle,
   badge,
+  cardBody,
+  cardRoot,
   list,
   metricBars,
   progressBar,
@@ -27,6 +29,11 @@ describe('Blessed component handle contract', () => {
       terminal: 'xterm-256color',
     });
     const badgeHandle = badge({ data: { text: 'Ready' }, parent: screen });
+    const cardHandle = cardRoot({ parent: screen });
+    const cardBodyHandle = cardBody({
+      data: { content: 'Ready' },
+      parent: cardHandle.element,
+    });
     const progressHandle = progressBar({
       data: { value: 50, width: 4 },
       parent: screen,
@@ -44,7 +51,14 @@ describe('Blessed component handle contract', () => {
       data: { content: 'Ready' },
       parent: screen,
     });
-    const handles = [badgeHandle, progressHandle, sparklineHandle, statHandle];
+    const handles = [
+      badgeHandle,
+      cardHandle,
+      cardBodyHandle,
+      progressHandle,
+      sparklineHandle,
+      statHandle,
+    ];
     const bars = metricBars({
       data: { barWidth: 2, metrics: [{ label: 'CPU', value: 50 }] },
       parent: screen,
@@ -54,6 +68,8 @@ describe('Blessed component handle contract', () => {
     expect(bars.element.type).toBe('box');
 
     updateAndDestroy(badgeHandle, { text: 'Done' });
+    updateAndDestroy(cardBodyHandle, { content: 'Done' });
+    updateAndDestroy(cardHandle, {});
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
     updateAndDestroy(statHandle, { label: 'Jobs', value: 5 });

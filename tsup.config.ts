@@ -6,6 +6,8 @@ export default defineConfig({
   entry: {
     'badge/blessed': 'src/adapters/blessed/badge.ts',
     'badge/index': 'src/components/data-display/badge/index.ts',
+    'card/blessed': 'src/adapters/blessed/card.ts',
+    'card/index': 'src/components/layout/card/index.ts',
     'core/capabilities': 'src/core/capabilities.ts',
     'core/characters': 'src/core/characters.ts',
     'core/color': 'src/core/color.ts',

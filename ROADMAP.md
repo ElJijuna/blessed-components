@@ -250,7 +250,7 @@ npm subpaths:
 | `feedback`       | `ProgressBar`                             |
 | `visualization`  | `MetricBars`, `Sparkline`                 |
 | `input`          | Reserved for interactive form components |
-| `layout`         | Reserved for visual layout components    |
+| `layout`         | `Card`                                    |
 | `navigation`     | Reserved for navigation components       |
 
 Pure renderers own content and character overrides. Semantic color and style
@@ -311,7 +311,7 @@ predictable, typed composition and responsive rules.
 | Component       | Purpose                                                 | Decision | Priority |
 | --------------- | ------------------------------------------------------- | -------- | -------- |
 | `Box`           | Typed base container with theme defaults.               | Adapt    | P1       |
-| `Card`          | Root, header, title, description, body, footer.         | Build    | P1       |
+| `Card`          | Root, header, title, description, body, footer.         | Available | P1       |
 | `Stack`         | Vertical or horizontal flow with gaps.                  | Build    | P1       |
 | `Cluster`       | Wrapping inline group for badges and actions.           | Build    | P2       |
 | `Grid`          | Responsive row/column placement with spans.             | Build    | P2       |

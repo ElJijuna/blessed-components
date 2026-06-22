@@ -1,8 +1,55 @@
-import { badge, list, metricBars, progressBar, sparkline, stat, text } from '../../src/index.js';
+import {
+  badge,
+  cardBody,
+  cardDescription,
+  cardFooter,
+  cardHeader,
+  cardRoot,
+  cardTitle,
+  list,
+  metricBars,
+  progressBar,
+  sparkline,
+  stat,
+  text,
+} from '../../src/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'card/composition',
+    title: 'Card / Composition',
+    description: 'Independent header, title, description, body, and footer regions.',
+    mount(parent) {
+      const root = cardRoot({
+        box: { height: 10, left: 3, top: 1, width: 48 },
+        parent,
+      });
+      const header = cardHeader({ parent: root.element });
+
+      cardTitle({
+        data: { content: 'Production deploy' },
+        parent: header.element,
+      });
+      cardDescription({
+        data: { content: 'api-service · us-east-1' },
+        parent: header.element,
+      });
+      cardBody({
+        data: {
+          content: 'All health checks passing.\n3 replicas ready.\nLatency: 84ms',
+        },
+        parent: root.element,
+      });
+      cardFooter({
+        data: { content: 'Updated now', tone: 'success' },
+        parent: root.element,
+      });
+
+      return root;
+    },
+  }),
   defineStory({
     id: 'text/safe-wrap',
     title: 'Text / Safe Wrap',

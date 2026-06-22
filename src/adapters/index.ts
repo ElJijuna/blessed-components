@@ -6,6 +6,7 @@
  */
 
 export * from './blessed/badge.js';
+export * from './blessed/card.js';
 export * from './blessed/list.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/progress-bar.js';
