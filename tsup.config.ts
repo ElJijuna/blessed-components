@@ -42,6 +42,8 @@ export default defineConfig({
     'primitives/viewport/index': 'src/primitives/viewport/index.ts',
     'sparkline/blessed': 'src/adapters/blessed/sparkline.ts',
     'sparkline/index': 'src/components/visualization/sparkline/index.ts',
+    'stack/blessed': 'src/adapters/blessed/stack.ts',
+    'stack/index': 'src/components/layout/stack/index.ts',
     'stat/blessed': 'src/adapters/blessed/stat.ts',
     'stat/index': 'src/components/data-display/stat/index.ts',
     'text/blessed': 'src/adapters/blessed/text.ts',

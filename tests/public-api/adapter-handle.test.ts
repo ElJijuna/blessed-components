@@ -13,6 +13,7 @@ import {
   metricBars,
   progressBar,
   sparkline,
+  stack,
   stat,
   text,
 } from '../../src/index.js';
@@ -47,6 +48,10 @@ describe('Blessed component handle contract', () => {
       data: { values: [1, 2], width: 2 },
       parent: screen,
     });
+    const stackHandle = stack({
+      box: { height: 4, width: 20 },
+      parent: screen,
+    });
     const statHandle = stat({ data: { label: 'Jobs', value: 4 }, parent: screen });
     const listHandle = list({
       data: { items: [{ id: 'one', label: 'One' }] },
@@ -63,6 +68,7 @@ describe('Blessed component handle contract', () => {
       cardBodyHandle,
       progressHandle,
       sparklineHandle,
+      stackHandle,
       statHandle,
     ];
     const bars = metricBars({
@@ -79,6 +85,7 @@ describe('Blessed component handle contract', () => {
     updateAndDestroy(cardHandle, {});
     updateAndDestroy(progressHandle, { value: 75, width: 4 });
     updateAndDestroy(sparklineHandle, { values: [2, 1], width: 2 });
+    updateAndDestroy(stackHandle, {});
     updateAndDestroy(statHandle, { label: 'Jobs', value: 5 });
     updateAndDestroy(listHandle, {
       items: [{ id: 'two', label: 'Two' }],

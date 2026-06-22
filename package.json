@@ -99,6 +99,16 @@
       "import": "./dist/sparkline/blessed.js",
       "require": "./dist/sparkline/blessed.cjs"
     },
+    "./stack": {
+      "types": "./dist/stack/index.d.ts",
+      "import": "./dist/stack/index.js",
+      "require": "./dist/stack/index.cjs"
+    },
+    "./stack/blessed": {
+      "types": "./dist/stack/blessed.d.ts",
+      "import": "./dist/stack/blessed.js",
+      "require": "./dist/stack/blessed.cjs"
+    },
     "./stat": {
       "types": "./dist/stat/index.d.ts",
       "import": "./dist/stat/index.js",

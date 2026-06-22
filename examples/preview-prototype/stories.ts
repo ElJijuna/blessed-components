@@ -11,6 +11,7 @@ import {
   metricBars,
   progressBar,
   sparkline,
+  stack,
   stat,
   text,
 } from '../../src/index.js';
@@ -18,6 +19,47 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'stack/vertical',
+    title: 'Stack / Vertical',
+    description: 'Direct children flow vertically with a consistent terminal-row gap.',
+    mount(parent) {
+      const layout = stack({
+        box: {
+          border: 'line',
+          height: 10,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 42,
+        },
+        data: {
+          borderTone: 'primary',
+          gap: 1,
+        },
+        parent,
+      });
+
+      text({
+        box: { height: 1, width: 20 },
+        data: { content: 'API', tone: 'primary' },
+        parent: layout.element,
+      });
+      text({
+        box: { height: 2, width: 24 },
+        data: { content: 'Healthy\n84ms latency', tone: 'success' },
+        parent: layout.element,
+      });
+      text({
+        box: { height: 1, width: 18 },
+        data: { content: '3 replicas ready', tone: 'muted' },
+        parent: layout.element,
+      });
+      layout.layout();
+
+      return layout;
+    },
+  }),
   defineStory({
     id: 'box/themed-container',
     title: 'Box / Themed Container',

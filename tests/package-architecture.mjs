@@ -4,6 +4,7 @@ import { access } from 'node:fs/promises';
 const expectedComponents = [
   'src/components/layout/box/index.ts',
   'src/components/layout/card/index.ts',
+  'src/components/layout/stack/index.ts',
   'src/components/data-display/badge/index.ts',
   'src/components/collections/list/index.ts',
   'src/components/data-display/stat/index.ts',

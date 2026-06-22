@@ -12,6 +12,7 @@ export * from './blessed/list.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/progress-bar.js';
 export * from './blessed/sparkline.js';
+export * from './blessed/stack.js';
 export * from './blessed/stat.js';
 export * from './blessed/text.js';
 export * from './blessed/types.js';
