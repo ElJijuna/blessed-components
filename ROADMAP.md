@@ -371,7 +371,7 @@ These components share bounded values, semantic tones, and live updates.
 | `NotificationCenter` | Persistent notification list and unread state.          | Research | P3       |
 | `Skeleton`           | Placeholder rows while content loads.                   | Research | P2       |
 | `EmptyState`         | Empty result message with optional action.              | Available | P1       |
-| `ErrorState`         | Error details, cause, and retry action.                 | Build    | P1       |
+| `ErrorState`         | Error details, cause, and retry action.                 | Available | P1       |
 | `LoadingOverlay`     | Block interaction while work runs.                      | Build    | P2       |
 | `TaskProgress`       | Multi-step task status with current activity.           | Build    | P1       |
 | `StepIndicator`      | Completed, active, and pending steps.                   | Build    | P1       |

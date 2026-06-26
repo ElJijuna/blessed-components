@@ -36,6 +36,8 @@ export default defineConfig({
     'dialog/index': 'src/components/overlays/dialog/index.ts',
     'empty-state/blessed': 'src/adapters/blessed/empty-state.ts',
     'empty-state/index': 'src/components/feedback/empty-state/index.ts',
+    'error-state/blessed': 'src/adapters/blessed/error-state.ts',
+    'error-state/index': 'src/components/feedback/error-state/index.ts',
     index: 'src/index.ts',
     'key-value/blessed': 'src/adapters/blessed/key-value.ts',
     'key-value/index': 'src/components/data-display/key-value/index.ts',

@@ -17,6 +17,7 @@ import {
   dialogTitle,
   divider,
   emptyState,
+  errorState,
   keyValue,
   list,
   metricBars,
@@ -77,6 +78,29 @@ export const stories: readonly PreviewStory[] = [
           action: 'Press / to search again',
           description: 'Try a different query or clear your filters.',
           title: 'No results',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'error-state/load-failed',
+    title: 'ErrorState / Load Failed',
+    description: 'Centered error message with cause and retry hint.',
+    mount(parent) {
+      return errorState({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          cause: 'Connection refused',
+          message: 'Failed to load projects',
+          retry: 'Press r to retry',
         },
         parent,
       });

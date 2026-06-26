@@ -109,6 +109,16 @@
       "import": "./dist/empty-state/blessed.js",
       "require": "./dist/empty-state/blessed.cjs"
     },
+    "./error-state": {
+      "types": "./dist/error-state/index.d.ts",
+      "import": "./dist/error-state/index.js",
+      "require": "./dist/error-state/index.cjs"
+    },
+    "./error-state/blessed": {
+      "types": "./dist/error-state/blessed.d.ts",
+      "import": "./dist/error-state/blessed.js",
+      "require": "./dist/error-state/blessed.cjs"
+    },
     "./key-value": {
       "types": "./dist/key-value/index.d.ts",
       "import": "./dist/key-value/index.js",
