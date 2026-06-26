@@ -229,6 +229,16 @@
       "import": "./dist/step-indicator/blessed.js",
       "require": "./dist/step-indicator/blessed.cjs"
     },
+    "./task-progress": {
+      "types": "./dist/task-progress/index.d.ts",
+      "import": "./dist/task-progress/index.js",
+      "require": "./dist/task-progress/index.cjs"
+    },
+    "./task-progress/blessed": {
+      "types": "./dist/task-progress/blessed.d.ts",
+      "import": "./dist/task-progress/blessed.js",
+      "require": "./dist/task-progress/blessed.cjs"
+    },
     "./stack": {
       "types": "./dist/stack/index.d.ts",
       "import": "./dist/stack/index.js",

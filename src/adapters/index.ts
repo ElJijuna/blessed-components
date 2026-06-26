@@ -27,6 +27,7 @@ export * from './blessed/stack.js';
 export * from './blessed/stat.js';
 export * from './blessed/status.js';
 export * from './blessed/step-indicator.js';
+export * from './blessed/task-progress.js';
 export * from './blessed/text.js';
 export * from './blessed/types.js';
 export * from './blessed/viewport.js';

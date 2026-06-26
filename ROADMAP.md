@@ -373,7 +373,7 @@ These components share bounded values, semantic tones, and live updates.
 | `EmptyState`         | Empty result message with optional action.              | Available | P1       |
 | `ErrorState`         | Error details, cause, and retry action.                 | Available | P1       |
 | `LoadingOverlay`     | Block interaction while work runs.                      | Build    | P2       |
-| `TaskProgress`       | Multi-step task status with current activity.           | Build    | P1       |
+| `TaskProgress`       | Multi-step task status with current activity.           | Available | P1       |
 | `StepIndicator`      | Completed, active, and pending steps.                   | Available | P1       |
 | `ConnectionStatus`   | Online, reconnecting, offline, latency.                 | Build    | P2       |
 | `HealthIndicator`    | Service health summary with reasons.                    | Build    | P2       |

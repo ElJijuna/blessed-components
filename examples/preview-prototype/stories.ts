@@ -31,6 +31,7 @@ import {
   stat,
   status,
   stepIndicator,
+  taskProgress,
   text,
   viewport,
 } from '@/index.js';
@@ -183,6 +184,35 @@ export const stories: readonly PreviewStory[] = [
           ],
           tone: 'primary',
           width: 28,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'task-progress/release',
+    title: 'TaskProgress / Release',
+    description: 'Task status summary with activity, progress, and steps.',
+    mount(parent) {
+      return taskProgress({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 48,
+        },
+        data: {
+          activity: 'Running validation suite',
+          steps: [
+            { id: 'install', label: 'Install dependencies', state: 'completed' },
+            { id: 'test', label: 'Run tests', state: 'active' },
+            { id: 'publish', label: 'Publish package' },
+          ],
+          title: 'Release',
+          tone: 'primary',
+          value: 58,
         },
         parent,
       });
