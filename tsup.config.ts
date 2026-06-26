@@ -4,6 +4,8 @@ export default defineConfig({
   clean: true,
   dts: true,
   entry: {
+    'alert/blessed': 'src/adapters/blessed/alert.ts',
+    'alert/index': 'src/components/feedback/alert/index.ts',
     'badge/blessed': 'src/adapters/blessed/badge.ts',
     'badge/index': 'src/components/data-display/badge/index.ts',
     'box/blessed': 'src/adapters/blessed/box.ts',

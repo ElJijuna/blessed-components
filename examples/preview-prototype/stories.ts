@@ -1,4 +1,5 @@
 import {
+  alert,
   badge,
   box,
   button,
@@ -32,6 +33,31 @@ import {
 import { defineStory, type PreviewStory } from './story.js';
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'alert/semantic-message',
+    title: 'Alert / Semantic Message',
+    description: 'Wrapped semantic message with tone marker and themed border.',
+    mount(parent) {
+      const warning = alert({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 46,
+        },
+        data: {
+          description: 'Retry deployment after upstream health checks recover.',
+          title: 'Deploy delayed',
+          tone: 'warning',
+        },
+        parent,
+      });
+
+      return warning;
+    },
+  }),
   defineStory({
     id: 'scroll-area/logs',
     title: 'ScrollArea / Logs',

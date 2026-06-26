@@ -3,7 +3,7 @@
 Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
-> **Project status:** early development. `Badge`, `Box`, `Button`, `Card`,
+> **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
 > `Dialog`, `Divider`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`,
 > `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`, `Text`, and
 > `Viewport` are available; more components are coming soon.
@@ -58,7 +58,7 @@ npm install blessed blessed-components
 | ----------- | -------------------------------------------------- | -------- |
 | [`Spinner`](./src/components/feedback/spinner/README.md) | Show ongoing work with controlled animation. | Available |
 | [`Status`](./src/components/feedback/status/README.md) | Display semantic state and optional details. | Available |
-| `Alert`     | Display informational, warning, or error messages. | P1       |
+| [`Alert`](./src/components/feedback/alert/README.md) | Display informational, warning, or error messages. | Available |
 | `LogViewer` | Stream and retain bounded log output.              | P1       |
 | `Timer`     | Display elapsed or remaining time.                 | P1       |
 

@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
 
+const pureAlertModule = await import('../dist/alert/index.js');
+const blessedAlertModule = await import('../dist/alert/blessed.js');
 const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
 const pureBoxModule = await import('../dist/box/index.js');
@@ -51,6 +53,11 @@ const publishedModuleSources = await Promise.all(
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [alertEsmSource, alertCjsSource] = await Promise.all(
+  ['../dist/alert/index.js', '../dist/alert/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -150,6 +157,8 @@ const [primitivesEsmSource, primitivesCjsSource] = await Promise.all(
   ),
 );
 
+assert.equal(typeof pureAlertModule.renderAlert, 'function');
+assert.equal(typeof blessedAlertModule.alert, 'function');
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
 assert.equal(typeof pureBoxModule.resolveBoxTheme, 'function');
@@ -210,6 +219,10 @@ assert.equal(
   false,
   'Published modules and declarations must not contain internal @ aliases.',
 );
+
+for (const source of [alertEsmSource, alertCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Alert entry must not import Blessed.');
+}
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');

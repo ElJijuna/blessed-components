@@ -29,6 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./alert": {
+      "types": "./dist/alert/index.d.ts",
+      "import": "./dist/alert/index.js",
+      "require": "./dist/alert/index.cjs"
+    },
+    "./alert/blessed": {
+      "types": "./dist/alert/blessed.d.ts",
+      "import": "./dist/alert/blessed.js",
+      "require": "./dist/alert/blessed.cjs"
+    },
     "./badge": {
       "types": "./dist/badge/index.d.ts",
       "import": "./dist/badge/index.js",
