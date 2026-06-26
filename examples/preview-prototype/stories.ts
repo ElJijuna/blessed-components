@@ -22,6 +22,7 @@ import {
   list,
   metricBars,
   progressBar,
+  progressList,
   scrollArea,
   sparkline,
   spinner,
@@ -126,6 +127,32 @@ export const stories: readonly PreviewStory[] = [
             { id: 'install', label: 'Install dependencies', state: 'completed' },
             { detail: 'running checks', id: 'test', label: 'Test package', state: 'active' },
             { id: 'publish', label: 'Publish release' },
+          ],
+          tone: 'primary',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'progress-list/services',
+    title: 'ProgressList / Services',
+    description: 'Aligned service progress rows with derived track width.',
+    mount(parent) {
+      return progressList({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 48,
+        },
+        data: {
+          items: [
+            { id: 'api', label: 'API', value: 92 },
+            { id: 'worker', label: 'Worker', value: 68 },
+            { id: 'cache', label: 'Cache warmup', value: 44 },
           ],
           tone: 'primary',
         },

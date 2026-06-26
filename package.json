@@ -159,6 +159,16 @@
       "import": "./dist/progress-bar/blessed.js",
       "require": "./dist/progress-bar/blessed.cjs"
     },
+    "./progress-list": {
+      "types": "./dist/progress-list/index.d.ts",
+      "import": "./dist/progress-list/index.js",
+      "require": "./dist/progress-list/index.cjs"
+    },
+    "./progress-list/blessed": {
+      "types": "./dist/progress-list/blessed.d.ts",
+      "import": "./dist/progress-list/blessed.js",
+      "require": "./dist/progress-list/blessed.cjs"
+    },
     "./scroll-area": {
       "types": "./dist/scroll-area/index.d.ts",
       "import": "./dist/scroll-area/index.js",

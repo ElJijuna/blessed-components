@@ -18,6 +18,7 @@ export * from './blessed/key-value.js';
 export * from './blessed/list.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/progress-bar.js';
+export * from './blessed/progress-list.js';
 export * from './blessed/scroll-area.js';
 export * from './blessed/sparkline.js';
 export * from './blessed/spinner.js';

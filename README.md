@@ -5,7 +5,7 @@ Composable, typed terminal UI components for
 
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
 > `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`,
-> `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
+> `ProgressList`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
 > `StepIndicator`, `Text`, and `Viewport` are available; more components are
 > coming soon.
 
@@ -58,6 +58,7 @@ npm install blessed blessed-components
 | Component   | Purpose                                            | Priority |
 | ----------- | -------------------------------------------------- | -------- |
 | [`Spinner`](./src/components/feedback/spinner/README.md) | Show ongoing work with controlled animation. | Available |
+| [`ProgressList`](./src/components/feedback/progress-list/README.md) | Display multiple labeled progress rows. | Available |
 | [`Status`](./src/components/feedback/status/README.md) | Display semantic state and optional details. | Available |
 | [`Alert`](./src/components/feedback/alert/README.md) | Display informational, warning, or error messages. | Available |
 | [`EmptyState`](./src/components/feedback/empty-state/README.md) | Display an empty result message with optional action. | Available |

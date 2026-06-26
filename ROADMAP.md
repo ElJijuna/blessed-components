@@ -362,7 +362,7 @@ These components share bounded values, semantic tones, and live updates.
 | -------------------- | ------------------------------------------------------- | -------- | -------- |
 | `ProgressBar`        | One determinate horizontal progress bar.                | Available | P0       |
 | `ProgressStack`      | Segmented progress across categories.                   | Build    | P1       |
-| `ProgressList`       | Multiple labeled progress rows.                         | Build    | P1       |
+| `ProgressList`       | Multiple labeled progress rows.                         | Available | P1       |
 | `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
 | `Status`             | State icon, label, and optional detail.                 | Available | P1       |
 | `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
