@@ -139,6 +139,16 @@
       "import": "./dist/key-value/blessed.js",
       "require": "./dist/key-value/blessed.cjs"
     },
+    "./label": {
+      "types": "./dist/label/index.d.ts",
+      "import": "./dist/label/index.js",
+      "require": "./dist/label/index.cjs"
+    },
+    "./label/blessed": {
+      "types": "./dist/label/blessed.d.ts",
+      "import": "./dist/label/blessed.js",
+      "require": "./dist/label/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

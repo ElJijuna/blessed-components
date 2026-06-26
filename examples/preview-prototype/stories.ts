@@ -20,6 +20,7 @@ import {
   errorState,
   heading,
   keyValue,
+  label,
   list,
   metricBars,
   progressBar,
@@ -128,6 +129,26 @@ export const stories: readonly PreviewStory[] = [
           level: 2,
           tone: 'primary',
           underline: true,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'label/required-field',
+    title: 'Label / Required Field',
+    description: 'Stable one-line label with required marker and muted tone.',
+    mount(parent) {
+      return label({
+        box: {
+          height: 1,
+          left: 3,
+          top: 2,
+          width: 24,
+        },
+        data: {
+          content: 'Project',
+          required: true,
         },
         parent,
       });

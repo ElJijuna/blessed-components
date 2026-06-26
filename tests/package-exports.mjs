@@ -23,6 +23,8 @@ const pureHeadingModule = await import('../dist/heading/index.js');
 const blessedHeadingModule = await import('../dist/heading/blessed.js');
 const pureKeyValueModule = await import('../dist/key-value/index.js');
 const blessedKeyValueModule = await import('../dist/key-value/blessed.js');
+const pureLabelModule = await import('../dist/label/index.js');
+const blessedLabelModule = await import('../dist/label/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
@@ -117,6 +119,11 @@ const [headingEsmSource, headingCjsSource] = await Promise.all(
 );
 const [keyValueEsmSource, keyValueCjsSource] = await Promise.all(
   ['../dist/key-value/index.js', '../dist/key-value/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [labelEsmSource, labelCjsSource] = await Promise.all(
+  ['../dist/label/index.js', '../dist/label/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -238,6 +245,8 @@ assert.equal(typeof pureHeadingModule.renderHeading, 'function');
 assert.equal(typeof blessedHeadingModule.heading, 'function');
 assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
 assert.equal(typeof blessedKeyValueModule.keyValue, 'function');
+assert.equal(typeof pureLabelModule.renderLabel, 'function');
+assert.equal(typeof blessedLabelModule.label, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
@@ -325,6 +334,10 @@ for (const source of [headingEsmSource, headingCjsSource]) {
 
 for (const source of [keyValueEsmSource, keyValueCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure KeyValue entry must not import Blessed.');
+}
+
+for (const source of [labelEsmSource, labelCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Label entry must not import Blessed.');
 }
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {

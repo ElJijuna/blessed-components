@@ -338,7 +338,7 @@ High value, low complexity, excellent early components.
 | ----------------- | ----------------------------------------------------- | -------- | -------- |
 | `Text`            | Safe themed text with truncation and wrapping.        | Available | P0       |
 | `Heading`         | Hierarchical terminal heading styles.                 | Available | P1       |
-| `Label`           | Stable labels for controls and values.                | Build    | P1       |
+| `Label`           | Stable labels for controls and values.                | Available | P1       |
 | `MutedText`       | Secondary information using semantic theme tokens.    | Build    | P1       |
 | `Code`            | Inline code with safe escaping.                       | Build    | P2       |
 | `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Build    | P2       |
