@@ -199,6 +199,16 @@
       "import": "./dist/status/blessed.js",
       "require": "./dist/status/blessed.cjs"
     },
+    "./step-indicator": {
+      "types": "./dist/step-indicator/index.d.ts",
+      "import": "./dist/step-indicator/index.js",
+      "require": "./dist/step-indicator/index.cjs"
+    },
+    "./step-indicator/blessed": {
+      "types": "./dist/step-indicator/blessed.d.ts",
+      "import": "./dist/step-indicator/blessed.js",
+      "require": "./dist/step-indicator/blessed.cjs"
+    },
     "./stack": {
       "types": "./dist/stack/index.d.ts",
       "import": "./dist/stack/index.js",

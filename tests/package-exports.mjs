@@ -35,6 +35,8 @@ const pureSpinnerModule = await import('../dist/spinner/index.js');
 const blessedSpinnerModule = await import('../dist/spinner/blessed.js');
 const pureStatusModule = await import('../dist/status/index.js');
 const blessedStatusModule = await import('../dist/status/blessed.js');
+const pureStepIndicatorModule = await import('../dist/step-indicator/index.js');
+const blessedStepIndicatorModule = await import('../dist/step-indicator/blessed.js');
 const pureStackModule = await import('../dist/stack/index.js');
 const blessedStackModule = await import('../dist/stack/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
@@ -140,6 +142,11 @@ const [statusEsmSource, statusCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [stepIndicatorEsmSource, stepIndicatorCjsSource] = await Promise.all(
+  ['../dist/step-indicator/index.js', '../dist/step-indicator/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [stackEsmSource, stackCjsSource] = await Promise.all(
   ['../dist/stack/index.js', '../dist/stack/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -215,6 +222,8 @@ assert.equal(typeof pureSpinnerModule.renderSpinner, 'function');
 assert.equal(typeof blessedSpinnerModule.spinner, 'function');
 assert.equal(typeof pureStatusModule.renderStatus, 'function');
 assert.equal(typeof blessedStatusModule.status, 'function');
+assert.equal(typeof pureStepIndicatorModule.renderStepIndicator, 'function');
+assert.equal(typeof blessedStepIndicatorModule.stepIndicator, 'function');
 assert.equal(typeof pureStackModule.calculateStackLayout, 'function');
 assert.equal(typeof blessedStackModule.stack, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
@@ -308,6 +317,14 @@ for (const source of [spinnerEsmSource, spinnerCjsSource]) {
 
 for (const source of [statusEsmSource, statusCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Status entry must not import Blessed.');
+}
+
+for (const source of [stepIndicatorEsmSource, stepIndicatorCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure StepIndicator entry must not import Blessed.',
+  );
 }
 
 for (const source of [stackEsmSource, stackCjsSource]) {

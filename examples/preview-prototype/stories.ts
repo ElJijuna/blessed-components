@@ -28,6 +28,7 @@ import {
   stack,
   stat,
   status,
+  stepIndicator,
   text,
   viewport,
 } from '@/index.js';
@@ -101,6 +102,32 @@ export const stories: readonly PreviewStory[] = [
           cause: 'Connection refused',
           message: 'Failed to load projects',
           retry: 'Press r to retry',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'step-indicator/deploy',
+    title: 'StepIndicator / Deploy',
+    description: 'Vertical process steps with completed, active, and pending states.',
+    mount(parent) {
+      return stepIndicator({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          steps: [
+            { id: 'install', label: 'Install dependencies', state: 'completed' },
+            { detail: 'running checks', id: 'test', label: 'Test package', state: 'active' },
+            { id: 'publish', label: 'Publish release' },
+          ],
+          tone: 'primary',
         },
         parent,
       });
