@@ -19,6 +19,7 @@ import {
   emptyState,
   errorState,
   heading,
+  kbd,
   keyValue,
   label,
   list,
@@ -131,6 +132,26 @@ export const stories: readonly PreviewStory[] = [
           level: 2,
           tone: 'primary',
           underline: true,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'kbd/save-shortcut',
+    title: 'Kbd / Save Shortcut',
+    description: 'Keyboard shortcut chords normalized for terminal help.',
+    mount(parent) {
+      return kbd({
+        box: {
+          height: 1,
+          left: 3,
+          top: 2,
+          width: 28,
+        },
+        data: {
+          keys: ['C-s', 'M-enter'],
+          tone: 'primary',
         },
         parent,
       });

@@ -3,6 +3,7 @@
  */
 export * from './badge/index.js';
 export * from './heading/index.js';
+export * from './kbd/index.js';
 export * from './key-value/index.js';
 export * from './label/index.js';
 export * from './muted-text/index.js';

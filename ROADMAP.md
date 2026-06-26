@@ -351,7 +351,7 @@ High value, low complexity, excellent early components.
 | `Timestamp`       | Formatted absolute or relative time.                  | Build    | P2       |
 | `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |
 | `Rating`          | Discrete score using symbols and text fallback.       | Research | P3       |
-| `Kbd`             | Display keyboard shortcuts consistently.              | Build    | P1       |
+| `Kbd`             | Display keyboard shortcuts consistently.              | Available | P1       |
 | `Breadcrumb`      | Current location path with truncation.                | Build    | P2       |
 
 ### 4. Progress, status, and feedback

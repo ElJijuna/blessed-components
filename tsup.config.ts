@@ -41,6 +41,8 @@ export default defineConfig({
     'heading/blessed': 'src/adapters/blessed/heading.ts',
     'heading/index': 'src/components/data-display/heading/index.ts',
     index: 'src/index.ts',
+    'kbd/blessed': 'src/adapters/blessed/kbd.ts',
+    'kbd/index': 'src/components/data-display/kbd/index.ts',
     'key-value/blessed': 'src/adapters/blessed/key-value.ts',
     'key-value/index': 'src/components/data-display/key-value/index.ts',
     'label/blessed': 'src/adapters/blessed/label.ts',

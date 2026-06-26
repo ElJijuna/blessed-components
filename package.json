@@ -129,6 +129,16 @@
       "import": "./dist/heading/blessed.js",
       "require": "./dist/heading/blessed.cjs"
     },
+    "./kbd": {
+      "types": "./dist/kbd/index.d.ts",
+      "import": "./dist/kbd/index.js",
+      "require": "./dist/kbd/index.cjs"
+    },
+    "./kbd/blessed": {
+      "types": "./dist/kbd/blessed.d.ts",
+      "import": "./dist/kbd/blessed.js",
+      "require": "./dist/kbd/blessed.cjs"
+    },
     "./key-value": {
       "types": "./dist/key-value/index.d.ts",
       "import": "./dist/key-value/index.js",

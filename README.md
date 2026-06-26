@@ -4,7 +4,7 @@ Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
-> `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `KeyValue`, `Label`, `List`, `MetricBars`, `MutedText`, `ProgressBar`,
+> `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `Kbd`, `KeyValue`, `Label`, `List`, `MetricBars`, `MutedText`, `ProgressBar`,
 > `ProgressList`, `ProgressStack`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
 > `StepIndicator`, `TaskProgress`, `Text`, `Trend`, and `Viewport` are available; more
 > components are coming soon.
@@ -65,6 +65,7 @@ npm install blessed blessed-components
 | [`EmptyState`](./src/components/feedback/empty-state/README.md) | Display an empty result message with optional action. | Available |
 | [`ErrorState`](./src/components/feedback/error-state/README.md) | Display error details, cause, and retry text. | Available |
 | [`Heading`](./src/components/data-display/heading/README.md) | Display hierarchical terminal heading styles. | Available |
+| [`Kbd`](./src/components/data-display/kbd/README.md) | Display keyboard shortcuts consistently. | Available |
 | [`Label`](./src/components/data-display/label/README.md) | Display stable labels for controls and values. | Available |
 | [`MutedText`](./src/components/data-display/muted-text/README.md) | Display secondary information using semantic theme tokens. | Available |
 | [`StepIndicator`](./src/components/feedback/step-indicator/README.md) | Display completed, active, and pending steps. | Available |
