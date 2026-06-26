@@ -29,6 +29,8 @@ const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
 const pureProgressListModule = await import('../dist/progress-list/index.js');
 const blessedProgressListModule = await import('../dist/progress-list/blessed.js');
+const pureProgressStackModule = await import('../dist/progress-stack/index.js');
+const blessedProgressStackModule = await import('../dist/progress-stack/blessed.js');
 const pureScrollAreaModule = await import('../dist/scroll-area/index.js');
 const blessedScrollAreaModule = await import('../dist/scroll-area/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
@@ -129,6 +131,11 @@ const [progressListEsmSource, progressListCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [progressStackEsmSource, progressStackCjsSource] = await Promise.all(
+  ['../dist/progress-stack/index.js', '../dist/progress-stack/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [scrollAreaEsmSource, scrollAreaCjsSource] = await Promise.all(
   ['../dist/scroll-area/index.js', '../dist/scroll-area/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -223,6 +230,8 @@ assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
 assert.equal(typeof pureProgressListModule.renderProgressList, 'function');
 assert.equal(typeof blessedProgressListModule.progressList, 'function');
+assert.equal(typeof pureProgressStackModule.renderProgressStack, 'function');
+assert.equal(typeof blessedProgressStackModule.progressStack, 'function');
 assert.equal(typeof pureScrollAreaModule.renderScrollAreaScrollbar, 'function');
 assert.equal(typeof blessedScrollAreaModule.scrollArea, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
@@ -317,6 +326,14 @@ for (const source of [progressListEsmSource, progressListCjsSource]) {
     source.includes('blessed'),
     false,
     'Pure ProgressList entry must not import Blessed.',
+  );
+}
+
+for (const source of [progressStackEsmSource, progressStackCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure ProgressStack entry must not import Blessed.',
   );
 }
 

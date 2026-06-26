@@ -23,6 +23,7 @@ import {
   metricBars,
   progressBar,
   progressList,
+  progressStack,
   scrollArea,
   sparkline,
   spinner,
@@ -155,6 +156,33 @@ export const stories: readonly PreviewStory[] = [
             { id: 'cache', label: 'Cache warmup', value: 44 },
           ],
           tone: 'primary',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'progress-stack/test-results',
+    title: 'ProgressStack / Test Results',
+    description: 'Segmented progress across result categories with a legend.',
+    mount(parent) {
+      return progressStack({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 46,
+        },
+        data: {
+          segments: [
+            { id: 'passed', label: 'Passed', value: 128 },
+            { id: 'failed', label: 'Failed', value: 6 },
+            { id: 'skipped', label: 'Skipped', value: 12 },
+          ],
+          tone: 'primary',
+          width: 28,
         },
         parent,
       });

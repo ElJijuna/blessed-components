@@ -20,6 +20,7 @@ const expectedComponents = [
   'src/components/feedback/error-state/index.ts',
   'src/components/feedback/progress-bar/index.ts',
   'src/components/feedback/progress-list/index.ts',
+  'src/components/feedback/progress-stack/index.ts',
   'src/components/feedback/spinner/index.ts',
   'src/components/feedback/status/index.ts',
   'src/components/feedback/step-indicator/index.ts',

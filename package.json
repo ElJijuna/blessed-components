@@ -169,6 +169,16 @@
       "import": "./dist/progress-list/blessed.js",
       "require": "./dist/progress-list/blessed.cjs"
     },
+    "./progress-stack": {
+      "types": "./dist/progress-stack/index.d.ts",
+      "import": "./dist/progress-stack/index.js",
+      "require": "./dist/progress-stack/index.cjs"
+    },
+    "./progress-stack/blessed": {
+      "types": "./dist/progress-stack/blessed.d.ts",
+      "import": "./dist/progress-stack/blessed.js",
+      "require": "./dist/progress-stack/blessed.cjs"
+    },
     "./scroll-area": {
       "types": "./dist/scroll-area/index.d.ts",
       "import": "./dist/scroll-area/index.js",
