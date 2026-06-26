@@ -49,6 +49,8 @@ export default defineConfig({
     'list/index': 'src/components/collections/list/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
     'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
+    'muted-text/blessed': 'src/adapters/blessed/muted-text.ts',
+    'muted-text/index': 'src/components/data-display/muted-text/index.ts',
     'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
     'progress-bar/index': 'src/components/feedback/progress-bar/index.ts',
     'progress-list/blessed': 'src/adapters/blessed/progress-list.ts',

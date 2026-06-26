@@ -23,6 +23,7 @@ import {
   label,
   list,
   metricBars,
+  mutedText,
   progressBar,
   progressList,
   progressStack,
@@ -149,6 +150,26 @@ export const stories: readonly PreviewStory[] = [
         data: {
           content: 'Project',
           required: true,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'muted-text/hint',
+    title: 'MutedText / Hint',
+    description: 'Secondary copy rendered with muted semantic tone.',
+    mount(parent) {
+      return mutedText({
+        box: {
+          height: 2,
+          left: 3,
+          top: 2,
+          width: 34,
+        },
+        data: {
+          content: 'Last updated 2 minutes ago. Press r to refresh.',
+          overflow: 'wrap',
         },
         parent,
       });
