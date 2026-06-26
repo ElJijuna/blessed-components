@@ -16,6 +16,7 @@ const expectedComponents = [
   'src/components/data-display/stat/index.ts',
   'src/components/data-display/text/index.ts',
   'src/components/feedback/alert/index.ts',
+  'src/components/feedback/empty-state/index.ts',
   'src/components/feedback/progress-bar/index.ts',
   'src/components/feedback/spinner/index.ts',
   'src/components/feedback/status/index.ts',

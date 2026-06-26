@@ -99,6 +99,16 @@
       "import": "./dist/dialog/blessed.js",
       "require": "./dist/dialog/blessed.cjs"
     },
+    "./empty-state": {
+      "types": "./dist/empty-state/index.d.ts",
+      "import": "./dist/empty-state/index.js",
+      "require": "./dist/empty-state/index.cjs"
+    },
+    "./empty-state/blessed": {
+      "types": "./dist/empty-state/blessed.d.ts",
+      "import": "./dist/empty-state/blessed.js",
+      "require": "./dist/empty-state/blessed.cjs"
+    },
     "./key-value": {
       "types": "./dist/key-value/index.d.ts",
       "import": "./dist/key-value/index.js",
