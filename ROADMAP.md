@@ -364,7 +364,7 @@ These components share bounded values, semantic tones, and live updates.
 | `ProgressStack`      | Segmented progress across categories.                   | Build    | P1       |
 | `ProgressList`       | Multiple labeled progress rows.                         | Build    | P1       |
 | `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
-| `Status`             | State icon, label, and optional detail.                 | Build    | P1       |
+| `Status`             | State icon, label, and optional detail.                 | Available | P1       |
 | `Alert`              | Inline information, success, warning, or error message. | Build    | P1       |
 | `Callout`            | Framed explanatory content.                             | Build    | P2       |
 | `Toast`              | Timed transient notification stack.                     | Build    | P2       |

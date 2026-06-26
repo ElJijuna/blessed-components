@@ -159,6 +159,16 @@
       "import": "./dist/spinner/blessed.js",
       "require": "./dist/spinner/blessed.cjs"
     },
+    "./status": {
+      "types": "./dist/status/index.d.ts",
+      "import": "./dist/status/index.js",
+      "require": "./dist/status/index.cjs"
+    },
+    "./status/blessed": {
+      "types": "./dist/status/blessed.d.ts",
+      "import": "./dist/status/blessed.js",
+      "require": "./dist/status/blessed.cjs"
+    },
     "./stack": {
       "types": "./dist/stack/index.d.ts",
       "import": "./dist/stack/index.js",

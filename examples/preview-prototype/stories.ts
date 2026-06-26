@@ -24,6 +24,7 @@ import {
   spinner,
   stack,
   stat,
+  status,
   text,
   viewport,
 } from '@/index.js';
@@ -197,6 +198,42 @@ export const stories: readonly PreviewStory[] = [
       });
 
       return loading;
+    },
+  }),
+  defineStory({
+    id: 'status/health',
+    title: 'Status / Health',
+    description: 'Inline semantic state with detail text and automatic ASCII fallback.',
+    mount(parent) {
+      const elements = [
+        status({
+          box: { height: 1, left: 3, top: 2, width: 30 },
+          data: { detail: '24ms', label: 'API healthy', tone: 'success' },
+          parent,
+        }),
+        status({
+          box: { height: 1, left: 3, top: 4, width: 30 },
+          data: { detail: 'retrying', label: 'Worker delayed', tone: 'warning' },
+          parent,
+        }),
+        status({
+          box: { height: 1, left: 3, top: 6, width: 30 },
+          data: {
+            capabilities: { colorLevel: 1, unicode: false },
+            label: 'Cache offline',
+            tone: 'danger',
+          },
+          parent,
+        }),
+      ];
+
+      return {
+        destroy() {
+          for (const element of elements) {
+            element.destroy();
+          }
+        },
+      };
     },
   }),
   defineStory({

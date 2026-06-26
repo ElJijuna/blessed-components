@@ -54,6 +54,8 @@ export default defineConfig({
     'sparkline/index': 'src/components/visualization/sparkline/index.ts',
     'spinner/blessed': 'src/adapters/blessed/spinner.ts',
     'spinner/index': 'src/components/feedback/spinner/index.ts',
+    'status/blessed': 'src/adapters/blessed/status.ts',
+    'status/index': 'src/components/feedback/status/index.ts',
     'stack/blessed': 'src/adapters/blessed/stack.ts',
     'stack/index': 'src/components/layout/stack/index.ts',
     'stat/blessed': 'src/adapters/blessed/stat.ts',

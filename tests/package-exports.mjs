@@ -27,6 +27,8 @@ const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureSpinnerModule = await import('../dist/spinner/index.js');
 const blessedSpinnerModule = await import('../dist/spinner/blessed.js');
+const pureStatusModule = await import('../dist/status/index.js');
+const blessedStatusModule = await import('../dist/status/blessed.js');
 const pureStackModule = await import('../dist/stack/index.js');
 const blessedStackModule = await import('../dist/stack/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
@@ -112,6 +114,11 @@ const [spinnerEsmSource, spinnerCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [statusEsmSource, statusCjsSource] = await Promise.all(
+  ['../dist/status/index.js', '../dist/status/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [stackEsmSource, stackCjsSource] = await Promise.all(
   ['../dist/stack/index.js', '../dist/stack/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -179,6 +186,8 @@ assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureSpinnerModule.renderSpinner, 'function');
 assert.equal(typeof blessedSpinnerModule.spinner, 'function');
+assert.equal(typeof pureStatusModule.renderStatus, 'function');
+assert.equal(typeof blessedStatusModule.status, 'function');
 assert.equal(typeof pureStackModule.calculateStackLayout, 'function');
 assert.equal(typeof blessedStackModule.stack, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
@@ -256,6 +265,10 @@ for (const source of [sparklineEsmSource, sparklineCjsSource]) {
 
 for (const source of [spinnerEsmSource, spinnerCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Spinner entry must not import Blessed.');
+}
+
+for (const source of [statusEsmSource, statusCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Status entry must not import Blessed.');
 }
 
 for (const source of [stackEsmSource, stackCjsSource]) {
