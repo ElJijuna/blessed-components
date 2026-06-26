@@ -36,6 +36,7 @@ import {
   stepIndicator,
   taskProgress,
   text,
+  trend,
   viewport,
 } from '@/index.js';
 
@@ -170,6 +171,28 @@ export const stories: readonly PreviewStory[] = [
         data: {
           content: 'Last updated 2 minutes ago. Press r to refresh.',
           overflow: 'wrap',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'trend/revenue',
+    title: 'Trend / Revenue',
+    description: 'Directional metric change with semantic tone and text fallback.',
+    mount(parent) {
+      return trend({
+        box: {
+          height: 1,
+          left: 3,
+          top: 2,
+          width: 34,
+        },
+        data: {
+          direction: 'up',
+          label: 'vs last month',
+          mode: 'symbol-text',
+          value: '12.5%',
         },
         parent,
       });

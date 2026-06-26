@@ -299,6 +299,16 @@
       "import": "./dist/text/blessed.js",
       "require": "./dist/text/blessed.cjs"
     },
+    "./trend": {
+      "types": "./dist/trend/index.d.ts",
+      "import": "./dist/trend/index.js",
+      "require": "./dist/trend/index.cjs"
+    },
+    "./trend/blessed": {
+      "types": "./dist/trend/blessed.d.ts",
+      "import": "./dist/trend/blessed.js",
+      "require": "./dist/trend/blessed.cjs"
+    },
     "./viewport": {
       "types": "./dist/viewport/index.d.ts",
       "import": "./dist/viewport/index.js",
