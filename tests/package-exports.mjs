@@ -19,6 +19,8 @@ const pureEmptyStateModule = await import('../dist/empty-state/index.js');
 const blessedEmptyStateModule = await import('../dist/empty-state/blessed.js');
 const pureErrorStateModule = await import('../dist/error-state/index.js');
 const blessedErrorStateModule = await import('../dist/error-state/blessed.js');
+const pureHeadingModule = await import('../dist/heading/index.js');
+const blessedHeadingModule = await import('../dist/heading/blessed.js');
 const pureKeyValueModule = await import('../dist/key-value/index.js');
 const blessedKeyValueModule = await import('../dist/key-value/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
@@ -105,6 +107,11 @@ const [emptyStateEsmSource, emptyStateCjsSource] = await Promise.all(
 );
 const [errorStateEsmSource, errorStateCjsSource] = await Promise.all(
   ['../dist/error-state/index.js', '../dist/error-state/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [headingEsmSource, headingCjsSource] = await Promise.all(
+  ['../dist/heading/index.js', '../dist/heading/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -227,6 +234,8 @@ assert.equal(typeof pureEmptyStateModule.renderEmptyState, 'function');
 assert.equal(typeof blessedEmptyStateModule.emptyState, 'function');
 assert.equal(typeof pureErrorStateModule.renderErrorState, 'function');
 assert.equal(typeof blessedErrorStateModule.errorState, 'function');
+assert.equal(typeof pureHeadingModule.renderHeading, 'function');
+assert.equal(typeof blessedHeadingModule.heading, 'function');
 assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
 assert.equal(typeof blessedKeyValueModule.keyValue, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
@@ -308,6 +317,10 @@ for (const source of [emptyStateEsmSource, emptyStateCjsSource]) {
 
 for (const source of [errorStateEsmSource, errorStateCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure ErrorState entry must not import Blessed.');
+}
+
+for (const source of [headingEsmSource, headingCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Heading entry must not import Blessed.');
 }
 
 for (const source of [keyValueEsmSource, keyValueCjsSource]) {

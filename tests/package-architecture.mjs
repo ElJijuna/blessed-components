@@ -11,6 +11,7 @@ const expectedComponents = [
   'src/components/layout/viewport/index.ts',
   'src/components/overlays/dialog/index.ts',
   'src/components/data-display/badge/index.ts',
+  'src/components/data-display/heading/index.ts',
   'src/components/data-display/key-value/index.ts',
   'src/components/collections/list/index.ts',
   'src/components/data-display/stat/index.ts',

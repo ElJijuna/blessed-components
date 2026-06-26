@@ -119,6 +119,16 @@
       "import": "./dist/error-state/blessed.js",
       "require": "./dist/error-state/blessed.cjs"
     },
+    "./heading": {
+      "types": "./dist/heading/index.d.ts",
+      "import": "./dist/heading/index.js",
+      "require": "./dist/heading/index.cjs"
+    },
+    "./heading/blessed": {
+      "types": "./dist/heading/blessed.d.ts",
+      "import": "./dist/heading/blessed.js",
+      "require": "./dist/heading/blessed.cjs"
+    },
     "./key-value": {
       "types": "./dist/key-value/index.d.ts",
       "import": "./dist/key-value/index.js",

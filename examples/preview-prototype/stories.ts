@@ -18,6 +18,7 @@ import {
   divider,
   emptyState,
   errorState,
+  heading,
   keyValue,
   list,
   metricBars,
@@ -105,6 +106,28 @@ export const stories: readonly PreviewStory[] = [
           cause: 'Connection refused',
           message: 'Failed to load projects',
           retry: 'Press r to retry',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'heading/section-title',
+    title: 'Heading / Section Title',
+    description: 'Hierarchical heading with semantic tone and underline.',
+    mount(parent) {
+      return heading({
+        box: {
+          height: 2,
+          left: 3,
+          top: 2,
+          width: 42,
+        },
+        data: {
+          content: 'Deployment pipeline',
+          level: 2,
+          tone: 'primary',
+          underline: true,
         },
         parent,
       });

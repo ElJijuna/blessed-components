@@ -337,7 +337,7 @@ High value, low complexity, excellent early components.
 | Component         | Purpose                                               | Decision | Priority |
 | ----------------- | ----------------------------------------------------- | -------- | -------- |
 | `Text`            | Safe themed text with truncation and wrapping.        | Available | P0       |
-| `Heading`         | Hierarchical terminal heading styles.                 | Build    | P1       |
+| `Heading`         | Hierarchical terminal heading styles.                 | Available | P1       |
 | `Label`           | Stable labels for controls and values.                | Build    | P1       |
 | `MutedText`       | Secondary information using semantic theme tokens.    | Build    | P1       |
 | `Code`            | Inline code with safe escaping.                       | Build    | P2       |

@@ -4,7 +4,7 @@ Composable, typed terminal UI components for
 [Blessed](https://github.com/chjj/blessed).
 
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
-> `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`,
+> `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `KeyValue`, `List`, `MetricBars`, `ProgressBar`,
 > `ProgressList`, `ProgressStack`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
 > `StepIndicator`, `TaskProgress`, `Text`, and `Viewport` are available; more
 > components are coming soon.
@@ -64,6 +64,7 @@ npm install blessed blessed-components
 | [`Alert`](./src/components/feedback/alert/README.md) | Display informational, warning, or error messages. | Available |
 | [`EmptyState`](./src/components/feedback/empty-state/README.md) | Display an empty result message with optional action. | Available |
 | [`ErrorState`](./src/components/feedback/error-state/README.md) | Display error details, cause, and retry text. | Available |
+| [`Heading`](./src/components/data-display/heading/README.md) | Display hierarchical terminal heading styles. | Available |
 | [`StepIndicator`](./src/components/feedback/step-indicator/README.md) | Display completed, active, and pending steps. | Available |
 | [`TaskProgress`](./src/components/feedback/task-progress/README.md) | Display multi-step task status with current activity. | Available |
 | `LogViewer` | Stream and retain bounded log output.              | P1       |
