@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.4.0](https://github.com/ElJijuna/blessed-components/compare/v1.3.0...v1.4.0) (2026-06-26)
+
+### Features
+
+* add Alert component with Blessed adapter, documentation, and tests ([5b55e6b](https://github.com/ElJijuna/blessed-components/commit/5b55e6b7d0e80d8d48541a6febecad468d648650))
+* add EmptyState component with Blessed adapter, documentation, and tests ([2761ae7](https://github.com/ElJijuna/blessed-components/commit/2761ae785c9915e4cdf523611a3f27dcdc775da1))
+* add ErrorState component with Blessed adapter, documentation, and tests ([f4e8ebd](https://github.com/ElJijuna/blessed-components/commit/f4e8ebd0cb578f47eef2ead5f62e125a1c787e71))
+* add Heading component with Blessed adapter, documentation, and tests ([88ffd75](https://github.com/ElJijuna/blessed-components/commit/88ffd758c90f55bd10017e3c2caec0838b92bb1f))
+* add Kbd component with Blessed adapter, documentation, and tests ([fe3c436](https://github.com/ElJijuna/blessed-components/commit/fe3c4366301314e11a2383bbe995f3898a98043a))
+* add Label component with Blessed adapter, documentation, and tests ([40983cb](https://github.com/ElJijuna/blessed-components/commit/40983cbdf5607597c64092de61e94fb6e9294a36))
+* add MutedText component with Blessed adapter, documentation, and tests ([1807635](https://github.com/ElJijuna/blessed-components/commit/180763537fa463ffa8b03ccb9dac1e88a360dc0b))
+* add ProgressList component with Blessed adapter, documentation, and tests ([c9dbd55](https://github.com/ElJijuna/blessed-components/commit/c9dbd55631b01a5e1bd01d56580d6d047acfb618))
+* add ProgressStack component with Blessed adapter, documentation, and tests ([568884d](https://github.com/ElJijuna/blessed-components/commit/568884db246eb2d73d6d879a9ab8375e8ff07605))
+* add Status component with Blessed adapter, documentation, and tests ([b5296af](https://github.com/ElJijuna/blessed-components/commit/b5296af6aff7c6ce3200be2b0166d9e54c691186))
+* add StepIndicator component with Blessed adapter, documentation, and tests ([816b2be](https://github.com/ElJijuna/blessed-components/commit/816b2be3028a91c4486a1807ba3b1056fd6cba97))
+* add TaskProgress component with Blessed adapter, documentation, and tests ([f2f7512](https://github.com/ElJijuna/blessed-components/commit/f2f75123e7c6e7ab09908c68ac4e0da6ba4eeb66))
+* add Trend component with Blessed adapter, documentation, and tests ([69cad84](https://github.com/ElJijuna/blessed-components/commit/69cad840ab86bb04aaf7f548c6b87dd45efe12d3))
+
 ## [1.3.0](https://github.com/ElJijuna/blessed-components/compare/v1.2.0...v1.3.0) (2026-06-22)
 
 ### Features
