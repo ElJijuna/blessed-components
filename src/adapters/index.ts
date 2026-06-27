@@ -16,6 +16,7 @@ export * from './blessed/empty-state.js';
 export * from './blessed/error-state.js';
 export * from './blessed/gauge.js';
 export * from './blessed/heading.js';
+export * from './blessed/help-overlay.js';
 export * from './blessed/kbd.js';
 export * from './blessed/key-value.js';
 export * from './blessed/label.js';

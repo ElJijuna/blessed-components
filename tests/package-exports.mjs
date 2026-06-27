@@ -23,6 +23,8 @@ const pureGaugeModule = await import('../dist/gauge/index.js');
 const blessedGaugeModule = await import('../dist/gauge/blessed.js');
 const pureHeadingModule = await import('../dist/heading/index.js');
 const blessedHeadingModule = await import('../dist/heading/blessed.js');
+const pureHelpOverlayModule = await import('../dist/help-overlay/index.js');
+const blessedHelpOverlayModule = await import('../dist/help-overlay/blessed.js');
 const pureKbdModule = await import('../dist/kbd/index.js');
 const blessedKbdModule = await import('../dist/kbd/blessed.js');
 const pureKeyValueModule = await import('../dist/key-value/index.js');
@@ -141,6 +143,11 @@ const [gaugeEsmSource, gaugeCjsSource] = await Promise.all(
 );
 const [headingEsmSource, headingCjsSource] = await Promise.all(
   ['../dist/heading/index.js', '../dist/heading/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [helpOverlayEsmSource, helpOverlayCjsSource] = await Promise.all(
+  ['../dist/help-overlay/index.js', '../dist/help-overlay/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -322,6 +329,8 @@ assert.equal(typeof pureGaugeModule.renderGauge, 'function');
 assert.equal(typeof blessedGaugeModule.gauge, 'function');
 assert.equal(typeof pureHeadingModule.renderHeading, 'function');
 assert.equal(typeof blessedHeadingModule.heading, 'function');
+assert.equal(typeof pureHelpOverlayModule.renderHelpOverlay, 'function');
+assert.equal(typeof blessedHelpOverlayModule.helpOverlay, 'function');
 assert.equal(typeof pureKbdModule.renderKbd, 'function');
 assert.equal(typeof blessedKbdModule.kbd, 'function');
 assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
@@ -433,6 +442,14 @@ for (const source of [gaugeEsmSource, gaugeCjsSource]) {
 
 for (const source of [headingEsmSource, headingCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Heading entry must not import Blessed.');
+}
+
+for (const source of [helpOverlayEsmSource, helpOverlayCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure HelpOverlay entry must not import Blessed.',
+  );
 }
 
 for (const source of [kbdEsmSource, kbdCjsSource]) {

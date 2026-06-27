@@ -457,7 +457,7 @@ Navigation components need a shared focus model and documented keyboard maps.
 | `Carousel`       | Manual or timed view rotation.                 | Adapt    | P3       |
 | `CommandPalette` | Searchable command execution.                  | Build    | P2       |
 | `QuickSwitcher`  | Search and switch resources or views.          | Build    | P2       |
-| `HelpOverlay`    | Searchable keyboard shortcut reference.        | Build    | P1       |
+| `HelpOverlay`    | Searchable keyboard shortcut reference.        | Available | P1       |
 
 ### 8. Inputs and forms
 

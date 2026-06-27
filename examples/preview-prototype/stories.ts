@@ -20,6 +20,7 @@ import {
   errorState,
   gauge,
   heading,
+  helpOverlay,
   kbd,
   keyValue,
   label,
@@ -521,6 +522,44 @@ export const stories: readonly PreviewStory[] = [
             { id: 'test', label: 'Run tests', shortcut: 't' },
             { id: 'deploy', label: 'Deploy', shortcut: 'd' },
             { disabled: true, id: 'rollback', label: 'Rollback', shortcut: 'r' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'help-overlay/shortcuts',
+    title: 'HelpOverlay / Shortcuts',
+    description: 'Searchable keyboard shortcut reference grouped by area.',
+    mount(parent) {
+      return helpOverlay({
+        parent,
+        box: {
+          border: 'line',
+          height: 10,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 54,
+        },
+        data: {
+          defaultOpen: true,
+          sections: [
+            {
+              items: [
+                { description: 'Open command palette', id: 'palette', keys: ['C-p'] },
+                { description: 'Toggle help overlay', id: 'help', keys: ['?'] },
+                { description: 'Focus search', id: 'search', keys: ['/'] },
+              ],
+              title: 'Global',
+            },
+            {
+              items: [
+                { description: 'Move selection down', id: 'move-down', keys: ['down', 'j'] },
+                { description: 'Move selection up', id: 'move-up', keys: ['up', 'k'] },
+              ],
+              title: 'Navigation',
+            },
           ],
         },
       });

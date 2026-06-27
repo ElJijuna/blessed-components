@@ -42,6 +42,8 @@ export default defineConfig({
     'gauge/index': 'src/components/visualization/gauge/index.ts',
     'heading/blessed': 'src/adapters/blessed/heading.ts',
     'heading/index': 'src/components/data-display/heading/index.ts',
+    'help-overlay/blessed': 'src/adapters/blessed/help-overlay.ts',
+    'help-overlay/index': 'src/components/navigation/help-overlay/index.ts',
     index: 'src/index.ts',
     'kbd/blessed': 'src/adapters/blessed/kbd.ts',
     'kbd/index': 'src/components/data-display/kbd/index.ts',
