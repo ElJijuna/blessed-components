@@ -9,6 +9,7 @@ const expectedComponents = [
   'src/components/layout/scroll-area/index.ts',
   'src/components/layout/stack/index.ts',
   'src/components/layout/viewport/index.ts',
+  'src/components/navigation/tabs/index.ts',
   'src/components/overlays/dialog/index.ts',
   'src/components/data-display/badge/index.ts',
   'src/components/data-display/heading/index.ts',

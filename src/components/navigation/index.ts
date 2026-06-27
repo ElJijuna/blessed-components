@@ -1,7 +1,7 @@
 /**
  * Navigation components with documented keyboard and focus behavior.
  *
- * This category will compose collection, selection, focus-scope, and keymap
- * contracts.
+ * Components in this category compose collection, selection, focus-scope, and
+ * keymap contracts.
  */
-export {};
+export * from './tabs/index.js';

@@ -57,6 +57,8 @@ const pureStepIndicatorModule = await import('../dist/step-indicator/index.js');
 const blessedStepIndicatorModule = await import('../dist/step-indicator/blessed.js');
 const pureTaskProgressModule = await import('../dist/task-progress/index.js');
 const blessedTaskProgressModule = await import('../dist/task-progress/blessed.js');
+const pureTabsModule = await import('../dist/tabs/index.js');
+const blessedTabsModule = await import('../dist/tabs/blessed.js');
 const pureTableModule = await import('../dist/table/index.js');
 const blessedTableModule = await import('../dist/table/blessed.js');
 const pureStackModule = await import('../dist/stack/index.js');
@@ -223,6 +225,11 @@ const [taskProgressEsmSource, taskProgressCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [tabsEsmSource, tabsCjsSource] = await Promise.all(
+  ['../dist/tabs/index.js', '../dist/tabs/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [tableEsmSource, tableCjsSource] = await Promise.all(
   ['../dist/table/index.js', '../dist/table/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -335,6 +342,8 @@ assert.equal(typeof pureStepIndicatorModule.renderStepIndicator, 'function');
 assert.equal(typeof blessedStepIndicatorModule.stepIndicator, 'function');
 assert.equal(typeof pureTaskProgressModule.renderTaskProgress, 'function');
 assert.equal(typeof blessedTaskProgressModule.taskProgress, 'function');
+assert.equal(typeof pureTabsModule.renderTabs, 'function');
+assert.equal(typeof blessedTabsModule.tabs, 'function');
 assert.equal(typeof pureTableModule.renderTable, 'function');
 assert.equal(typeof blessedTableModule.table, 'function');
 assert.equal(typeof pureStackModule.calculateStackLayout, 'function');
@@ -498,6 +507,10 @@ for (const source of [taskProgressEsmSource, taskProgressCjsSource]) {
     false,
     'Pure TaskProgress entry must not import Blessed.',
   );
+}
+
+for (const source of [tabsEsmSource, tabsCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Tabs entry must not import Blessed.');
 }
 
 for (const source of [tableEsmSource, tableCjsSource]) {

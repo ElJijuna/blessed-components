@@ -39,6 +39,7 @@ import {
   status,
   stepIndicator,
   table,
+  tabs,
   taskProgress,
   text,
   thresholds,
@@ -441,6 +442,33 @@ export const stories: readonly PreviewStory[] = [
           action.focus();
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'tabs/views',
+    title: 'Tabs / Views',
+    description: 'Horizontal view switching with disabled tabs and keyboard focus.',
+    mount(parent) {
+      return tabs({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 54,
+        },
+        data: {
+          defaultValue: 'overview',
+          items: [
+            { id: 'overview', label: 'Overview' },
+            { id: 'metrics', label: 'Metrics' },
+            { id: 'logs', label: 'Logs' },
+            { disabled: true, id: 'deploy', label: 'Deploy' },
+          ],
+        },
+      });
     },
   }),
   defineStory({
