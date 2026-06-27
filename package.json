@@ -279,6 +279,16 @@
       "import": "./dist/task-progress/blessed.js",
       "require": "./dist/task-progress/blessed.cjs"
     },
+    "./table": {
+      "types": "./dist/table/index.d.ts",
+      "import": "./dist/table/index.js",
+      "require": "./dist/table/index.cjs"
+    },
+    "./table/blessed": {
+      "types": "./dist/table/blessed.d.ts",
+      "import": "./dist/table/blessed.js",
+      "require": "./dist/table/blessed.cjs"
+    },
     "./stack": {
       "types": "./dist/stack/index.d.ts",
       "import": "./dist/stack/index.js",

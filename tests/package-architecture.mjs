@@ -17,6 +17,7 @@ const expectedComponents = [
   'src/components/data-display/label/index.ts',
   'src/components/data-display/muted-text/index.ts',
   'src/components/collections/list/index.ts',
+  'src/components/collections/table/index.ts',
   'src/components/data-display/stat/index.ts',
   'src/components/data-display/text/index.ts',
   'src/components/data-display/trend/index.ts',

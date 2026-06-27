@@ -78,6 +78,8 @@ export default defineConfig({
     'step-indicator/index': 'src/components/feedback/step-indicator/index.ts',
     'task-progress/blessed': 'src/adapters/blessed/task-progress.ts',
     'task-progress/index': 'src/components/feedback/task-progress/index.ts',
+    'table/blessed': 'src/adapters/blessed/table.ts',
+    'table/index': 'src/components/collections/table/index.ts',
     'stack/blessed': 'src/adapters/blessed/stack.ts',
     'stack/index': 'src/components/layout/stack/index.ts',
     'stat/blessed': 'src/adapters/blessed/stat.ts',

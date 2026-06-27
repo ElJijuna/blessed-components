@@ -35,6 +35,7 @@ import {
   stat,
   status,
   stepIndicator,
+  table,
   taskProgress,
   text,
   trend,
@@ -727,6 +728,45 @@ export const stories: readonly PreviewStory[] = [
             { id: 'preview', label: 'Open component preview' },
             { id: 'audit', label: 'Audit package contents' },
             { id: 'clean', label: 'Clean generated artifacts' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'table/services',
+    title: 'Table / Services',
+    description: 'Interactive typed rows with aligned columns, selection, and bounded scrolling.',
+    mount(parent) {
+      return table({
+        parent,
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          style: {
+            border: {
+              fg: 'cyan',
+            },
+          },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          columns: [
+            { header: 'Service', id: 'service' },
+            { align: 'right', header: 'CPU', id: 'cpu', width: 6 },
+            { align: 'right', header: 'Mem', id: 'memory', width: 7 },
+          ],
+          defaultValue: 'api',
+          rows: [
+            { cpu: '42%', id: 'api', memory: '384MB', service: 'API' },
+            { cpu: '18%', id: 'worker', memory: '512MB', service: 'Worker' },
+            { cpu: '3%', id: 'cache', memory: '96MB', service: 'Cache' },
+            { cpu: '0%', disabled: true, id: 'search', memory: '0MB', service: 'Search (paused)' },
+            { cpu: '11%', id: 'queue', memory: '128MB', service: 'Queue' },
+            { cpu: '7%', id: 'cron', memory: '72MB', service: 'Cron' },
+            { cpu: '25%', id: 'realtime', memory: '256MB', service: 'Realtime gateway' },
           ],
         },
       });
