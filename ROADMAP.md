@@ -248,7 +248,7 @@ npm subpaths:
 | `collections`    | `List`, `Table`                          |
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
-| `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline` |
+| `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
 | `input`          | `Button`                                  |
 | `layout`         | `Box`, `Card`, `Divider`, `ScrollArea`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
@@ -434,7 +434,7 @@ quality, or maintenance advantage.
 | `WaterfallChart`   | Sequential positive and negative contributions.     | Defer        | P3       |
 | `Legend`           | Shared series labels and glyphs.                    | Available    | P1       |
 | `Axis`             | Shared numeric/category axis renderer.              | Build        | P2       |
-| `Thresholds`       | Shared warning and critical ranges.                 | Build        | P1       |
+| `Thresholds`       | Shared warning and critical ranges.                 | Available    | P1       |
 
 `PieChart` is a non-goal: terminal cell aspect ratios and low resolution make
 angle and area comparison poor. Prefer `MetricBars`, `ProgressStack`, or

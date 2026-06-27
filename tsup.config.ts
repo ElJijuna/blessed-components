@@ -90,6 +90,8 @@ export default defineConfig({
     'stat/index': 'src/components/data-display/stat/index.ts',
     'text/blessed': 'src/adapters/blessed/text.ts',
     'text/index': 'src/components/data-display/text/index.ts',
+    'thresholds/blessed': 'src/adapters/blessed/thresholds.ts',
+    'thresholds/index': 'src/components/visualization/thresholds/index.ts',
     'trend/blessed': 'src/adapters/blessed/trend.ts',
     'trend/index': 'src/components/data-display/trend/index.ts',
     'viewport/blessed': 'src/adapters/blessed/viewport.ts',

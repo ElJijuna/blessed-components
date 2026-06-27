@@ -35,6 +35,7 @@ const expectedComponents = [
   'src/components/visualization/legend/index.ts',
   'src/components/visualization/metric-bars/index.ts',
   'src/components/visualization/sparkline/index.ts',
+  'src/components/visualization/thresholds/index.ts',
 ];
 const legacyComponents = [
   'src/components/data-display/list/index.ts',

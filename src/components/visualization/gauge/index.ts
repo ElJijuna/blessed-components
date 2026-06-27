@@ -1,3 +1,7 @@
+import {
+  resolveThreshold,
+  type ThresholdRange,
+} from '@/components/visualization/thresholds/index.js';
 import { clamp, normalizeValue } from '@/core/scale.js';
 import { stripBlessedTags } from '@/core/tags.js';
 import { stripAnsi } from '@/core/width.js';
@@ -17,25 +21,13 @@ export interface GaugeCharacters {
   leftCap: string;
 }
 
-/** Threshold range matched against the clamped gauge value. */
-export interface GaugeThreshold {
-  /** Inclusive upper bound for this threshold. Defaults to the gauge max. */
-  end?: number;
-
-  /** Text appended when the current value is inside this range. */
-  label: string;
-
-  /** Inclusive lower bound for this threshold. Defaults to the gauge min. */
-  start?: number;
-}
-
 /** Normalized value information passed to a gauge value formatter. */
 export interface GaugeValueContext {
   /** Rounded progress in the inclusive range from `0` to `100`. */
   percentage: number;
 
   /** Matching threshold, if any. */
-  threshold?: GaugeThreshold;
+  threshold?: ThresholdRange;
 
   /** Numeric value after it has been clamped to the configured range. */
   value: number;
@@ -75,7 +67,7 @@ export interface RenderGaugeOptions {
   min?: number;
 
   /** Ordered qualitative ranges matched against the clamped value. */
-  thresholds?: readonly GaugeThreshold[];
+  thresholds?: readonly ThresholdRange[];
 
   /** Current finite numeric value. */
   value: number;
@@ -93,29 +85,6 @@ const DEFAULT_CHARACTERS: GaugeCharacters = {
 
 function plainText(value: string): string {
   return stripAnsi(stripBlessedTags(value));
-}
-
-function resolveThreshold({
-  max,
-  min,
-  thresholds = [],
-  value,
-}: {
-  max: number;
-  min: number;
-  thresholds?: readonly GaugeThreshold[];
-  value: number;
-}): GaugeThreshold | undefined {
-  return thresholds.find((threshold) => {
-    const start = threshold.start ?? min;
-    const end = threshold.end ?? max;
-
-    if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) {
-      throw new RangeError('Gauge threshold ranges must be finite and ordered.');
-    }
-
-    return value >= start && value <= end;
-  });
 }
 
 /**
@@ -161,7 +130,7 @@ export function renderGauge({
   const threshold = resolveThreshold({
     max,
     min,
-    ...(thresholds === undefined ? {} : { thresholds }),
+    thresholds: thresholds ?? [],
     value: clampedValue,
   });
   const context: GaugeValueContext =

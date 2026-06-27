@@ -63,6 +63,8 @@ const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
 const pureTextModule = await import('../dist/text/index.js');
 const blessedTextModule = await import('../dist/text/blessed.js');
+const pureThresholdsModule = await import('../dist/thresholds/index.js');
+const blessedThresholdsModule = await import('../dist/thresholds/blessed.js');
 const pureTrendModule = await import('../dist/trend/index.js');
 const blessedTrendModule = await import('../dist/trend/blessed.js');
 const pureViewportModule = await import('../dist/viewport/index.js');
@@ -234,6 +236,11 @@ const [textEsmSource, textCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [thresholdsEsmSource, thresholdsCjsSource] = await Promise.all(
+  ['../dist/thresholds/index.js', '../dist/thresholds/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [trendEsmSource, trendCjsSource] = await Promise.all(
   ['../dist/trend/index.js', '../dist/trend/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -327,6 +334,8 @@ assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
 assert.equal(typeof pureTextModule.renderText, 'function');
 assert.equal(typeof blessedTextModule.text, 'function');
+assert.equal(typeof pureThresholdsModule.renderThresholds, 'function');
+assert.equal(typeof blessedThresholdsModule.thresholds, 'function');
 assert.equal(typeof pureTrendModule.renderTrend, 'function');
 assert.equal(typeof blessedTrendModule.trend, 'function');
 assert.equal(typeof pureViewportModule.calculateViewportLayout, 'function');
@@ -488,6 +497,10 @@ for (const source of [statEsmSource, statCjsSource]) {
 
 for (const source of [textEsmSource, textCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Text entry must not import Blessed.');
+}
+
+for (const source of [thresholdsEsmSource, thresholdsCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Thresholds entry must not import Blessed.');
 }
 
 for (const source of [trendEsmSource, trendCjsSource]) {

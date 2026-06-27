@@ -40,6 +40,7 @@ import {
   table,
   taskProgress,
   text,
+  thresholds,
   trend,
   viewport,
 } from '@/index.js';
@@ -913,6 +914,35 @@ export const stories: readonly PreviewStory[] = [
           ],
           layout: 'vertical',
           tone: 'primary',
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'thresholds/cpu-ranges',
+    title: 'Thresholds / CPU Ranges',
+    description: 'Qualitative numeric ranges with a visible active state.',
+    mount(parent) {
+      return thresholds({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 64,
+        },
+        data: {
+          max: 100,
+          min: 0,
+          thresholds: [
+            { end: 69, label: 'normal', tone: 'success' },
+            { end: 89, label: 'warning', start: 70, tone: 'warning' },
+            { label: 'critical', start: 90, tone: 'critical' },
+          ],
+          tone: 'primary',
+          value: 72,
         },
       });
     },

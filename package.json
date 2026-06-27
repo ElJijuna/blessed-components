@@ -339,6 +339,16 @@
       "import": "./dist/text/blessed.js",
       "require": "./dist/text/blessed.cjs"
     },
+    "./thresholds": {
+      "types": "./dist/thresholds/index.d.ts",
+      "import": "./dist/thresholds/index.js",
+      "require": "./dist/thresholds/index.cjs"
+    },
+    "./thresholds/blessed": {
+      "types": "./dist/thresholds/blessed.d.ts",
+      "import": "./dist/thresholds/blessed.js",
+      "require": "./dist/thresholds/blessed.cjs"
+    },
     "./trend": {
       "types": "./dist/trend/index.d.ts",
       "import": "./dist/trend/index.js",
