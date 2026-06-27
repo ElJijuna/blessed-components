@@ -248,7 +248,7 @@ npm subpaths:
 | `collections`    | `List`, `Table`                          |
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
-| `visualization`  | `MetricBars`, `Sparkline`                 |
+| `visualization`  | `Gauge`, `MetricBars`, `Sparkline`        |
 | `input`          | `Button`                                  |
 | `layout`         | `Box`, `Card`, `Divider`, `ScrollArea`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
@@ -416,7 +416,7 @@ quality, or maintenance advantage.
 | `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
 | `MultiSparkline`   | Aligned compact series with labels.                 | Build        | P1       |
 | `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
-| `Gauge`            | One bounded value with label and thresholds.        | Build        | P1       |
+| `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
 | `StackedGauge`     | Composition of portions in one track.               | Build        | P2       |
 | `BulletChart`      | Actual value against target and qualitative ranges. | Build        | P2       |
 | `BarChart`         | Categorical value comparison.                       | Research     | P2       |

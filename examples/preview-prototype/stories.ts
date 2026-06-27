@@ -18,6 +18,7 @@ import {
   divider,
   emptyState,
   errorState,
+  gauge,
   heading,
   kbd,
   keyValue,
@@ -855,6 +856,35 @@ export const stories: readonly PreviewStory[] = [
           ],
           tone: 'primary',
           value: '85%',
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'gauge/cpu',
+    title: 'Gauge / CPU',
+    description: 'Single bounded value with visible qualitative threshold text.',
+    mount(parent) {
+      return gauge({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          label: 'CPU',
+          thresholds: [
+            { end: 69, label: 'normal' },
+            { end: 89, label: 'warning', start: 70 },
+            { label: 'critical', start: 90 },
+          ],
+          tone: 'primary',
+          value: 72,
+          width: 16,
         },
       });
     },

@@ -31,6 +31,7 @@ const expectedComponents = [
   'src/components/feedback/status/index.ts',
   'src/components/feedback/step-indicator/index.ts',
   'src/components/feedback/task-progress/index.ts',
+  'src/components/visualization/gauge/index.ts',
   'src/components/visualization/metric-bars/index.ts',
   'src/components/visualization/sparkline/index.ts',
 ];

@@ -119,6 +119,16 @@
       "import": "./dist/error-state/blessed.js",
       "require": "./dist/error-state/blessed.cjs"
     },
+    "./gauge": {
+      "types": "./dist/gauge/index.d.ts",
+      "import": "./dist/gauge/index.js",
+      "require": "./dist/gauge/index.cjs"
+    },
+    "./gauge/blessed": {
+      "types": "./dist/gauge/blessed.d.ts",
+      "import": "./dist/gauge/blessed.js",
+      "require": "./dist/gauge/blessed.cjs"
+    },
     "./heading": {
       "types": "./dist/heading/index.d.ts",
       "import": "./dist/heading/index.js",
