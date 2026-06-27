@@ -34,6 +34,7 @@ export * from './blessed/stack.js';
 export * from './blessed/stat.js';
 export * from './blessed/status.js';
 export * from './blessed/step-indicator.js';
+export * from './blessed/tab-list.js';
 export * from './blessed/table.js';
 export * from './blessed/tabs.js';
 export * from './blessed/task-progress.js';

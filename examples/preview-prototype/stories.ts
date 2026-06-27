@@ -38,6 +38,7 @@ import {
   stat,
   status,
   stepIndicator,
+  tabList,
   table,
   tabs,
   taskProgress,
@@ -466,6 +467,33 @@ export const stories: readonly PreviewStory[] = [
             { id: 'metrics', label: 'Metrics' },
             { id: 'logs', label: 'Logs' },
             { disabled: true, id: 'deploy', label: 'Deploy' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'tab-list/triggers',
+    title: 'TabList / Triggers',
+    description: 'Compound tab trigger row for composing custom panel systems.',
+    mount(parent) {
+      return tabList({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 54,
+        },
+        data: {
+          defaultValue: 'summary',
+          items: [
+            { id: 'summary', label: 'Summary' },
+            { id: 'activity', label: 'Activity' },
+            { id: 'settings', label: 'Settings' },
+            { disabled: true, id: 'billing', label: 'Billing' },
           ],
         },
       });

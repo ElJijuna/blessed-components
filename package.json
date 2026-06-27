@@ -309,6 +309,16 @@
       "import": "./dist/task-progress/blessed.js",
       "require": "./dist/task-progress/blessed.cjs"
     },
+    "./tab-list": {
+      "types": "./dist/tab-list/index.d.ts",
+      "import": "./dist/tab-list/index.js",
+      "require": "./dist/tab-list/index.cjs"
+    },
+    "./tab-list/blessed": {
+      "types": "./dist/tab-list/blessed.d.ts",
+      "import": "./dist/tab-list/blessed.js",
+      "require": "./dist/tab-list/blessed.cjs"
+    },
     "./tabs": {
       "types": "./dist/tabs/index.d.ts",
       "import": "./dist/tabs/index.js",
