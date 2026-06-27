@@ -248,7 +248,7 @@ npm subpaths:
 | `collections`    | `List`, `Table`                          |
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
-| `visualization`  | `Gauge`, `MetricBars`, `Sparkline`        |
+| `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline` |
 | `input`          | `Button`                                  |
 | `layout`         | `Box`, `Card`, `Divider`, `ScrollArea`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
@@ -432,7 +432,7 @@ quality, or maintenance advantage.
 | `PieChart`         | Part-to-whole radial display.                       | Do not build | —        |
 | `CandlestickChart` | Open/high/low/close financial series.               | Defer        | P3       |
 | `WaterfallChart`   | Sequential positive and negative contributions.     | Defer        | P3       |
-| `Legend`           | Shared series labels and glyphs.                    | Build        | P1       |
+| `Legend`           | Shared series labels and glyphs.                    | Available    | P1       |
 | `Axis`             | Shared numeric/category axis renderer.              | Build        | P2       |
 | `Thresholds`       | Shared warning and critical ranges.                 | Build        | P1       |
 

@@ -23,6 +23,7 @@ import {
   kbd,
   keyValue,
   label,
+  legend,
   list,
   metricBars,
   mutedText,
@@ -885,6 +886,33 @@ export const stories: readonly PreviewStory[] = [
           tone: 'primary',
           value: 72,
           width: 16,
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'legend/series',
+    title: 'Legend / Series',
+    description: 'Chart series labels with text markers for no-color terminals.',
+    mount(parent) {
+      return legend({
+        parent,
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          items: [
+            { description: '42%', id: 'api', label: 'API', marker: '●' },
+            { description: '18%', id: 'worker', label: 'Worker', marker: '■' },
+            { description: '7%', id: 'cache', label: 'Cache', marker: '▲' },
+          ],
+          layout: 'vertical',
+          tone: 'primary',
         },
       });
     },

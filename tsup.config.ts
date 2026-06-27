@@ -49,6 +49,8 @@ export default defineConfig({
     'key-value/index': 'src/components/data-display/key-value/index.ts',
     'label/blessed': 'src/adapters/blessed/label.ts',
     'label/index': 'src/components/data-display/label/index.ts',
+    'legend/blessed': 'src/adapters/blessed/legend.ts',
+    'legend/index': 'src/components/visualization/legend/index.ts',
     'list/blessed': 'src/adapters/blessed/list.ts',
     'list/index': 'src/components/collections/list/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',

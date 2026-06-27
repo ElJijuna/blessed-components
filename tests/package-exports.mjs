@@ -29,6 +29,8 @@ const pureKeyValueModule = await import('../dist/key-value/index.js');
 const blessedKeyValueModule = await import('../dist/key-value/blessed.js');
 const pureLabelModule = await import('../dist/label/index.js');
 const blessedLabelModule = await import('../dist/label/blessed.js');
+const pureLegendModule = await import('../dist/legend/index.js');
+const blessedLegendModule = await import('../dist/legend/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
@@ -144,6 +146,11 @@ const [keyValueEsmSource, keyValueCjsSource] = await Promise.all(
 );
 const [labelEsmSource, labelCjsSource] = await Promise.all(
   ['../dist/label/index.js', '../dist/label/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [legendEsmSource, legendCjsSource] = await Promise.all(
+  ['../dist/legend/index.js', '../dist/legend/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -286,6 +293,8 @@ assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
 assert.equal(typeof blessedKeyValueModule.keyValue, 'function');
 assert.equal(typeof pureLabelModule.renderLabel, 'function');
 assert.equal(typeof blessedLabelModule.label, 'function');
+assert.equal(typeof pureLegendModule.renderLegend, 'function');
+assert.equal(typeof blessedLegendModule.legend, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
@@ -391,6 +400,10 @@ for (const source of [keyValueEsmSource, keyValueCjsSource]) {
 
 for (const source of [labelEsmSource, labelCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Label entry must not import Blessed.');
+}
+
+for (const source of [legendEsmSource, legendCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Legend entry must not import Blessed.');
 }
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {

@@ -169,6 +169,16 @@
       "import": "./dist/label/blessed.js",
       "require": "./dist/label/blessed.cjs"
     },
+    "./legend": {
+      "types": "./dist/legend/index.d.ts",
+      "import": "./dist/legend/index.js",
+      "require": "./dist/legend/index.cjs"
+    },
+    "./legend/blessed": {
+      "types": "./dist/legend/blessed.d.ts",
+      "import": "./dist/legend/blessed.js",
+      "require": "./dist/legend/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",

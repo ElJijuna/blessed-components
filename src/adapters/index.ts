@@ -19,6 +19,7 @@ export * from './blessed/heading.js';
 export * from './blessed/kbd.js';
 export * from './blessed/key-value.js';
 export * from './blessed/label.js';
+export * from './blessed/legend.js';
 export * from './blessed/list.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/muted-text.js';
