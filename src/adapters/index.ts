@@ -21,6 +21,7 @@ export * from './blessed/key-value.js';
 export * from './blessed/label.js';
 export * from './blessed/legend.js';
 export * from './blessed/list.js';
+export * from './blessed/menu.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/multi-sparkline.js';
 export * from './blessed/muted-text.js';

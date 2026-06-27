@@ -35,6 +35,8 @@ const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
+const pureMenuModule = await import('../dist/menu/index.js');
+const blessedMenuModule = await import('../dist/menu/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
 const pureMutedTextModule = await import('../dist/muted-text/index.js');
@@ -169,6 +171,11 @@ const [metricBarsEsmSource, metricBarsCjsSource] = await Promise.all(
 );
 const [listEsmSource, listCjsSource] = await Promise.all(
   ['../dist/list/index.js', '../dist/list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [menuEsmSource, menuCjsSource] = await Promise.all(
+  ['../dist/menu/index.js', '../dist/menu/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -327,6 +334,8 @@ assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
 assert.equal(typeof blessedListModule.list, 'function');
+assert.equal(typeof pureMenuModule.renderMenu, 'function');
+assert.equal(typeof blessedMenuModule.menu, 'function');
 assert.equal(typeof pureMutedTextModule.renderMutedText, 'function');
 assert.equal(typeof blessedMutedTextModule.mutedText, 'function');
 assert.equal(typeof pureMultiSparklineModule.renderMultiSparkline, 'function');
@@ -448,6 +457,10 @@ for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {
 
 for (const source of [listEsmSource, listCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure List entry must not import Blessed.');
+}
+
+for (const source of [menuEsmSource, menuCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Menu entry must not import Blessed.');
 }
 
 for (const source of [mutedTextEsmSource, mutedTextCjsSource]) {

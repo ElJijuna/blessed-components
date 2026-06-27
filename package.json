@@ -219,6 +219,16 @@
       "import": "./dist/list/blessed.js",
       "require": "./dist/list/blessed.cjs"
     },
+    "./menu": {
+      "types": "./dist/menu/index.d.ts",
+      "import": "./dist/menu/index.js",
+      "require": "./dist/menu/index.cjs"
+    },
+    "./menu/blessed": {
+      "types": "./dist/menu/blessed.d.ts",
+      "import": "./dist/menu/blessed.js",
+      "require": "./dist/menu/blessed.cjs"
+    },
     "./progress-bar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js",

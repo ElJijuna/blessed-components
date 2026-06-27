@@ -25,6 +25,7 @@ import {
   label,
   legend,
   list,
+  menu,
   metricBars,
   multiSparkline,
   mutedText,
@@ -494,6 +495,32 @@ export const stories: readonly PreviewStory[] = [
             { id: 'activity', label: 'Activity' },
             { id: 'settings', label: 'Settings' },
             { disabled: true, id: 'billing', label: 'Billing' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'menu/actions',
+    title: 'Menu / Actions',
+    description: 'Vertical action navigation with shortcuts and disabled items.',
+    mount(parent) {
+      return menu({
+        parent,
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 38,
+        },
+        data: {
+          items: [
+            { id: 'build', label: 'Build package', shortcut: 'b' },
+            { id: 'test', label: 'Run tests', shortcut: 't' },
+            { id: 'deploy', label: 'Deploy', shortcut: 'd' },
+            { disabled: true, id: 'rollback', label: 'Rollback', shortcut: 'r' },
           ],
         },
       });

@@ -448,7 +448,7 @@ Navigation components need a shared focus model and documented keyboard maps.
 | ---------------- | ---------------------------------------------- | -------- | -------- |
 | `Tabs`           | Switch between labeled views.                  | Available | P1       |
 | `TabList`        | Compound tab trigger collection.               | Available | P1       |
-| `Menu`           | Vertical action navigation.                    | Build    | P1       |
+| `Menu`           | Vertical action navigation.                    | Available | P1       |
 | `MenuBar`        | Top-level horizontal menus.                    | Build    | P2       |
 | `ContextMenu`    | Mouse or keyboard anchored action menu.        | Research | P3       |
 | `NavigationList` | Route or view navigation with active state.    | Build    | P2       |
