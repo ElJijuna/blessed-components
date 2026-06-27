@@ -414,7 +414,7 @@ quality, or maintenance advantage.
 | Component          | Purpose                                             | Decision     | Priority |
 | ------------------ | --------------------------------------------------- | ------------ | -------- |
 | `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
-| `MultiSparkline`   | Aligned compact series with labels.                 | Build        | P1       |
+| `MultiSparkline`   | Aligned compact series with labels.                 | Available    | P1       |
 | `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
 | `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
 | `StackedGauge`     | Composition of portions in one track.               | Build        | P2       |

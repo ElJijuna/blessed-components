@@ -39,6 +39,8 @@ const pureModule = await import('../dist/progress-bar/index.js');
 const blessedModule = await import('../dist/progress-bar/blessed.js');
 const pureMutedTextModule = await import('../dist/muted-text/index.js');
 const blessedMutedTextModule = await import('../dist/muted-text/blessed.js');
+const pureMultiSparklineModule = await import('../dist/multi-sparkline/index.js');
+const blessedMultiSparklineModule = await import('../dist/multi-sparkline/blessed.js');
 const pureProgressListModule = await import('../dist/progress-list/index.js');
 const blessedProgressListModule = await import('../dist/progress-list/blessed.js');
 const pureProgressStackModule = await import('../dist/progress-stack/index.js');
@@ -168,6 +170,11 @@ const [listEsmSource, listCjsSource] = await Promise.all(
 );
 const [mutedTextEsmSource, mutedTextCjsSource] = await Promise.all(
   ['../dist/muted-text/index.js', '../dist/muted-text/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [multiSparklineEsmSource, multiSparklineCjsSource] = await Promise.all(
+  ['../dist/multi-sparkline/index.js', '../dist/multi-sparkline/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -308,6 +315,8 @@ assert.equal(typeof pureListModule.renderList, 'function');
 assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureMutedTextModule.renderMutedText, 'function');
 assert.equal(typeof blessedMutedTextModule.mutedText, 'function');
+assert.equal(typeof pureMultiSparklineModule.renderMultiSparkline, 'function');
+assert.equal(typeof blessedMultiSparklineModule.multiSparkline, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
 assert.equal(typeof pureProgressListModule.renderProgressList, 'function');
@@ -425,6 +434,14 @@ for (const source of [listEsmSource, listCjsSource]) {
 
 for (const source of [mutedTextEsmSource, mutedTextCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure MutedText entry must not import Blessed.');
+}
+
+for (const source of [multiSparklineEsmSource, multiSparklineCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure MultiSparkline entry must not import Blessed.',
+  );
 }
 
 for (const source of [pureEsmSource, pureCjsSource]) {

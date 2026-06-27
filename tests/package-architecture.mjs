@@ -34,6 +34,7 @@ const expectedComponents = [
   'src/components/visualization/gauge/index.ts',
   'src/components/visualization/legend/index.ts',
   'src/components/visualization/metric-bars/index.ts',
+  'src/components/visualization/multi-sparkline/index.ts',
   'src/components/visualization/sparkline/index.ts',
   'src/components/visualization/thresholds/index.ts',
 ];

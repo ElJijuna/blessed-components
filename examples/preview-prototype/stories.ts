@@ -26,6 +26,7 @@ import {
   legend,
   list,
   metricBars,
+  multiSparkline,
   mutedText,
   progressBar,
   progressList,
@@ -1043,6 +1044,48 @@ export const stories: readonly PreviewStory[] = [
             6,
           ],
           width: 30,
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'multi-sparkline/services',
+    title: 'MultiSparkline / Services',
+    description: 'Aligned compact series sharing one numeric domain.',
+    mount(parent) {
+      return multiSparkline({
+        parent,
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 54,
+        },
+        data: {
+          series: [
+            {
+              id: 'api',
+              label: 'API',
+              summary: 'p95 82ms',
+              values: [12, 18, 24, 31, 48, 42, 55, 82],
+            },
+            {
+              id: 'worker',
+              label: 'Worker',
+              summary: 'p95 51ms',
+              values: [8, 12, 15, 18, 22, 27, 31, 51],
+            },
+            {
+              id: 'cache',
+              label: 'Cache',
+              summary: 'p95 19ms',
+              values: [4, 5, 8, 6, 9, 12, 14, 19],
+            },
+          ],
+          tone: 'primary',
+          width: 16,
         },
       });
     },

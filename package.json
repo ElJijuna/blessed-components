@@ -199,6 +199,16 @@
       "import": "./dist/muted-text/blessed.js",
       "require": "./dist/muted-text/blessed.cjs"
     },
+    "./multi-sparkline": {
+      "types": "./dist/multi-sparkline/index.d.ts",
+      "import": "./dist/multi-sparkline/index.js",
+      "require": "./dist/multi-sparkline/index.cjs"
+    },
+    "./multi-sparkline/blessed": {
+      "types": "./dist/multi-sparkline/blessed.d.ts",
+      "import": "./dist/multi-sparkline/blessed.js",
+      "require": "./dist/multi-sparkline/blessed.cjs"
+    },
     "./list": {
       "types": "./dist/list/index.d.ts",
       "import": "./dist/list/index.js",
