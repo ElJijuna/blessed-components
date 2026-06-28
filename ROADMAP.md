@@ -477,7 +477,7 @@ consistent state, composition, and cleanup.
 | `RadioGroup`      | One value from visible choices.                        | Available | P1       |
 | `Switch`          | Immediate boolean setting.                             | Available | P2       |
 | `Select`          | One value from a popup or inline list.                 | Available | P1       |
-| `MultiSelect`     | Multiple values with filtering.                        | Build    | P2       |
+| `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
 | `Combobox`        | Searchable input plus suggestions.                     | Build    | P2       |
 | `Autocomplete`    | Suggest completions while typing.                      | Build    | P2       |
 | `DateInput`       | Parse and validate a date string.                      | Research | P3       |

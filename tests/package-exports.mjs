@@ -43,6 +43,8 @@ const pureLegendModule = await import('../dist/legend/index.js');
 const blessedLegendModule = await import('../dist/legend/blessed.js');
 const pureMetricBarsModule = await import('../dist/metric-bars/index.js');
 const blessedMetricBarsModule = await import('../dist/metric-bars/blessed.js');
+const pureMultiSelectModule = await import('../dist/multi-select/index.js');
+const blessedMultiSelectModule = await import('../dist/multi-select/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
 const pureMenuModule = await import('../dist/menu/index.js');
@@ -209,6 +211,11 @@ const [legendEsmSource, legendCjsSource] = await Promise.all(
 );
 const [metricBarsEsmSource, metricBarsCjsSource] = await Promise.all(
   ['../dist/metric-bars/index.js', '../dist/metric-bars/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [multiSelectEsmSource, multiSelectCjsSource] = await Promise.all(
+  ['../dist/multi-select/index.js', '../dist/multi-select/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -405,6 +412,8 @@ assert.equal(typeof pureLegendModule.renderLegend, 'function');
 assert.equal(typeof blessedLegendModule.legend, 'function');
 assert.equal(typeof pureMetricBarsModule.renderMetricBars, 'function');
 assert.equal(typeof blessedMetricBarsModule.metricBars, 'function');
+assert.equal(typeof pureMultiSelectModule.renderMultiSelect, 'function');
+assert.equal(typeof blessedMultiSelectModule.multiSelect, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
 assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureMenuModule.renderMenu, 'function');
@@ -558,6 +567,14 @@ for (const source of [legendEsmSource, legendCjsSource]) {
 
 for (const source of [metricBarsEsmSource, metricBarsCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure MetricBars entry must not import Blessed.');
+}
+
+for (const source of [multiSelectEsmSource, multiSelectCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure MultiSelect entry must not import Blessed.',
+  );
 }
 
 for (const source of [listEsmSource, listCjsSource]) {

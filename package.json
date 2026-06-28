@@ -229,6 +229,16 @@
       "import": "./dist/metric-bars/blessed.js",
       "require": "./dist/metric-bars/blessed.cjs"
     },
+    "./multi-select": {
+      "types": "./dist/multi-select/index.d.ts",
+      "import": "./dist/multi-select/index.js",
+      "require": "./dist/multi-select/index.cjs"
+    },
+    "./multi-select/blessed": {
+      "types": "./dist/multi-select/blessed.d.ts",
+      "import": "./dist/multi-select/blessed.js",
+      "require": "./dist/multi-select/blessed.cjs"
+    },
     "./muted-text": {
       "types": "./dist/muted-text/index.d.ts",
       "import": "./dist/muted-text/index.js",

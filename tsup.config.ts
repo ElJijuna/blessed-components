@@ -65,6 +65,8 @@ export default defineConfig({
     'menu/index': 'src/components/navigation/menu/index.ts',
     'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
     'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
+    'multi-select/blessed': 'src/adapters/blessed/multi-select.ts',
+    'multi-select/index': 'src/components/input/multi-select/index.ts',
     'muted-text/blessed': 'src/adapters/blessed/muted-text.ts',
     'muted-text/index': 'src/components/data-display/muted-text/index.ts',
     'multi-sparkline/blessed': 'src/adapters/blessed/multi-sparkline.ts',

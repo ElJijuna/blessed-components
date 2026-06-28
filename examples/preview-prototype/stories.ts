@@ -31,6 +31,7 @@ import {
   list,
   menu,
   metricBars,
+  multiSelect,
   multiSparkline,
   mutedText,
   progressBar,
@@ -719,6 +720,68 @@ export const stories: readonly PreviewStory[] = [
           open,
           placeholder: 'Choose environment',
           value,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'multi-select/services',
+    title: 'MultiSelect / Services',
+    description: 'Multiple visible choices with a compact selected summary.',
+    mount(parent) {
+      let values = ['api'];
+      let open = true;
+
+      const items = [
+        { id: 'api', label: 'API' },
+        { id: 'worker', label: 'Worker' },
+        { disabled: true, id: 'db', label: 'Database' },
+      ] as const;
+      const sync = (): void => {
+        field.setData({
+          items,
+          onOpenChange: handleOpenChange,
+          onValuesChange: handleValuesChange,
+          open,
+          placeholder: 'Choose services',
+          values,
+        });
+        parent.screen.render();
+      };
+      const handleOpenChange = (nextOpen: boolean): void => {
+        open = nextOpen;
+        sync();
+      };
+      const handleValuesChange = (nextValues: readonly string[]): void => {
+        values = [...nextValues];
+        sync();
+      };
+      const field = multiSelect({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          items,
+          onOpenChange: handleOpenChange,
+          onValuesChange: handleValuesChange,
+          open,
+          placeholder: 'Choose services',
+          values,
         },
         parent,
       });

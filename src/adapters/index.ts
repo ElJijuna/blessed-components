@@ -27,6 +27,7 @@ export * from './blessed/legend.js';
 export * from './blessed/list.js';
 export * from './blessed/menu.js';
 export * from './blessed/metric-bars.js';
+export * from './blessed/multi-select.js';
 export * from './blessed/multi-sparkline.js';
 export * from './blessed/muted-text.js';
 export * from './blessed/progress-bar.js';
