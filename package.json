@@ -319,6 +319,16 @@
       "import": "./dist/search-field/blessed.js",
       "require": "./dist/search-field/blessed.cjs"
     },
+    "./select": {
+      "types": "./dist/select/index.d.ts",
+      "import": "./dist/select/index.js",
+      "require": "./dist/select/index.cjs"
+    },
+    "./select/blessed": {
+      "types": "./dist/select/blessed.d.ts",
+      "import": "./dist/select/blessed.js",
+      "require": "./dist/select/blessed.cjs"
+    },
     "./text-field": {
       "types": "./dist/text-field/index.d.ts",
       "import": "./dist/text-field/index.js",

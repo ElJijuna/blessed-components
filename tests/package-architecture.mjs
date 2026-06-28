@@ -8,6 +8,7 @@ const expectedComponents = [
   'src/components/input/form-field/index.ts',
   'src/components/input/radio-group/index.ts',
   'src/components/input/search-field/index.ts',
+  'src/components/input/select/index.ts',
   'src/components/input/text-field/index.ts',
   'src/components/layout/card/index.ts',
   'src/components/layout/divider/index.ts',

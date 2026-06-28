@@ -61,6 +61,8 @@ const pureRadioGroupModule = await import('../dist/radio-group/index.js');
 const blessedRadioGroupModule = await import('../dist/radio-group/blessed.js');
 const pureSearchFieldModule = await import('../dist/search-field/index.js');
 const blessedSearchFieldModule = await import('../dist/search-field/blessed.js');
+const pureSelectModule = await import('../dist/select/index.js');
+const blessedSelectModule = await import('../dist/select/blessed.js');
 const pureScrollAreaModule = await import('../dist/scroll-area/index.js');
 const blessedScrollAreaModule = await import('../dist/scroll-area/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
@@ -253,6 +255,11 @@ const [searchFieldEsmSource, searchFieldCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [selectEsmSource, selectCjsSource] = await Promise.all(
+  ['../dist/select/index.js', '../dist/select/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [scrollAreaEsmSource, scrollAreaCjsSource] = await Promise.all(
   ['../dist/scroll-area/index.js', '../dist/scroll-area/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -409,6 +416,8 @@ assert.equal(typeof pureRadioGroupModule.renderRadioGroup, 'function');
 assert.equal(typeof blessedRadioGroupModule.radioGroup, 'function');
 assert.equal(typeof pureSearchFieldModule.renderSearchField, 'function');
 assert.equal(typeof blessedSearchFieldModule.searchField, 'function');
+assert.equal(typeof pureSelectModule.renderSelect, 'function');
+assert.equal(typeof blessedSelectModule.select, 'function');
 assert.equal(typeof pureScrollAreaModule.renderScrollAreaScrollbar, 'function');
 assert.equal(typeof blessedScrollAreaModule.scrollArea, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
@@ -596,6 +605,10 @@ for (const source of [searchFieldEsmSource, searchFieldCjsSource]) {
     false,
     'Pure SearchField entry must not import Blessed.',
   );
+}
+
+for (const source of [selectEsmSource, selectCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Select entry must not import Blessed.');
 }
 
 for (const source of [scrollAreaEsmSource, scrollAreaCjsSource]) {

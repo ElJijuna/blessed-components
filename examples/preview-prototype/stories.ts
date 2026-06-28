@@ -39,6 +39,7 @@ import {
   radioGroup,
   scrollArea,
   searchField,
+  select,
   sparkline,
   spinner,
   stack,
@@ -654,6 +655,69 @@ export const stories: readonly PreviewStory[] = [
           onSubmit: handleSubmit,
           placeholder: 'service name',
           query,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'select/environment',
+    title: 'Select / Environment',
+    description: 'Compact single-selection input with keyboard navigation.',
+    mount(parent) {
+      let value = 'prod';
+      let open = true;
+
+      const items = [
+        { id: 'prod', label: 'Production' },
+        { id: 'stage', label: 'Staging' },
+        { disabled: true, id: 'dev', label: 'Development' },
+      ] as const;
+      const sync = (): void => {
+        field.setData({
+          items,
+          onOpenChange: handleOpenChange,
+          onValueChange: handleValueChange,
+          open,
+          placeholder: 'Choose environment',
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleOpenChange = (nextOpen: boolean): void => {
+        open = nextOpen;
+        sync();
+      };
+      const handleValueChange = (nextValue: string): void => {
+        value = nextValue;
+        open = false;
+        sync();
+      };
+      const field = select({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          items,
+          onOpenChange: handleOpenChange,
+          onValueChange: handleValueChange,
+          open,
+          placeholder: 'Choose environment',
+          value,
         },
         parent,
       });

@@ -476,7 +476,7 @@ consistent state, composition, and cleanup.
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
 | `RadioGroup`      | One value from visible choices.                        | Available | P1       |
 | `Switch`          | Immediate boolean setting.                             | Build    | P2       |
-| `Select`          | One value from a popup or inline list.                 | Build    | P1       |
+| `Select`          | One value from a popup or inline list.                 | Available | P1       |
 | `MultiSelect`     | Multiple values with filtering.                        | Build    | P2       |
 | `Combobox`        | Searchable input plus suggestions.                     | Build    | P2       |
 | `Autocomplete`    | Suggest completions while typing.                      | Build    | P2       |
