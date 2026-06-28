@@ -33,6 +33,7 @@ export * from './blessed/progress-list.js';
 export * from './blessed/progress-stack.js';
 export * from './blessed/radio-group.js';
 export * from './blessed/scroll-area.js';
+export * from './blessed/search-field.js';
 export * from './blessed/sparkline.js';
 export * from './blessed/spinner.js';
 export * from './blessed/stack.js';

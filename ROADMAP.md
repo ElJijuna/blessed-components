@@ -472,7 +472,7 @@ consistent state, composition, and cleanup.
 | `PasswordField`   | Masked input with reveal behavior.                     | Build    | P2       |
 | `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |
 | `NumberField`     | Numeric input with parsing, bounds, and step.          | Build    | P2       |
-| `SearchField`     | Query input with clear and submit actions.             | Build    | P1       |
+| `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
 | `RadioGroup`      | One value from visible choices.                        | Available | P1       |
 | `Switch`          | Immediate boolean setting.                             | Build    | P2       |

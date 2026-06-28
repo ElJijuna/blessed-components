@@ -37,6 +37,7 @@ import {
   progressStack,
   radioGroup,
   scrollArea,
+  searchField,
   sparkline,
   spinner,
   stack,
@@ -576,6 +577,82 @@ export const stories: readonly PreviewStory[] = [
           placeholder: 'production',
           required: true,
           value,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'search-field/filter',
+    title: 'SearchField / Filter',
+    description: 'Query input with clear and submit actions.',
+    mount(parent) {
+      let query = 'api';
+
+      const handleQueryChange = (nextQuery: string): void => {
+        query = nextQuery;
+        field.setData({
+          hint: 'Escape clears, Enter submits.',
+          label: 'Filter services',
+          onClear: handleClear,
+          onQueryChange: handleQueryChange,
+          onSubmit: handleSubmit,
+          placeholder: 'service name',
+          query,
+        });
+        parent.screen.render();
+      };
+      const handleClear = (): void => {
+        query = '';
+        field.setData({
+          hint: 'Filter cleared.',
+          label: 'Filter services',
+          onClear: handleClear,
+          onQueryChange: handleQueryChange,
+          onSubmit: handleSubmit,
+          placeholder: 'service name',
+          query,
+        });
+        parent.screen.render();
+      };
+      const handleSubmit = (submittedQuery: string): void => {
+        field.setData({
+          hint: `Submitted: ${submittedQuery || 'empty query'}`,
+          label: 'Filter services',
+          onClear: handleClear,
+          onQueryChange: handleQueryChange,
+          onSubmit: handleSubmit,
+          placeholder: 'service name',
+          query,
+        });
+        parent.screen.render();
+      };
+      const field = searchField({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 44,
+        },
+        data: {
+          hint: 'Escape clears, Enter submits.',
+          label: 'Filter services',
+          onClear: handleClear,
+          onQueryChange: handleQueryChange,
+          onSubmit: handleSubmit,
+          placeholder: 'service name',
+          query,
         },
         parent,
       });
