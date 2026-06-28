@@ -1,6 +1,6 @@
 {
   "name": "blessed-components",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Composable, typed terminal UI components for Blessed.",
   "keywords": [
     "blessed",

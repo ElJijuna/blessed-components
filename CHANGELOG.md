@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.5.0](https://github.com/ElJijuna/blessed-components/compare/v1.4.0...v1.5.0) (2026-06-28)
+
+### Features
+
+* add Checkbox component with Blessed adapter, documentation, and tests ([faacadc](https://github.com/ElJijuna/blessed-components/commit/faacadcc5a8ead336eaebb0acbf9123cf738d4e7))
+* add FormField component with Blessed adapter, documentation, and tests ([e9e1430](https://github.com/ElJijuna/blessed-components/commit/e9e1430009cc15271ee9b7389662b63e8cca5dd7))
+* add Gauge component with Blessed adapter, documentation, and tests ([b61794b](https://github.com/ElJijuna/blessed-components/commit/b61794b3b95f0122628a7746d187d96013cbe819))
+* add Grid component with Blessed adapter, documentation, and tests ([01de818](https://github.com/ElJijuna/blessed-components/commit/01de818416a978f293c157635e7cc9446d05200b))
+* add HelpOverlay component with Blessed adapter, documentation, and tests ([7ec9b4e](https://github.com/ElJijuna/blessed-components/commit/7ec9b4e328409c9e45760c0858b659a3f70ff74e))
+* add Legend component with Blessed adapter, documentation, and tests ([b3142c9](https://github.com/ElJijuna/blessed-components/commit/b3142c9e896af45492807b345e1a70ae5bc5a482))
+* add Menu component with Blessed adapter, documentation, and tests ([56d2c54](https://github.com/ElJijuna/blessed-components/commit/56d2c54738d9314cc7cb568f18ea01605d17989e))
+* add MultiSelect component with Blessed adapter, documentation, and tests ([51ed06f](https://github.com/ElJijuna/blessed-components/commit/51ed06f6eaf44e5991915684e499121d30e8a004))
+* add MultiSparkline component with Blessed adapter, documentation, and tests ([7d2dd0b](https://github.com/ElJijuna/blessed-components/commit/7d2dd0b1e83cc91d7f6c6398934d8d6556be68ab))
+* add Overlay component with modal functionality and integration tests ([4147b46](https://github.com/ElJijuna/blessed-components/commit/4147b4697e89572cf5846029d43719091649cb0a))
+* add RadioGroup component with Blessed adapter, documentation, and tests ([50b34d5](https://github.com/ElJijuna/blessed-components/commit/50b34d506175eabb03502322702e15ca876610c7))
+* add SearchField component with Blessed adapter, documentation, and tests ([1750103](https://github.com/ElJijuna/blessed-components/commit/1750103f7b41fab2d9865b33cd789f42169425aa))
+* add Select component with Blessed adapter, documentation, and tests ([542941b](https://github.com/ElJijuna/blessed-components/commit/542941bc333f34dfb94566948852e3cf6d141b78))
+* add Switch component with Blessed adapter, documentation, and tests ([d61fd72](https://github.com/ElJijuna/blessed-components/commit/d61fd722a28cf4e3f556d4a3c5063db640021584))
+* add System Inspector example with process monitoring and memory usage visualization ([54dc97c](https://github.com/ElJijuna/blessed-components/commit/54dc97c2231591b0594eb7b6ad180baf90b3b499))
+* add Table component with Blessed adapter, documentation, and tests ([8b50060](https://github.com/ElJijuna/blessed-components/commit/8b50060bd6fb57dceeac63c83fba5d784c4a6caf))
+* add TabList component with Blessed adapter, documentation, and tests ([f4818dc](https://github.com/ElJijuna/blessed-components/commit/f4818dc76b93fb81abcab59915861692ccc6ef06))
+* add Tabs component with Blessed adapter, documentation, and tests ([3d4d242](https://github.com/ElJijuna/blessed-components/commit/3d4d242db13157bb61b9276a882354ffbab26059))
+* add TextField component with Blessed adapter, documentation, and tests ([080802f](https://github.com/ElJijuna/blessed-components/commit/080802ff3db57ab1dcf43f609bcdea43e0b642e3))
+* add Thresholds component with Blessed adapter, documentation, and tests ([8d33eb2](https://github.com/ElJijuna/blessed-components/commit/8d33eb24e3fcf7ef9c15a5b85c6e8542a78731e6))
+
 ## [1.4.0](https://github.com/ElJijuna/blessed-components/compare/v1.3.0...v1.4.0) (2026-06-26)
 
 ### Features
