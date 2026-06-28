@@ -69,6 +69,16 @@
       "import": "./dist/button/blessed.js",
       "require": "./dist/button/blessed.cjs"
     },
+    "./form-field": {
+      "types": "./dist/form-field/index.d.ts",
+      "import": "./dist/form-field/index.js",
+      "require": "./dist/form-field/index.cjs"
+    },
+    "./form-field/blessed": {
+      "types": "./dist/form-field/blessed.d.ts",
+      "import": "./dist/form-field/blessed.js",
+      "require": "./dist/form-field/blessed.cjs"
+    },
     "./card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js",

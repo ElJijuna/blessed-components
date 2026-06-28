@@ -38,6 +38,8 @@ export default defineConfig({
     'empty-state/index': 'src/components/feedback/empty-state/index.ts',
     'error-state/blessed': 'src/adapters/blessed/error-state.ts',
     'error-state/index': 'src/components/feedback/error-state/index.ts',
+    'form-field/blessed': 'src/adapters/blessed/form-field.ts',
+    'form-field/index': 'src/components/input/form-field/index.ts',
     'gauge/blessed': 'src/adapters/blessed/gauge.ts',
     'gauge/index': 'src/components/visualization/gauge/index.ts',
     'heading/blessed': 'src/adapters/blessed/heading.ts',

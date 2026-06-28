@@ -484,7 +484,7 @@ consistent state, composition, and cleanup.
 | `TimeInput`       | Parse and validate time.                               | Research | P3       |
 | `KeybindingInput` | Capture and display shortcut combinations.             | Build    | P3       |
 | `FilePicker`      | Navigate and select files or directories.              | Adapt    | P2       |
-| `FormField`       | Label, control, hint, required, and error composition. | Build    | P1       |
+| `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
 | `Form`            | Submission, validation, reset, and field registry.     | Adapt    | P1       |
 
 ### 9. Overlays and transient UI

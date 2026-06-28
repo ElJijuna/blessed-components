@@ -18,6 +18,7 @@ import {
   divider,
   emptyState,
   errorState,
+  formField,
   gauge,
   heading,
   helpOverlay,
@@ -445,6 +446,30 @@ export const stories: readonly PreviewStory[] = [
           action.focus();
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'form-field/basic',
+    title: 'FormField / Basic',
+    description: 'Label, required marker, composed control content, and hint row.',
+    mount(parent) {
+      return formField({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          control: '[ production ]',
+          hint: 'Used by deploy and rollback commands.',
+          label: 'Environment',
+          required: true,
+        },
+        parent,
+      });
     },
   }),
   defineStory({
