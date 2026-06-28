@@ -9,6 +9,8 @@ const pureBoxModule = await import('../dist/box/index.js');
 const blessedBoxModule = await import('../dist/box/blessed.js');
 const pureButtonModule = await import('../dist/button/index.js');
 const blessedButtonModule = await import('../dist/button/blessed.js');
+const pureCheckboxModule = await import('../dist/checkbox/index.js');
+const blessedCheckboxModule = await import('../dist/checkbox/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureDividerModule = await import('../dist/divider/index.js');
@@ -110,6 +112,11 @@ const [boxEsmSource, boxCjsSource] = await Promise.all(
 );
 const [buttonEsmSource, buttonCjsSource] = await Promise.all(
   ['../dist/button/index.js', '../dist/button/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [checkboxEsmSource, checkboxCjsSource] = await Promise.all(
+  ['../dist/checkbox/index.js', '../dist/checkbox/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -312,6 +319,8 @@ assert.equal(typeof pureBoxModule.resolveBoxTheme, 'function');
 assert.equal(typeof blessedBoxModule.box, 'function');
 assert.equal(typeof pureButtonModule.renderButton, 'function');
 assert.equal(typeof blessedButtonModule.button, 'function');
+assert.equal(typeof pureCheckboxModule.renderCheckbox, 'function');
+assert.equal(typeof blessedCheckboxModule.checkbox, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -423,6 +432,10 @@ for (const source of [boxEsmSource, boxCjsSource]) {
 
 for (const source of [buttonEsmSource, buttonCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Button entry must not import Blessed.');
+}
+
+for (const source of [checkboxEsmSource, checkboxCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Checkbox entry must not import Blessed.');
 }
 
 for (const source of [cardEsmSource, cardCjsSource]) {

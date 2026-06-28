@@ -473,7 +473,7 @@ consistent state, composition, and cleanup.
 | `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |
 | `NumberField`     | Numeric input with parsing, bounds, and step.          | Build    | P2       |
 | `SearchField`     | Query input with clear and submit actions.             | Build    | P1       |
-| `Checkbox`        | Boolean value with indeterminate state.                | Adapt    | P1       |
+| `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
 | `RadioGroup`      | One value from visible choices.                        | Adapt    | P1       |
 | `Switch`          | Immediate boolean setting.                             | Build    | P2       |
 | `Select`          | One value from a popup or inline list.                 | Build    | P1       |

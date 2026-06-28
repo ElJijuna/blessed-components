@@ -69,6 +69,16 @@
       "import": "./dist/button/blessed.js",
       "require": "./dist/button/blessed.cjs"
     },
+    "./checkbox": {
+      "types": "./dist/checkbox/index.d.ts",
+      "import": "./dist/checkbox/index.js",
+      "require": "./dist/checkbox/index.cjs"
+    },
+    "./checkbox/blessed": {
+      "types": "./dist/checkbox/blessed.d.ts",
+      "import": "./dist/checkbox/blessed.js",
+      "require": "./dist/checkbox/blessed.cjs"
+    },
     "./form-field": {
       "types": "./dist/form-field/index.d.ts",
       "import": "./dist/form-field/index.js",

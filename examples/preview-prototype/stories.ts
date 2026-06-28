@@ -9,6 +9,7 @@ import {
   cardHeader,
   cardRoot,
   cardTitle,
+  checkbox,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -444,6 +445,42 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           action.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'checkbox/toggle',
+    title: 'Checkbox / Toggle',
+    description: 'Boolean option with keyboard and mouse toggling.',
+    mount(parent) {
+      let checked = false;
+
+      const handleCheckedChange = (nextChecked: boolean): void => {
+        checked = nextChecked;
+        option.setData({
+          checked,
+          label: 'Include prereleases',
+          onCheckedChange: handleCheckedChange,
+        });
+        parent.screen.render();
+      };
+      const option = checkbox({
+        box: { height: 1, left: 3, top: 3, width: 34 },
+        data: {
+          checked,
+          label: 'Include prereleases',
+          onCheckedChange: handleCheckedChange,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          option.destroy();
+        },
+        focus() {
+          option.focus();
         },
       };
     },

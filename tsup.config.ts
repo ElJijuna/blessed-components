@@ -14,6 +14,8 @@ export default defineConfig({
     'button/index': 'src/components/input/button/index.ts',
     'card/blessed': 'src/adapters/blessed/card.ts',
     'card/index': 'src/components/layout/card/index.ts',
+    'checkbox/blessed': 'src/adapters/blessed/checkbox.ts',
+    'checkbox/index': 'src/components/input/checkbox/index.ts',
     'core/capabilities': 'src/core/capabilities.ts',
     'core/characters': 'src/core/characters.ts',
     'core/color': 'src/core/color.ts',
