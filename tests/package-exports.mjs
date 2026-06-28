@@ -27,6 +27,8 @@ const pureTextFieldModule = await import('../dist/text-field/index.js');
 const blessedTextFieldModule = await import('../dist/text-field/blessed.js');
 const pureGaugeModule = await import('../dist/gauge/index.js');
 const blessedGaugeModule = await import('../dist/gauge/blessed.js');
+const pureGridModule = await import('../dist/grid/index.js');
+const blessedGridModule = await import('../dist/grid/blessed.js');
 const pureHeadingModule = await import('../dist/heading/index.js');
 const blessedHeadingModule = await import('../dist/heading/blessed.js');
 const pureHelpOverlayModule = await import('../dist/help-overlay/index.js');
@@ -163,6 +165,11 @@ const [textFieldEsmSource, textFieldCjsSource] = await Promise.all(
 );
 const [gaugeEsmSource, gaugeCjsSource] = await Promise.all(
   ['../dist/gauge/index.js', '../dist/gauge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [gridEsmSource, gridCjsSource] = await Promise.all(
+  ['../dist/grid/index.js', '../dist/grid/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -368,6 +375,8 @@ assert.equal(typeof pureTextFieldModule.renderTextField, 'function');
 assert.equal(typeof blessedTextFieldModule.textField, 'function');
 assert.equal(typeof pureGaugeModule.renderGauge, 'function');
 assert.equal(typeof blessedGaugeModule.gauge, 'function');
+assert.equal(typeof pureGridModule.calculateGridLayout, 'function');
+assert.equal(typeof blessedGridModule.grid, 'function');
 assert.equal(typeof pureHeadingModule.renderHeading, 'function');
 assert.equal(typeof blessedHeadingModule.heading, 'function');
 assert.equal(typeof pureHelpOverlayModule.renderHelpOverlay, 'function');
@@ -495,6 +504,10 @@ for (const source of [textFieldEsmSource, textFieldCjsSource]) {
 
 for (const source of [gaugeEsmSource, gaugeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Gauge entry must not import Blessed.');
+}
+
+for (const source of [gridEsmSource, gridCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Grid entry must not import Blessed.');
 }
 
 for (const source of [headingEsmSource, headingCjsSource]) {

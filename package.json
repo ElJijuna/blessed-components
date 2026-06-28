@@ -149,6 +149,16 @@
       "import": "./dist/gauge/blessed.js",
       "require": "./dist/gauge/blessed.cjs"
     },
+    "./grid": {
+      "types": "./dist/grid/index.d.ts",
+      "import": "./dist/grid/index.js",
+      "require": "./dist/grid/index.cjs"
+    },
+    "./grid/blessed": {
+      "types": "./dist/grid/blessed.d.ts",
+      "import": "./dist/grid/blessed.js",
+      "require": "./dist/grid/blessed.cjs"
+    },
     "./heading": {
       "types": "./dist/heading/index.d.ts",
       "import": "./dist/heading/index.js",

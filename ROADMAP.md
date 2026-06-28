@@ -315,7 +315,7 @@ predictable, typed composition and responsive rules.
 | `Card`          | Root, header, title, description, body, footer.         | Available | P1       |
 | `Stack`         | Vertical or horizontal flow with gaps.                  | Available | P1       |
 | `Cluster`       | Wrapping inline group for badges and actions.           | Build    | P2       |
-| `Grid`          | Responsive row/column placement with spans.             | Build    | P2       |
+| `Grid`          | Responsive row/column placement with spans.             | Available | P2       |
 | `SplitPane`     | Resizable horizontal or vertical regions.               | Research | P2       |
 | `SidebarLayout` | Sidebar plus main content with collapse rules.          | Build    | P2       |
 | `Center`        | Center one child in available space.                    | Build    | P2       |

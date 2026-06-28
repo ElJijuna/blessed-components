@@ -11,6 +11,7 @@ const expectedComponents = [
   'src/components/input/text-field/index.ts',
   'src/components/layout/card/index.ts',
   'src/components/layout/divider/index.ts',
+  'src/components/layout/grid/index.ts',
   'src/components/layout/scroll-area/index.ts',
   'src/components/layout/stack/index.ts',
   'src/components/layout/viewport/index.ts',

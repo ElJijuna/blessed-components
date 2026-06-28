@@ -21,6 +21,7 @@ import {
   errorState,
   formField,
   gauge,
+  grid,
   heading,
   helpOverlay,
   kbd,
@@ -967,6 +968,50 @@ export const stories: readonly PreviewStory[] = [
       text({
         box: { height: 1, width: 18 },
         data: { content: '3 replicas ready', tone: 'muted' },
+        parent: layout.element,
+      });
+      layout.layout();
+
+      return layout;
+    },
+  }),
+  defineStory({
+    id: 'grid/dashboard-panels',
+    title: 'Grid / Dashboard Panels',
+    description: 'Row and column placement with spans for dashboard composition.',
+    mount(parent) {
+      const layout = grid({
+        box: {
+          border: 'line',
+          height: 12,
+          left: 3,
+          padding: { bottom: 1, left: 1, right: 1, top: 1 },
+          top: 1,
+          width: 52,
+        },
+        data: {
+          borderTone: 'primary',
+          columns: 3,
+          gap: 1,
+          items: [{ columnSpan: 2 }, {}, { column: 0, columnSpan: 3, row: 1 }],
+          rows: 2,
+        },
+        parent,
+      });
+
+      text({
+        box: { border: 'line' },
+        data: { content: 'API\nHealthy\n84ms p95', tone: 'success' },
+        parent: layout.element,
+      });
+      text({
+        box: { border: 'line' },
+        data: { content: 'Queue\n12 pending', tone: 'warning' },
+        parent: layout.element,
+      });
+      text({
+        box: { border: 'line' },
+        data: { content: 'Deploy timeline\nbuild -> test -> release', tone: 'muted' },
         parent: layout.element,
       });
       layout.layout();

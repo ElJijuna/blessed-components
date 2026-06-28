@@ -44,6 +44,8 @@ export default defineConfig({
     'form-field/index': 'src/components/input/form-field/index.ts',
     'gauge/blessed': 'src/adapters/blessed/gauge.ts',
     'gauge/index': 'src/components/visualization/gauge/index.ts',
+    'grid/blessed': 'src/adapters/blessed/grid.ts',
+    'grid/index': 'src/components/layout/grid/index.ts',
     'heading/blessed': 'src/adapters/blessed/heading.ts',
     'heading/index': 'src/components/data-display/heading/index.ts',
     'help-overlay/blessed': 'src/adapters/blessed/help-overlay.ts',
