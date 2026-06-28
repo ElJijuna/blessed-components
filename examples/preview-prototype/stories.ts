@@ -46,6 +46,7 @@ import {
   stat,
   status,
   stepIndicator,
+  switchControl,
   tabList,
   table,
   tabs,
@@ -728,6 +729,46 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'switch/auto-deploy',
+    title: 'Switch / Auto Deploy',
+    description: 'Immediate boolean setting with keyboard and mouse toggling.',
+    mount(parent) {
+      let checked = true;
+
+      const handleCheckedChange = (nextChecked: boolean): void => {
+        checked = nextChecked;
+        setting.setData({
+          checked,
+          label: 'Auto deploy',
+          offText: 'manual',
+          onCheckedChange: handleCheckedChange,
+          onText: 'enabled',
+        });
+        parent.screen.render();
+      };
+      const setting = switchControl({
+        box: { height: 1, left: 3, top: 3, width: 36 },
+        data: {
+          checked,
+          label: 'Auto deploy',
+          offText: 'manual',
+          onCheckedChange: handleCheckedChange,
+          onText: 'enabled',
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          setting.destroy();
+        },
+        focus() {
+          setting.focus();
         },
       };
     },

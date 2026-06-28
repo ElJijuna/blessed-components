@@ -329,6 +329,16 @@
       "import": "./dist/select/blessed.js",
       "require": "./dist/select/blessed.cjs"
     },
+    "./switch": {
+      "types": "./dist/switch/index.d.ts",
+      "import": "./dist/switch/index.js",
+      "require": "./dist/switch/index.cjs"
+    },
+    "./switch/blessed": {
+      "types": "./dist/switch/blessed.d.ts",
+      "import": "./dist/switch/blessed.js",
+      "require": "./dist/switch/blessed.cjs"
+    },
     "./text-field": {
       "types": "./dist/text-field/index.d.ts",
       "import": "./dist/text-field/index.js",

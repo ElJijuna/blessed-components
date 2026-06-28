@@ -73,6 +73,8 @@ const pureStatusModule = await import('../dist/status/index.js');
 const blessedStatusModule = await import('../dist/status/blessed.js');
 const pureStepIndicatorModule = await import('../dist/step-indicator/index.js');
 const blessedStepIndicatorModule = await import('../dist/step-indicator/blessed.js');
+const pureSwitchModule = await import('../dist/switch/index.js');
+const blessedSwitchModule = await import('../dist/switch/blessed.js');
 const pureTaskProgressModule = await import('../dist/task-progress/index.js');
 const blessedTaskProgressModule = await import('../dist/task-progress/blessed.js');
 const pureTabListModule = await import('../dist/tab-list/index.js');
@@ -285,6 +287,11 @@ const [stepIndicatorEsmSource, stepIndicatorCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [switchEsmSource, switchCjsSource] = await Promise.all(
+  ['../dist/switch/index.js', '../dist/switch/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [taskProgressEsmSource, taskProgressCjsSource] = await Promise.all(
   ['../dist/task-progress/index.js', '../dist/task-progress/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -428,6 +435,8 @@ assert.equal(typeof pureStatusModule.renderStatus, 'function');
 assert.equal(typeof blessedStatusModule.status, 'function');
 assert.equal(typeof pureStepIndicatorModule.renderStepIndicator, 'function');
 assert.equal(typeof blessedStepIndicatorModule.stepIndicator, 'function');
+assert.equal(typeof pureSwitchModule.renderSwitch, 'function');
+assert.equal(typeof blessedSwitchModule.switchControl, 'function');
 assert.equal(typeof pureTaskProgressModule.renderTaskProgress, 'function');
 assert.equal(typeof blessedTaskProgressModule.taskProgress, 'function');
 assert.equal(typeof pureTabListModule.renderTabList, 'function');
@@ -633,6 +642,10 @@ for (const source of [stepIndicatorEsmSource, stepIndicatorCjsSource]) {
     false,
     'Pure StepIndicator entry must not import Blessed.',
   );
+}
+
+for (const source of [switchEsmSource, switchCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Switch entry must not import Blessed.');
 }
 
 for (const source of [taskProgressEsmSource, taskProgressCjsSource]) {

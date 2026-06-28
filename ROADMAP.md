@@ -475,7 +475,7 @@ consistent state, composition, and cleanup.
 | `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
 | `RadioGroup`      | One value from visible choices.                        | Available | P1       |
-| `Switch`          | Immediate boolean setting.                             | Build    | P2       |
+| `Switch`          | Immediate boolean setting.                             | Available | P2       |
 | `Select`          | One value from a popup or inline list.                 | Available | P1       |
 | `MultiSelect`     | Multiple values with filtering.                        | Build    | P2       |
 | `Combobox`        | Searchable input plus suggestions.                     | Build    | P2       |
