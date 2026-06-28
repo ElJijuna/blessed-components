@@ -494,7 +494,7 @@ global key cleanup.
 
 | Component       | Purpose                                         | Decision | Priority |
 | --------------- | ----------------------------------------------- | -------- | -------- |
-| `Overlay`       | Visual screen layer over the available stack primitive. | Build    | P1       |
+| `Overlay`       | Visual screen layer over the available stack primitive. | Available | P1       |
 | `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
 | `ConfirmDialog` | Confirm or cancel a consequential action.       | Build    | P1       |
 | `PromptDialog`  | Request one value in a modal flow.              | Adapt    | P2       |

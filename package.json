@@ -259,6 +259,16 @@
       "import": "./dist/multi-sparkline/blessed.js",
       "require": "./dist/multi-sparkline/blessed.cjs"
     },
+    "./overlay": {
+      "types": "./dist/overlay/index.d.ts",
+      "import": "./dist/overlay/index.js",
+      "require": "./dist/overlay/index.cjs"
+    },
+    "./overlay/blessed": {
+      "types": "./dist/overlay/blessed.d.ts",
+      "import": "./dist/overlay/blessed.js",
+      "require": "./dist/overlay/blessed.cjs"
+    },
     "./list": {
       "types": "./dist/list/index.d.ts",
       "import": "./dist/list/index.js",

@@ -20,6 +20,7 @@ const expectedComponents = [
   'src/components/layout/viewport/index.ts',
   'src/components/navigation/tabs/index.ts',
   'src/components/overlays/dialog/index.ts',
+  'src/components/overlays/overlay/index.ts',
   'src/components/data-display/badge/index.ts',
   'src/components/data-display/heading/index.ts',
   'src/components/navigation/help-overlay/index.ts',

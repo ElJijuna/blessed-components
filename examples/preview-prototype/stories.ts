@@ -34,6 +34,7 @@ import {
   multiSelect,
   multiSparkline,
   mutedText,
+  overlay,
   progressBar,
   progressList,
   progressStack,
@@ -976,6 +977,46 @@ export const stories: readonly PreviewStory[] = [
           ],
         },
       });
+    },
+  }),
+  defineStory({
+    id: 'overlay/modal-layer',
+    title: 'Overlay / Modal Layer',
+    description: 'Shared full-screen layer for composing modal or transient UI.',
+    mount(parent) {
+      const layer = overlay({
+        data: {
+          defaultOpen: true,
+          id: 'preview-overlay',
+          modal: true,
+        },
+        parent,
+      });
+      const panel = text({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 5,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 46,
+        },
+        data: {
+          content: 'Overlay layer\n\nCompose any child content here.\nEsc closes the top layer.',
+          overflow: 'wrap',
+        },
+        parent: layer.element,
+      });
+
+      return {
+        destroy() {
+          panel.destroy();
+          layer.destroy();
+        },
+        focus() {
+          layer.focus();
+        },
+      };
     },
   }),
   defineStory({

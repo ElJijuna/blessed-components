@@ -8,11 +8,9 @@ import {
 } from '@/components/overlays/dialog/index.js';
 import type { ThemeColors } from '@/core/theme.js';
 import { createFocusScope, type FocusScopeModel } from '@/primitives/focus-scope/index.js';
-import { createOverlayStack, type OverlayStackModel } from '@/primitives/overlay/index.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
+import { getScreenOverlayStack } from './overlay-stack.js';
 import type { BlessedComponentHandle } from './types.js';
-
-const screenOverlays = new WeakMap<blessed.Widgets.Screen, OverlayStackModel>();
 
 /** Blessed options supported by Dialog parts. */
 export type DialogBoxOptions = BoxElementOptions;
@@ -118,20 +116,6 @@ interface Keypress {
   shift?: boolean;
 }
 
-function overlayStack(screen: blessed.Widgets.Screen): OverlayStackModel {
-  const existing = screenOverlays.get(screen);
-
-  if (existing !== undefined) {
-    return existing;
-  }
-
-  const created = createOverlayStack();
-
-  screenOverlays.set(screen, created);
-
-  return created;
-}
-
 function numericDimension(value: blessed.Widgets.Types.TPosition): number | undefined {
   return typeof value === 'number' && Number.isFinite(value)
     ? Math.max(0, Math.floor(value))
@@ -235,7 +219,7 @@ export function dialogRoot({
   let previousFocus: blessed.Widgets.BlessedElement | undefined;
 
   const { screen } = parent;
-  const overlays = overlayStack(screen);
+  const overlays = getScreenOverlayStack(screen);
   const focusables = new Map<string, blessed.Widgets.BlessedElement>();
   const state = createDialogState(initialData);
   const element = blessed.box({
