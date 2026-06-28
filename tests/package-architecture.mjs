@@ -6,6 +6,7 @@ const expectedComponents = [
   'src/components/input/button/index.ts',
   'src/components/input/checkbox/index.ts',
   'src/components/input/form-field/index.ts',
+  'src/components/input/radio-group/index.ts',
   'src/components/layout/card/index.ts',
   'src/components/layout/divider/index.ts',
   'src/components/layout/scroll-area/index.ts',

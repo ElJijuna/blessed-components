@@ -31,6 +31,7 @@ export * from './blessed/muted-text.js';
 export * from './blessed/progress-bar.js';
 export * from './blessed/progress-list.js';
 export * from './blessed/progress-stack.js';
+export * from './blessed/radio-group.js';
 export * from './blessed/scroll-area.js';
 export * from './blessed/sparkline.js';
 export * from './blessed/spinner.js';

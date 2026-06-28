@@ -53,6 +53,8 @@ const pureProgressListModule = await import('../dist/progress-list/index.js');
 const blessedProgressListModule = await import('../dist/progress-list/blessed.js');
 const pureProgressStackModule = await import('../dist/progress-stack/index.js');
 const blessedProgressStackModule = await import('../dist/progress-stack/blessed.js');
+const pureRadioGroupModule = await import('../dist/radio-group/index.js');
+const blessedRadioGroupModule = await import('../dist/radio-group/blessed.js');
 const pureScrollAreaModule = await import('../dist/scroll-area/index.js');
 const blessedScrollAreaModule = await import('../dist/scroll-area/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
@@ -225,6 +227,11 @@ const [progressStackEsmSource, progressStackCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [radioGroupEsmSource, radioGroupCjsSource] = await Promise.all(
+  ['../dist/radio-group/index.js', '../dist/radio-group/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [scrollAreaEsmSource, scrollAreaCjsSource] = await Promise.all(
   ['../dist/scroll-area/index.js', '../dist/scroll-area/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -373,6 +380,8 @@ assert.equal(typeof pureProgressListModule.renderProgressList, 'function');
 assert.equal(typeof blessedProgressListModule.progressList, 'function');
 assert.equal(typeof pureProgressStackModule.renderProgressStack, 'function');
 assert.equal(typeof blessedProgressStackModule.progressStack, 'function');
+assert.equal(typeof pureRadioGroupModule.renderRadioGroup, 'function');
+assert.equal(typeof blessedRadioGroupModule.radioGroup, 'function');
 assert.equal(typeof pureScrollAreaModule.renderScrollAreaScrollbar, 'function');
 assert.equal(typeof blessedScrollAreaModule.scrollArea, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
@@ -540,6 +549,10 @@ for (const source of [progressStackEsmSource, progressStackCjsSource]) {
     false,
     'Pure ProgressStack entry must not import Blessed.',
   );
+}
+
+for (const source of [radioGroupEsmSource, radioGroupCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure RadioGroup entry must not import Blessed.');
 }
 
 for (const source of [scrollAreaEsmSource, scrollAreaCjsSource]) {

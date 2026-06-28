@@ -289,6 +289,16 @@
       "import": "./dist/progress-stack/blessed.js",
       "require": "./dist/progress-stack/blessed.cjs"
     },
+    "./radio-group": {
+      "types": "./dist/radio-group/index.d.ts",
+      "import": "./dist/radio-group/index.js",
+      "require": "./dist/radio-group/index.cjs"
+    },
+    "./radio-group/blessed": {
+      "types": "./dist/radio-group/blessed.d.ts",
+      "import": "./dist/radio-group/blessed.js",
+      "require": "./dist/radio-group/blessed.cjs"
+    },
     "./scroll-area": {
       "types": "./dist/scroll-area/index.d.ts",
       "import": "./dist/scroll-area/index.js",

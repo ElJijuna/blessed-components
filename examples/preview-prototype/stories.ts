@@ -35,6 +35,7 @@ import {
   progressBar,
   progressList,
   progressStack,
+  radioGroup,
   scrollArea,
   sparkline,
   spinner,
@@ -481,6 +482,46 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           option.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'radio-group/release-channel',
+    title: 'RadioGroup / Release Channel',
+    description: 'Single visible choice with keyboard selection.',
+    mount(parent) {
+      let value = 'stable';
+
+      const items = [
+        { id: 'stable', label: 'Stable' },
+        { id: 'beta', label: 'Beta' },
+        { disabled: true, id: 'nightly', label: 'Nightly' },
+      ] as const;
+      const handleValueChange = (nextValue: string): void => {
+        value = nextValue;
+        group.setData({ items, onValueChange: handleValueChange, value });
+        parent.screen.render();
+      };
+      const group = radioGroup({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 32,
+        },
+        data: { items, onValueChange: handleValueChange, value },
+        parent,
+      });
+
+      return {
+        destroy() {
+          group.destroy();
+        },
+        focus() {
+          group.focus();
         },
       };
     },

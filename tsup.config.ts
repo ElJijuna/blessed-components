@@ -73,6 +73,8 @@ export default defineConfig({
     'progress-list/index': 'src/components/feedback/progress-list/index.ts',
     'progress-stack/blessed': 'src/adapters/blessed/progress-stack.ts',
     'progress-stack/index': 'src/components/feedback/progress-stack/index.ts',
+    'radio-group/blessed': 'src/adapters/blessed/radio-group.ts',
+    'radio-group/index': 'src/components/input/radio-group/index.ts',
     'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
     'scroll-area/index': 'src/components/layout/scroll-area/index.ts',
     'primitives/collection/index': 'src/primitives/collection/index.ts',

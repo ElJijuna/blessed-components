@@ -474,7 +474,7 @@ consistent state, composition, and cleanup.
 | `NumberField`     | Numeric input with parsing, bounds, and step.          | Build    | P2       |
 | `SearchField`     | Query input with clear and submit actions.             | Build    | P1       |
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
-| `RadioGroup`      | One value from visible choices.                        | Adapt    | P1       |
+| `RadioGroup`      | One value from visible choices.                        | Available | P1       |
 | `Switch`          | Immediate boolean setting.                             | Build    | P2       |
 | `Select`          | One value from a popup or inline list.                 | Build    | P1       |
 | `MultiSelect`     | Multiple values with filtering.                        | Build    | P2       |
