@@ -48,6 +48,7 @@ import {
   tabs,
   taskProgress,
   text,
+  textField,
   thresholds,
   trend,
   viewport,
@@ -522,6 +523,69 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           group.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'text-field/environment',
+    title: 'TextField / Environment',
+    description: 'Single-line input with label, hint, and submit callback.',
+    mount(parent) {
+      let value = 'production';
+
+      const handleValueChange = (nextValue: string): void => {
+        value = nextValue;
+        field.setData({
+          hint: 'Press Enter to submit the deploy target.',
+          label: 'Environment',
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'production',
+          required: true,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleSubmit = (nextValue: string): void => {
+        field.setData({
+          hint: `Last submitted: ${nextValue}`,
+          label: 'Environment',
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'production',
+          required: true,
+          value,
+        });
+        parent.screen.render();
+      };
+      const field = textField({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 44,
+        },
+        data: {
+          hint: 'Press Enter to submit the deploy target.',
+          label: 'Environment',
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'production',
+          required: true,
+          value,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
         },
       };
     },

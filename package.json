@@ -299,6 +299,16 @@
       "import": "./dist/radio-group/blessed.js",
       "require": "./dist/radio-group/blessed.cjs"
     },
+    "./text-field": {
+      "types": "./dist/text-field/index.d.ts",
+      "import": "./dist/text-field/index.js",
+      "require": "./dist/text-field/index.cjs"
+    },
+    "./text-field/blessed": {
+      "types": "./dist/text-field/blessed.d.ts",
+      "import": "./dist/text-field/blessed.js",
+      "require": "./dist/text-field/blessed.cjs"
+    },
     "./scroll-area": {
       "types": "./dist/scroll-area/index.d.ts",
       "import": "./dist/scroll-area/index.js",

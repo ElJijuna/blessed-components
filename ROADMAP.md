@@ -468,7 +468,7 @@ consistent state, composition, and cleanup.
 | ----------------- | ------------------------------------------------------ | -------- | -------- |
 | `Button`          | Typed action with tone and disabled states.            | Available | P1       |
 | `IconButton`      | Compact action with required text description.         | Build    | P2       |
-| `TextField`       | Single-line text with label, hint, and error.          | Adapt    | P1       |
+| `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
 | `PasswordField`   | Masked input with reveal behavior.                     | Build    | P2       |
 | `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |
 | `NumberField`     | Numeric input with parsing, bounds, and step.          | Build    | P2       |

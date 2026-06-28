@@ -44,6 +44,7 @@ export * from './blessed/table.js';
 export * from './blessed/tabs.js';
 export * from './blessed/task-progress.js';
 export * from './blessed/text.js';
+export * from './blessed/text-field.js';
 export * from './blessed/thresholds.js';
 export * from './blessed/trend.js';
 export * from './blessed/types.js';

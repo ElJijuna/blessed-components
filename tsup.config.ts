@@ -106,6 +106,8 @@ export default defineConfig({
     'stat/index': 'src/components/data-display/stat/index.ts',
     'text/blessed': 'src/adapters/blessed/text.ts',
     'text/index': 'src/components/data-display/text/index.ts',
+    'text-field/blessed': 'src/adapters/blessed/text-field.ts',
+    'text-field/index': 'src/components/input/text-field/index.ts',
     'thresholds/blessed': 'src/adapters/blessed/thresholds.ts',
     'thresholds/index': 'src/components/visualization/thresholds/index.ts',
     'trend/blessed': 'src/adapters/blessed/trend.ts',

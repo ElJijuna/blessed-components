@@ -23,6 +23,8 @@ const pureErrorStateModule = await import('../dist/error-state/index.js');
 const blessedErrorStateModule = await import('../dist/error-state/blessed.js');
 const pureFormFieldModule = await import('../dist/form-field/index.js');
 const blessedFormFieldModule = await import('../dist/form-field/blessed.js');
+const pureTextFieldModule = await import('../dist/text-field/index.js');
+const blessedTextFieldModule = await import('../dist/text-field/blessed.js');
 const pureGaugeModule = await import('../dist/gauge/index.js');
 const blessedGaugeModule = await import('../dist/gauge/blessed.js');
 const pureHeadingModule = await import('../dist/heading/index.js');
@@ -149,6 +151,11 @@ const [errorStateEsmSource, errorStateCjsSource] = await Promise.all(
 );
 const [formFieldEsmSource, formFieldCjsSource] = await Promise.all(
   ['../dist/form-field/index.js', '../dist/form-field/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [textFieldEsmSource, textFieldCjsSource] = await Promise.all(
+  ['../dist/text-field/index.js', '../dist/text-field/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -350,6 +357,8 @@ assert.equal(typeof pureErrorStateModule.renderErrorState, 'function');
 assert.equal(typeof blessedErrorStateModule.errorState, 'function');
 assert.equal(typeof pureFormFieldModule.renderFormField, 'function');
 assert.equal(typeof blessedFormFieldModule.formField, 'function');
+assert.equal(typeof pureTextFieldModule.renderTextField, 'function');
+assert.equal(typeof blessedTextFieldModule.textField, 'function');
 assert.equal(typeof pureGaugeModule.renderGauge, 'function');
 assert.equal(typeof blessedGaugeModule.gauge, 'function');
 assert.equal(typeof pureHeadingModule.renderHeading, 'function');
@@ -469,6 +478,10 @@ for (const source of [errorStateEsmSource, errorStateCjsSource]) {
 
 for (const source of [formFieldEsmSource, formFieldCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure FormField entry must not import Blessed.');
+}
+
+for (const source of [textFieldEsmSource, textFieldCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure TextField entry must not import Blessed.');
 }
 
 for (const source of [gaugeEsmSource, gaugeCjsSource]) {
