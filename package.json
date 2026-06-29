@@ -229,6 +229,16 @@
       "import": "./dist/heading/blessed.js",
       "require": "./dist/heading/blessed.cjs"
     },
+    "./health-indicator": {
+      "types": "./dist/health-indicator/index.d.ts",
+      "import": "./dist/health-indicator/index.js",
+      "require": "./dist/health-indicator/index.cjs"
+    },
+    "./health-indicator/blessed": {
+      "types": "./dist/health-indicator/blessed.d.ts",
+      "import": "./dist/health-indicator/blessed.js",
+      "require": "./dist/health-indicator/blessed.cjs"
+    },
     "./help-overlay": {
       "types": "./dist/help-overlay/index.d.ts",
       "import": "./dist/help-overlay/index.js",

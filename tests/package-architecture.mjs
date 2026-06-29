@@ -47,6 +47,7 @@ const expectedComponents = [
   'src/components/feedback/alert/index.ts',
   'src/components/feedback/empty-state/index.ts',
   'src/components/feedback/error-state/index.ts',
+  'src/components/feedback/health-indicator/index.ts',
   'src/components/feedback/progress-bar/index.ts',
   'src/components/feedback/progress-list/index.ts',
   'src/components/feedback/progress-stack/index.ts',

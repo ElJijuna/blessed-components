@@ -43,6 +43,8 @@ const pureGridModule = await import('../dist/grid/index.js');
 const blessedGridModule = await import('../dist/grid/blessed.js');
 const pureHeadingModule = await import('../dist/heading/index.js');
 const blessedHeadingModule = await import('../dist/heading/blessed.js');
+const pureHealthIndicatorModule = await import('../dist/health-indicator/index.js');
+const blessedHealthIndicatorModule = await import('../dist/health-indicator/blessed.js');
 const pureHelpOverlayModule = await import('../dist/help-overlay/index.js');
 const blessedHelpOverlayModule = await import('../dist/help-overlay/blessed.js');
 const pureKbdModule = await import('../dist/kbd/index.js');
@@ -233,6 +235,11 @@ const [gridEsmSource, gridCjsSource] = await Promise.all(
 );
 const [headingEsmSource, headingCjsSource] = await Promise.all(
   ['../dist/heading/index.js', '../dist/heading/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [healthIndicatorEsmSource, healthIndicatorCjsSource] = await Promise.all(
+  ['../dist/health-indicator/index.js', '../dist/health-indicator/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -489,6 +496,8 @@ assert.equal(typeof pureGridModule.calculateGridLayout, 'function');
 assert.equal(typeof blessedGridModule.grid, 'function');
 assert.equal(typeof pureHeadingModule.renderHeading, 'function');
 assert.equal(typeof blessedHeadingModule.heading, 'function');
+assert.equal(typeof pureHealthIndicatorModule.renderHealthIndicator, 'function');
+assert.equal(typeof blessedHealthIndicatorModule.healthIndicator, 'function');
 assert.equal(typeof pureHelpOverlayModule.renderHelpOverlay, 'function');
 assert.equal(typeof blessedHelpOverlayModule.helpOverlay, 'function');
 assert.equal(typeof pureKbdModule.renderKbd, 'function');
@@ -687,6 +696,14 @@ for (const source of [kbdEsmSource, kbdCjsSource]) {
 
 for (const source of [keyValueEsmSource, keyValueCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure KeyValue entry must not import Blessed.');
+}
+
+for (const source of [healthIndicatorEsmSource, healthIndicatorCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure HealthIndicator entry must not import Blessed.',
+  );
 }
 
 for (const source of [labelEsmSource, labelCjsSource]) {

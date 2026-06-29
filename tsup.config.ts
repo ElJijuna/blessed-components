@@ -57,6 +57,8 @@ const entry = {
   'grid/index': 'src/components/layout/grid/index.ts',
   'heading/blessed': 'src/adapters/blessed/heading.ts',
   'heading/index': 'src/components/data-display/heading/index.ts',
+  'health-indicator/blessed': 'src/adapters/blessed/health-indicator.ts',
+  'health-indicator/index': 'src/components/feedback/health-indicator/index.ts',
   'help-overlay/blessed': 'src/adapters/blessed/help-overlay.ts',
   'help-overlay/index': 'src/components/navigation/help-overlay/index.ts',
   index: 'src/index.ts',
