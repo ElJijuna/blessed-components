@@ -23,6 +23,8 @@ const pureEmptyStateModule = await import('../dist/empty-state/index.js');
 const blessedEmptyStateModule = await import('../dist/empty-state/blessed.js');
 const pureErrorStateModule = await import('../dist/error-state/index.js');
 const blessedErrorStateModule = await import('../dist/error-state/blessed.js');
+const pureFormModule = await import('../dist/form/index.js');
+const blessedFormModule = await import('../dist/form/blessed.js');
 const pureFormFieldModule = await import('../dist/form-field/index.js');
 const blessedFormFieldModule = await import('../dist/form-field/blessed.js');
 const pureTextFieldModule = await import('../dist/text-field/index.js');
@@ -165,6 +167,11 @@ const [emptyStateEsmSource, emptyStateCjsSource] = await Promise.all(
 );
 const [errorStateEsmSource, errorStateCjsSource] = await Promise.all(
   ['../dist/error-state/index.js', '../dist/error-state/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [formEsmSource, formCjsSource] = await Promise.all(
+  ['../dist/form/index.js', '../dist/form/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -406,6 +413,8 @@ assert.equal(typeof pureEmptyStateModule.renderEmptyState, 'function');
 assert.equal(typeof blessedEmptyStateModule.emptyState, 'function');
 assert.equal(typeof pureErrorStateModule.renderErrorState, 'function');
 assert.equal(typeof blessedErrorStateModule.errorState, 'function');
+assert.equal(typeof pureFormModule.createFormState, 'function');
+assert.equal(typeof blessedFormModule.form, 'function');
 assert.equal(typeof pureFormFieldModule.renderFormField, 'function');
 assert.equal(typeof blessedFormFieldModule.formField, 'function');
 assert.equal(typeof pureTextFieldModule.renderTextField, 'function');
@@ -545,6 +554,10 @@ for (const source of [emptyStateEsmSource, emptyStateCjsSource]) {
 
 for (const source of [errorStateEsmSource, errorStateCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure ErrorState entry must not import Blessed.');
+}
+
+for (const source of [formEsmSource, formCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Form entry must not import Blessed.');
 }
 
 for (const source of [formFieldEsmSource, formFieldCjsSource]) {

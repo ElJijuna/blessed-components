@@ -16,6 +16,7 @@ export * from './blessed/dialog.js';
 export * from './blessed/divider.js';
 export * from './blessed/empty-state.js';
 export * from './blessed/error-state.js';
+export * from './blessed/form.js';
 export * from './blessed/form-field.js';
 export * from './blessed/gauge.js';
 export * from './blessed/grid.js';

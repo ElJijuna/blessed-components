@@ -249,7 +249,7 @@ npm subpaths:
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
-| `input`          | `Button`                                  |
+| `input`          | `Button`, `Form`                         |
 | `layout`         | `Box`, `Card`, `Divider`, `ScrollArea`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
 | `overlays`       | `ConfirmDialog`, `Dialog`                 |
@@ -485,7 +485,7 @@ consistent state, composition, and cleanup.
 | `KeybindingInput` | Capture and display shortcut combinations.             | Build    | P3       |
 | `FilePicker`      | Navigate and select files or directories.              | Adapt    | P2       |
 | `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
-| `Form`            | Submission, validation, reset, and field registry.     | Adapt    | P1       |
+| `Form`            | Submission, validation, reset, and field registry.     | Available | P1       |
 
 ### 9. Overlays and transient UI
 

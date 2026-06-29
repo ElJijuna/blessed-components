@@ -5,6 +5,7 @@ const expectedComponents = [
   'src/components/layout/box/index.ts',
   'src/components/input/button/index.ts',
   'src/components/input/checkbox/index.ts',
+  'src/components/input/form/index.ts',
   'src/components/input/form-field/index.ts',
   'src/components/input/multi-select/index.ts',
   'src/components/input/radio-group/index.ts',

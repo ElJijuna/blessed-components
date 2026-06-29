@@ -149,6 +149,16 @@
       "import": "./dist/error-state/blessed.js",
       "require": "./dist/error-state/blessed.cjs"
     },
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "import": "./dist/form/index.js",
+      "require": "./dist/form/index.cjs"
+    },
+    "./form/blessed": {
+      "types": "./dist/form/blessed.d.ts",
+      "import": "./dist/form/blessed.js",
+      "require": "./dist/form/blessed.cjs"
+    },
     "./gauge": {
       "types": "./dist/gauge/index.d.ts",
       "import": "./dist/gauge/index.js",
