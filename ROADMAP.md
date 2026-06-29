@@ -393,7 +393,7 @@ virtualization primitives.
 | `VirtualTable` | Large row sets with bounded rendering.                     | Research    | P2       |
 | `Tree`         | Expandable hierarchical navigation.                        | Build       | P2       |
 | `TreeTable`    | Hierarchical rows plus columns.                            | Research    | P3       |
-| `Timeline`     | Ordered events with time and status.                       | Build       | P2       |
+| `Timeline`     | Ordered events with time and status.                       | Available   | P2       |
 | `ActivityFeed` | Live events with grouping and retention.                   | Build       | P2       |
 | `DiffView`     | Side-by-side or unified text differences.                  | Build       | P2       |
 | `FileTree`     | File-specific tree with icons and git state.               | Build       | P2       |

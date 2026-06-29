@@ -63,6 +63,8 @@ const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
 const pureLogViewerModule = await import('../dist/log-viewer/index.js');
 const blessedLogViewerModule = await import('../dist/log-viewer/blessed.js');
+const pureTimelineModule = await import('../dist/timeline/index.js');
+const blessedTimelineModule = await import('../dist/timeline/blessed.js');
 const pureMenuModule = await import('../dist/menu/index.js');
 const blessedMenuModule = await import('../dist/menu/blessed.js');
 const pureModule = await import('../dist/progress-bar/index.js');
@@ -285,6 +287,11 @@ const [listEsmSource, listCjsSource] = await Promise.all(
 );
 const [logViewerEsmSource, logViewerCjsSource] = await Promise.all(
   ['../dist/log-viewer/index.js', '../dist/log-viewer/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [timelineEsmSource, timelineCjsSource] = await Promise.all(
+  ['../dist/timeline/index.js', '../dist/timeline/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -517,6 +524,8 @@ assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureLogViewerModule.renderLogViewer, 'function');
 assert.equal(typeof pureLogViewerModule.createLogViewerState, 'function');
 assert.equal(typeof blessedLogViewerModule.logViewer, 'function');
+assert.equal(typeof pureTimelineModule.renderTimeline, 'function');
+assert.equal(typeof blessedTimelineModule.timeline, 'function');
 assert.equal(typeof pureMenuModule.renderMenu, 'function');
 assert.equal(typeof blessedMenuModule.menu, 'function');
 assert.equal(typeof pureMutedTextModule.renderMutedText, 'function');
@@ -744,6 +753,10 @@ for (const source of [listEsmSource, listCjsSource]) {
 
 for (const source of [logViewerEsmSource, logViewerCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure LogViewer entry must not import Blessed.');
+}
+
+for (const source of [timelineEsmSource, timelineCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Timeline entry must not import Blessed.');
 }
 
 for (const source of [menuEsmSource, menuCjsSource]) {

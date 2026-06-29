@@ -62,6 +62,7 @@ export * from './blessed/task-progress.js';
 export * from './blessed/text.js';
 export * from './blessed/text-field.js';
 export * from './blessed/thresholds.js';
+export * from './blessed/timeline.js';
 export * from './blessed/timestamp.js';
 export * from './blessed/trend.js';
 export * from './blessed/types.js';

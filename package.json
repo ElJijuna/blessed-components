@@ -369,6 +369,16 @@
       "import": "./dist/log-viewer/blessed.js",
       "require": "./dist/log-viewer/blessed.cjs"
     },
+    "./timeline": {
+      "types": "./dist/timeline/index.d.ts",
+      "import": "./dist/timeline/index.js",
+      "require": "./dist/timeline/index.cjs"
+    },
+    "./timeline/blessed": {
+      "types": "./dist/timeline/blessed.d.ts",
+      "import": "./dist/timeline/blessed.js",
+      "require": "./dist/timeline/blessed.cjs"
+    },
     "./menu": {
       "types": "./dist/menu/index.d.ts",
       "import": "./dist/menu/index.js",
