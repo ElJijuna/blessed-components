@@ -346,7 +346,7 @@ High value, low complexity, excellent early components.
 | `KeyValue`        | Aligned label/value rows.                             | Available | P1       |
 | `DescriptionList` | Responsive term/description groups.                   | Build    | P2       |
 | `Badge`           | Compact semantic status.                              | Available | P1       |
-| `Tag`             | Removable or static categorization token.             | Build    | P2       |
+| `Tag`             | Removable or static categorization token.             | Available | P2       |
 | `Pill`            | Rounded-character compact label where supported.      | Defer    | P3       |
 | `Timestamp`       | Formatted absolute or relative time.                  | Available | P2       |
 | `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |

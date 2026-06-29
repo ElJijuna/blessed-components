@@ -529,6 +529,16 @@
       "import": "./dist/stat/blessed.js",
       "require": "./dist/stat/blessed.cjs"
     },
+    "./tag": {
+      "types": "./dist/tag/index.d.ts",
+      "import": "./dist/tag/index.js",
+      "require": "./dist/tag/index.cjs"
+    },
+    "./tag/blessed": {
+      "types": "./dist/tag/blessed.d.ts",
+      "import": "./dist/tag/blessed.js",
+      "require": "./dist/tag/blessed.cjs"
+    },
     "./text": {
       "types": "./dist/text/index.d.ts",
       "import": "./dist/text/index.js",

@@ -123,6 +123,8 @@ const entry = {
   'stack/index': 'src/components/layout/stack/index.ts',
   'stat/blessed': 'src/adapters/blessed/stat.ts',
   'stat/index': 'src/components/data-display/stat/index.ts',
+  'tag/blessed': 'src/adapters/blessed/tag.ts',
+  'tag/index': 'src/components/data-display/tag/index.ts',
   'text/blessed': 'src/adapters/blessed/text.ts',
   'text/index': 'src/components/data-display/text/index.ts',
   'text-field/blessed': 'src/adapters/blessed/text-field.ts',

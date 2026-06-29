@@ -101,6 +101,8 @@ const pureStackModule = await import('../dist/stack/index.js');
 const blessedStackModule = await import('../dist/stack/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
 const blessedStatModule = await import('../dist/stat/blessed.js');
+const pureTagModule = await import('../dist/tag/index.js');
+const blessedTagModule = await import('../dist/tag/blessed.js');
 const pureTextModule = await import('../dist/text/index.js');
 const blessedTextModule = await import('../dist/text/blessed.js');
 const pureTimestampModule = await import('../dist/timestamp/index.js');
@@ -373,6 +375,11 @@ const [statEsmSource, statCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [tagEsmSource, tagCjsSource] = await Promise.all(
+  ['../dist/tag/index.js', '../dist/tag/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [textEsmSource, textCjsSource] = await Promise.all(
   ['../dist/text/index.js', '../dist/text/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -520,6 +527,8 @@ assert.equal(typeof pureStackModule.calculateStackLayout, 'function');
 assert.equal(typeof blessedStackModule.stack, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
 assert.equal(typeof blessedStatModule.stat, 'function');
+assert.equal(typeof pureTagModule.renderTag, 'function');
+assert.equal(typeof blessedTagModule.tag, 'function');
 assert.equal(typeof pureTextModule.renderText, 'function');
 assert.equal(typeof blessedTextModule.text, 'function');
 assert.equal(typeof pureTimestampModule.renderTimestamp, 'function');
@@ -787,6 +796,10 @@ for (const source of [stackEsmSource, stackCjsSource]) {
 
 for (const source of [statEsmSource, statCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Stat entry must not import Blessed.');
+}
+
+for (const source of [tagEsmSource, tagCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Tag entry must not import Blessed.');
 }
 
 for (const source of [textEsmSource, textCjsSource]) {

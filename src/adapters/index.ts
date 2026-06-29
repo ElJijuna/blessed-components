@@ -53,6 +53,7 @@ export * from './blessed/switch.js';
 export * from './blessed/tab-list.js';
 export * from './blessed/table.js';
 export * from './blessed/tabs.js';
+export * from './blessed/tag.js';
 export * from './blessed/task-progress.js';
 export * from './blessed/text.js';
 export * from './blessed/text-field.js';
