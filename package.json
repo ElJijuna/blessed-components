@@ -109,6 +109,16 @@
       "import": "./dist/confirm-dialog/blessed.js",
       "require": "./dist/confirm-dialog/blessed.cjs"
     },
+    "./connection-status": {
+      "types": "./dist/connection-status/index.d.ts",
+      "import": "./dist/connection-status/index.js",
+      "require": "./dist/connection-status/index.cjs"
+    },
+    "./connection-status/blessed": {
+      "types": "./dist/connection-status/blessed.d.ts",
+      "import": "./dist/connection-status/blessed.js",
+      "require": "./dist/connection-status/blessed.cjs"
+    },
     "./form-field": {
       "types": "./dist/form-field/index.d.ts",
       "import": "./dist/form-field/index.js",

@@ -17,6 +17,8 @@ const pureCodeModule = await import('../dist/code/index.js');
 const blessedCodeModule = await import('../dist/code/blessed.js');
 const pureConfirmDialogModule = await import('../dist/confirm-dialog/index.js');
 const blessedConfirmDialogModule = await import('../dist/confirm-dialog/blessed.js');
+const pureConnectionStatusModule = await import('../dist/connection-status/index.js');
+const blessedConnectionStatusModule = await import('../dist/connection-status/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureCalloutModule = await import('../dist/callout/index.js');
@@ -166,6 +168,11 @@ const [codeEsmSource, codeCjsSource] = await Promise.all(
 );
 const [confirmDialogEsmSource, confirmDialogCjsSource] = await Promise.all(
   ['../dist/confirm-dialog/index.js', '../dist/confirm-dialog/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [connectionStatusEsmSource, connectionStatusCjsSource] = await Promise.all(
+  ['../dist/connection-status/index.js', '../dist/connection-status/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -446,6 +453,8 @@ assert.equal(typeof pureCodeModule.renderCode, 'function');
 assert.equal(typeof blessedCodeModule.code, 'function');
 assert.equal(typeof pureConfirmDialogModule.normalizeConfirmDialogAction, 'function');
 assert.equal(typeof blessedConfirmDialogModule.confirmDialog, 'function');
+assert.equal(typeof pureConnectionStatusModule.renderConnectionStatus, 'function');
+assert.equal(typeof blessedConnectionStatusModule.connectionStatus, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -610,6 +619,14 @@ for (const source of [confirmDialogEsmSource, confirmDialogCjsSource]) {
 
 for (const source of [cardEsmSource, cardCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Card entry must not import Blessed.');
+}
+
+for (const source of [connectionStatusEsmSource, connectionStatusCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure ConnectionStatus entry must not import Blessed.',
+  );
 }
 
 for (const source of [calloutEsmSource, calloutCjsSource]) {
