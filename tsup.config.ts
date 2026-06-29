@@ -5,6 +5,8 @@ const entry = {
   'alert/index': 'src/components/feedback/alert/index.ts',
   'badge/blessed': 'src/adapters/blessed/badge.ts',
   'badge/index': 'src/components/data-display/badge/index.ts',
+  'breadcrumb/blessed': 'src/adapters/blessed/breadcrumb.ts',
+  'breadcrumb/index': 'src/components/data-display/breadcrumb/index.ts',
   'box/blessed': 'src/adapters/blessed/box.ts',
   'box/index': 'src/components/layout/box/index.ts',
   'button/blessed': 'src/adapters/blessed/button.ts',

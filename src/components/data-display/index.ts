@@ -2,6 +2,7 @@
  * Components for compact textual and semantic value display.
  */
 export * from './badge/index.js';
+export * from './breadcrumb/index.js';
 export * from './code/index.js';
 export * from './heading/index.js';
 export * from './kbd/index.js';

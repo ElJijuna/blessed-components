@@ -5,6 +5,8 @@ const pureAlertModule = await import('../dist/alert/index.js');
 const blessedAlertModule = await import('../dist/alert/blessed.js');
 const pureBadgeModule = await import('../dist/badge/index.js');
 const blessedBadgeModule = await import('../dist/badge/blessed.js');
+const pureBreadcrumbModule = await import('../dist/breadcrumb/index.js');
+const blessedBreadcrumbModule = await import('../dist/breadcrumb/blessed.js');
 const pureBoxModule = await import('../dist/box/index.js');
 const blessedBoxModule = await import('../dist/box/blessed.js');
 const pureButtonModule = await import('../dist/button/index.js');
@@ -127,6 +129,11 @@ const publishedModuleSources = await Promise.all(
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [badgeEsmSource, badgeCjsSource] = await Promise.all(
   ['../dist/badge/index.js', '../dist/badge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [breadcrumbEsmSource, breadcrumbCjsSource] = await Promise.all(
+  ['../dist/breadcrumb/index.js', '../dist/breadcrumb/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -420,6 +427,8 @@ assert.equal(typeof pureAlertModule.renderAlert, 'function');
 assert.equal(typeof blessedAlertModule.alert, 'function');
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
 assert.equal(typeof blessedBadgeModule.badge, 'function');
+assert.equal(typeof pureBreadcrumbModule.renderBreadcrumb, 'function');
+assert.equal(typeof blessedBreadcrumbModule.breadcrumb, 'function');
 assert.equal(typeof pureBoxModule.resolveBoxTheme, 'function');
 assert.equal(typeof blessedBoxModule.box, 'function');
 assert.equal(typeof pureButtonModule.renderButton, 'function');
@@ -560,6 +569,10 @@ for (const source of [alertEsmSource, alertCjsSource]) {
 
 for (const source of [badgeEsmSource, badgeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Badge entry must not import Blessed.');
+}
+
+for (const source of [breadcrumbEsmSource, breadcrumbCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Breadcrumb entry must not import Blessed.');
 }
 
 for (const source of [boxEsmSource, boxCjsSource]) {

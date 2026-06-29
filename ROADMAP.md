@@ -352,7 +352,7 @@ High value, low complexity, excellent early components.
 | `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |
 | `Rating`          | Discrete score using symbols and text fallback.       | Research | P3       |
 | `Kbd`             | Display keyboard shortcuts consistently.              | Available | P1       |
-| `Breadcrumb`      | Current location path with truncation.                | Build    | P2       |
+| `Breadcrumb`      | Current location path with truncation.                | Available | P2       |
 
 ### 4. Progress, status, and feedback
 

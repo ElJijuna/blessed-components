@@ -49,6 +49,16 @@
       "import": "./dist/badge/blessed.js",
       "require": "./dist/badge/blessed.cjs"
     },
+    "./breadcrumb": {
+      "types": "./dist/breadcrumb/index.d.ts",
+      "import": "./dist/breadcrumb/index.js",
+      "require": "./dist/breadcrumb/index.cjs"
+    },
+    "./breadcrumb/blessed": {
+      "types": "./dist/breadcrumb/blessed.d.ts",
+      "import": "./dist/breadcrumb/blessed.js",
+      "require": "./dist/breadcrumb/blessed.cjs"
+    },
     "./box": {
       "types": "./dist/box/index.d.ts",
       "import": "./dist/box/index.js",
