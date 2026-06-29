@@ -245,7 +245,7 @@ npm subpaths:
 
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
-| `collections`    | `List`, `Table`                          |
+| `collections`    | `List`, `LogViewer`, `Table`             |
 | `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
@@ -398,7 +398,7 @@ virtualization primitives.
 | `DiffView`     | Side-by-side or unified text differences.                  | Build       | P2       |
 | `FileTree`     | File-specific tree with icons and git state.               | Build       | P2       |
 | `ProcessList`  | PID, CPU, memory, status, and actions.                     | Block first | P3       |
-| `LogViewer`    | Streaming logs with retention and pause.                   | Build       | P1       |
+| `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |
 | `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Build       | P2       |
 | `JsonViewer`   | Expandable structured JSON values.                         | Build       | P2       |
 | `Inspector`    | Generic nested object inspection.                          | Build       | P2       |

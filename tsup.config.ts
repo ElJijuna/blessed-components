@@ -62,6 +62,8 @@ const entry = {
   'legend/index': 'src/components/visualization/legend/index.ts',
   'list/blessed': 'src/adapters/blessed/list.ts',
   'list/index': 'src/components/collections/list/index.ts',
+  'log-viewer/blessed': 'src/adapters/blessed/log-viewer.ts',
+  'log-viewer/index': 'src/components/collections/log-viewer/index.ts',
   'menu/blessed': 'src/adapters/blessed/menu.ts',
   'menu/index': 'src/components/navigation/menu/index.ts',
   'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',

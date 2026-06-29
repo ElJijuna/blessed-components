@@ -31,6 +31,7 @@ const expectedComponents = [
   'src/components/data-display/label/index.ts',
   'src/components/data-display/muted-text/index.ts',
   'src/components/collections/list/index.ts',
+  'src/components/collections/log-viewer/index.ts',
   'src/components/collections/table/index.ts',
   'src/components/navigation/menu/index.ts',
   'src/components/data-display/stat/index.ts',

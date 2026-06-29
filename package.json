@@ -299,6 +299,16 @@
       "import": "./dist/list/blessed.js",
       "require": "./dist/list/blessed.cjs"
     },
+    "./log-viewer": {
+      "types": "./dist/log-viewer/index.d.ts",
+      "import": "./dist/log-viewer/index.js",
+      "require": "./dist/log-viewer/index.cjs"
+    },
+    "./log-viewer/blessed": {
+      "types": "./dist/log-viewer/blessed.d.ts",
+      "import": "./dist/log-viewer/blessed.js",
+      "require": "./dist/log-viewer/blessed.cjs"
+    },
     "./menu": {
       "types": "./dist/menu/index.d.ts",
       "import": "./dist/menu/index.js",
