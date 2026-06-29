@@ -129,6 +129,16 @@
       "import": "./dist/card/blessed.js",
       "require": "./dist/card/blessed.cjs"
     },
+    "./callout": {
+      "types": "./dist/callout/index.d.ts",
+      "import": "./dist/callout/index.js",
+      "require": "./dist/callout/index.cjs"
+    },
+    "./callout/blessed": {
+      "types": "./dist/callout/blessed.d.ts",
+      "import": "./dist/callout/blessed.js",
+      "require": "./dist/callout/blessed.cjs"
+    },
     "./divider": {
       "types": "./dist/divider/index.d.ts",
       "import": "./dist/divider/index.js",

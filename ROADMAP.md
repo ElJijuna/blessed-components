@@ -366,7 +366,7 @@ These components share bounded values, semantic tones, and live updates.
 | `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
 | `Status`             | State icon, label, and optional detail.                 | Available | P1       |
 | `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
-| `Callout`            | Framed explanatory content.                             | Build    | P2       |
+| `Callout`            | Framed explanatory content.                             | Available | P2       |
 | `Toast`              | Timed transient notification stack.                     | Build    | P2       |
 | `NotificationCenter` | Persistent notification list and unread state.          | Research | P3       |
 | `Skeleton`           | Placeholder rows while content loads.                   | Research | P2       |

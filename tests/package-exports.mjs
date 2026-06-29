@@ -19,6 +19,8 @@ const pureConfirmDialogModule = await import('../dist/confirm-dialog/index.js');
 const blessedConfirmDialogModule = await import('../dist/confirm-dialog/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
+const pureCalloutModule = await import('../dist/callout/index.js');
+const blessedCalloutModule = await import('../dist/callout/blessed.js');
 const pureDividerModule = await import('../dist/divider/index.js');
 const blessedDividerModule = await import('../dist/divider/blessed.js');
 const pureDialogModule = await import('../dist/dialog/index.js');
@@ -169,6 +171,11 @@ const [confirmDialogEsmSource, confirmDialogCjsSource] = await Promise.all(
 );
 const [cardEsmSource, cardCjsSource] = await Promise.all(
   ['../dist/card/index.js', '../dist/card/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [calloutEsmSource, calloutCjsSource] = await Promise.all(
+  ['../dist/callout/index.js', '../dist/callout/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -446,6 +453,8 @@ assert.equal(typeof blessedCardModule.cardTitle, 'function');
 assert.equal(typeof blessedCardModule.cardDescription, 'function');
 assert.equal(typeof blessedCardModule.cardBody, 'function');
 assert.equal(typeof blessedCardModule.cardFooter, 'function');
+assert.equal(typeof pureCalloutModule.renderCallout, 'function');
+assert.equal(typeof blessedCalloutModule.callout, 'function');
 assert.equal(typeof pureDividerModule.renderDivider, 'function');
 assert.equal(typeof blessedDividerModule.divider, 'function');
 assert.equal(typeof pureDialogModule.createDialogState, 'function');
@@ -601,6 +610,10 @@ for (const source of [confirmDialogEsmSource, confirmDialogCjsSource]) {
 
 for (const source of [cardEsmSource, cardCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Card entry must not import Blessed.');
+}
+
+for (const source of [calloutEsmSource, calloutCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Callout entry must not import Blessed.');
 }
 
 for (const source of [dividerEsmSource, dividerCjsSource]) {
