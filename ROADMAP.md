@@ -246,7 +246,7 @@ npm subpaths:
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
 | `collections`    | `List`, `LogViewer`, `Table`             |
-| `data-display`   | `Badge`, `KeyValue`, `Stat`, `Text`       |
+| `data-display`   | `Badge`, `Code`, `KeyValue`, `Stat`, `Text` |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
 | `input`          | `Button`, `Form`                         |
@@ -340,7 +340,7 @@ High value, low complexity, excellent early components.
 | `Heading`         | Hierarchical terminal heading styles.                 | Available | P1       |
 | `Label`           | Stable labels for controls and values.                | Available | P1       |
 | `MutedText`       | Secondary information using semantic theme tokens.    | Available | P1       |
-| `Code`            | Inline code with safe escaping.                       | Build    | P2       |
+| `Code`            | Inline code with safe escaping.                       | Available | P2       |
 | `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Build    | P2       |
 | `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
 | `KeyValue`        | Aligned label/value rows.                             | Available | P1       |

@@ -13,6 +13,8 @@ const entry = {
   'card/index': 'src/components/layout/card/index.ts',
   'checkbox/blessed': 'src/adapters/blessed/checkbox.ts',
   'checkbox/index': 'src/components/input/checkbox/index.ts',
+  'code/blessed': 'src/adapters/blessed/code.ts',
+  'code/index': 'src/components/data-display/code/index.ts',
   'confirm-dialog/blessed': 'src/adapters/blessed/confirm-dialog.ts',
   'confirm-dialog/index': 'src/components/overlays/confirm-dialog/index.ts',
   'core/capabilities': 'src/core/capabilities.ts',

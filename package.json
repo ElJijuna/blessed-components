@@ -79,6 +79,16 @@
       "import": "./dist/checkbox/blessed.js",
       "require": "./dist/checkbox/blessed.cjs"
     },
+    "./code": {
+      "types": "./dist/code/index.d.ts",
+      "import": "./dist/code/index.js",
+      "require": "./dist/code/index.cjs"
+    },
+    "./code/blessed": {
+      "types": "./dist/code/blessed.d.ts",
+      "import": "./dist/code/blessed.js",
+      "require": "./dist/code/blessed.cjs"
+    },
     "./confirm-dialog": {
       "types": "./dist/confirm-dialog/index.d.ts",
       "import": "./dist/confirm-dialog/index.js",
