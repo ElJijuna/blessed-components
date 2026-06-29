@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0](https://github.com/ElJijuna/blessed-components/compare/v1.5.0...v1.6.0) (2026-06-29)
+
+### Features
+
+* add Code component with Blessed adapter, documentation, and integration tests ([5cb31c4](https://github.com/ElJijuna/blessed-components/commit/5cb31c44ba22b7adc76464c4b7c805e0711fd41b))
+* add ConfirmDialog component with integration tests and documentation ([77bf79f](https://github.com/ElJijuna/blessed-components/commit/77bf79f6515f2f29955b7f0f5a30f18dac0be9c0))
+* add Form component with Blessed adapter, documentation, and integration tests ([d116eb7](https://github.com/ElJijuna/blessed-components/commit/d116eb7a4c0b7f0bf02a97725d5fcb667b8c57c3))
+* add LogViewer component with Blessed adapter, documentation, and integration tests ([ebb721a](https://github.com/ElJijuna/blessed-components/commit/ebb721a07178d766705d3d375f497d8587b14d10))
+* add Preformatted component with Blessed adapter, documentation, and integration tests ([0620091](https://github.com/ElJijuna/blessed-components/commit/06200915e9f355916abeda3eaef6b2c3a82f0af6))
+
 ## [1.5.0](https://github.com/ElJijuna/blessed-components/compare/v1.4.0...v1.5.0) (2026-06-28)
 
 ### Features
