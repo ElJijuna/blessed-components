@@ -79,6 +79,16 @@
       "import": "./dist/checkbox/blessed.js",
       "require": "./dist/checkbox/blessed.cjs"
     },
+    "./confirm-dialog": {
+      "types": "./dist/confirm-dialog/index.d.ts",
+      "import": "./dist/confirm-dialog/index.js",
+      "require": "./dist/confirm-dialog/index.cjs"
+    },
+    "./confirm-dialog/blessed": {
+      "types": "./dist/confirm-dialog/blessed.d.ts",
+      "import": "./dist/confirm-dialog/blessed.js",
+      "require": "./dist/confirm-dialog/blessed.cjs"
+    },
     "./form-field": {
       "types": "./dist/form-field/index.d.ts",
       "import": "./dist/form-field/index.js",

@@ -11,6 +11,8 @@ const pureButtonModule = await import('../dist/button/index.js');
 const blessedButtonModule = await import('../dist/button/blessed.js');
 const pureCheckboxModule = await import('../dist/checkbox/index.js');
 const blessedCheckboxModule = await import('../dist/checkbox/blessed.js');
+const pureConfirmDialogModule = await import('../dist/confirm-dialog/index.js');
+const blessedConfirmDialogModule = await import('../dist/confirm-dialog/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureDividerModule = await import('../dist/divider/index.js');
@@ -133,6 +135,11 @@ const [buttonEsmSource, buttonCjsSource] = await Promise.all(
 );
 const [checkboxEsmSource, checkboxCjsSource] = await Promise.all(
   ['../dist/checkbox/index.js', '../dist/checkbox/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [confirmDialogEsmSource, confirmDialogCjsSource] = await Promise.all(
+  ['../dist/confirm-dialog/index.js', '../dist/confirm-dialog/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -377,6 +384,8 @@ assert.equal(typeof pureButtonModule.renderButton, 'function');
 assert.equal(typeof blessedButtonModule.button, 'function');
 assert.equal(typeof pureCheckboxModule.renderCheckbox, 'function');
 assert.equal(typeof blessedCheckboxModule.checkbox, 'function');
+assert.equal(typeof pureConfirmDialogModule.normalizeConfirmDialogAction, 'function');
+assert.equal(typeof blessedConfirmDialogModule.confirmDialog, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -508,6 +517,14 @@ for (const source of [buttonEsmSource, buttonCjsSource]) {
 
 for (const source of [checkboxEsmSource, checkboxCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Checkbox entry must not import Blessed.');
+}
+
+for (const source of [confirmDialogEsmSource, confirmDialogCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure ConfirmDialog entry must not import Blessed.',
+  );
 }
 
 for (const source of [cardEsmSource, cardCjsSource]) {

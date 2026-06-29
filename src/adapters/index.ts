@@ -11,6 +11,7 @@ export * from './blessed/box.js';
 export * from './blessed/button.js';
 export * from './blessed/card.js';
 export * from './blessed/checkbox.js';
+export * from './blessed/confirm-dialog.js';
 export * from './blessed/dialog.js';
 export * from './blessed/divider.js';
 export * from './blessed/empty-state.js';

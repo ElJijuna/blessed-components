@@ -252,7 +252,7 @@ npm subpaths:
 | `input`          | `Button`                                  |
 | `layout`         | `Box`, `Card`, `Divider`, `ScrollArea`, `Stack`, `Viewport` |
 | `navigation`     | Reserved for navigation components       |
-| `overlays`       | `Dialog`                                  |
+| `overlays`       | `ConfirmDialog`, `Dialog`                 |
 
 Pure renderers own content and character overrides. Semantic color and style
 tokens are applied by adapters, while terminal capability detection selects
@@ -496,7 +496,7 @@ global key cleanup.
 | --------------- | ----------------------------------------------- | -------- | -------- |
 | `Overlay`       | Visual screen layer over the available stack primitive. | Available | P1       |
 | `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
-| `ConfirmDialog` | Confirm or cancel a consequential action.       | Build    | P1       |
+| `ConfirmDialog` | Confirm or cancel a consequential action.       | Available | P1       |
 | `PromptDialog`  | Request one value in a modal flow.              | Adapt    | P2       |
 | `Drawer`        | Edge-attached temporary panel.                  | Build    | P2       |
 | `Popover`       | Anchored temporary content.                     | Research | P3       |
