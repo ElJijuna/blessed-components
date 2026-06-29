@@ -65,6 +65,8 @@ const pureMultiSparklineModule = await import('../dist/multi-sparkline/index.js'
 const blessedMultiSparklineModule = await import('../dist/multi-sparkline/blessed.js');
 const pureOverlayModule = await import('../dist/overlay/index.js');
 const blessedOverlayModule = await import('../dist/overlay/blessed.js');
+const purePreformattedModule = await import('../dist/preformatted/index.js');
+const blessedPreformattedModule = await import('../dist/preformatted/blessed.js');
 const pureProgressListModule = await import('../dist/progress-list/index.js');
 const blessedProgressListModule = await import('../dist/progress-list/blessed.js');
 const pureProgressStackModule = await import('../dist/progress-stack/index.js');
@@ -269,6 +271,11 @@ const [overlayEsmSource, overlayCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [preformattedEsmSource, preformattedCjsSource] = await Promise.all(
+  ['../dist/preformatted/index.js', '../dist/preformatted/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [multiSparklineEsmSource, multiSparklineCjsSource] = await Promise.all(
   ['../dist/multi-sparkline/index.js', '../dist/multi-sparkline/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -468,6 +475,8 @@ assert.equal(typeof pureMultiSparklineModule.renderMultiSparkline, 'function');
 assert.equal(typeof blessedMultiSparklineModule.multiSparkline, 'function');
 assert.equal(typeof pureOverlayModule.createOverlayState, 'function');
 assert.equal(typeof blessedOverlayModule.overlay, 'function');
+assert.equal(typeof purePreformattedModule.renderPreformatted, 'function');
+assert.equal(typeof blessedPreformattedModule.preformatted, 'function');
 assert.equal(typeof pureModule.renderProgressBar, 'function');
 assert.equal(typeof blessedModule.progressBar, 'function');
 assert.equal(typeof pureProgressListModule.renderProgressList, 'function');
@@ -641,6 +650,14 @@ for (const source of [multiSelectEsmSource, multiSelectCjsSource]) {
 
 for (const source of [overlayEsmSource, overlayCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Overlay entry must not import Blessed.');
+}
+
+for (const source of [preformattedEsmSource, preformattedCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure Preformatted entry must not import Blessed.',
+  );
 }
 
 for (const source of [listEsmSource, listCjsSource]) {

@@ -8,6 +8,7 @@ export * from './kbd/index.js';
 export * from './key-value/index.js';
 export * from './label/index.js';
 export * from './muted-text/index.js';
+export * from './preformatted/index.js';
 export * from './stat/index.js';
 export * from './text/index.js';
 export * from './trend/index.js';

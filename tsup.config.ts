@@ -78,6 +78,8 @@ const entry = {
   'multi-sparkline/index': 'src/components/visualization/multi-sparkline/index.ts',
   'overlay/blessed': 'src/adapters/blessed/overlay.ts',
   'overlay/index': 'src/components/overlays/overlay/index.ts',
+  'preformatted/blessed': 'src/adapters/blessed/preformatted.ts',
+  'preformatted/index': 'src/components/data-display/preformatted/index.ts',
   'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
   'progress-bar/index': 'src/components/feedback/progress-bar/index.ts',
   'progress-list/blessed': 'src/adapters/blessed/progress-list.ts',
