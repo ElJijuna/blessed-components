@@ -539,6 +539,16 @@
       "import": "./dist/text/blessed.js",
       "require": "./dist/text/blessed.cjs"
     },
+    "./timestamp": {
+      "types": "./dist/timestamp/index.d.ts",
+      "import": "./dist/timestamp/index.js",
+      "require": "./dist/timestamp/index.cjs"
+    },
+    "./timestamp/blessed": {
+      "types": "./dist/timestamp/blessed.d.ts",
+      "import": "./dist/timestamp/blessed.js",
+      "require": "./dist/timestamp/blessed.cjs"
+    },
     "./thresholds": {
       "types": "./dist/thresholds/index.d.ts",
       "import": "./dist/thresholds/index.js",

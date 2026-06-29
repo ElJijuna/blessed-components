@@ -348,7 +348,7 @@ High value, low complexity, excellent early components.
 | `Badge`           | Compact semantic status.                              | Available | P1       |
 | `Tag`             | Removable or static categorization token.             | Build    | P2       |
 | `Pill`            | Rounded-character compact label where supported.      | Defer    | P3       |
-| `Timestamp`       | Formatted absolute or relative time.                  | Build    | P2       |
+| `Timestamp`       | Formatted absolute or relative time.                  | Available | P2       |
 | `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |
 | `Rating`          | Discrete score using symbols and text fallback.       | Research | P3       |
 | `Kbd`             | Display keyboard shortcuts consistently.              | Available | P1       |
