@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.7.0](https://github.com/ElJijuna/blessed-components/compare/v1.6.0...v1.7.0) (2026-06-30)
+
+### Features
+
+* add Breadcrumb component with Blessed adapter, documentation, and integration tests ([38229a9](https://github.com/ElJijuna/blessed-components/commit/38229a921dfc48e3f37a216e6ed38bc546669022))
+* add Callout component with Blessed adapter, documentation, and integration tests ([8014871](https://github.com/ElJijuna/blessed-components/commit/8014871da798650181e074f1985cf2d66c4f8e90))
+* add Center component with Blessed adapter, documentation, and integration tests ([81fd6c3](https://github.com/ElJijuna/blessed-components/commit/81fd6c38d1b0c1ca5ee6febe405761603684693e))
+* add Cluster component with Blessed adapter, documentation, and integration tests ([2ab11b2](https://github.com/ElJijuna/blessed-components/commit/2ab11b2708bfb068fca5ade2013227ebaf5189b6))
+* add ConnectionStatus component with Blessed adapter, documentation, and integration tests ([f21cd41](https://github.com/ElJijuna/blessed-components/commit/f21cd41b884a4319a02cfc9ad2828a1f33648b2e))
+* add HealthIndicator component with Blessed adapter, documentation, and integration tests ([5c5fb24](https://github.com/ElJijuna/blessed-components/commit/5c5fb2402dab2e44bf18b81e447bf78164f9bbc8))
+* add mouse interaction support for List, Menu, and Table components; update documentation and tests ([6f83adc](https://github.com/ElJijuna/blessed-components/commit/6f83adc1d9f18760db8cfdf9441492e9e72ed05b))
+* add Spacer component with Blessed adapter, layout calculation, and tests ([84aed8a](https://github.com/ElJijuna/blessed-components/commit/84aed8a2d9f54f10b21209a5be06a1cffa6858ac))
+* add stories for Center, Cluster, and Spacer components with layout examples ([8c996b0](https://github.com/ElJijuna/blessed-components/commit/8c996b0bba814ecebdd4bf18607bbe76797dc87e))
+* add Tag component with Blessed adapter, documentation, and integration tests ([cabe1c0](https://github.com/ElJijuna/blessed-components/commit/cabe1c074a40478f48f1b879ca192d195bde7974))
+* add Timeline component with Blessed adapter, documentation, and integration tests ([40d4812](https://github.com/ElJijuna/blessed-components/commit/40d481236d739482ce67e04269448984574d6a75))
+* add Timestamp component with Blessed adapter, documentation, and integration tests ([1befbe8](https://github.com/ElJijuna/blessed-components/commit/1befbe809478b3c9942dd0ba0e2e7862eec621b7))
+* add VirtualList component with Blessed adapter, documentation, and integration tests ([b9a42bf](https://github.com/ElJijuna/blessed-components/commit/b9a42bfb588af4cac3cd1a5a3a4db1b330d75e55))
+
+### Bug Fixes
+
+* ensure proper row handling in calculateClusterLayout function ([1805bc5](https://github.com/ElJijuna/blessed-components/commit/1805bc59d25087bb4448e557767ca54ff86703b4))
+
 ## [1.6.0](https://github.com/ElJijuna/blessed-components/compare/v1.5.0...v1.6.0) (2026-06-29)
 
 ### Features
