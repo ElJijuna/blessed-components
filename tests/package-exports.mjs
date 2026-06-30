@@ -21,6 +21,8 @@ const pureConnectionStatusModule = await import('../dist/connection-status/index
 const blessedConnectionStatusModule = await import('../dist/connection-status/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
+const pureCenterModule = await import('../dist/center/index.js');
+const blessedCenterModule = await import('../dist/center/blessed.js');
 const pureCalloutModule = await import('../dist/callout/index.js');
 const blessedCalloutModule = await import('../dist/callout/blessed.js');
 const pureDividerModule = await import('../dist/divider/index.js');
@@ -184,6 +186,11 @@ const [connectionStatusEsmSource, connectionStatusCjsSource] = await Promise.all
 );
 const [cardEsmSource, cardCjsSource] = await Promise.all(
   ['../dist/card/index.js', '../dist/card/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [centerEsmSource, centerCjsSource] = await Promise.all(
+  ['../dist/center/index.js', '../dist/center/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -483,6 +490,8 @@ assert.equal(typeof blessedCardModule.cardTitle, 'function');
 assert.equal(typeof blessedCardModule.cardDescription, 'function');
 assert.equal(typeof blessedCardModule.cardBody, 'function');
 assert.equal(typeof blessedCardModule.cardFooter, 'function');
+assert.equal(typeof pureCenterModule.calculateCenterLayout, 'function');
+assert.equal(typeof blessedCenterModule.center, 'function');
 assert.equal(typeof pureCalloutModule.renderCallout, 'function');
 assert.equal(typeof blessedCalloutModule.callout, 'function');
 assert.equal(typeof pureDividerModule.renderDivider, 'function');
@@ -647,6 +656,10 @@ for (const source of [confirmDialogEsmSource, confirmDialogCjsSource]) {
 
 for (const source of [cardEsmSource, cardCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Card entry must not import Blessed.');
+}
+
+for (const source of [centerEsmSource, centerCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Center entry must not import Blessed.');
 }
 
 for (const source of [connectionStatusEsmSource, connectionStatusCjsSource]) {

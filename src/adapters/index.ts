@@ -12,6 +12,7 @@ export * from './blessed/breadcrumb.js';
 export * from './blessed/button.js';
 export * from './blessed/callout.js';
 export * from './blessed/card.js';
+export * from './blessed/center.js';
 export * from './blessed/checkbox.js';
 export * from './blessed/code.js';
 export * from './blessed/confirm-dialog.js';

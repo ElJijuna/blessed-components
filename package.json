@@ -139,6 +139,16 @@
       "import": "./dist/card/blessed.js",
       "require": "./dist/card/blessed.cjs"
     },
+    "./center": {
+      "types": "./dist/center/index.d.ts",
+      "import": "./dist/center/index.js",
+      "require": "./dist/center/index.cjs"
+    },
+    "./center/blessed": {
+      "types": "./dist/center/blessed.d.ts",
+      "import": "./dist/center/blessed.js",
+      "require": "./dist/center/blessed.cjs"
+    },
     "./callout": {
       "types": "./dist/callout/index.d.ts",
       "import": "./dist/callout/index.js",
