@@ -106,6 +106,8 @@ const entry = {
   'select/index': 'src/components/input/select/index.ts',
   'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
   'scroll-area/index': 'src/components/layout/scroll-area/index.ts',
+  'spacer/blessed': 'src/adapters/blessed/spacer.ts',
+  'spacer/index': 'src/components/layout/spacer/index.ts',
   'primitives/collection/index': 'src/primitives/collection/index.ts',
   'primitives/focus-scope/index': 'src/primitives/focus-scope/index.ts',
   'primitives/index': 'src/primitives/index.ts',

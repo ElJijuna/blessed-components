@@ -319,7 +319,7 @@ predictable, typed composition and responsive rules.
 | `SplitPane`     | Resizable horizontal or vertical regions.               | Research | P2       |
 | `SidebarLayout` | Sidebar plus main content with collapse rules.          | Build    | P2       |
 | `Center`        | Center one child in available space.                    | Available | P2       |
-| `Spacer`        | Flexible or fixed empty space.                          | Build    | P2       |
+| `Spacer`        | Flexible or fixed empty space.                          | Available | P2       |
 | `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |
 | `AspectRatio`   | Preserve cell-aware proportions.                        | Research | P3       |
 | `Viewport`      | Visual wrapper around the available headless primitive. | Available | P1       |

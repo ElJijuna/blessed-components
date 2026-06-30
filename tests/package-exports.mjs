@@ -113,6 +113,8 @@ const pureTabsModule = await import('../dist/tabs/index.js');
 const blessedTabsModule = await import('../dist/tabs/blessed.js');
 const pureTableModule = await import('../dist/table/index.js');
 const blessedTableModule = await import('../dist/table/blessed.js');
+const pureSpacerModule = await import('../dist/spacer/index.js');
+const blessedSpacerModule = await import('../dist/spacer/blessed.js');
 const pureStackModule = await import('../dist/stack/index.js');
 const blessedStackModule = await import('../dist/stack/blessed.js');
 const pureStatModule = await import('../dist/stat/index.js');
@@ -421,6 +423,11 @@ const [tableEsmSource, tableCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [spacerEsmSource, spacerCjsSource] = await Promise.all(
+  ['../dist/spacer/index.js', '../dist/spacer/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [stackEsmSource, stackCjsSource] = await Promise.all(
   ['../dist/stack/index.js', '../dist/stack/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -596,6 +603,8 @@ assert.equal(typeof pureTabsModule.renderTabs, 'function');
 assert.equal(typeof blessedTabsModule.tabs, 'function');
 assert.equal(typeof pureTableModule.renderTable, 'function');
 assert.equal(typeof blessedTableModule.table, 'function');
+assert.equal(typeof pureSpacerModule.calculateSpacerLayout, 'function');
+assert.equal(typeof blessedSpacerModule.spacer, 'function');
 assert.equal(typeof pureStackModule.calculateStackLayout, 'function');
 assert.equal(typeof blessedStackModule.stack, 'function');
 assert.equal(typeof pureStatModule.renderStat, 'function');
@@ -905,6 +914,10 @@ for (const source of [tabsEsmSource, tabsCjsSource]) {
 
 for (const source of [tableEsmSource, tableCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Table entry must not import Blessed.');
+}
+
+for (const source of [spacerEsmSource, spacerCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Spacer entry must not import Blessed.');
 }
 
 for (const source of [stackEsmSource, stackCjsSource]) {
