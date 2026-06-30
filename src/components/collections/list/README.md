@@ -138,6 +138,19 @@ console.log(commands.value());
 Navigation skips disabled items. Arrow navigation wraps at collection
 boundaries, while page navigation remains bounded.
 
+## Mouse
+
+The Blessed adapter enables mouse input by default:
+
+| Input        | Behavior                                     |
+| ------------ | -------------------------------------------- |
+| Row click    | Focus and select the clicked enabled row.    |
+| Disabled row | No-op.                                       |
+| Wheel down   | Move to the next enabled item.               |
+| Wheel up     | Move to the previous enabled item.           |
+
+Pass `box: { mouse: false }` to opt out of Blessed mouse registration.
+
 ## Imperative handle
 
 The returned `ListHandle` extends `BlessedComponentHandle` and adds:

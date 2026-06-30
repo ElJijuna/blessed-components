@@ -86,4 +86,60 @@ describe('Blessed Table adapter', () => {
       screen.destroy();
     }
   });
+
+  it('supports mouse click selection and wheel movement', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onValueChange = vi.fn();
+    const onActiveIdChange = vi.fn();
+
+    try {
+      const component = table({
+        box: { height: 5, width: 24 },
+        data: {
+          columns: [
+            { header: 'Name', id: 'name' },
+            { align: 'right', header: 'CPU', id: 'cpu', width: 4 },
+          ],
+          onActiveIdChange,
+          onValueChange,
+          rows: [
+            { cpu: '1%', id: 'one', name: 'One' },
+            { cpu: '2%', id: 'two', name: 'Two' },
+            { cpu: '3%', disabled: true, id: 'three', name: 'Three' },
+            { cpu: '4%', id: 'four', name: 'Four' },
+          ],
+        },
+        parent: screen,
+      });
+
+      expect(screen.clickable).toContain(component.element);
+
+      component.element.emit('click', { y: 3 });
+
+      expect(component.activeId()).toBe('two');
+      expect(component.value()).toBe('two');
+      expect(onActiveIdChange).toHaveBeenCalledWith('two');
+      expect(onValueChange).toHaveBeenCalledWith('two');
+
+      component.element.emit('click', { y: 4 });
+
+      expect(component.activeId()).toBe('two');
+      expect(component.value()).toBe('two');
+      expect(onValueChange).toHaveBeenCalledTimes(1);
+
+      component.element.emit('wheeldown');
+
+      expect(component.activeId()).toBe('four');
+
+      component.element.emit('wheelup');
+
+      expect(component.activeId()).toBe('two');
+    } finally {
+      screen.destroy();
+    }
+  });
 });

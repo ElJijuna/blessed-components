@@ -13,8 +13,9 @@ import type { BlessedComponentHandle } from './types.js';
 /**
  * Blessed box options supported by the List adapter.
  *
- * `parent`, `content`, and `tags` are managed by {@link list}. Keyboard input
- * is enabled by default and can still be disabled through `keys: false`.
+ * `parent`, `content`, and `tags` are managed by {@link list}. Keyboard and
+ * mouse input are enabled by default and can still be disabled through
+ * `keys: false` or `mouse: false`.
  */
 export type ListBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
@@ -120,8 +121,20 @@ interface Keypress {
   name?: string;
 }
 
+interface MouseEvent {
+  y?: number;
+}
+
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+}
+
+function absoluteElementTop(element: blessed.Widgets.BoxElement): number {
+  const positionedElement = element as blessed.Widgets.BoxElement & {
+    atop?: blessed.Widgets.Types.TPosition;
+  };
+
+  return numericDimension(positionedElement.atop ?? positionedElement.top);
 }
 
 /**
@@ -129,7 +142,8 @@ function numericDimension(value: blessed.Widgets.Types.TPosition): number {
  *
  * The adapter composes collection identity through `FocusScope`, selection
  * through `Selection`, and viewport movement through `ScrollArea`. It supports
- * Arrow Up/Down, Home/End, Page Up/Down, Enter, and Space.
+ * Arrow Up/Down, Home/End, Page Up/Down, Enter, Space, row click, and mouse
+ * wheel.
  *
  * The component never calls `screen.render()`. Applications retain control of
  * render batching after keyboard events, imperative operations, or `setData`.
@@ -150,6 +164,7 @@ export function list<TItem extends ListItem>({
 
   const element = blessed.box({
     keys: true,
+    mouse: true,
     ...box,
     content: '',
     parent,
@@ -223,6 +238,17 @@ export function list<TItem extends ListItem>({
   };
   const move = (direction: 'next' | 'previous'): string | undefined =>
     setActive(focusScope[direction]());
+  const itemIndexAtY = (screenY: number): number | undefined => {
+    const row = screenY - absoluteElementTop(element) - numericDimension(element.itop);
+
+    if (!Number.isInteger(row) || row < 0 || row >= viewportSize().height) {
+      return undefined;
+    }
+
+    const index = offset + row;
+
+    return index >= data.items.length ? undefined : index;
+  };
   const focusAtIndex = (index: number): string | undefined => {
     const item = data.items[index];
 
@@ -369,7 +395,33 @@ export function list<TItem extends ListItem>({
         break;
     }
   });
+  element.on('click', (event: MouseEvent) => {
+    if (event.y === undefined) {
+      return;
+    }
+
+    const index = itemIndexAtY(event.y);
+
+    if (index === undefined) {
+      return;
+    }
+
+    const item = data.items[index];
+
+    if (item === undefined || item.disabled === true) {
+      return;
+    }
+
+    setActive(focusScope.focus(item.id));
+    handle.selectActive();
+  });
   element.on('resize', render);
+  element.on('wheeldown', () => {
+    handle.next();
+  });
+  element.on('wheelup', () => {
+    handle.previous();
+  });
 
   return handle;
 }

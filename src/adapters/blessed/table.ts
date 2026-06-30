@@ -11,7 +11,13 @@ import { createScrollArea } from '@/primitives/scroll-area/index.js';
 import { createSelectionModel } from '@/primitives/selection/index.js';
 import type { BlessedComponentHandle } from './types.js';
 
-/** Blessed box options supported by the Table adapter. */
+/**
+ * Blessed box options supported by the Table adapter.
+ *
+ * `parent`, `content`, and `tags` are managed by {@link table}. Keyboard and
+ * mouse input are enabled by default and can still be disabled through
+ * `keys: false` or `mouse: false`.
+ */
 export type TableBoxOptions = Omit<blessed.Widgets.BoxOptions, 'content' | 'parent' | 'tags'>;
 
 /** Stateful data accepted by the Blessed {@link table} adapter. */
@@ -98,8 +104,20 @@ interface Keypress {
   name?: string;
 }
 
+interface MouseEvent {
+  y?: number;
+}
+
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+}
+
+function absoluteElementTop(element: blessed.Widgets.BoxElement): number {
+  const positionedElement = element as blessed.Widgets.BoxElement & {
+    atop?: blessed.Widgets.Types.TPosition;
+  };
+
+  return numericDimension(positionedElement.atop ?? positionedElement.top);
 }
 
 /** Creates an interactive single-selection Table backed by a Blessed box. */
@@ -115,6 +133,7 @@ export function table<TRow extends TableRow>({
 
   const element = blessed.box({
     keys: true,
+    mouse: true,
     ...box,
     content: '',
     parent,
@@ -192,6 +211,18 @@ export function table<TRow extends TableRow>({
   };
   const move = (direction: 'next' | 'previous'): string | undefined =>
     setActive(focusScope[direction]());
+  const rowIndexAtY = (screenY: number): number | undefined => {
+    const row = screenY - absoluteElementTop(element) - numericDimension(element.itop);
+    const bodyRow = row - 2;
+
+    if (!Number.isInteger(bodyRow) || bodyRow < 0 || bodyRow >= bodyHeight()) {
+      return undefined;
+    }
+
+    const index = offset + bodyRow;
+
+    return index >= data.rows.length ? undefined : index;
+  };
   const focusAtIndex = (index: number): string | undefined => {
     const row = data.rows[index];
 
@@ -338,7 +369,33 @@ export function table<TRow extends TableRow>({
         break;
     }
   });
+  element.on('click', (event: MouseEvent) => {
+    if (event.y === undefined) {
+      return;
+    }
+
+    const index = rowIndexAtY(event.y);
+
+    if (index === undefined) {
+      return;
+    }
+
+    const row = data.rows[index];
+
+    if (row === undefined || row.disabled === true) {
+      return;
+    }
+
+    setActive(focusScope.focus(row.id));
+    handle.selectActive();
+  });
   element.on('resize', render);
+  element.on('wheeldown', () => {
+    handle.next();
+  });
+  element.on('wheelup', () => {
+    handle.previous();
+  });
 
   return handle;
 }

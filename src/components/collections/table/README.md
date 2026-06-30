@@ -25,3 +25,10 @@ text markers so tables remain readable without color.
 
 Use `table` from `blessed-components/table/blessed` for the interactive Blessed
 adapter with Arrow Up/Down, Home/End, Page Up/Down, Enter, and Space support.
+
+Mouse support:
+
+- Row click focuses and selects the clicked enabled body row.
+- Header, separator, empty space, and disabled row clicks are ignored.
+- Mouse wheel moves the active row one enabled row at a time.
+- Pass `box: { mouse: false }` to opt out of Blessed mouse registration.

@@ -40,4 +40,11 @@ Keyboard support:
 - Page Up and Page Down move by the visible viewport.
 - Enter and Space activate the focused action.
 
+Mouse support:
+
+- Row click focuses and activates the clicked enabled action.
+- Disabled row clicks are ignored.
+- Wheel down/up moves to the next or previous enabled action.
+- Pass `box: { mouse: false }` to opt out of Blessed mouse registration.
+
 Labels and shortcuts are sanitized before width-aware truncation.

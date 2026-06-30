@@ -79,4 +79,54 @@ describe('Blessed Menu adapter', () => {
       screen.destroy();
     }
   });
+
+  it('supports mouse click activation and wheel movement', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onAction = vi.fn();
+    const onActiveIdChange = vi.fn();
+
+    try {
+      const component = menu({
+        box: { height: 3, width: 30 },
+        data: {
+          items: [
+            { id: 'build', label: 'Build' },
+            { id: 'test', label: 'Test' },
+            { disabled: true, id: 'deploy', label: 'Deploy' },
+            { id: 'logs', label: 'Logs' },
+          ],
+          onAction,
+          onActiveIdChange,
+        },
+        parent: screen,
+      });
+
+      expect(screen.clickable).toContain(component.element);
+
+      component.element.emit('click', { y: 1 });
+
+      expect(component.activeId()).toBe('test');
+      expect(onActiveIdChange).toHaveBeenCalledWith('test');
+      expect(onAction).toHaveBeenCalledWith({ id: 'test', label: 'Test' });
+
+      component.element.emit('click', { y: 2 });
+
+      expect(component.activeId()).toBe('test');
+      expect(onAction).toHaveBeenCalledTimes(1);
+
+      component.element.emit('wheeldown');
+
+      expect(component.activeId()).toBe('logs');
+
+      component.element.emit('wheelup');
+
+      expect(component.activeId()).toBe('test');
+    } finally {
+      screen.destroy();
+    }
+  });
 });

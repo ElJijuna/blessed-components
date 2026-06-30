@@ -19,6 +19,10 @@ interface PreviewOptions {
   smoke?: boolean;
 }
 
+interface ClickableNavigationList extends blessed.Widgets.ListElement {
+  items: blessed.Widgets.BlessedElement[];
+}
+
 export function runPreview({ smoke = false }: PreviewOptions = {}): void {
   const input = smoke ? new PassThrough() : process.stdin;
   const output = smoke ? new PassThrough() : process.stdout;
@@ -98,6 +102,10 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
   let currentHandle: PreviewStoryHandle | undefined;
   let currentIndex = 0;
 
+  const selectStory = (index: number): void => {
+    navigation.select(index);
+    renderStory(index);
+  };
   const renderStory = (index: number): void => {
     const story = stories[index];
 
@@ -112,7 +120,7 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     try {
       currentHandle = story.mount(viewport);
       status.setContent(
-        ` ${story.id}\n ${story.description}\n ↑/↓ select  enter open  r reload  tab focus  q quit`,
+        ` ${story.id}\n ${story.description}\n ↑/↓ select  enter/click open  r reload  tab focus  q quit`,
       );
     } catch (error) {
       const message = error instanceof Error ? (error.stack ?? error.message) : String(error);
@@ -129,6 +137,15 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
 
   navigation.on('select', (_item, index) => {
     renderStory(index);
+  });
+  (navigation as ClickableNavigationList).items.forEach((item, index) => {
+    item.on('click', () => {
+      if (index === currentIndex) {
+        return;
+      }
+
+      selectStory(index);
+    });
   });
 
   screen.key(['q', 'C-c'], () => {
@@ -157,14 +174,12 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     renderStory(currentIndex);
   });
 
-  navigation.select(0);
   navigation.focus();
-  renderStory(0);
+  selectStory(0);
 
   if (smoke) {
     for (const [index] of stories.entries()) {
-      navigation.select(index);
-      renderStory(index);
+      selectStory(index);
     }
 
     destroy();

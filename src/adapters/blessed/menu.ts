@@ -87,8 +87,20 @@ interface Keypress {
   name?: string;
 }
 
+interface MouseEvent {
+  y?: number;
+}
+
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+}
+
+function absoluteElementTop(element: blessed.Widgets.BoxElement): number {
+  const positionedElement = element as blessed.Widgets.BoxElement & {
+    atop?: blessed.Widgets.Types.TPosition;
+  };
+
+  return numericDimension(positionedElement.atop ?? positionedElement.top);
 }
 
 /** Creates an interactive action Menu backed by a Blessed box. */
@@ -103,6 +115,7 @@ export function menu<TItem extends MenuItem>({
 
   const element = blessed.box({
     keys: true,
+    mouse: true,
     ...box,
     content: '',
     parent,
@@ -170,6 +183,17 @@ export function menu<TItem extends MenuItem>({
   };
   const move = (direction: 'next' | 'previous'): string | undefined =>
     setActive(focusScope[direction]());
+  const itemIndexAtY = (screenY: number): number | undefined => {
+    const row = screenY - absoluteElementTop(element) - numericDimension(element.itop);
+
+    if (!Number.isInteger(row) || row < 0 || row >= viewportSize().height) {
+      return undefined;
+    }
+
+    const index = offset + row;
+
+    return index >= data.items.length ? undefined : index;
+  };
   const focusAtIndex = (index: number): string | undefined => {
     const item = data.items[index];
 
@@ -290,7 +314,33 @@ export function menu<TItem extends MenuItem>({
         break;
     }
   });
+  element.on('click', (event: MouseEvent) => {
+    if (event.y === undefined) {
+      return;
+    }
+
+    const index = itemIndexAtY(event.y);
+
+    if (index === undefined) {
+      return;
+    }
+
+    const item = data.items[index];
+
+    if (item === undefined || item.disabled === true) {
+      return;
+    }
+
+    setActive(focusScope.focus(item.id));
+    handle.activateActive();
+  });
   element.on('resize', render);
+  element.on('wheeldown', () => {
+    handle.next();
+  });
+  element.on('wheelup', () => {
+    handle.previous();
+  });
 
   return handle;
 }

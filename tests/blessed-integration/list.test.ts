@@ -119,4 +119,56 @@ describe('Blessed List adapter', () => {
       screen.destroy();
     }
   });
+
+  it('supports mouse click selection and wheel movement', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onValueChange = vi.fn();
+    const onActiveIdChange = vi.fn();
+
+    try {
+      const component = list({
+        box: { height: 3, width: 20 },
+        data: {
+          items: [
+            { id: 'one', label: 'One' },
+            { id: 'two', label: 'Two' },
+            { disabled: true, id: 'three', label: 'Three' },
+            { id: 'four', label: 'Four' },
+          ],
+          onActiveIdChange,
+          onValueChange,
+        },
+        parent: screen,
+      });
+
+      expect(screen.clickable).toContain(component.element);
+
+      component.element.emit('click', { y: 1 });
+
+      expect(component.activeId()).toBe('two');
+      expect(component.value()).toBe('two');
+      expect(onActiveIdChange).toHaveBeenCalledWith('two');
+      expect(onValueChange).toHaveBeenCalledWith('two');
+
+      component.element.emit('click', { y: 2 });
+
+      expect(component.activeId()).toBe('two');
+      expect(component.value()).toBe('two');
+      expect(onValueChange).toHaveBeenCalledTimes(1);
+
+      component.element.emit('wheeldown');
+
+      expect(component.activeId()).toBe('four');
+
+      component.element.emit('wheelup');
+
+      expect(component.activeId()).toBe('two');
+    } finally {
+      screen.destroy();
+    }
+  });
 });

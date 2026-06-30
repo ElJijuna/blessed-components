@@ -13,6 +13,7 @@ handling, and lifecycle cleanup into reusable components with:
 - responsive behavior for narrow terminals;
 - Unicode, ASCII, color, and no-color modes;
 - predictable focus and keyboard interaction;
+- optional mouse interaction for interactive adapters;
 - direct integration with Blessed elements;
 - tests through public behavior;
 - no leaked listeners, timers, or processes.
@@ -142,6 +143,8 @@ const score = metricBars({
 - Reuse one scaling primitive across progress bars, gauges, and charts.
 - Reuse one selection model across lists, tables, trees, menus, and palettes.
 - Let callers decide when `screen.render()` runs.
+- Enable Blessed mouse handling by default on interactive adapters where row or
+  action targeting is meaningful, with opt-out through `box.mouse = false`.
 - Calculate dimensions from actual inner width and height.
 - Clamp bounded values.
 - Never mutate caller-owned arrays or objects.
