@@ -386,7 +386,7 @@ virtualization primitives.
 | Component      | Purpose                                                    | Decision    | Priority |
 | -------------- | ---------------------------------------------------------- | ----------- | -------- |
 | `List`         | Typed items, selection, empty state, and bounded rendering. | Available   | P1       |
-| `VirtualList`  | Render large lists using visible rows only.                | Build       | P2       |
+| `VirtualList`  | Render large lists using visible rows only.                | Available   | P2       |
 | `GroupedList`  | Sections with sticky or repeated headings.                 | Build       | P2       |
 | `Table`        | Typed columns, alignment, truncation, and selection.       | Available   | P1       |
 | `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Build       | P2       |

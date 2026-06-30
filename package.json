@@ -359,6 +359,16 @@
       "import": "./dist/list/blessed.js",
       "require": "./dist/list/blessed.cjs"
     },
+    "./virtual-list": {
+      "types": "./dist/virtual-list/index.d.ts",
+      "import": "./dist/virtual-list/index.js",
+      "require": "./dist/virtual-list/index.cjs"
+    },
+    "./virtual-list/blessed": {
+      "types": "./dist/virtual-list/blessed.d.ts",
+      "import": "./dist/virtual-list/blessed.js",
+      "require": "./dist/virtual-list/blessed.cjs"
+    },
     "./log-viewer": {
       "types": "./dist/log-viewer/index.d.ts",
       "import": "./dist/log-viewer/index.js",

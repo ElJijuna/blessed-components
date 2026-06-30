@@ -61,6 +61,8 @@ const pureMultiSelectModule = await import('../dist/multi-select/index.js');
 const blessedMultiSelectModule = await import('../dist/multi-select/blessed.js');
 const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
+const pureVirtualListModule = await import('../dist/virtual-list/index.js');
+const blessedVirtualListModule = await import('../dist/virtual-list/blessed.js');
 const pureLogViewerModule = await import('../dist/log-viewer/index.js');
 const blessedLogViewerModule = await import('../dist/log-viewer/blessed.js');
 const pureTimelineModule = await import('../dist/timeline/index.js');
@@ -282,6 +284,11 @@ const [multiSelectEsmSource, multiSelectCjsSource] = await Promise.all(
 );
 const [listEsmSource, listCjsSource] = await Promise.all(
   ['../dist/list/index.js', '../dist/list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [virtualListEsmSource, virtualListCjsSource] = await Promise.all(
+  ['../dist/virtual-list/index.js', '../dist/virtual-list/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -521,6 +528,9 @@ assert.equal(typeof pureMultiSelectModule.renderMultiSelect, 'function');
 assert.equal(typeof blessedMultiSelectModule.multiSelect, 'function');
 assert.equal(typeof pureListModule.renderList, 'function');
 assert.equal(typeof blessedListModule.list, 'function');
+assert.equal(typeof pureVirtualListModule.computeVirtualListWindow, 'function');
+assert.equal(typeof pureVirtualListModule.renderVirtualList, 'function');
+assert.equal(typeof blessedVirtualListModule.virtualList, 'function');
 assert.equal(typeof pureLogViewerModule.renderLogViewer, 'function');
 assert.equal(typeof pureLogViewerModule.createLogViewerState, 'function');
 assert.equal(typeof blessedLogViewerModule.logViewer, 'function');
@@ -749,6 +759,14 @@ for (const source of [preformattedEsmSource, preformattedCjsSource]) {
 
 for (const source of [listEsmSource, listCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure List entry must not import Blessed.');
+}
+
+for (const source of [virtualListEsmSource, virtualListCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure VirtualList entry must not import Blessed.',
+  );
 }
 
 for (const source of [logViewerEsmSource, logViewerCjsSource]) {

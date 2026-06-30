@@ -5,3 +5,4 @@ export * from './list/index.js';
 export * from './log-viewer/index.js';
 export * from './table/index.js';
 export * from './timeline/index.js';
+export * from './virtual-list/index.js';

@@ -129,6 +129,8 @@ const entry = {
   'table/index': 'src/components/collections/table/index.ts',
   'timeline/blessed': 'src/adapters/blessed/timeline.ts',
   'timeline/index': 'src/components/collections/timeline/index.ts',
+  'virtual-list/blessed': 'src/adapters/blessed/virtual-list.ts',
+  'virtual-list/index': 'src/components/collections/virtual-list/index.ts',
   'stack/blessed': 'src/adapters/blessed/stack.ts',
   'stack/index': 'src/components/layout/stack/index.ts',
   'stat/blessed': 'src/adapters/blessed/stat.ts',
