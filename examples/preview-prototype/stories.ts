@@ -9,7 +9,9 @@ import {
   cardHeader,
   cardRoot,
   cardTitle,
+  center,
   checkbox,
+  cluster,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -42,6 +44,7 @@ import {
   scrollArea,
   searchField,
   select,
+  spacer,
   sparkline,
   spinner,
   stack,
@@ -1177,6 +1180,113 @@ export const stories: readonly PreviewStory[] = [
       text({
         box: { height: 1, width: 18 },
         data: { content: '3 replicas ready', tone: 'muted' },
+        parent: layout.element,
+      });
+      layout.layout();
+
+      return layout;
+    },
+  }),
+  defineStory({
+    id: 'center/empty-state',
+    title: 'Center / Empty State',
+    description: 'One direct child centered within the available container.',
+    mount(parent) {
+      const layout = center({
+        box: {
+          border: 'line',
+          height: 10,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          borderTone: 'primary',
+        },
+        parent,
+      });
+
+      text({
+        box: { height: 3, width: 28 },
+        data: {
+          align: 'center',
+          content: 'No incidents\nEverything is calm',
+          tone: 'success',
+        },
+        parent: layout.element,
+      });
+      layout.layout();
+
+      return layout;
+    },
+  }),
+  defineStory({
+    id: 'cluster/actions',
+    title: 'Cluster / Actions',
+    description: 'Inline children wrap into rows for action bars and badges.',
+    mount(parent) {
+      const layout = cluster({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1, top: 1 },
+          top: 2,
+          width: 34,
+        },
+        data: {
+          borderTone: 'primary',
+          gap: 1,
+        },
+        parent,
+      });
+
+      for (const label of ['Deploy', 'Rollback', 'Scale', 'Logs', 'Metrics']) {
+        text({
+          box: { border: 'line', height: 3, width: label.length + 4 },
+          data: { align: 'center', content: label, tone: 'info' },
+          parent: layout.element,
+        });
+      }
+
+      layout.layout();
+
+      return layout;
+    },
+  }),
+  defineStory({
+    id: 'spacer/stack-gap',
+    title: 'Spacer / Stack Gap',
+    description: 'Fixed empty space participates as a direct layout child.',
+    mount(parent) {
+      const layout = stack({
+        box: {
+          border: 'line',
+          height: 10,
+          left: 3,
+          padding: { left: 1, right: 1, top: 1 },
+          top: 1,
+          width: 42,
+        },
+        data: {
+          borderTone: 'primary',
+        },
+        parent,
+      });
+
+      text({
+        box: { height: 1, width: 24 },
+        data: { content: 'Header region', tone: 'primary' },
+        parent: layout.element,
+      });
+      spacer({
+        data: { axis: 'vertical', size: 2 },
+        parent: layout.element,
+      });
+      text({
+        box: { height: 2, width: 28 },
+        data: { content: 'Body starts after\nan explicit spacer', tone: 'muted' },
         parent: layout.element,
       });
       layout.layout();
