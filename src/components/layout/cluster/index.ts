@@ -107,7 +107,9 @@ export function calculateClusterLayout({
   }
 
   const rows: ClusterRow[] = [];
+
   let currentRow: ClusterRow = { height: 0, items: [], width: 0, y: 0 };
+
   const pushRow = (): void => {
     rows.push(currentRow);
     currentRow = {
