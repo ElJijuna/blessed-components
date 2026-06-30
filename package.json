@@ -149,6 +149,16 @@
       "import": "./dist/center/blessed.js",
       "require": "./dist/center/blessed.cjs"
     },
+    "./cluster": {
+      "types": "./dist/cluster/index.d.ts",
+      "import": "./dist/cluster/index.js",
+      "require": "./dist/cluster/index.cjs"
+    },
+    "./cluster/blessed": {
+      "types": "./dist/cluster/blessed.d.ts",
+      "import": "./dist/cluster/blessed.js",
+      "require": "./dist/cluster/blessed.cjs"
+    },
     "./callout": {
       "types": "./dist/callout/index.d.ts",
       "import": "./dist/callout/index.js",

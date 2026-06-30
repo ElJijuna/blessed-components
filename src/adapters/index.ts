@@ -14,6 +14,7 @@ export * from './blessed/callout.js';
 export * from './blessed/card.js';
 export * from './blessed/center.js';
 export * from './blessed/checkbox.js';
+export * from './blessed/cluster.js';
 export * from './blessed/code.js';
 export * from './blessed/confirm-dialog.js';
 export * from './blessed/connection-status.js';
