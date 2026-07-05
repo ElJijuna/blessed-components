@@ -7,6 +7,7 @@ export * from './connection-status/index.js';
 export * from './empty-state/index.js';
 export * from './error-state/index.js';
 export * from './health-indicator/index.js';
+export * from './loading-overlay/index.js';
 export * from './progress-bar/index.js';
 export * from './progress-list/index.js';
 export * from './progress-stack/index.js';

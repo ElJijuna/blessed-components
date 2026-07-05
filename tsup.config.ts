@@ -86,6 +86,8 @@ const entry = {
   'list/index': 'src/components/collections/list/index.ts',
   'log-viewer/blessed': 'src/adapters/blessed/log-viewer.ts',
   'log-viewer/index': 'src/components/collections/log-viewer/index.ts',
+  'loading-overlay/blessed': 'src/adapters/blessed/loading-overlay.ts',
+  'loading-overlay/index': 'src/components/feedback/loading-overlay/index.ts',
   'menu/blessed': 'src/adapters/blessed/menu.ts',
   'menu/index': 'src/components/navigation/menu/index.ts',
   'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',

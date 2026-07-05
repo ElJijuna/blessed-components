@@ -34,6 +34,7 @@ import {
   label,
   legend,
   list,
+  loadingOverlay,
   menu,
   metricBars,
   multiSelect,
@@ -128,6 +129,32 @@ export const stories: readonly PreviewStory[] = [
               tone: 'warning',
             },
           ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'loading-overlay/deploying',
+    title: 'LoadingOverlay / Deploying',
+    description: 'Modal loading layer with spinner content.',
+    mount(parent) {
+      return loadingOverlay({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          autoStart: false,
+          borderTone: 'primary',
+          defaultOpen: true,
+          description: 'Waiting for production health checks.',
+          id: 'gallery-loading',
+          label: 'Deploying',
         },
         parent,
       });

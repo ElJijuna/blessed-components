@@ -77,6 +77,8 @@ const pureVirtualListModule = await import('../dist/virtual-list/index.js');
 const blessedVirtualListModule = await import('../dist/virtual-list/blessed.js');
 const pureLogViewerModule = await import('../dist/log-viewer/index.js');
 const blessedLogViewerModule = await import('../dist/log-viewer/blessed.js');
+const pureLoadingOverlayModule = await import('../dist/loading-overlay/index.js');
+const blessedLoadingOverlayModule = await import('../dist/loading-overlay/blessed.js');
 const pureTimelineModule = await import('../dist/timeline/index.js');
 const blessedTimelineModule = await import('../dist/timeline/blessed.js');
 const pureMenuModule = await import('../dist/menu/index.js');
@@ -344,6 +346,11 @@ const [virtualListEsmSource, virtualListCjsSource] = await Promise.all(
 );
 const [logViewerEsmSource, logViewerCjsSource] = await Promise.all(
   ['../dist/log-viewer/index.js', '../dist/log-viewer/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [loadingOverlayEsmSource, loadingOverlayCjsSource] = await Promise.all(
+  ['../dist/loading-overlay/index.js', '../dist/loading-overlay/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -618,6 +625,8 @@ assert.equal(typeof blessedVirtualListModule.virtualList, 'function');
 assert.equal(typeof pureLogViewerModule.renderLogViewer, 'function');
 assert.equal(typeof pureLogViewerModule.createLogViewerState, 'function');
 assert.equal(typeof blessedLogViewerModule.logViewer, 'function');
+assert.equal(typeof pureLoadingOverlayModule.renderLoadingOverlay, 'function');
+assert.equal(typeof blessedLoadingOverlayModule.loadingOverlay, 'function');
 assert.equal(typeof pureTimelineModule.renderTimeline, 'function');
 assert.equal(typeof blessedTimelineModule.timeline, 'function');
 assert.equal(typeof pureMenuModule.renderMenu, 'function');
@@ -901,6 +910,14 @@ for (const source of [virtualListEsmSource, virtualListCjsSource]) {
 
 for (const source of [logViewerEsmSource, logViewerCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure LogViewer entry must not import Blessed.');
+}
+
+for (const source of [loadingOverlayEsmSource, loadingOverlayCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure LoadingOverlay entry must not import Blessed.',
+  );
 }
 
 for (const source of [timelineEsmSource, timelineCjsSource]) {

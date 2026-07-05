@@ -449,6 +449,16 @@
       "import": "./dist/log-viewer/blessed.js",
       "require": "./dist/log-viewer/blessed.cjs"
     },
+    "./loading-overlay": {
+      "types": "./dist/loading-overlay/index.d.ts",
+      "import": "./dist/loading-overlay/index.js",
+      "require": "./dist/loading-overlay/index.cjs"
+    },
+    "./loading-overlay/blessed": {
+      "types": "./dist/loading-overlay/blessed.d.ts",
+      "import": "./dist/loading-overlay/blessed.js",
+      "require": "./dist/loading-overlay/blessed.cjs"
+    },
     "./timeline": {
       "types": "./dist/timeline/index.d.ts",
       "import": "./dist/timeline/index.js",
