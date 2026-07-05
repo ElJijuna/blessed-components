@@ -330,7 +330,7 @@ predictable, typed composition and responsive rules.
 | `Resizable`     | Keyboard/mouse resize behavior for one region.          | Research | P3       |
 | `Collapsible`   | Show or hide a region while preserving state.           | Available | P2       |
 | `Accordion`     | Multiple collapsible sections with keyboard navigation. | Available | P2       |
-| `Page`          | Full-screen region with title and action slots.         | Build    | P2       |
+| `Page`          | Full-screen region with title and action slots.         | Available | P2       |
 | `AppShell`      | Header, footer, sidebar, content, and overlay layers.   | Build    | P2       |
 
 ### 3. Typography and small data display

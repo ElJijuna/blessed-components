@@ -11,6 +11,7 @@ export * from './cluster/index.js';
 export * from './collapsible/index.js';
 export * from './divider/index.js';
 export * from './grid/index.js';
+export * from './page/index.js';
 export * from './scroll-area/index.js';
 export * from './spacer/index.js';
 export * from './stack/index.js';

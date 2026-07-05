@@ -39,6 +39,7 @@ import {
   multiSparkline,
   mutedText,
   overlay,
+  page,
   progressBar,
   progressList,
   progressStack,
@@ -1187,6 +1188,35 @@ export const stories: readonly PreviewStory[] = [
       layout.layout();
 
       return layout;
+    },
+  }),
+  defineStory({
+    id: 'page/service-overview',
+    title: 'Page / Service Overview',
+    description: 'Full-screen header, body, and footer regions with mounted content.',
+    mount(parent) {
+      const view = page({
+        box: {
+          border: 'line',
+          height: 13,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 54,
+        },
+        data: {
+          actions: 'r refresh  q quit',
+          borderTone: 'primary',
+          content: 'API service\nStatus: healthy\nLatency: 84ms p95\nReplicas: 3/3',
+          footer: 'Updated now',
+          gap: 1,
+          subtitle: 'production',
+          title: 'Service overview',
+        },
+        parent,
+      });
+
+      return view;
     },
   }),
   defineStory({

@@ -389,6 +389,16 @@
       "import": "./dist/overlay/blessed.js",
       "require": "./dist/overlay/blessed.cjs"
     },
+    "./page": {
+      "types": "./dist/page/index.d.ts",
+      "import": "./dist/page/index.js",
+      "require": "./dist/page/index.cjs"
+    },
+    "./page/blessed": {
+      "types": "./dist/page/blessed.d.ts",
+      "import": "./dist/page/blessed.js",
+      "require": "./dist/page/blessed.cjs"
+    },
     "./preformatted": {
       "types": "./dist/preformatted/index.d.ts",
       "import": "./dist/preformatted/index.js",

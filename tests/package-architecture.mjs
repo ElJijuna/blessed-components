@@ -22,6 +22,7 @@ const expectedComponents = [
   'src/components/feedback/connection-status/index.ts',
   'src/components/layout/divider/index.ts',
   'src/components/layout/grid/index.ts',
+  'src/components/layout/page/index.ts',
   'src/components/layout/scroll-area/index.ts',
   'src/components/layout/spacer/index.ts',
   'src/components/layout/stack/index.ts',
