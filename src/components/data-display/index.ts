@@ -4,6 +4,7 @@
 export * from './badge/index.js';
 export * from './breadcrumb/index.js';
 export * from './code/index.js';
+export * from './description-list/index.js';
 export * from './heading/index.js';
 export * from './kbd/index.js';
 export * from './key-value/index.js';

@@ -119,6 +119,16 @@
       "import": "./dist/connection-status/blessed.js",
       "require": "./dist/connection-status/blessed.cjs"
     },
+    "./description-list": {
+      "types": "./dist/description-list/index.d.ts",
+      "import": "./dist/description-list/index.js",
+      "require": "./dist/description-list/index.cjs"
+    },
+    "./description-list/blessed": {
+      "types": "./dist/description-list/blessed.d.ts",
+      "import": "./dist/description-list/blessed.js",
+      "require": "./dist/description-list/blessed.cjs"
+    },
     "./form-field": {
       "types": "./dist/form-field/index.d.ts",
       "import": "./dist/form-field/index.js",

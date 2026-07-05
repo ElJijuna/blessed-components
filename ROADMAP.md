@@ -347,7 +347,7 @@ High value, low complexity, excellent early components.
 | `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Available | P2       |
 | `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
 | `KeyValue`        | Aligned label/value rows.                             | Available | P1       |
-| `DescriptionList` | Responsive term/description groups.                   | Build    | P2       |
+| `DescriptionList` | Responsive term/description groups.                   | Available | P2       |
 | `Badge`           | Compact semantic status.                              | Available | P1       |
 | `Tag`             | Removable or static categorization token.             | Available | P2       |
 | `Pill`            | Rounded-character compact label where supported.      | Defer    | P3       |

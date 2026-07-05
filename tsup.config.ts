@@ -27,6 +27,8 @@ const entry = {
   'confirm-dialog/index': 'src/components/overlays/confirm-dialog/index.ts',
   'connection-status/blessed': 'src/adapters/blessed/connection-status.ts',
   'connection-status/index': 'src/components/feedback/connection-status/index.ts',
+  'description-list/blessed': 'src/adapters/blessed/description-list.ts',
+  'description-list/index': 'src/components/data-display/description-list/index.ts',
   'core/capabilities': 'src/core/capabilities.ts',
   'core/characters': 'src/core/characters.ts',
   'core/color': 'src/core/color.ts',
