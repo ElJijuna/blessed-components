@@ -119,6 +119,8 @@ const pureSwitchModule = await import('../dist/switch/index.js');
 const blessedSwitchModule = await import('../dist/switch/blessed.js');
 const pureTaskProgressModule = await import('../dist/task-progress/index.js');
 const blessedTaskProgressModule = await import('../dist/task-progress/blessed.js');
+const pureToastModule = await import('../dist/toast/index.js');
+const blessedToastModule = await import('../dist/toast/blessed.js');
 const pureTabListModule = await import('../dist/tab-list/index.js');
 const blessedTabListModule = await import('../dist/tab-list/blessed.js');
 const pureTabsModule = await import('../dist/tabs/index.js');
@@ -450,6 +452,11 @@ const [taskProgressEsmSource, taskProgressCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [toastEsmSource, toastCjsSource] = await Promise.all(
+  ['../dist/toast/index.js', '../dist/toast/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [tabListEsmSource, tabListCjsSource] = await Promise.all(
   ['../dist/tab-list/index.js', '../dist/tab-list/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -654,6 +661,9 @@ assert.equal(typeof pureSwitchModule.renderSwitch, 'function');
 assert.equal(typeof blessedSwitchModule.switchControl, 'function');
 assert.equal(typeof pureTaskProgressModule.renderTaskProgress, 'function');
 assert.equal(typeof blessedTaskProgressModule.taskProgress, 'function');
+assert.equal(typeof pureToastModule.createToastStackState, 'function');
+assert.equal(typeof pureToastModule.renderToastStack, 'function');
+assert.equal(typeof blessedToastModule.toast, 'function');
 assert.equal(typeof pureTabListModule.renderTabList, 'function');
 assert.equal(typeof blessedTabListModule.tabList, 'function');
 assert.equal(typeof pureTabsModule.renderTabs, 'function');
@@ -995,6 +1005,10 @@ for (const source of [taskProgressEsmSource, taskProgressCjsSource]) {
     false,
     'Pure TaskProgress entry must not import Blessed.',
   );
+}
+
+for (const source of [toastEsmSource, toastCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Toast entry must not import Blessed.');
 }
 
 for (const source of [tabListEsmSource, tabListCjsSource]) {

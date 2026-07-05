@@ -64,6 +64,7 @@ import {
   text,
   textField,
   thresholds,
+  toast,
   trend,
   viewport,
 } from '@/index.js';
@@ -94,6 +95,42 @@ export const stories: readonly PreviewStory[] = [
       });
 
       return warning;
+    },
+  }),
+  defineStory({
+    id: 'toast/deploy-stack',
+    title: 'Toast / Deploy Stack',
+    description: 'Transient notification stack with semantic markers.',
+    mount(parent) {
+      return toast({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 42,
+        },
+        data: {
+          borderTone: 'primary',
+          gap: 1,
+          toasts: [
+            {
+              description: 'Production API promoted to stable.',
+              id: 'deploy-complete',
+              title: 'Deploy complete',
+              tone: 'success',
+            },
+            {
+              description: 'Queue workers will restart after drain.',
+              id: 'workers',
+              title: 'Worker rollout pending',
+              tone: 'warning',
+            },
+          ],
+        },
+        parent,
+      });
     },
   }),
   defineStory({

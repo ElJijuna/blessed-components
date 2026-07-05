@@ -370,7 +370,7 @@ These components share bounded values, semantic tones, and live updates.
 | `Status`             | State icon, label, and optional detail.                 | Available | P1       |
 | `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
 | `Callout`            | Framed explanatory content.                             | Available | P2       |
-| `Toast`              | Timed transient notification stack.                     | Build    | P2       |
+| `Toast`              | Timed transient notification stack.                     | Available | P2       |
 | `NotificationCenter` | Persistent notification list and unread state.          | Research | P3       |
 | `Skeleton`           | Placeholder rows while content loads.                   | Research | P2       |
 | `EmptyState`         | Empty result message with optional action.              | Available | P1       |

@@ -619,6 +619,16 @@
       "import": "./dist/task-progress/blessed.js",
       "require": "./dist/task-progress/blessed.cjs"
     },
+    "./toast": {
+      "types": "./dist/toast/index.d.ts",
+      "import": "./dist/toast/index.js",
+      "require": "./dist/toast/index.cjs"
+    },
+    "./toast/blessed": {
+      "types": "./dist/toast/blessed.d.ts",
+      "import": "./dist/toast/blessed.js",
+      "require": "./dist/toast/blessed.cjs"
+    },
     "./tab-list": {
       "types": "./dist/tab-list/index.d.ts",
       "import": "./dist/tab-list/index.js",

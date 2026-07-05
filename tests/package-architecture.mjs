@@ -66,6 +66,7 @@ const expectedComponents = [
   'src/components/feedback/status/index.ts',
   'src/components/feedback/step-indicator/index.ts',
   'src/components/feedback/task-progress/index.ts',
+  'src/components/feedback/toast/index.ts',
   'src/components/navigation/tab-list/index.ts',
   'src/components/visualization/gauge/index.ts',
   'src/components/visualization/legend/index.ts',
