@@ -429,6 +429,16 @@
       "import": "./dist/list/blessed.js",
       "require": "./dist/list/blessed.cjs"
     },
+    "./grouped-list": {
+      "types": "./dist/grouped-list/index.d.ts",
+      "import": "./dist/grouped-list/index.js",
+      "require": "./dist/grouped-list/index.cjs"
+    },
+    "./grouped-list/blessed": {
+      "types": "./dist/grouped-list/blessed.d.ts",
+      "import": "./dist/grouped-list/blessed.js",
+      "require": "./dist/grouped-list/blessed.cjs"
+    },
     "./virtual-list": {
       "types": "./dist/virtual-list/index.d.ts",
       "import": "./dist/virtual-list/index.js",

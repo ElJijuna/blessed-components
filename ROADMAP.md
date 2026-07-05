@@ -390,7 +390,7 @@ virtualization primitives.
 | -------------- | ---------------------------------------------------------- | ----------- | -------- |
 | `List`         | Typed items, selection, empty state, and bounded rendering. | Available   | P1       |
 | `VirtualList`  | Render large lists using visible rows only.                | Available   | P2       |
-| `GroupedList`  | Sections with sticky or repeated headings.                 | Build       | P2       |
+| `GroupedList`  | Sections with sticky or repeated headings.                 | Available   | P2       |
 | `Table`        | Typed columns, alignment, truncation, and selection.       | Available   | P1       |
 | `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Build       | P2       |
 | `VirtualTable` | Large row sets with bounded rendering.                     | Research    | P2       |

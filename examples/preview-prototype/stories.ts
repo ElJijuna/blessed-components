@@ -27,6 +27,7 @@ import {
   formField,
   gauge,
   grid,
+  groupedList,
   heading,
   helpOverlay,
   kbd,
@@ -1724,6 +1725,46 @@ export const stories: readonly PreviewStory[] = [
             { id: 'clean', label: 'Clean generated artifacts' },
           ],
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'grouped-list/resources',
+    title: 'GroupedList / Resources',
+    description: 'Selectable rows organized under section headings.',
+    mount(parent) {
+      return groupedList({
+        box: {
+          border: 'line',
+          height: 11,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 46,
+        },
+        data: {
+          activeId: 'api',
+          defaultValue: 'api',
+          sections: [
+            {
+              id: 'services',
+              items: [
+                { id: 'api', label: 'API service' },
+                { id: 'worker', label: 'Worker pool' },
+              ],
+              title: 'Services',
+            },
+            {
+              id: 'infra',
+              items: [
+                { id: 'redis', label: 'Redis cache' },
+                { disabled: true, id: 'db', label: 'Database migration locked' },
+              ],
+              title: 'Infrastructure',
+            },
+          ],
+        },
+        parent,
       });
     },
   }),

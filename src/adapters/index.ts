@@ -30,6 +30,7 @@ export * from './blessed/form.js';
 export * from './blessed/form-field.js';
 export * from './blessed/gauge.js';
 export * from './blessed/grid.js';
+export * from './blessed/grouped-list.js';
 export * from './blessed/heading.js';
 export * from './blessed/health-indicator.js';
 export * from './blessed/help-overlay.js';
