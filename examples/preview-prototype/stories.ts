@@ -55,6 +55,7 @@ import {
   sparkline,
   spinner,
   stack,
+  stackedGauge,
   stat,
   status,
   stepIndicator,
@@ -1920,6 +1921,34 @@ export const stories: readonly PreviewStory[] = [
           value: 72,
           width: 16,
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'stacked-gauge/capacity',
+    title: 'StackedGauge / Capacity',
+    description: 'Part-to-whole composition in one bounded gauge track.',
+    mount(parent) {
+      return stackedGauge({
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          label: 'Capacity',
+          segments: [
+            { id: 'used', label: 'Used', value: 62 },
+            { id: 'reserved', label: 'Reserved', value: 18 },
+          ],
+          tone: 'primary',
+          total: 100,
+          width: 20,
+        },
+        parent,
       });
     },
   }),

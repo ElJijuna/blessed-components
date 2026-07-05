@@ -75,6 +75,7 @@ const expectedComponents = [
   'src/components/visualization/metric-bars/index.ts',
   'src/components/visualization/multi-sparkline/index.ts',
   'src/components/visualization/sparkline/index.ts',
+  'src/components/visualization/stacked-gauge/index.ts',
   'src/components/visualization/thresholds/index.ts',
 ];
 const legacyComponents = [

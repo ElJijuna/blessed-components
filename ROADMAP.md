@@ -420,7 +420,7 @@ quality, or maintenance advantage.
 | `MultiSparkline`   | Aligned compact series with labels.                 | Available    | P1       |
 | `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
 | `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
-| `StackedGauge`     | Composition of portions in one track.               | Build        | P2       |
+| `StackedGauge`     | Composition of portions in one track.               | Available    | P2       |
 | `BulletChart`      | Actual value against target and qualitative ranges. | Build        | P2       |
 | `BarChart`         | Categorical value comparison.                       | Research     | P2       |
 | `StackedBarChart`  | Category composition over multiple series.          | Research     | P3       |

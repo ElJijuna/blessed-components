@@ -599,6 +599,16 @@
       "import": "./dist/sparkline/blessed.js",
       "require": "./dist/sparkline/blessed.cjs"
     },
+    "./stacked-gauge": {
+      "types": "./dist/stacked-gauge/index.d.ts",
+      "import": "./dist/stacked-gauge/index.js",
+      "require": "./dist/stacked-gauge/index.cjs"
+    },
+    "./stacked-gauge/blessed": {
+      "types": "./dist/stacked-gauge/blessed.d.ts",
+      "import": "./dist/stacked-gauge/blessed.js",
+      "require": "./dist/stacked-gauge/blessed.cjs"
+    },
     "./spinner": {
       "types": "./dist/spinner/index.d.ts",
       "import": "./dist/spinner/index.js",

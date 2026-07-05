@@ -51,6 +51,8 @@ const pureTextFieldModule = await import('../dist/text-field/index.js');
 const blessedTextFieldModule = await import('../dist/text-field/blessed.js');
 const pureGaugeModule = await import('../dist/gauge/index.js');
 const blessedGaugeModule = await import('../dist/gauge/blessed.js');
+const pureStackedGaugeModule = await import('../dist/stacked-gauge/index.js');
+const blessedStackedGaugeModule = await import('../dist/stacked-gauge/blessed.js');
 const pureGridModule = await import('../dist/grid/index.js');
 const blessedGridModule = await import('../dist/grid/blessed.js');
 const pureHeadingModule = await import('../dist/heading/index.js');
@@ -283,6 +285,11 @@ const [textFieldEsmSource, textFieldCjsSource] = await Promise.all(
 );
 const [gaugeEsmSource, gaugeCjsSource] = await Promise.all(
   ['../dist/gauge/index.js', '../dist/gauge/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [stackedGaugeEsmSource, stackedGaugeCjsSource] = await Promise.all(
+  ['../dist/stacked-gauge/index.js', '../dist/stacked-gauge/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -604,6 +611,8 @@ assert.equal(typeof pureTextFieldModule.renderTextField, 'function');
 assert.equal(typeof blessedTextFieldModule.textField, 'function');
 assert.equal(typeof pureGaugeModule.renderGauge, 'function');
 assert.equal(typeof blessedGaugeModule.gauge, 'function');
+assert.equal(typeof pureStackedGaugeModule.renderStackedGauge, 'function');
+assert.equal(typeof blessedStackedGaugeModule.stackedGauge, 'function');
 assert.equal(typeof pureGridModule.calculateGridLayout, 'function');
 assert.equal(typeof blessedGridModule.grid, 'function');
 assert.equal(typeof pureHeadingModule.renderHeading, 'function');
@@ -836,6 +845,14 @@ for (const source of [textFieldEsmSource, textFieldCjsSource]) {
 
 for (const source of [gaugeEsmSource, gaugeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Gauge entry must not import Blessed.');
+}
+
+for (const source of [stackedGaugeEsmSource, stackedGaugeCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure StackedGauge entry must not import Blessed.',
+  );
 }
 
 for (const source of [gridEsmSource, gridCjsSource]) {

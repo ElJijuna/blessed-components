@@ -157,6 +157,8 @@ const entry = {
   'virtual-list/index': 'src/components/collections/virtual-list/index.ts',
   'stack/blessed': 'src/adapters/blessed/stack.ts',
   'stack/index': 'src/components/layout/stack/index.ts',
+  'stacked-gauge/blessed': 'src/adapters/blessed/stacked-gauge.ts',
+  'stacked-gauge/index': 'src/components/visualization/stacked-gauge/index.ts',
   'stat/blessed': 'src/adapters/blessed/stat.ts',
   'stat/index': 'src/components/data-display/stat/index.ts',
   'tag/blessed': 'src/adapters/blessed/tag.ts',

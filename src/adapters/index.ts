@@ -61,6 +61,7 @@ export * from './blessed/spacer.js';
 export * from './blessed/sparkline.js';
 export * from './blessed/spinner.js';
 export * from './blessed/stack.js';
+export * from './blessed/stacked-gauge.js';
 export * from './blessed/stat.js';
 export * from './blessed/status.js';
 export * from './blessed/step-indicator.js';
