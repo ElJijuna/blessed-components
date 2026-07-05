@@ -15,6 +15,7 @@ import {
   checkbox,
   cluster,
   collapsible,
+  dataTable,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -1803,6 +1804,47 @@ export const stories: readonly PreviewStory[] = [
             { cpu: '11%', id: 'queue', memory: '128MB', service: 'Queue' },
             { cpu: '7%', id: 'cron', memory: '72MB', service: 'Cron' },
             { cpu: '25%', id: 'realtime', memory: '256MB', service: 'Realtime gateway' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'data-table/services',
+    title: 'DataTable / Services',
+    description: 'Sortable, filterable, paginated rows with a page summary footer.',
+    mount(parent) {
+      return dataTable({
+        parent,
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          style: {
+            border: {
+              fg: 'cyan',
+            },
+          },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          columns: [
+            { header: 'Service', id: 'service', sortable: true },
+            { align: 'right', header: 'CPU', id: 'cpu', sortable: true, width: 6 },
+            { align: 'right', header: 'Mem', id: 'memory', width: 7 },
+          ],
+          defaultSort: { columnId: 'cpu', direction: 'desc' },
+          defaultValue: 'api',
+          pageSize: 4,
+          rows: [
+            { cpu: 42, id: 'api', memory: '384MB', service: 'API' },
+            { cpu: 18, id: 'worker', memory: '512MB', service: 'Worker' },
+            { cpu: 3, id: 'cache', memory: '96MB', service: 'Cache' },
+            { cpu: 0, disabled: true, id: 'search', memory: '0MB', service: 'Search (paused)' },
+            { cpu: 11, id: 'queue', memory: '128MB', service: 'Queue' },
+            { cpu: 7, id: 'cron', memory: '72MB', service: 'Cron' },
+            { cpu: 25, id: 'realtime', memory: '256MB', service: 'Realtime gateway' },
           ],
         },
       });

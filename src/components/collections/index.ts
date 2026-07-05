@@ -1,6 +1,7 @@
 /**
  * Interactive components for ordered and structured data.
  */
+export * from './data-table/index.js';
 export * from './grouped-list/index.js';
 export * from './list/index.js';
 export * from './log-viewer/index.js';

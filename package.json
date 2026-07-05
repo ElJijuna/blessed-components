@@ -689,6 +689,16 @@
       "import": "./dist/table/blessed.js",
       "require": "./dist/table/blessed.cjs"
     },
+    "./data-table": {
+      "types": "./dist/data-table/index.d.ts",
+      "import": "./dist/data-table/index.js",
+      "require": "./dist/data-table/index.cjs"
+    },
+    "./data-table/blessed": {
+      "types": "./dist/data-table/blessed.d.ts",
+      "import": "./dist/data-table/blessed.js",
+      "require": "./dist/data-table/blessed.cjs"
+    },
     "./spacer": {
       "types": "./dist/spacer/index.d.ts",
       "import": "./dist/spacer/index.js",

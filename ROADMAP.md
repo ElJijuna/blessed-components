@@ -392,7 +392,7 @@ virtualization primitives.
 | `VirtualList`  | Render large lists using visible rows only.                | Available   | P2       |
 | `GroupedList`  | Sections with sticky or repeated headings.                 | Available   | P2       |
 | `Table`        | Typed columns, alignment, truncation, and selection.       | Available   | P1       |
-| `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Build       | P2       |
+| `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Available   | P2       |
 | `VirtualTable` | Large row sets with bounded rendering.                     | Research    | P2       |
 | `Tree`         | Expandable hierarchical navigation.                        | Build       | P2       |
 | `TreeTable`    | Hierarchical rows plus columns.                            | Research    | P3       |

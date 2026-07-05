@@ -151,6 +151,8 @@ const entry = {
   'tabs/index': 'src/components/navigation/tabs/index.ts',
   'table/blessed': 'src/adapters/blessed/table.ts',
   'table/index': 'src/components/collections/table/index.ts',
+  'data-table/blessed': 'src/adapters/blessed/data-table.ts',
+  'data-table/index': 'src/components/collections/data-table/index.ts',
   'timeline/blessed': 'src/adapters/blessed/timeline.ts',
   'timeline/index': 'src/components/collections/timeline/index.ts',
   'virtual-list/blessed': 'src/adapters/blessed/virtual-list.ts',
