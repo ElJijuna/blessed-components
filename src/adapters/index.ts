@@ -5,6 +5,7 @@
  * implementing one shared imperative handle contract.
  */
 
+export * from './blessed/accordion.js';
 export * from './blessed/alert.js';
 export * from './blessed/badge.js';
 export * from './blessed/box.js';

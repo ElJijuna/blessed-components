@@ -1,4 +1,5 @@
 import {
+  accordion,
   alert,
   badge,
   box,
@@ -1186,6 +1187,60 @@ export const stories: readonly PreviewStory[] = [
       layout.layout();
 
       return layout;
+    },
+  }),
+  defineStory({
+    id: 'accordion/deploy-checks',
+    title: 'Accordion / Deploy Checks',
+    description: 'Keyboard navigation across persistent collapsible sections.',
+    mount(parent) {
+      const checks = accordion({
+        box: {
+          border: 'line',
+          height: 13,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 50,
+        },
+        data: {
+          borderTone: 'primary',
+          defaultExpandedIds: ['build'],
+          gap: 1,
+          sectionGap: 1,
+          sections: [
+            {
+              bodyHeight: 3,
+              content: 'Compile packages\nBundle adapters\nEmit declarations',
+              id: 'build',
+              title: 'Build',
+            },
+            {
+              bodyHeight: 3,
+              content: 'Public API tests\nBlessed integration\nPackage export checks',
+              id: 'test',
+              title: 'Test',
+            },
+            {
+              bodyHeight: 2,
+              content: 'Waiting for approval\nNo deployment yet',
+              disabled: true,
+              id: 'release',
+              title: 'Release',
+            },
+          ],
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          checks.destroy();
+        },
+        focus() {
+          checks.focus();
+        },
+      };
     },
   }),
   defineStory({

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
 
 const expectedComponents = [
+  'src/components/layout/accordion/index.ts',
   'src/components/layout/box/index.ts',
   'src/components/input/button/index.ts',
   'src/components/input/checkbox/index.ts',

@@ -1,6 +1,8 @@
 import { defineConfig, type Options } from 'tsup';
 
 const entry = {
+  'accordion/blessed': 'src/adapters/blessed/accordion.ts',
+  'accordion/index': 'src/components/layout/accordion/index.ts',
   'alert/blessed': 'src/adapters/blessed/alert.ts',
   'alert/index': 'src/components/feedback/alert/index.ts',
   'badge/blessed': 'src/adapters/blessed/badge.ts',

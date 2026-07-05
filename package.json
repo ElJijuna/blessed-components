@@ -29,6 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./accordion": {
+      "types": "./dist/accordion/index.d.ts",
+      "import": "./dist/accordion/index.js",
+      "require": "./dist/accordion/index.cjs"
+    },
+    "./accordion/blessed": {
+      "types": "./dist/accordion/blessed.d.ts",
+      "import": "./dist/accordion/blessed.js",
+      "require": "./dist/accordion/blessed.cjs"
+    },
     "./alert": {
       "types": "./dist/alert/index.d.ts",
       "import": "./dist/alert/index.js",
