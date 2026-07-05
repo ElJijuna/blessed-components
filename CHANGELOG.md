@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.8.0](https://github.com/ElJijuna/blessed-components/compare/v1.7.0...v1.8.0) (2026-07-05)
+
+### Features
+
+* add Accordion component with Blessed adapter, layout calculations, and tests ([0e71151](https://github.com/ElJijuna/blessed-components/commit/0e71151089fe46bd04eae4a0264c76c6ff81eadb))
+* add AppShell component with Blessed adapter, layout calculations, documentation, and tests ([5396917](https://github.com/ElJijuna/blessed-components/commit/5396917fedb718864d8a62b7eb7793f8a3abc7d8))
+* add Collapsible component with Blessed adapter, layout calculations, and tests ([ac86a8c](https://github.com/ElJijuna/blessed-components/commit/ac86a8c2236ec5e8b5809d49edceeb1c14702652))
+* add DataTable component with Blessed adapter, including documentation and tests ([5b7a9e7](https://github.com/ElJijuna/blessed-components/commit/5b7a9e7cfeaab7bfcf8c7914ff83394bdba1e140))
+* add DescriptionList component with Blessed adapter, documentation, and tests ([7a8c4cd](https://github.com/ElJijuna/blessed-components/commit/7a8c4cd697c56ae8d81a40a28d5b52e90a957f2d))
+* add GroupedList component with Blessed adapter, including documentation and tests ([fd7672e](https://github.com/ElJijuna/blessed-components/commit/fd7672e69ec34577522807c31b628787d3c002bd))
+* add LoadingOverlay component with Blessed adapter, including documentation and tests ([70f00ad](https://github.com/ElJijuna/blessed-components/commit/70f00ad2a884982e9f05f2603268943cc9e04a4e))
+* add Page component with Blessed adapter, layout calculations, and tests ([d778807](https://github.com/ElJijuna/blessed-components/commit/d77880736528e6a50ca904a43fea2949134b63e2))
+* add SidebarLayout component with Blessed adapter, layout calculations, and tests ([48bcb07](https://github.com/ElJijuna/blessed-components/commit/48bcb07e105b1b3932468637796c70f8f3d0bcbe))
+* add StackedGauge component with Blessed adapter, including documentation and tests ([a202692](https://github.com/ElJijuna/blessed-components/commit/a202692977687821d71ad36ca7819d21bd856df6))
+* add Toast component with Blessed adapter, including documentation and tests ([e94c048](https://github.com/ElJijuna/blessed-components/commit/e94c0484b1de3626e3dfa02807f5601d22521884))
+
 ## [1.7.0](https://github.com/ElJijuna/blessed-components/compare/v1.6.0...v1.7.0) (2026-06-30)
 
 ### Features
