@@ -15,10 +15,14 @@ const pureCheckboxModule = await import('../dist/checkbox/index.js');
 const blessedCheckboxModule = await import('../dist/checkbox/blessed.js');
 const pureCodeModule = await import('../dist/code/index.js');
 const blessedCodeModule = await import('../dist/code/blessed.js');
+const pureCollapsibleModule = await import('../dist/collapsible/index.js');
+const blessedCollapsibleModule = await import('../dist/collapsible/blessed.js');
 const pureConfirmDialogModule = await import('../dist/confirm-dialog/index.js');
 const blessedConfirmDialogModule = await import('../dist/confirm-dialog/blessed.js');
 const pureConnectionStatusModule = await import('../dist/connection-status/index.js');
 const blessedConnectionStatusModule = await import('../dist/connection-status/blessed.js');
+const pureDescriptionListModule = await import('../dist/description-list/index.js');
+const blessedDescriptionListModule = await import('../dist/description-list/blessed.js');
 const pureCardModule = await import('../dist/card/index.js');
 const blessedCardModule = await import('../dist/card/blessed.js');
 const pureCenterModule = await import('../dist/center/index.js');
@@ -178,6 +182,11 @@ const [codeEsmSource, codeCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [collapsibleEsmSource, collapsibleCjsSource] = await Promise.all(
+  ['../dist/collapsible/index.js', '../dist/collapsible/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [confirmDialogEsmSource, confirmDialogCjsSource] = await Promise.all(
   ['../dist/confirm-dialog/index.js', '../dist/confirm-dialog/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -185,6 +194,11 @@ const [confirmDialogEsmSource, confirmDialogCjsSource] = await Promise.all(
 );
 const [connectionStatusEsmSource, connectionStatusCjsSource] = await Promise.all(
   ['../dist/connection-status/index.js', '../dist/connection-status/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [descriptionListEsmSource, descriptionListCjsSource] = await Promise.all(
+  ['../dist/description-list/index.js', '../dist/description-list/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -493,10 +507,15 @@ assert.equal(typeof pureCheckboxModule.renderCheckbox, 'function');
 assert.equal(typeof blessedCheckboxModule.checkbox, 'function');
 assert.equal(typeof pureCodeModule.renderCode, 'function');
 assert.equal(typeof blessedCodeModule.code, 'function');
+assert.equal(typeof pureCollapsibleModule.renderCollapsibleHeader, 'function');
+assert.equal(typeof pureCollapsibleModule.calculateCollapsibleLayout, 'function');
+assert.equal(typeof blessedCollapsibleModule.collapsible, 'function');
 assert.equal(typeof pureConfirmDialogModule.normalizeConfirmDialogAction, 'function');
 assert.equal(typeof blessedConfirmDialogModule.confirmDialog, 'function');
 assert.equal(typeof pureConnectionStatusModule.renderConnectionStatus, 'function');
 assert.equal(typeof blessedConnectionStatusModule.connectionStatus, 'function');
+assert.equal(typeof pureDescriptionListModule.renderDescriptionList, 'function');
+assert.equal(typeof blessedDescriptionListModule.descriptionList, 'function');
 assert.equal(typeof pureCardModule.renderCardRegion, 'function');
 assert.equal(typeof blessedCardModule.cardRoot, 'function');
 assert.equal(typeof blessedCardModule.cardHeader, 'function');
@@ -664,6 +683,14 @@ for (const source of [codeEsmSource, codeCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Code entry must not import Blessed.');
 }
 
+for (const source of [collapsibleEsmSource, collapsibleCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure Collapsible entry must not import Blessed.',
+  );
+}
+
 for (const source of [confirmDialogEsmSource, confirmDialogCjsSource]) {
   assert.equal(
     source.includes('blessed'),
@@ -689,6 +716,14 @@ for (const source of [connectionStatusEsmSource, connectionStatusCjsSource]) {
     source.includes('blessed'),
     false,
     'Pure ConnectionStatus entry must not import Blessed.',
+  );
+}
+
+for (const source of [descriptionListEsmSource, descriptionListCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure DescriptionList entry must not import Blessed.',
   );
 }
 

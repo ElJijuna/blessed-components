@@ -99,6 +99,16 @@
       "import": "./dist/code/blessed.js",
       "require": "./dist/code/blessed.cjs"
     },
+    "./collapsible": {
+      "types": "./dist/collapsible/index.d.ts",
+      "import": "./dist/collapsible/index.js",
+      "require": "./dist/collapsible/index.cjs"
+    },
+    "./collapsible/blessed": {
+      "types": "./dist/collapsible/blessed.d.ts",
+      "import": "./dist/collapsible/blessed.js",
+      "require": "./dist/collapsible/blessed.cjs"
+    },
     "./confirm-dialog": {
       "types": "./dist/confirm-dialog/index.d.ts",
       "import": "./dist/confirm-dialog/index.js",

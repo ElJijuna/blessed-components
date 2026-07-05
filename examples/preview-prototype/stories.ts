@@ -12,6 +12,7 @@ import {
   center,
   checkbox,
   cluster,
+  collapsible,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -1185,6 +1186,58 @@ export const stories: readonly PreviewStory[] = [
       layout.layout();
 
       return layout;
+    },
+  }),
+  defineStory({
+    id: 'collapsible/persistent-body',
+    title: 'Collapsible / Persistent Body',
+    description: 'Toggle a mounted body region while preserving child state.',
+    mount(parent) {
+      const panel = collapsible({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 46,
+        },
+        data: {
+          bodyHeight: 5,
+          borderTone: 'primary',
+          content: 'Status: ready\nReplicas: 3/3\nQueue: 12 pending\nUpdated: now',
+          defaultExpanded: true,
+          gap: 1,
+          headerTone: 'primary',
+          title: 'Service details',
+        },
+        parent,
+      });
+      const disabled = collapsible({
+        box: {
+          height: 3,
+          left: 3,
+          top: 11,
+          width: 46,
+        },
+        data: {
+          bodyHeight: 1,
+          content: 'Hidden until enabled by the application.',
+          disabled: true,
+          title: 'Archived checks',
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          disabled.destroy();
+          panel.destroy();
+        },
+        focus() {
+          panel.focus();
+        },
+      };
     },
   }),
   defineStory({

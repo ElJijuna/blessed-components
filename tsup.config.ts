@@ -17,6 +17,8 @@ const entry = {
   'center/index': 'src/components/layout/center/index.ts',
   'cluster/blessed': 'src/adapters/blessed/cluster.ts',
   'cluster/index': 'src/components/layout/cluster/index.ts',
+  'collapsible/blessed': 'src/adapters/blessed/collapsible.ts',
+  'collapsible/index': 'src/components/layout/collapsible/index.ts',
   'callout/blessed': 'src/adapters/blessed/callout.ts',
   'callout/index': 'src/components/feedback/callout/index.ts',
   'checkbox/blessed': 'src/adapters/blessed/checkbox.ts',

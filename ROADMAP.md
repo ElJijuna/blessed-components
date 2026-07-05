@@ -328,7 +328,7 @@ predictable, typed composition and responsive rules.
 | `Viewport`      | Visual wrapper around the available headless primitive. | Available | P1       |
 | `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Available | P1       |
 | `Resizable`     | Keyboard/mouse resize behavior for one region.          | Research | P3       |
-| `Collapsible`   | Show or hide a region while preserving state.           | Build    | P2       |
+| `Collapsible`   | Show or hide a region while preserving state.           | Available | P2       |
 | `Accordion`     | Multiple collapsible sections with keyboard navigation. | Build    | P2       |
 | `Page`          | Full-screen region with title and action slots.         | Build    | P2       |
 | `AppShell`      | Header, footer, sidebar, content, and overlay layers.   | Build    | P2       |
