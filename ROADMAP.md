@@ -320,7 +320,7 @@ predictable, typed composition and responsive rules.
 | `Cluster`       | Wrapping inline group for badges and actions.           | Available | P2       |
 | `Grid`          | Responsive row/column placement with spans.             | Available | P2       |
 | `SplitPane`     | Resizable horizontal or vertical regions.               | Research | P2       |
-| `SidebarLayout` | Sidebar plus main content with collapse rules.          | Build    | P2       |
+| `SidebarLayout` | Sidebar plus main content with collapse rules.          | Available | P2       |
 | `Center`        | Center one child in available space.                    | Available | P2       |
 | `Spacer`        | Flexible or fixed empty space.                          | Available | P2       |
 | `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |

@@ -114,6 +114,8 @@ const entry = {
   'select/index': 'src/components/input/select/index.ts',
   'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
   'scroll-area/index': 'src/components/layout/scroll-area/index.ts',
+  'sidebar-layout/blessed': 'src/adapters/blessed/sidebar-layout.ts',
+  'sidebar-layout/index': 'src/components/layout/sidebar-layout/index.ts',
   'spacer/blessed': 'src/adapters/blessed/spacer.ts',
   'spacer/index': 'src/components/layout/spacer/index.ts',
   'primitives/collection/index': 'src/primitives/collection/index.ts',

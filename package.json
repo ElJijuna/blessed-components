@@ -549,6 +549,16 @@
       "import": "./dist/scroll-area/blessed.js",
       "require": "./dist/scroll-area/blessed.cjs"
     },
+    "./sidebar-layout": {
+      "types": "./dist/sidebar-layout/index.d.ts",
+      "import": "./dist/sidebar-layout/index.js",
+      "require": "./dist/sidebar-layout/index.cjs"
+    },
+    "./sidebar-layout/blessed": {
+      "types": "./dist/sidebar-layout/blessed.d.ts",
+      "import": "./dist/sidebar-layout/blessed.js",
+      "require": "./dist/sidebar-layout/blessed.cjs"
+    },
     "./sparkline": {
       "types": "./dist/sparkline/index.d.ts",
       "import": "./dist/sparkline/index.js",

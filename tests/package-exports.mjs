@@ -103,6 +103,8 @@ const pureSelectModule = await import('../dist/select/index.js');
 const blessedSelectModule = await import('../dist/select/blessed.js');
 const pureScrollAreaModule = await import('../dist/scroll-area/index.js');
 const blessedScrollAreaModule = await import('../dist/scroll-area/blessed.js');
+const pureSidebarLayoutModule = await import('../dist/sidebar-layout/index.js');
+const blessedSidebarLayoutModule = await import('../dist/sidebar-layout/blessed.js');
 const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureSpinnerModule = await import('../dist/spinner/index.js');
@@ -406,6 +408,11 @@ const [scrollAreaEsmSource, scrollAreaCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [sidebarLayoutEsmSource, sidebarLayoutCjsSource] = await Promise.all(
+  ['../dist/sidebar-layout/index.js', '../dist/sidebar-layout/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [sparklineEsmSource, sparklineCjsSource] = await Promise.all(
   ['../dist/sparkline/index.js', '../dist/sparkline/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -624,6 +631,8 @@ assert.equal(typeof pureSelectModule.renderSelect, 'function');
 assert.equal(typeof blessedSelectModule.select, 'function');
 assert.equal(typeof pureScrollAreaModule.renderScrollAreaScrollbar, 'function');
 assert.equal(typeof blessedScrollAreaModule.scrollArea, 'function');
+assert.equal(typeof pureSidebarLayoutModule.calculateSidebarLayout, 'function');
+assert.equal(typeof blessedSidebarLayoutModule.sidebarLayout, 'function');
 assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureSpinnerModule.renderSpinner, 'function');
@@ -933,6 +942,14 @@ for (const source of [selectEsmSource, selectCjsSource]) {
 
 for (const source of [scrollAreaEsmSource, scrollAreaCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure ScrollArea entry must not import Blessed.');
+}
+
+for (const source of [sidebarLayoutEsmSource, sidebarLayoutCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure SidebarLayout entry must not import Blessed.',
+  );
 }
 
 for (const source of [sparklineEsmSource, sparklineCjsSource]) {

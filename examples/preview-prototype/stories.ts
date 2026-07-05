@@ -47,6 +47,7 @@ import {
   scrollArea,
   searchField,
   select,
+  sidebarLayout,
   spacer,
   sparkline,
   spinner,
@@ -1186,6 +1187,34 @@ export const stories: readonly PreviewStory[] = [
         parent: layout.element,
       });
       layout.layout();
+
+      return layout;
+    },
+  }),
+  defineStory({
+    id: 'sidebar-layout/responsive',
+    title: 'SidebarLayout / Responsive',
+    description: 'Sidebar and main regions with explicit and width-based collapse.',
+    mount(parent) {
+      const layout = sidebarLayout({
+        box: {
+          border: 'line',
+          height: 12,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 54,
+        },
+        data: {
+          borderTone: 'primary',
+          collapseBelow: 42,
+          gap: 1,
+          mainContent: 'Service details\n\nStatus: healthy\nLatency: 84ms p95\nReplicas: 3/3',
+          sidebarContent: 'Deployments\nLogs\nMetrics\nSettings',
+          sidebarWidth: 16,
+        },
+        parent,
+      });
 
       return layout;
     },

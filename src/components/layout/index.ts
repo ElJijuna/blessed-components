@@ -13,6 +13,7 @@ export * from './divider/index.js';
 export * from './grid/index.js';
 export * from './page/index.js';
 export * from './scroll-area/index.js';
+export * from './sidebar-layout/index.js';
 export * from './spacer/index.js';
 export * from './stack/index.js';
 export * from './viewport/index.js';
