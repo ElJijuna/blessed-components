@@ -7,6 +7,7 @@
 
 export * from './blessed/accordion.js';
 export * from './blessed/alert.js';
+export * from './blessed/app-shell.js';
 export * from './blessed/badge.js';
 export * from './blessed/box.js';
 export * from './blessed/breadcrumb.js';

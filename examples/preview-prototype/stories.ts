@@ -1,6 +1,7 @@
 import {
   accordion,
   alert,
+  appShell,
   badge,
   box,
   button,
@@ -1246,6 +1247,34 @@ export const stories: readonly PreviewStory[] = [
       });
 
       return view;
+    },
+  }),
+  defineStory({
+    id: 'app-shell/operations-frame',
+    title: 'AppShell / Operations Frame',
+    description: 'Application frame with header, sidebar, content, footer, and overlay layer.',
+    mount(parent) {
+      return appShell({
+        box: {
+          border: 'line',
+          height: 13,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          borderTone: 'primary',
+          content: 'Production\n\nAPI healthy\nQueue depth: 12\nDeploy window: open',
+          footerContent: 'tab focus  r refresh  q quit',
+          gap: 1,
+          headerContent: 'Deployments  production',
+          overlayContent: 'Overlay layer hidden',
+          sidebarContent: 'Services\nDeploys\nLogs\nSettings',
+          sidebarWidth: 16,
+        },
+        parent,
+      });
     },
   }),
   defineStory({

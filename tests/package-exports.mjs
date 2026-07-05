@@ -3,6 +3,8 @@ import { readdir, readFile } from 'node:fs/promises';
 
 const pureAccordionModule = await import('../dist/accordion/index.js');
 const blessedAccordionModule = await import('../dist/accordion/blessed.js');
+const pureAppShellModule = await import('../dist/app-shell/index.js');
+const blessedAppShellModule = await import('../dist/app-shell/blessed.js');
 const pureAlertModule = await import('../dist/alert/index.js');
 const blessedAlertModule = await import('../dist/alert/blessed.js');
 const pureBadgeModule = await import('../dist/badge/index.js');
@@ -155,6 +157,11 @@ const publishedModuleSources = await Promise.all(
 const rootTypes = await readFile(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 const [accordionEsmSource, accordionCjsSource] = await Promise.all(
   ['../dist/accordion/index.js', '../dist/accordion/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [appShellEsmSource, appShellCjsSource] = await Promise.all(
+  ['../dist/app-shell/index.js', '../dist/app-shell/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -517,6 +524,8 @@ const [primitivesEsmSource, primitivesCjsSource] = await Promise.all(
 assert.equal(typeof pureAccordionModule.calculateAccordionLayout, 'function');
 assert.equal(typeof pureAccordionModule.toggleAccordionSection, 'function');
 assert.equal(typeof blessedAccordionModule.accordion, 'function');
+assert.equal(typeof pureAppShellModule.calculateAppShellLayout, 'function');
+assert.equal(typeof blessedAppShellModule.appShell, 'function');
 assert.equal(typeof pureAlertModule.renderAlert, 'function');
 assert.equal(typeof blessedAlertModule.alert, 'function');
 assert.equal(typeof pureBadgeModule.renderBadge, 'function');
@@ -686,6 +695,10 @@ assert.equal(
 
 for (const source of [accordionEsmSource, accordionCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Accordion entry must not import Blessed.');
+}
+
+for (const source of [appShellEsmSource, appShellCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure AppShell entry must not import Blessed.');
 }
 
 for (const source of [alertEsmSource, alertCjsSource]) {

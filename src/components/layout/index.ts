@@ -4,6 +4,7 @@
  * Headless viewport and scrolling behavior remains under `primitives`.
  */
 export * from './accordion/index.js';
+export * from './app-shell/index.js';
 export * from './box/index.js';
 export * from './card/index.js';
 export * from './center/index.js';

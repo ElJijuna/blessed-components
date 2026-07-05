@@ -29,6 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./app-shell": {
+      "types": "./dist/app-shell/index.d.ts",
+      "import": "./dist/app-shell/index.js",
+      "require": "./dist/app-shell/index.cjs"
+    },
+    "./app-shell/blessed": {
+      "types": "./dist/app-shell/blessed.d.ts",
+      "import": "./dist/app-shell/blessed.js",
+      "require": "./dist/app-shell/blessed.cjs"
+    },
     "./accordion": {
       "types": "./dist/accordion/index.d.ts",
       "import": "./dist/accordion/index.js",
