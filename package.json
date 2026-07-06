@@ -239,6 +239,16 @@
       "import": "./dist/dialog/blessed.js",
       "require": "./dist/dialog/blessed.cjs"
     },
+    "./drawer": {
+      "types": "./dist/drawer/index.d.ts",
+      "import": "./dist/drawer/index.js",
+      "require": "./dist/drawer/index.cjs"
+    },
+    "./drawer/blessed": {
+      "types": "./dist/drawer/blessed.d.ts",
+      "import": "./dist/drawer/blessed.js",
+      "require": "./dist/drawer/blessed.cjs"
+    },
     "./empty-state": {
       "types": "./dist/empty-state/index.d.ts",
       "import": "./dist/empty-state/index.js",

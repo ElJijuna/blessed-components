@@ -55,6 +55,8 @@ const entry = {
   'divider/index': 'src/components/layout/divider/index.ts',
   'dialog/blessed': 'src/adapters/blessed/dialog.ts',
   'dialog/index': 'src/components/overlays/dialog/index.ts',
+  'drawer/blessed': 'src/adapters/blessed/drawer.ts',
+  'drawer/index': 'src/components/overlays/drawer/index.ts',
   'empty-state/blessed': 'src/adapters/blessed/empty-state.ts',
   'empty-state/index': 'src/components/feedback/empty-state/index.ts',
   'error-state/blessed': 'src/adapters/blessed/error-state.ts',

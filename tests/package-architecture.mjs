@@ -35,6 +35,7 @@ const expectedComponents = [
   'src/components/navigation/tabs/index.ts',
   'src/components/overlays/confirm-dialog/index.ts',
   'src/components/overlays/dialog/index.ts',
+  'src/components/overlays/drawer/index.ts',
   'src/components/overlays/overlay/index.ts',
   'src/components/data-display/badge/index.ts',
   'src/components/data-display/breadcrumb/index.ts',

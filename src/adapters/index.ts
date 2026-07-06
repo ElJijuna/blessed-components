@@ -25,6 +25,7 @@ export * from './blessed/data-table.js';
 export * from './blessed/description-list.js';
 export * from './blessed/dialog.js';
 export * from './blessed/divider.js';
+export * from './blessed/drawer.js';
 export * from './blessed/empty-state.js';
 export * from './blessed/error-state.js';
 export * from './blessed/form.js';

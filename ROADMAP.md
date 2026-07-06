@@ -501,7 +501,7 @@ global key cleanup.
 | `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
 | `ConfirmDialog` | Confirm or cancel a consequential action.       | Available | P1       |
 | `PromptDialog`  | Request one value in a modal flow.              | Adapt    | P2       |
-| `Drawer`        | Edge-attached temporary panel.                  | Build    | P2       |
+| `Drawer`        | Edge-attached temporary panel.                  | Available | P2       |
 | `Popover`       | Anchored temporary content.                     | Research | P3       |
 | `Tooltip`       | Delayed contextual help.                        | Adapt    | P3       |
 | `ToastViewport` | Position and manage toast notifications.        | Build    | P2       |

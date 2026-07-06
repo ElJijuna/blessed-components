@@ -39,6 +39,8 @@ const pureDividerModule = await import('../dist/divider/index.js');
 const blessedDividerModule = await import('../dist/divider/blessed.js');
 const pureDialogModule = await import('../dist/dialog/index.js');
 const blessedDialogModule = await import('../dist/dialog/blessed.js');
+const pureDrawerModule = await import('../dist/drawer/index.js');
+const blessedDrawerModule = await import('../dist/drawer/blessed.js');
 const pureEmptyStateModule = await import('../dist/empty-state/index.js');
 const blessedEmptyStateModule = await import('../dist/empty-state/blessed.js');
 const pureErrorStateModule = await import('../dist/error-state/index.js');
@@ -274,6 +276,11 @@ const [dividerEsmSource, dividerCjsSource] = await Promise.all(
 );
 const [dialogEsmSource, dialogCjsSource] = await Promise.all(
   ['../dist/dialog/index.js', '../dist/dialog/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [drawerEsmSource, drawerCjsSource] = await Promise.all(
+  ['../dist/drawer/index.js', '../dist/drawer/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -648,6 +655,12 @@ assert.equal(typeof blessedDialogModule.dialogTitle, 'function');
 assert.equal(typeof blessedDialogModule.dialogDescription, 'function');
 assert.equal(typeof blessedDialogModule.dialogBody, 'function');
 assert.equal(typeof blessedDialogModule.dialogFooter, 'function');
+assert.equal(typeof pureDrawerModule.createDrawerState, 'function');
+assert.equal(typeof blessedDrawerModule.drawerRoot, 'function');
+assert.equal(typeof blessedDrawerModule.drawerContent, 'function');
+assert.equal(typeof blessedDrawerModule.drawerHeader, 'function');
+assert.equal(typeof blessedDrawerModule.drawerBody, 'function');
+assert.equal(typeof blessedDrawerModule.drawerFooter, 'function');
 assert.equal(typeof pureEmptyStateModule.renderEmptyState, 'function');
 assert.equal(typeof blessedEmptyStateModule.emptyState, 'function');
 assert.equal(typeof pureErrorStateModule.renderErrorState, 'function');
@@ -889,6 +902,10 @@ for (const source of [dividerEsmSource, dividerCjsSource]) {
 
 for (const source of [dialogEsmSource, dialogCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Dialog entry must not import Blessed.');
+}
+
+for (const source of [drawerEsmSource, drawerCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Drawer entry must not import Blessed.');
 }
 
 for (const source of [emptyStateEsmSource, emptyStateCjsSource]) {

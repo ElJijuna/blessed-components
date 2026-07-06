@@ -109,6 +109,7 @@ npm install blessed blessed-components
 | Component | Purpose | Priority |
 | --- | --- | --- |
 | [`Dialog`](./src/components/overlays/dialog/README.md) | Show modal content with trapped and restored focus. | Available |
+| [`Drawer`](./src/components/overlays/drawer/README.md) | Show edge-attached temporary content. | Available |
 
 See [ROADMAP.md](./ROADMAP.md) for milestones, proposed APIs, and TDD strategy.
 

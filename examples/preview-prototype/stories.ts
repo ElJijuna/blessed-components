@@ -23,6 +23,11 @@ import {
   dialogRoot,
   dialogTitle,
   divider,
+  drawerBody,
+  drawerContent,
+  drawerFooter,
+  drawerHeader,
+  drawerRoot,
   emptyState,
   errorState,
   formField,
@@ -1434,6 +1439,41 @@ export const stories: readonly PreviewStory[] = [
       });
       dialogFooter({
         data: { content: 'Tab move focus · Esc close' },
+        parent: content.element,
+      });
+
+      return root;
+    },
+  }),
+  defineStory({
+    id: 'drawer/settings',
+    title: 'Drawer / Settings',
+    description: 'Edge-attached modal panel with composed regions.',
+    mount(parent) {
+      const root = drawerRoot({
+        data: {
+          defaultOpen: true,
+          id: 'preview-drawer',
+        },
+        parent,
+      });
+      const content = drawerContent({
+        data: { edge: 'right', size: 36 },
+        parent: root.element,
+      });
+
+      drawerHeader({
+        data: { content: 'Deploy settings' },
+        parent: content.element,
+      });
+      drawerBody({
+        data: {
+          content: ['Environment: production', 'Replicas: 4', 'Strategy: rolling'].join('\n'),
+        },
+        parent: content.element,
+      });
+      drawerFooter({
+        data: { content: 'Esc close' },
         parent: content.element,
       });
 
