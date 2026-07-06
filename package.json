@@ -579,6 +579,16 @@
       "import": "./dist/radio-group/blessed.js",
       "require": "./dist/radio-group/blessed.cjs"
     },
+    "./number-field": {
+      "types": "./dist/number-field/index.d.ts",
+      "import": "./dist/number-field/index.js",
+      "require": "./dist/number-field/index.cjs"
+    },
+    "./number-field/blessed": {
+      "types": "./dist/number-field/blessed.d.ts",
+      "import": "./dist/number-field/blessed.js",
+      "require": "./dist/number-field/blessed.cjs"
+    },
     "./password-field": {
       "types": "./dist/password-field/index.d.ts",
       "import": "./dist/password-field/index.js",

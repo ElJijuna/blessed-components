@@ -91,6 +91,7 @@ npm install blessed blessed-components
 | ---------------- | ---------------------------- | -------- |
 | [`Button`](./src/components/input/button/README.md) | Trigger a focusable terminal action. | Available |
 | [`IconButton`](./src/components/input/icon-button/README.md) | Compact action with required text description. | Available |
+| [`NumberField`](./src/components/input/number-field/README.md) | Numeric input with parsing, bounds, and step. | Available |
 | [`PasswordField`](./src/components/input/password-field/README.md) | Masked input with reveal behavior. | Available |
 | `Tabs`           | Switch between views.        | Available |
 | `Menu`           | Navigate a list of actions.  | Available |

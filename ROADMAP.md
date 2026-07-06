@@ -474,7 +474,7 @@ consistent state, composition, and cleanup.
 | `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
 | `PasswordField`   | Masked input with reveal behavior.                     | Available | P2       |
 | `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |
-| `NumberField`     | Numeric input with parsing, bounds, and step.          | Build    | P2       |
+| `NumberField`     | Numeric input with parsing, bounds, and step.          | Available | P2       |
 | `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
 | `RadioGroup`      | One value from visible choices.                        | Available | P1       |

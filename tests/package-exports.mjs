@@ -49,6 +49,8 @@ const pureFormFieldModule = await import('../dist/form-field/index.js');
 const blessedFormFieldModule = await import('../dist/form-field/blessed.js');
 const pureTextFieldModule = await import('../dist/text-field/index.js');
 const blessedTextFieldModule = await import('../dist/text-field/blessed.js');
+const pureNumberFieldModule = await import('../dist/number-field/index.js');
+const blessedNumberFieldModule = await import('../dist/number-field/blessed.js');
 const purePasswordFieldModule = await import('../dist/password-field/index.js');
 const blessedPasswordFieldModule = await import('../dist/password-field/blessed.js');
 const pureGaugeModule = await import('../dist/gauge/index.js');
@@ -297,6 +299,11 @@ const [formFieldEsmSource, formFieldCjsSource] = await Promise.all(
 );
 const [textFieldEsmSource, textFieldCjsSource] = await Promise.all(
   ['../dist/text-field/index.js', '../dist/text-field/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [numberFieldEsmSource, numberFieldCjsSource] = await Promise.all(
+  ['../dist/number-field/index.js', '../dist/number-field/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -651,6 +658,9 @@ assert.equal(typeof pureFormFieldModule.renderFormField, 'function');
 assert.equal(typeof blessedFormFieldModule.formField, 'function');
 assert.equal(typeof pureTextFieldModule.renderTextField, 'function');
 assert.equal(typeof blessedTextFieldModule.textField, 'function');
+assert.equal(typeof pureNumberFieldModule.renderNumberField, 'function');
+assert.equal(typeof pureNumberFieldModule.parseNumberFieldInput, 'function');
+assert.equal(typeof blessedNumberFieldModule.numberField, 'function');
 assert.equal(typeof purePasswordFieldModule.renderPasswordField, 'function');
 assert.equal(typeof blessedPasswordFieldModule.passwordField, 'function');
 assert.equal(typeof pureGaugeModule.renderGauge, 'function');
@@ -899,6 +909,14 @@ for (const source of [formFieldEsmSource, formFieldCjsSource]) {
 
 for (const source of [textFieldEsmSource, textFieldCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure TextField entry must not import Blessed.');
+}
+
+for (const source of [numberFieldEsmSource, numberFieldCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure NumberField entry must not import Blessed.',
+  );
 }
 
 for (const source of [passwordFieldEsmSource, passwordFieldCjsSource]) {

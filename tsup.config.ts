@@ -106,6 +106,8 @@ const entry = {
   'multi-sparkline/index': 'src/components/visualization/multi-sparkline/index.ts',
   'navigation-list/blessed': 'src/adapters/blessed/navigation-list.ts',
   'navigation-list/index': 'src/components/navigation/navigation-list/index.ts',
+  'number-field/blessed': 'src/adapters/blessed/number-field.ts',
+  'number-field/index': 'src/components/input/number-field/index.ts',
   'overlay/blessed': 'src/adapters/blessed/overlay.ts',
   'overlay/index': 'src/components/overlays/overlay/index.ts',
   'page/blessed': 'src/adapters/blessed/page.ts',

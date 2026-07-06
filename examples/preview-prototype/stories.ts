@@ -45,6 +45,7 @@ import {
   multiSparkline,
   mutedText,
   navigationList,
+  numberField,
   overlay,
   page,
   pager,
@@ -696,6 +697,89 @@ export const stories: readonly PreviewStory[] = [
           onValueChange: handleValueChange,
           placeholder: 'production',
           required: true,
+          value,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'number-field/replicas',
+    title: 'NumberField / Replicas',
+    description: 'Numeric input with bounds and step controls.',
+    mount(parent) {
+      let value = 3;
+
+      const handleValueChange = (nextValue: number | undefined): void => {
+        value = nextValue ?? 0;
+        field.setData({
+          hint: 'Use Up/Down to adjust, Enter to submit.',
+          label: 'Replicas',
+          max: 10,
+          min: 0,
+          onInvalidInput: handleInvalidInput,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          step: 1,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleInvalidInput = (_input: string, reason: string): void => {
+        field.setData({
+          error: `Invalid number: ${reason}`,
+          label: 'Replicas',
+          max: 10,
+          min: 0,
+          onInvalidInput: handleInvalidInput,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          step: 1,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleSubmit = (nextValue: number): void => {
+        field.setData({
+          hint: `Submitted ${nextValue} replicas.`,
+          label: 'Replicas',
+          max: 10,
+          min: 0,
+          onInvalidInput: handleInvalidInput,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          step: 1,
+          value,
+        });
+        parent.screen.render();
+      };
+      const field = numberField({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 44,
+        },
+        data: {
+          hint: 'Use Up/Down to adjust, Enter to submit.',
+          label: 'Replicas',
+          max: 10,
+          min: 0,
+          onInvalidInput: handleInvalidInput,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          step: 1,
           value,
         },
         parent,
