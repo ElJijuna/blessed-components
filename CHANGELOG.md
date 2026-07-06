@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.9.0](https://github.com/ElJijuna/blessed-components/compare/v1.8.0...v1.9.0) (2026-07-06)
+
+### Features
+
+* add Drawer component with Blessed adapter, including documentation and tests ([9948fa3](https://github.com/ElJijuna/blessed-components/commit/9948fa3f852dbc30ab691b4e22e92678763fe9c9))
+* add IconButton component with Blessed adapter, including documentation and tests ([c5d7304](https://github.com/ElJijuna/blessed-components/commit/c5d7304f4b25d6bed7fd7b6c4ea014029b851033))
+* add MenuBar component with Blessed adapter, including documentation and tests ([7c9510e](https://github.com/ElJijuna/blessed-components/commit/7c9510e65d87a58c2e414b74fa0e0ed8487083aa))
+* add NavigationList component with Blessed adapter, including documentation and tests ([2822328](https://github.com/ElJijuna/blessed-components/commit/2822328350b93ac79485202f7fececbb9c07b1c7))
+* add NumberField component with Blessed adapter, including documentation and tests ([7fe77fa](https://github.com/ElJijuna/blessed-components/commit/7fe77faabcb831dcc7a6944b4d17b0431c52c0f1))
+* add Pager component with Blessed adapter, including documentation and tests ([e2e0c87](https://github.com/ElJijuna/blessed-components/commit/e2e0c8711db2592ee3e8e56964702325ae8df006))
+* add Pagination component with Blessed adapter, including documentation and tests ([e3a4d3c](https://github.com/ElJijuna/blessed-components/commit/e3a4d3c2d5aeacb7b3b785e121d8f7873dd3a920))
+* add PasswordField component with Blessed adapter, including documentation and tests ([65514c4](https://github.com/ElJijuna/blessed-components/commit/65514c455d0bdcf73e61f16936df62b2d0ae7c23))
+* add Spotlight component with Blessed adapter, including documentation and tests ([8448cda](https://github.com/ElJijuna/blessed-components/commit/8448cda5a7a84c2bdb53f6d451c846aef63a8043))
+
 ## [1.8.0](https://github.com/ElJijuna/blessed-components/compare/v1.7.0...v1.8.0) (2026-07-05)
 
 ### Features
