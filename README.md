@@ -6,7 +6,7 @@ Composable, typed terminal UI components for
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
 > `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `Kbd`, `KeyValue`, `Label`, `List`, `MetricBars`, `MutedText`, `ProgressBar`,
 > `ProgressList`, `ProgressStack`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
-> `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, and `Viewport` are available; more
+> `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, and `Viewport` are available; more
 > components are coming soon.
 
 ## Goals
@@ -92,6 +92,7 @@ npm install blessed blessed-components
 | [`Button`](./src/components/input/button/README.md) | Trigger a focusable terminal action. | Available |
 | `Tabs`           | Switch between views.        | Available |
 | `Menu`           | Navigate a list of actions.  | Available |
+| [`Pager`](./src/components/navigation/pager/README.md) | Move to previous or next page. | Available |
 | [`Pagination`](./src/components/navigation/pagination/README.md) | Move through bounded result pages. | Available |
 | `Select`         | Choose one or more values.   | P3       |
 | `TextField`      | Enter and validate text.     | P3       |

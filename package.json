@@ -489,6 +489,16 @@
       "import": "./dist/menu/blessed.js",
       "require": "./dist/menu/blessed.cjs"
     },
+    "./pager": {
+      "types": "./dist/pager/index.d.ts",
+      "import": "./dist/pager/index.js",
+      "require": "./dist/pager/index.cjs"
+    },
+    "./pager/blessed": {
+      "types": "./dist/pager/blessed.d.ts",
+      "import": "./dist/pager/blessed.js",
+      "require": "./dist/pager/blessed.cjs"
+    },
     "./pagination": {
       "types": "./dist/pagination/index.d.ts",
       "import": "./dist/pagination/index.js",

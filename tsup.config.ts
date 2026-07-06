@@ -104,6 +104,8 @@ const entry = {
   'overlay/index': 'src/components/overlays/overlay/index.ts',
   'page/blessed': 'src/adapters/blessed/page.ts',
   'page/index': 'src/components/layout/page/index.ts',
+  'pager/blessed': 'src/adapters/blessed/pager.ts',
+  'pager/index': 'src/components/navigation/pager/index.ts',
   'pagination/blessed': 'src/adapters/blessed/pagination.ts',
   'pagination/index': 'src/components/navigation/pagination/index.ts',
   'preformatted/blessed': 'src/adapters/blessed/preformatted.ts',

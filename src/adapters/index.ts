@@ -49,6 +49,7 @@ export * from './blessed/multi-sparkline.js';
 export * from './blessed/muted-text.js';
 export * from './blessed/overlay.js';
 export * from './blessed/page.js';
+export * from './blessed/pager.js';
 export * from './blessed/pagination.js';
 export * from './blessed/preformatted.js';
 export * from './blessed/progress-bar.js';

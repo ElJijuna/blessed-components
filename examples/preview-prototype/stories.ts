@@ -44,6 +44,7 @@ import {
   mutedText,
   overlay,
   page,
+  pager,
   pagination,
   progressBar,
   progressList,
@@ -1037,6 +1038,28 @@ export const stories: readonly PreviewStory[] = [
           pageCount: 18,
           showBoundaryControls: true,
           siblingCount: 1,
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'pager/records',
+    title: 'Pager / Records',
+    description: 'Compact previous and next navigation for bounded records.',
+    mount(parent) {
+      return pager({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          defaultPage: 3,
+          pageCount: 9,
         },
       });
     },

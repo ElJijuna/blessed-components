@@ -456,7 +456,7 @@ Navigation components need a shared focus model and documented keyboard maps.
 | `ContextMenu`    | Mouse or keyboard anchored action menu.        | Research | P3       |
 | `NavigationList` | Route or view navigation with active state.    | Build    | P2       |
 | `Pagination`     | Move through bounded result pages.             | Available | P2       |
-| `Pager`          | Previous/next navigation for views or records. | Build    | P2       |
+| `Pager`          | Previous/next navigation for views or records. | Available | P2       |
 | `Carousel`       | Manual or timed view rotation.                 | Adapt    | P3       |
 | `CommandPalette` | Searchable command execution.                  | Build    | P2       |
 | `QuickSwitcher`  | Search and switch resources or views.          | Build    | P2       |
