@@ -43,6 +43,7 @@ export * from './blessed/list.js';
 export * from './blessed/loading-overlay.js';
 export * from './blessed/log-viewer.js';
 export * from './blessed/menu.js';
+export * from './blessed/menu-bar.js';
 export * from './blessed/metric-bars.js';
 export * from './blessed/multi-select.js';
 export * from './blessed/multi-sparkline.js';

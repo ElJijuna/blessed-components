@@ -50,6 +50,7 @@ const expectedComponents = [
   'src/components/collections/table/index.ts',
   'src/components/collections/timeline/index.ts',
   'src/components/collections/virtual-list/index.ts',
+  'src/components/navigation/menu-bar/index.ts',
   'src/components/navigation/menu/index.ts',
   'src/components/navigation/navigation-list/index.ts',
   'src/components/navigation/pager/index.ts',

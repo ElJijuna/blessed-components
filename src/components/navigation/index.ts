@@ -6,6 +6,7 @@
  */
 export * from './help-overlay/index.js';
 export * from './menu/index.js';
+export * from './menu-bar/index.js';
 export * from './navigation-list/index.js';
 export * from './pager/index.js';
 export * from './pagination/index.js';

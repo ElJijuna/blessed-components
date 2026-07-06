@@ -38,6 +38,7 @@ import {
   list,
   loadingOverlay,
   menu,
+  menuBar,
   metricBars,
   multiSelect,
   multiSparkline,
@@ -1014,6 +1015,33 @@ export const stories: readonly PreviewStory[] = [
             { id: 'test', label: 'Run tests', shortcut: 't' },
             { id: 'deploy', label: 'Deploy', shortcut: 'd' },
             { disabled: true, id: 'rollback', label: 'Rollback', shortcut: 'r' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'menu-bar/top-level',
+    title: 'MenuBar / Top Level',
+    description: 'Horizontal top-level menu navigation with disabled items.',
+    mount(parent) {
+      return menuBar({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 48,
+        },
+        data: {
+          defaultValue: 'file',
+          items: [
+            { id: 'file', label: 'File' },
+            { id: 'edit', label: 'Edit' },
+            { id: 'view', label: 'View' },
+            { disabled: true, id: 'deploy', label: 'Deploy' },
           ],
         },
       });

@@ -85,6 +85,8 @@ const pureLoadingOverlayModule = await import('../dist/loading-overlay/index.js'
 const blessedLoadingOverlayModule = await import('../dist/loading-overlay/blessed.js');
 const pureTimelineModule = await import('../dist/timeline/index.js');
 const blessedTimelineModule = await import('../dist/timeline/blessed.js');
+const pureMenuBarModule = await import('../dist/menu-bar/index.js');
+const blessedMenuBarModule = await import('../dist/menu-bar/blessed.js');
 const pureMenuModule = await import('../dist/menu/index.js');
 const blessedMenuModule = await import('../dist/menu/blessed.js');
 const pureNavigationListModule = await import('../dist/navigation-list/index.js');
@@ -379,6 +381,11 @@ const [timelineEsmSource, timelineCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [menuBarEsmSource, menuBarCjsSource] = await Promise.all(
+  ['../dist/menu-bar/index.js', '../dist/menu-bar/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [menuEsmSource, menuCjsSource] = await Promise.all(
   ['../dist/menu/index.js', '../dist/menu/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -669,6 +676,8 @@ assert.equal(typeof pureLoadingOverlayModule.renderLoadingOverlay, 'function');
 assert.equal(typeof blessedLoadingOverlayModule.loadingOverlay, 'function');
 assert.equal(typeof pureTimelineModule.renderTimeline, 'function');
 assert.equal(typeof blessedTimelineModule.timeline, 'function');
+assert.equal(typeof pureMenuBarModule.renderMenuBar, 'function');
+assert.equal(typeof blessedMenuBarModule.menuBar, 'function');
 assert.equal(typeof pureMenuModule.renderMenu, 'function');
 assert.equal(typeof blessedMenuModule.menu, 'function');
 assert.equal(typeof pureNavigationListModule.renderNavigationList, 'function');
@@ -984,6 +993,10 @@ for (const source of [loadingOverlayEsmSource, loadingOverlayCjsSource]) {
 
 for (const source of [timelineEsmSource, timelineCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Timeline entry must not import Blessed.');
+}
+
+for (const source of [menuBarEsmSource, menuBarCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure MenuBar entry must not import Blessed.');
 }
 
 for (const source of [menuEsmSource, menuCjsSource]) {

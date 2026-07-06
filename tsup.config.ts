@@ -90,6 +90,8 @@ const entry = {
   'log-viewer/index': 'src/components/collections/log-viewer/index.ts',
   'loading-overlay/blessed': 'src/adapters/blessed/loading-overlay.ts',
   'loading-overlay/index': 'src/components/feedback/loading-overlay/index.ts',
+  'menu-bar/blessed': 'src/adapters/blessed/menu-bar.ts',
+  'menu-bar/index': 'src/components/navigation/menu-bar/index.ts',
   'menu/blessed': 'src/adapters/blessed/menu.ts',
   'menu/index': 'src/components/navigation/menu/index.ts',
   'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
