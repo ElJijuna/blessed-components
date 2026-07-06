@@ -35,6 +35,7 @@ export * from './blessed/grouped-list.js';
 export * from './blessed/heading.js';
 export * from './blessed/health-indicator.js';
 export * from './blessed/help-overlay.js';
+export * from './blessed/icon-button.js';
 export * from './blessed/kbd.js';
 export * from './blessed/key-value.js';
 export * from './blessed/label.js';

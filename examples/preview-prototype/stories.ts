@@ -31,6 +31,7 @@ import {
   groupedList,
   heading,
   helpOverlay,
+  iconButton,
   kbd,
   keyValue,
   label,
@@ -532,6 +533,40 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           action.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'icon-button/compact-action',
+    title: 'IconButton / Compact Action',
+    description: 'Icon-only action with required text description.',
+    mount(parent) {
+      const refresh = iconButton({
+        box: { height: 1, left: 3, top: 3, width: 8 },
+        data: {
+          icon: '↻',
+          label: 'Refresh data',
+        },
+        parent,
+      });
+      const close = iconButton({
+        box: { height: 1, left: 14, top: 3, width: 18 },
+        data: {
+          icon: '×',
+          label: 'Close panel',
+          showLabel: true,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          refresh.destroy();
+          close.destroy();
+        },
+        focus() {
+          refresh.focus();
         },
       };
     },

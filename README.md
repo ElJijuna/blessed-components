@@ -90,6 +90,7 @@ npm install blessed blessed-components
 | Component        | Purpose                      | Priority |
 | ---------------- | ---------------------------- | -------- |
 | [`Button`](./src/components/input/button/README.md) | Trigger a focusable terminal action. | Available |
+| [`IconButton`](./src/components/input/icon-button/README.md) | Compact action with required text description. | Available |
 | `Tabs`           | Switch between views.        | Available |
 | `Menu`           | Navigate a list of actions.  | Available |
 | [`MenuBar`](./src/components/navigation/menu-bar/README.md) | Navigate top-level horizontal menus. | Available |

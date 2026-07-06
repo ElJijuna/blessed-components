@@ -61,6 +61,8 @@ const pureHealthIndicatorModule = await import('../dist/health-indicator/index.j
 const blessedHealthIndicatorModule = await import('../dist/health-indicator/blessed.js');
 const pureHelpOverlayModule = await import('../dist/help-overlay/index.js');
 const blessedHelpOverlayModule = await import('../dist/help-overlay/blessed.js');
+const pureIconButtonModule = await import('../dist/icon-button/index.js');
+const blessedIconButtonModule = await import('../dist/icon-button/blessed.js');
 const pureKbdModule = await import('../dist/kbd/index.js');
 const blessedKbdModule = await import('../dist/kbd/blessed.js');
 const pureKeyValueModule = await import('../dist/key-value/index.js');
@@ -203,6 +205,11 @@ const [boxEsmSource, boxCjsSource] = await Promise.all(
 );
 const [buttonEsmSource, buttonCjsSource] = await Promise.all(
   ['../dist/button/index.js', '../dist/button/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [iconButtonEsmSource, iconButtonCjsSource] = await Promise.all(
+  ['../dist/icon-button/index.js', '../dist/icon-button/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -649,6 +656,8 @@ assert.equal(typeof pureHealthIndicatorModule.renderHealthIndicator, 'function')
 assert.equal(typeof blessedHealthIndicatorModule.healthIndicator, 'function');
 assert.equal(typeof pureHelpOverlayModule.renderHelpOverlay, 'function');
 assert.equal(typeof blessedHelpOverlayModule.helpOverlay, 'function');
+assert.equal(typeof pureIconButtonModule.renderIconButton, 'function');
+assert.equal(typeof blessedIconButtonModule.iconButton, 'function');
 assert.equal(typeof pureKbdModule.renderKbd, 'function');
 assert.equal(typeof blessedKbdModule.kbd, 'function');
 assert.equal(typeof pureKeyValueModule.renderKeyValue, 'function');
@@ -793,6 +802,10 @@ for (const source of [boxEsmSource, boxCjsSource]) {
 
 for (const source of [buttonEsmSource, buttonCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Button entry must not import Blessed.');
+}
+
+for (const source of [iconButtonEsmSource, iconButtonCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure IconButton entry must not import Blessed.');
 }
 
 for (const source of [checkboxEsmSource, checkboxCjsSource]) {

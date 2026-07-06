@@ -470,7 +470,7 @@ consistent state, composition, and cleanup.
 | Component         | Purpose                                                | Decision | Priority |
 | ----------------- | ------------------------------------------------------ | -------- | -------- |
 | `Button`          | Typed action with tone and disabled states.            | Available | P1       |
-| `IconButton`      | Compact action with required text description.         | Build    | P2       |
+| `IconButton`      | Compact action with required text description.         | Available | P2       |
 | `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
 | `PasswordField`   | Masked input with reveal behavior.                     | Build    | P2       |
 | `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |

@@ -169,6 +169,16 @@
       "import": "./dist/form-field/blessed.js",
       "require": "./dist/form-field/blessed.cjs"
     },
+    "./icon-button": {
+      "types": "./dist/icon-button/index.d.ts",
+      "import": "./dist/icon-button/index.js",
+      "require": "./dist/icon-button/index.cjs"
+    },
+    "./icon-button/blessed": {
+      "types": "./dist/icon-button/blessed.d.ts",
+      "import": "./dist/icon-button/blessed.js",
+      "require": "./dist/icon-button/blessed.cjs"
+    },
     "./card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js",

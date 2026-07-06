@@ -75,6 +75,8 @@ const entry = {
   'health-indicator/index': 'src/components/feedback/health-indicator/index.ts',
   'help-overlay/blessed': 'src/adapters/blessed/help-overlay.ts',
   'help-overlay/index': 'src/components/navigation/help-overlay/index.ts',
+  'icon-button/blessed': 'src/adapters/blessed/icon-button.ts',
+  'icon-button/index': 'src/components/input/icon-button/index.ts',
   index: 'src/index.ts',
   'kbd/blessed': 'src/adapters/blessed/kbd.ts',
   'kbd/index': 'src/components/data-display/kbd/index.ts',
