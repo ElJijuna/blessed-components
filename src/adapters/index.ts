@@ -69,6 +69,7 @@ export * from './blessed/sidebar-layout.js';
 export * from './blessed/spacer.js';
 export * from './blessed/sparkline.js';
 export * from './blessed/spinner.js';
+export * from './blessed/spotlight.js';
 export * from './blessed/stack.js';
 export * from './blessed/stacked-gauge.js';
 export * from './blessed/stat.js';

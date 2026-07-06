@@ -67,6 +67,7 @@ import {
   spacer,
   sparkline,
   spinner,
+  spotlight,
   stack,
   stackedGauge,
   stat,
@@ -1478,6 +1479,29 @@ export const stories: readonly PreviewStory[] = [
       });
 
       return root;
+    },
+  }),
+  defineStory({
+    id: 'spotlight/actions',
+    title: 'Spotlight / Actions',
+    description: 'Searchable command overlay with action results.',
+    mount(parent) {
+      return spotlight({
+        content: { height: 10, top: 1, width: 56 },
+        data: {
+          defaultOpen: true,
+          defaultQuery: 'de',
+          id: 'preview-spotlight',
+          items: [
+            { id: 'build', label: 'Build package', shortcut: 'b' },
+            { id: 'deploy', keywords: ['release'], label: 'Deploy service', shortcut: 'd' },
+            { id: 'logs', label: 'Open deployment logs', shortcut: 'l' },
+            { disabled: true, id: 'rollback', label: 'Rollback production', shortcut: 'r' },
+          ],
+          placeholder: 'Search commands',
+        },
+        parent,
+      });
     },
   }),
   defineStory({

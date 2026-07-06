@@ -151,6 +151,8 @@ const entry = {
   'sparkline/index': 'src/components/visualization/sparkline/index.ts',
   'spinner/blessed': 'src/adapters/blessed/spinner.ts',
   'spinner/index': 'src/components/feedback/spinner/index.ts',
+  'spotlight/blessed': 'src/adapters/blessed/spotlight.ts',
+  'spotlight/index': 'src/components/overlays/spotlight/index.ts',
   'status/blessed': 'src/adapters/blessed/status.ts',
   'status/index': 'src/components/feedback/status/index.ts',
   'step-indicator/blessed': 'src/adapters/blessed/step-indicator.ts',

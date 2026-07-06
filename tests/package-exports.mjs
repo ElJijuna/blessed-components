@@ -133,6 +133,8 @@ const pureSparklineModule = await import('../dist/sparkline/index.js');
 const blessedSparklineModule = await import('../dist/sparkline/blessed.js');
 const pureSpinnerModule = await import('../dist/spinner/index.js');
 const blessedSpinnerModule = await import('../dist/spinner/blessed.js');
+const pureSpotlightModule = await import('../dist/spotlight/index.js');
+const blessedSpotlightModule = await import('../dist/spotlight/blessed.js');
 const pureStatusModule = await import('../dist/status/index.js');
 const blessedStatusModule = await import('../dist/status/blessed.js');
 const pureStepIndicatorModule = await import('../dist/step-indicator/index.js');
@@ -509,6 +511,11 @@ const [spinnerEsmSource, spinnerCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [spotlightEsmSource, spotlightCjsSource] = await Promise.all(
+  ['../dist/spotlight/index.js', '../dist/spotlight/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [statusEsmSource, statusCjsSource] = await Promise.all(
   ['../dist/status/index.js', '../dist/status/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -758,6 +765,9 @@ assert.equal(typeof pureSparklineModule.renderSparkline, 'function');
 assert.equal(typeof blessedSparklineModule.sparkline, 'function');
 assert.equal(typeof pureSpinnerModule.renderSpinner, 'function');
 assert.equal(typeof blessedSpinnerModule.spinner, 'function');
+assert.equal(typeof pureSpotlightModule.createSpotlightState, 'function');
+assert.equal(typeof pureSpotlightModule.filterSpotlightItems, 'function');
+assert.equal(typeof blessedSpotlightModule.spotlight, 'function');
 assert.equal(typeof pureStatusModule.renderStatus, 'function');
 assert.equal(typeof blessedStatusModule.status, 'function');
 assert.equal(typeof pureStepIndicatorModule.renderStepIndicator, 'function');
@@ -1154,6 +1164,10 @@ for (const source of [sparklineEsmSource, sparklineCjsSource]) {
 
 for (const source of [spinnerEsmSource, spinnerCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Spinner entry must not import Blessed.');
+}
+
+for (const source of [spotlightEsmSource, spotlightCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Spotlight entry must not import Blessed.');
 }
 
 for (const source of [statusEsmSource, statusCjsSource]) {

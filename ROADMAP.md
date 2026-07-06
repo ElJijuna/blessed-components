@@ -505,7 +505,7 @@ global key cleanup.
 | `Popover`       | Anchored temporary content.                     | Research | P3       |
 | `Tooltip`       | Delayed contextual help.                        | Adapt    | P3       |
 | `ToastViewport` | Position and manage toast notifications.        | Build    | P2       |
-| `Spotlight`     | Full-screen searchable action/resource overlay. | Build    | P2       |
+| `Spotlight`     | Full-screen searchable action/resource overlay. | Available | P2       |
 
 ### 10. Developer-tool components
 

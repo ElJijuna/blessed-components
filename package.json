@@ -699,6 +699,16 @@
       "import": "./dist/spinner/blessed.js",
       "require": "./dist/spinner/blessed.cjs"
     },
+    "./spotlight": {
+      "types": "./dist/spotlight/index.d.ts",
+      "import": "./dist/spotlight/index.js",
+      "require": "./dist/spotlight/index.cjs"
+    },
+    "./spotlight/blessed": {
+      "types": "./dist/spotlight/blessed.d.ts",
+      "import": "./dist/spotlight/blessed.js",
+      "require": "./dist/spotlight/blessed.cjs"
+    },
     "./status": {
       "types": "./dist/status/index.d.ts",
       "import": "./dist/status/index.js",
