@@ -87,6 +87,8 @@ const pureTimelineModule = await import('../dist/timeline/index.js');
 const blessedTimelineModule = await import('../dist/timeline/blessed.js');
 const pureMenuModule = await import('../dist/menu/index.js');
 const blessedMenuModule = await import('../dist/menu/blessed.js');
+const pureNavigationListModule = await import('../dist/navigation-list/index.js');
+const blessedNavigationListModule = await import('../dist/navigation-list/blessed.js');
 const purePagerModule = await import('../dist/pager/index.js');
 const blessedPagerModule = await import('../dist/pager/blessed.js');
 const purePaginationModule = await import('../dist/pagination/index.js');
@@ -382,6 +384,11 @@ const [menuEsmSource, menuCjsSource] = await Promise.all(
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
+const [navigationListEsmSource, navigationListCjsSource] = await Promise.all(
+  ['../dist/navigation-list/index.js', '../dist/navigation-list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
 const [pagerEsmSource, pagerCjsSource] = await Promise.all(
   ['../dist/pager/index.js', '../dist/pager/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
@@ -664,6 +671,8 @@ assert.equal(typeof pureTimelineModule.renderTimeline, 'function');
 assert.equal(typeof blessedTimelineModule.timeline, 'function');
 assert.equal(typeof pureMenuModule.renderMenu, 'function');
 assert.equal(typeof blessedMenuModule.menu, 'function');
+assert.equal(typeof pureNavigationListModule.renderNavigationList, 'function');
+assert.equal(typeof blessedNavigationListModule.navigationList, 'function');
 assert.equal(typeof purePagerModule.renderPager, 'function');
 assert.equal(typeof blessedPagerModule.pager, 'function');
 assert.equal(typeof purePaginationModule.renderPagination, 'function');
@@ -979,6 +988,14 @@ for (const source of [timelineEsmSource, timelineCjsSource]) {
 
 for (const source of [menuEsmSource, menuCjsSource]) {
   assert.equal(source.includes('blessed'), false, 'Pure Menu entry must not import Blessed.');
+}
+
+for (const source of [navigationListEsmSource, navigationListCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure NavigationList entry must not import Blessed.',
+  );
 }
 
 for (const source of [pagerEsmSource, pagerCjsSource]) {

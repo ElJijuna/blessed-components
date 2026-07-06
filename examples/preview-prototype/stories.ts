@@ -42,6 +42,7 @@ import {
   multiSelect,
   multiSparkline,
   mutedText,
+  navigationList,
   overlay,
   page,
   pager,
@@ -1013,6 +1014,33 @@ export const stories: readonly PreviewStory[] = [
             { id: 'test', label: 'Run tests', shortcut: 't' },
             { id: 'deploy', label: 'Deploy', shortcut: 'd' },
             { disabled: true, id: 'rollback', label: 'Rollback', shortcut: 'r' },
+          ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'navigation-list/routes',
+    title: 'NavigationList / Routes',
+    description: 'Route navigation with separate active and focused states.',
+    mount(parent) {
+      return navigationList({
+        parent,
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 38,
+        },
+        data: {
+          defaultValue: 'overview',
+          items: [
+            { id: 'overview', label: 'Overview' },
+            { id: 'deployments', label: 'Deployments', badge: '12' },
+            { id: 'logs', label: 'Logs', badge: 'live' },
+            { disabled: true, id: 'billing', label: 'Billing' },
           ],
         },
       });

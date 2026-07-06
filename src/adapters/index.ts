@@ -47,6 +47,7 @@ export * from './blessed/metric-bars.js';
 export * from './blessed/multi-select.js';
 export * from './blessed/multi-sparkline.js';
 export * from './blessed/muted-text.js';
+export * from './blessed/navigation-list.js';
 export * from './blessed/overlay.js';
 export * from './blessed/page.js';
 export * from './blessed/pager.js';
