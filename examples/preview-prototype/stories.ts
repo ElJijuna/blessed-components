@@ -49,6 +49,7 @@ import {
   page,
   pager,
   pagination,
+  passwordField,
   progressBar,
   progressList,
   progressStack,
@@ -694,6 +695,91 @@ export const stories: readonly PreviewStory[] = [
           onSubmit: handleSubmit,
           onValueChange: handleValueChange,
           placeholder: 'production',
+          required: true,
+          value,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          field.destroy();
+        },
+        focus() {
+          field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'password-field/token',
+    title: 'PasswordField / Token',
+    description: 'Masked secret input with reveal toggle.',
+    mount(parent) {
+      let reveal = false;
+      let value = 'sk_live_secret';
+
+      const handleRevealChange = (nextReveal: boolean): void => {
+        reveal = nextReveal;
+        field.setData({
+          hint: reveal ? 'Token visible. Ctrl-R hides it.' : 'Ctrl-R reveals the token.',
+          label: 'API token',
+          onRevealChange: handleRevealChange,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'paste token',
+          reveal,
+          required: true,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleValueChange = (nextValue: string): void => {
+        value = nextValue;
+        field.setData({
+          hint: reveal ? 'Token visible. Ctrl-R hides it.' : 'Ctrl-R reveals the token.',
+          label: 'API token',
+          onRevealChange: handleRevealChange,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'paste token',
+          reveal,
+          required: true,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleSubmit = (nextValue: string): void => {
+        field.setData({
+          hint: `Submitted ${nextValue.length} characters.`,
+          label: 'API token',
+          onRevealChange: handleRevealChange,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'paste token',
+          reveal,
+          required: true,
+          value,
+        });
+        parent.screen.render();
+      };
+      const field = passwordField({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 44,
+        },
+        data: {
+          hint: 'Ctrl-R reveals the token.',
+          label: 'API token',
+          onRevealChange: handleRevealChange,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          placeholder: 'paste token',
+          reveal,
           required: true,
           value,
         },

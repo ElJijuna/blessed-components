@@ -54,6 +54,7 @@ export * from './blessed/overlay.js';
 export * from './blessed/page.js';
 export * from './blessed/pager.js';
 export * from './blessed/pagination.js';
+export * from './blessed/password-field.js';
 export * from './blessed/preformatted.js';
 export * from './blessed/progress-bar.js';
 export * from './blessed/progress-list.js';

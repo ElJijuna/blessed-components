@@ -114,6 +114,8 @@ const entry = {
   'pager/index': 'src/components/navigation/pager/index.ts',
   'pagination/blessed': 'src/adapters/blessed/pagination.ts',
   'pagination/index': 'src/components/navigation/pagination/index.ts',
+  'password-field/blessed': 'src/adapters/blessed/password-field.ts',
+  'password-field/index': 'src/components/input/password-field/index.ts',
   'preformatted/blessed': 'src/adapters/blessed/preformatted.ts',
   'preformatted/index': 'src/components/data-display/preformatted/index.ts',
   'progress-bar/blessed': 'src/adapters/blessed/progress-bar.ts',
