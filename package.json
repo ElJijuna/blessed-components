@@ -489,6 +489,16 @@
       "import": "./dist/menu/blessed.js",
       "require": "./dist/menu/blessed.cjs"
     },
+    "./pagination": {
+      "types": "./dist/pagination/index.d.ts",
+      "import": "./dist/pagination/index.js",
+      "require": "./dist/pagination/index.cjs"
+    },
+    "./pagination/blessed": {
+      "types": "./dist/pagination/blessed.d.ts",
+      "import": "./dist/pagination/blessed.js",
+      "require": "./dist/pagination/blessed.cjs"
+    },
     "./progress-bar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js",

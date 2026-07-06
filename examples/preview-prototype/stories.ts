@@ -44,6 +44,7 @@ import {
   mutedText,
   overlay,
   page,
+  pagination,
   progressBar,
   progressList,
   progressStack,
@@ -1012,6 +1013,30 @@ export const stories: readonly PreviewStory[] = [
             { id: 'deploy', label: 'Deploy', shortcut: 'd' },
             { disabled: true, id: 'rollback', label: 'Rollback', shortcut: 'r' },
           ],
+        },
+      });
+    },
+  }),
+  defineStory({
+    id: 'pagination/results',
+    title: 'Pagination / Results',
+    description: 'Bounded page navigation with keyboard, mouse, and wheel controls.',
+    mount(parent) {
+      return pagination({
+        parent,
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 44,
+        },
+        data: {
+          defaultPage: 5,
+          pageCount: 18,
+          showBoundaryControls: true,
+          siblingCount: 1,
         },
       });
     },
