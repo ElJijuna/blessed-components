@@ -22,6 +22,7 @@ import {
   dialogFooter,
   dialogRoot,
   dialogTitle,
+  diffView,
   divider,
   drawerBody,
   drawerContent,
@@ -2196,6 +2197,47 @@ export const stories: readonly PreviewStory[] = [
             },
             { disabled: true, id: 'dist', label: 'dist (generated)' },
             { id: 'roadmap', label: 'ROADMAP.md' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'diff-view/package-change',
+    title: 'DiffView / Package Change',
+    description: 'Scrollable unified diff with line numbers and safe truncation.',
+    mount(parent) {
+      return diffView({
+        box: {
+          border: 'line',
+          height: 11,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 62,
+        },
+        data: {
+          lines: [
+            { content: '@@ -12,8 +12,10 @@', type: 'hunk' },
+            { content: '  "exports": {', newLine: 12, oldLine: 12, type: 'context' },
+            { content: '    "./tree": {', newLine: 13, oldLine: 13, type: 'context' },
+            {
+              content: '      "import": "./dist/tree/index.js"',
+              newLine: 14,
+              oldLine: 14,
+              type: 'context',
+            },
+            { content: '    },', newLine: 15, oldLine: 15, type: 'context' },
+            { content: '    "./diff-view": {', newLine: 16, type: 'add' },
+            {
+              content: '      "import": "./dist/diff-view/index.js"',
+              newLine: 17,
+              type: 'add',
+            },
+            { content: '    },', newLine: 18, type: 'add' },
+            { content: '    "./legacy-diff": "./dist/diff.js"', oldLine: 16, type: 'remove' },
+            { content: '  }', newLine: 19, oldLine: 17, type: 'context' },
           ],
         },
         parent,

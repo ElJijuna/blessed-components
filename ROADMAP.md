@@ -248,7 +248,7 @@ npm subpaths:
 
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
-| `collections`    | `DataTable`, `GroupedList`, `List`, `LogViewer`, `Table`, `Timeline`, `Tree`, `VirtualList` |
+| `collections`    | `DataTable`, `DiffView`, `GroupedList`, `List`, `LogViewer`, `Table`, `Timeline`, `Tree`, `VirtualList` |
 | `data-display`   | `Badge`, `Code`, `KeyValue`, `Preformatted`, `Stat`, `Text` |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
@@ -398,7 +398,7 @@ virtualization primitives.
 | `TreeTable`    | Hierarchical rows plus columns.                            | Research    | P3       |
 | `Timeline`     | Ordered events with time and status.                       | Available   | P2       |
 | `ActivityFeed` | Live events with grouping and retention.                   | Build       | P2       |
-| `DiffView`     | Side-by-side or unified text differences.                  | Build       | P2       |
+| `DiffView`     | Side-by-side or unified text differences.                  | Available   | P2       |
 | `FileTree`     | File-specific tree with icons and git state.               | Build       | P2       |
 | `ProcessList`  | PID, CPU, memory, status, and actions.                     | Block first | P3       |
 | `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |

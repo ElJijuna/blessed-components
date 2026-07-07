@@ -24,6 +24,7 @@ export * from './blessed/connection-status.js';
 export * from './blessed/data-table.js';
 export * from './blessed/description-list.js';
 export * from './blessed/dialog.js';
+export * from './blessed/diff-view.js';
 export * from './blessed/divider.js';
 export * from './blessed/drawer.js';
 export * from './blessed/empty-state.js';

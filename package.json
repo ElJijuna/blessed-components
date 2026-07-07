@@ -459,6 +459,16 @@
       "import": "./dist/grouped-list/blessed.js",
       "require": "./dist/grouped-list/blessed.cjs"
     },
+    "./diff-view": {
+      "types": "./dist/diff-view/index.d.ts",
+      "import": "./dist/diff-view/index.js",
+      "require": "./dist/diff-view/index.cjs"
+    },
+    "./diff-view/blessed": {
+      "types": "./dist/diff-view/blessed.d.ts",
+      "import": "./dist/diff-view/blessed.js",
+      "require": "./dist/diff-view/blessed.cjs"
+    },
     "./tree": {
       "types": "./dist/tree/index.d.ts",
       "import": "./dist/tree/index.js",

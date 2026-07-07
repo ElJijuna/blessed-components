@@ -171,6 +171,8 @@ const entry = {
   'table/index': 'src/components/collections/table/index.ts',
   'data-table/blessed': 'src/adapters/blessed/data-table.ts',
   'data-table/index': 'src/components/collections/data-table/index.ts',
+  'diff-view/blessed': 'src/adapters/blessed/diff-view.ts',
+  'diff-view/index': 'src/components/collections/diff-view/index.ts',
   'timeline/blessed': 'src/adapters/blessed/timeline.ts',
   'timeline/index': 'src/components/collections/timeline/index.ts',
   'tree/blessed': 'src/adapters/blessed/tree.ts',

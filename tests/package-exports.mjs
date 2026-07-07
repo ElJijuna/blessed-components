@@ -85,6 +85,8 @@ const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
 const pureGroupedListModule = await import('../dist/grouped-list/index.js');
 const blessedGroupedListModule = await import('../dist/grouped-list/blessed.js');
+const pureDiffViewModule = await import('../dist/diff-view/index.js');
+const blessedDiffViewModule = await import('../dist/diff-view/blessed.js');
 const pureTreeModule = await import('../dist/tree/index.js');
 const blessedTreeModule = await import('../dist/tree/blessed.js');
 const pureVirtualListModule = await import('../dist/virtual-list/index.js');
@@ -390,6 +392,11 @@ const [listEsmSource, listCjsSource] = await Promise.all(
 );
 const [groupedListEsmSource, groupedListCjsSource] = await Promise.all(
   ['../dist/grouped-list/index.js', '../dist/grouped-list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [diffViewEsmSource, diffViewCjsSource] = await Promise.all(
+  ['../dist/diff-view/index.js', '../dist/diff-view/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -721,6 +728,8 @@ assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureGroupedListModule.flattenGroupedListRows, 'function');
 assert.equal(typeof pureGroupedListModule.renderGroupedList, 'function');
 assert.equal(typeof blessedGroupedListModule.groupedList, 'function');
+assert.equal(typeof pureDiffViewModule.renderDiffView, 'function');
+assert.equal(typeof blessedDiffViewModule.diffView, 'function');
 assert.equal(typeof pureTreeModule.flattenTreeRows, 'function');
 assert.equal(typeof pureTreeModule.renderTree, 'function');
 assert.equal(typeof blessedTreeModule.tree, 'function');
@@ -1054,6 +1063,10 @@ for (const source of [groupedListEsmSource, groupedListCjsSource]) {
     false,
     'Pure GroupedList entry must not import Blessed.',
   );
+}
+
+for (const source of [diffViewEsmSource, diffViewCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure DiffView entry must not import Blessed.');
 }
 
 for (const source of [treeEsmSource, treeCjsSource]) {
