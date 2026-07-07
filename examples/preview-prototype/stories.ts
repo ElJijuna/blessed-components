@@ -44,6 +44,7 @@ import {
   legend,
   list,
   loadingOverlay,
+  logExplorer,
   menu,
   menuBar,
   metricBars,
@@ -2321,6 +2322,64 @@ export const stories: readonly PreviewStory[] = [
             { cpu: 25, id: 'realtime', memory: '256MB', service: 'Realtime gateway' },
           ],
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'log-explorer/deploy-filter',
+    title: 'LogExplorer / Deploy Filter',
+    description: 'Filtered log stream with query, level, source, and scroll behavior.',
+    mount(parent) {
+      return logExplorer({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          entries: [
+            {
+              id: '1',
+              level: 'info',
+              message: 'Deploy requested for production',
+              source: 'api',
+            },
+            {
+              id: '2',
+              level: 'warn',
+              message: 'Deploy waiting for queue capacity',
+              source: 'worker',
+            },
+            {
+              id: '3',
+              level: 'error',
+              message: 'Deploy failed health check',
+              source: 'api',
+            },
+            {
+              id: '4',
+              level: 'info',
+              message: 'Metrics exporter heartbeat',
+              source: 'metrics',
+            },
+            {
+              id: '5',
+              level: 'warn',
+              message: 'Deploy retry scheduled',
+              source: 'api',
+            },
+          ],
+          filter: {
+            levels: ['warn', 'error'],
+            query: 'deploy',
+          },
+          follow: false,
+          showTimestamp: false,
+        },
+        parent,
       });
     },
   }),

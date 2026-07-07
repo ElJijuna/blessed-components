@@ -90,6 +90,8 @@ const entry = {
   'legend/index': 'src/components/visualization/legend/index.ts',
   'list/blessed': 'src/adapters/blessed/list.ts',
   'list/index': 'src/components/collections/list/index.ts',
+  'log-explorer/blessed': 'src/adapters/blessed/log-explorer.ts',
+  'log-explorer/index': 'src/components/collections/log-explorer/index.ts',
   'log-viewer/blessed': 'src/adapters/blessed/log-viewer.ts',
   'log-viewer/index': 'src/components/collections/log-viewer/index.ts',
   'loading-overlay/blessed': 'src/adapters/blessed/loading-overlay.ts',

@@ -248,7 +248,7 @@ npm subpaths:
 
 | Source category  | Available components                      |
 | ---------------- | ----------------------------------------- |
-| `collections`    | `DataTable`, `DiffView`, `GroupedList`, `List`, `LogViewer`, `Table`, `Timeline`, `Tree`, `VirtualList` |
+| `collections`    | `DataTable`, `DiffView`, `GroupedList`, `List`, `LogExplorer`, `LogViewer`, `Table`, `Timeline`, `Tree`, `VirtualList` |
 | `data-display`   | `Badge`, `Code`, `KeyValue`, `Preformatted`, `Stat`, `Text` |
 | `feedback`       | `ProgressBar`, `Spinner`                  |
 | `visualization`  | `Gauge`, `Legend`, `MetricBars`, `Sparkline`, `Thresholds` |
@@ -402,7 +402,7 @@ virtualization primitives.
 | `FileTree`     | File-specific tree with icons and git state.               | Build       | P2       |
 | `ProcessList`  | PID, CPU, memory, status, and actions.                     | Block first | P3       |
 | `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |
-| `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Build       | P2       |
+| `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Available   | P2       |
 | `JsonViewer`   | Expandable structured JSON values.                         | Build       | P2       |
 | `Inspector`    | Generic nested object inspection.                          | Build       | P2       |
 | `HexViewer`    | Byte offsets, hex, and text representation.                | Defer       | P3       |

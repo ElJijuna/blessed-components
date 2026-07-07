@@ -91,6 +91,8 @@ const pureTreeModule = await import('../dist/tree/index.js');
 const blessedTreeModule = await import('../dist/tree/blessed.js');
 const pureVirtualListModule = await import('../dist/virtual-list/index.js');
 const blessedVirtualListModule = await import('../dist/virtual-list/blessed.js');
+const pureLogExplorerModule = await import('../dist/log-explorer/index.js');
+const blessedLogExplorerModule = await import('../dist/log-explorer/blessed.js');
 const pureLogViewerModule = await import('../dist/log-viewer/index.js');
 const blessedLogViewerModule = await import('../dist/log-viewer/blessed.js');
 const pureLoadingOverlayModule = await import('../dist/loading-overlay/index.js');
@@ -407,6 +409,11 @@ const [treeEsmSource, treeCjsSource] = await Promise.all(
 );
 const [virtualListEsmSource, virtualListCjsSource] = await Promise.all(
   ['../dist/virtual-list/index.js', '../dist/virtual-list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [logExplorerEsmSource, logExplorerCjsSource] = await Promise.all(
+  ['../dist/log-explorer/index.js', '../dist/log-explorer/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -736,6 +743,9 @@ assert.equal(typeof blessedTreeModule.tree, 'function');
 assert.equal(typeof pureVirtualListModule.computeVirtualListWindow, 'function');
 assert.equal(typeof pureVirtualListModule.renderVirtualList, 'function');
 assert.equal(typeof blessedVirtualListModule.virtualList, 'function');
+assert.equal(typeof pureLogExplorerModule.filterLogExplorerEntries, 'function');
+assert.equal(typeof pureLogExplorerModule.renderLogExplorer, 'function');
+assert.equal(typeof blessedLogExplorerModule.logExplorer, 'function');
 assert.equal(typeof pureLogViewerModule.renderLogViewer, 'function');
 assert.equal(typeof pureLogViewerModule.createLogViewerState, 'function');
 assert.equal(typeof blessedLogViewerModule.logViewer, 'function');
@@ -1078,6 +1088,14 @@ for (const source of [virtualListEsmSource, virtualListCjsSource]) {
     source.includes('blessed'),
     false,
     'Pure VirtualList entry must not import Blessed.',
+  );
+}
+
+for (const source of [logExplorerEsmSource, logExplorerCjsSource]) {
+  assert.equal(
+    source.includes('blessed'),
+    false,
+    'Pure LogExplorer entry must not import Blessed.',
   );
 }
 

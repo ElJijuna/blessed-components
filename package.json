@@ -499,6 +499,16 @@
       "import": "./dist/log-viewer/blessed.js",
       "require": "./dist/log-viewer/blessed.cjs"
     },
+    "./log-explorer": {
+      "types": "./dist/log-explorer/index.d.ts",
+      "import": "./dist/log-explorer/index.js",
+      "require": "./dist/log-explorer/index.cjs"
+    },
+    "./log-explorer/blessed": {
+      "types": "./dist/log-explorer/blessed.d.ts",
+      "import": "./dist/log-explorer/blessed.js",
+      "require": "./dist/log-explorer/blessed.cjs"
+    },
     "./loading-overlay": {
       "types": "./dist/loading-overlay/index.d.ts",
       "import": "./dist/loading-overlay/index.js",

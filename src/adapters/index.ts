@@ -44,6 +44,7 @@ export * from './blessed/label.js';
 export * from './blessed/legend.js';
 export * from './blessed/list.js';
 export * from './blessed/loading-overlay.js';
+export * from './blessed/log-explorer.js';
 export * from './blessed/log-viewer.js';
 export * from './blessed/menu.js';
 export * from './blessed/menu-bar.js';
