@@ -29,6 +29,7 @@ import {
   drawerFooter,
   drawerHeader,
   drawerRoot,
+  dropdownMenu,
   emptyState,
   errorState,
   formField,
@@ -1178,6 +1179,52 @@ export const stories: readonly PreviewStory[] = [
             { disabled: true, id: 'deploy', label: 'Deploy' },
           ],
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'dropdown-menu/app-actions',
+    title: 'DropdownMenu / App Actions',
+    description: 'Top menu bar with keyboard and mouse dropdown actions.',
+    mount(parent) {
+      return dropdownMenu({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 46,
+        },
+        data: {
+          focusedId: 'file',
+          items: [
+            {
+              id: 'file',
+              items: [
+                { id: 'new', label: 'New project', shortcut: 'n' },
+                { id: 'open', label: 'Open workspace', shortcut: 'o' },
+                { disabled: true, id: 'publish', label: 'Publish release', shortcut: 'p' },
+              ],
+              label: 'File',
+            },
+            {
+              id: 'view',
+              items: [
+                { id: 'logs', label: 'Show logs', shortcut: 'l' },
+                { id: 'palette', label: 'Command palette', shortcut: 'C-p' },
+              ],
+              label: 'View',
+            },
+            {
+              id: 'help',
+              items: [{ id: 'shortcuts', label: 'Keyboard shortcuts', shortcut: '?' }],
+              label: 'Help',
+            },
+          ],
+          openId: 'file',
+        },
+        parent,
       });
     },
   }),

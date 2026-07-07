@@ -27,6 +27,7 @@ export * from './blessed/dialog.js';
 export * from './blessed/diff-view.js';
 export * from './blessed/divider.js';
 export * from './blessed/drawer.js';
+export * from './blessed/dropdown-menu.js';
 export * from './blessed/empty-state.js';
 export * from './blessed/error-state.js';
 export * from './blessed/form.js';

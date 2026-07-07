@@ -33,6 +33,7 @@ const expectedComponents = [
   'src/components/layout/stack/index.ts',
   'src/components/layout/viewport/index.ts',
   'src/components/navigation/tabs/index.ts',
+  'src/components/navigation/dropdown-menu/index.ts',
   'src/components/overlays/confirm-dialog/index.ts',
   'src/components/overlays/dialog/index.ts',
   'src/components/overlays/drawer/index.ts',

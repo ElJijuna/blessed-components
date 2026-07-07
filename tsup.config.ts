@@ -100,6 +100,8 @@ const entry = {
   'menu-bar/index': 'src/components/navigation/menu-bar/index.ts',
   'menu/blessed': 'src/adapters/blessed/menu.ts',
   'menu/index': 'src/components/navigation/menu/index.ts',
+  'dropdown-menu/blessed': 'src/adapters/blessed/dropdown-menu.ts',
+  'dropdown-menu/index': 'src/components/navigation/dropdown-menu/index.ts',
   'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
   'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
   'multi-select/blessed': 'src/adapters/blessed/multi-select.ts',
