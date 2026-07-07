@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.10.0](https://github.com/ElJijuna/blessed-components/compare/v1.9.0...v1.10.0) (2026-07-07)
+
+### Features
+
+* add DiffView component with Blessed adapter, including documentation and tests ([19d9a27](https://github.com/ElJijuna/blessed-components/commit/19d9a27cd8bf799b6c9ddf7dc426d6f67d2e665a))
+* add DropdownMenu component with Blessed adapter, including documentation and tests ([4a36a6e](https://github.com/ElJijuna/blessed-components/commit/4a36a6e51212bd6846357785a93acbe5e9af5391))
+* add LogExplorer component with Blessed adapter, including documentation and tests ([7ad18ab](https://github.com/ElJijuna/blessed-components/commit/7ad18abca074c24532a64b27c0192c6bb5206cc9))
+* add Tree component with Blessed adapter, including documentation and tests ([49d4707](https://github.com/ElJijuna/blessed-components/commit/49d47073c17de6e2e2f90f7552ce07e322468e2c))
+
 ## [1.9.0](https://github.com/ElJijuna/blessed-components/compare/v1.8.0...v1.9.0) (2026-07-06)
 
 ### Features
