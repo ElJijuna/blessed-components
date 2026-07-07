@@ -82,6 +82,7 @@ import {
   textField,
   thresholds,
   toast,
+  tree,
   trend,
   viewport,
 } from '@/index.js';
@@ -2137,6 +2138,64 @@ export const stories: readonly PreviewStory[] = [
               ],
               title: 'Infrastructure',
             },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'tree/project-files',
+    title: 'Tree / Project Files',
+    description: 'Expandable hierarchical navigation with selection and disabled nodes.',
+    mount(parent) {
+      return tree({
+        box: {
+          border: 'line',
+          height: 12,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 48,
+        },
+        data: {
+          activeId: 'src/components/tree',
+          defaultExpandedIds: ['project', 'src', 'src/components'],
+          defaultValue: 'src/components/tree',
+          nodes: [
+            {
+              children: [
+                {
+                  children: [
+                    { id: 'src/components/list', label: 'list/index.ts' },
+                    { id: 'src/components/tree', label: 'tree/index.ts' },
+                    { id: 'src/components/table', label: 'table/index.ts' },
+                  ],
+                  id: 'src/components',
+                  label: 'components',
+                },
+                {
+                  children: [
+                    { id: 'src/core/width', label: 'width.ts' },
+                    { id: 'src/core/truncate', label: 'truncate.ts' },
+                  ],
+                  id: 'src/core',
+                  label: 'core',
+                },
+              ],
+              id: 'src',
+              label: 'src',
+            },
+            {
+              children: [
+                { id: 'tests/public-tree', label: 'public-api/tree.test.ts' },
+                { id: 'tests/blessed-tree', label: 'blessed-integration/tree.test.ts' },
+              ],
+              id: 'tests',
+              label: 'tests',
+            },
+            { disabled: true, id: 'dist', label: 'dist (generated)' },
+            { id: 'roadmap', label: 'ROADMAP.md' },
           ],
         },
         parent,

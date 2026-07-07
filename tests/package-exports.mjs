@@ -85,6 +85,8 @@ const pureListModule = await import('../dist/list/index.js');
 const blessedListModule = await import('../dist/list/blessed.js');
 const pureGroupedListModule = await import('../dist/grouped-list/index.js');
 const blessedGroupedListModule = await import('../dist/grouped-list/blessed.js');
+const pureTreeModule = await import('../dist/tree/index.js');
+const blessedTreeModule = await import('../dist/tree/blessed.js');
 const pureVirtualListModule = await import('../dist/virtual-list/index.js');
 const blessedVirtualListModule = await import('../dist/virtual-list/blessed.js');
 const pureLogViewerModule = await import('../dist/log-viewer/index.js');
@@ -388,6 +390,11 @@ const [listEsmSource, listCjsSource] = await Promise.all(
 );
 const [groupedListEsmSource, groupedListCjsSource] = await Promise.all(
   ['../dist/grouped-list/index.js', '../dist/grouped-list/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [treeEsmSource, treeCjsSource] = await Promise.all(
+  ['../dist/tree/index.js', '../dist/tree/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -714,6 +721,9 @@ assert.equal(typeof blessedListModule.list, 'function');
 assert.equal(typeof pureGroupedListModule.flattenGroupedListRows, 'function');
 assert.equal(typeof pureGroupedListModule.renderGroupedList, 'function');
 assert.equal(typeof blessedGroupedListModule.groupedList, 'function');
+assert.equal(typeof pureTreeModule.flattenTreeRows, 'function');
+assert.equal(typeof pureTreeModule.renderTree, 'function');
+assert.equal(typeof blessedTreeModule.tree, 'function');
 assert.equal(typeof pureVirtualListModule.computeVirtualListWindow, 'function');
 assert.equal(typeof pureVirtualListModule.renderVirtualList, 'function');
 assert.equal(typeof blessedVirtualListModule.virtualList, 'function');
@@ -1044,6 +1054,10 @@ for (const source of [groupedListEsmSource, groupedListCjsSource]) {
     false,
     'Pure GroupedList entry must not import Blessed.',
   );
+}
+
+for (const source of [treeEsmSource, treeCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Tree entry must not import Blessed.');
 }
 
 for (const source of [virtualListEsmSource, virtualListCjsSource]) {

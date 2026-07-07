@@ -459,6 +459,16 @@
       "import": "./dist/grouped-list/blessed.js",
       "require": "./dist/grouped-list/blessed.cjs"
     },
+    "./tree": {
+      "types": "./dist/tree/index.d.ts",
+      "import": "./dist/tree/index.js",
+      "require": "./dist/tree/index.cjs"
+    },
+    "./tree/blessed": {
+      "types": "./dist/tree/blessed.d.ts",
+      "import": "./dist/tree/blessed.js",
+      "require": "./dist/tree/blessed.cjs"
+    },
     "./virtual-list": {
       "types": "./dist/virtual-list/index.d.ts",
       "import": "./dist/virtual-list/index.js",
