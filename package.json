@@ -49,6 +49,16 @@
       "import": "./dist/accordion/blessed.js",
       "require": "./dist/accordion/blessed.cjs"
     },
+    "./activity-feed": {
+      "types": "./dist/activity-feed/index.d.ts",
+      "import": "./dist/activity-feed/index.js",
+      "require": "./dist/activity-feed/index.cjs"
+    },
+    "./activity-feed/blessed": {
+      "types": "./dist/activity-feed/blessed.d.ts",
+      "import": "./dist/activity-feed/blessed.js",
+      "require": "./dist/activity-feed/blessed.cjs"
+    },
     "./alert": {
       "types": "./dist/alert/index.d.ts",
       "import": "./dist/alert/index.js",
@@ -58,6 +68,16 @@
       "types": "./dist/alert/blessed.d.ts",
       "import": "./dist/alert/blessed.js",
       "require": "./dist/alert/blessed.cjs"
+    },
+    "./axis": {
+      "types": "./dist/axis/index.d.ts",
+      "import": "./dist/axis/index.js",
+      "require": "./dist/axis/index.cjs"
+    },
+    "./axis/blessed": {
+      "types": "./dist/axis/blessed.d.ts",
+      "import": "./dist/axis/blessed.js",
+      "require": "./dist/axis/blessed.cjs"
     },
     "./badge": {
       "types": "./dist/badge/index.d.ts",
@@ -88,6 +108,16 @@
       "types": "./dist/box/blessed.d.ts",
       "import": "./dist/box/blessed.js",
       "require": "./dist/box/blessed.cjs"
+    },
+    "./bullet-chart": {
+      "types": "./dist/bullet-chart/index.d.ts",
+      "import": "./dist/bullet-chart/index.js",
+      "require": "./dist/bullet-chart/index.cjs"
+    },
+    "./bullet-chart/blessed": {
+      "types": "./dist/bullet-chart/blessed.d.ts",
+      "import": "./dist/bullet-chart/blessed.js",
+      "require": "./dist/bullet-chart/blessed.cjs"
     },
     "./button": {
       "types": "./dist/button/index.d.ts",
@@ -128,6 +158,26 @@
       "types": "./dist/collapsible/blessed.d.ts",
       "import": "./dist/collapsible/blessed.js",
       "require": "./dist/collapsible/blessed.cjs"
+    },
+    "./combobox": {
+      "types": "./dist/combobox/index.d.ts",
+      "import": "./dist/combobox/index.js",
+      "require": "./dist/combobox/index.cjs"
+    },
+    "./combobox/blessed": {
+      "types": "./dist/combobox/blessed.d.ts",
+      "import": "./dist/combobox/blessed.js",
+      "require": "./dist/combobox/blessed.cjs"
+    },
+    "./command-palette": {
+      "types": "./dist/command-palette/index.d.ts",
+      "import": "./dist/command-palette/index.js",
+      "require": "./dist/command-palette/index.cjs"
+    },
+    "./command-palette/blessed": {
+      "types": "./dist/command-palette/blessed.d.ts",
+      "import": "./dist/command-palette/blessed.js",
+      "require": "./dist/command-palette/blessed.cjs"
     },
     "./confirm-dialog": {
       "types": "./dist/confirm-dialog/index.d.ts",
@@ -269,6 +319,16 @@
       "import": "./dist/error-state/blessed.js",
       "require": "./dist/error-state/blessed.cjs"
     },
+    "./file-tree": {
+      "types": "./dist/file-tree/index.d.ts",
+      "import": "./dist/file-tree/index.js",
+      "require": "./dist/file-tree/index.cjs"
+    },
+    "./file-tree/blessed": {
+      "types": "./dist/file-tree/blessed.d.ts",
+      "import": "./dist/file-tree/blessed.js",
+      "require": "./dist/file-tree/blessed.cjs"
+    },
     "./form": {
       "types": "./dist/form/index.d.ts",
       "import": "./dist/form/index.js",
@@ -329,6 +389,36 @@
       "import": "./dist/help-overlay/blessed.js",
       "require": "./dist/help-overlay/blessed.cjs"
     },
+    "./histogram": {
+      "types": "./dist/histogram/index.d.ts",
+      "import": "./dist/histogram/index.js",
+      "require": "./dist/histogram/index.cjs"
+    },
+    "./histogram/blessed": {
+      "types": "./dist/histogram/blessed.d.ts",
+      "import": "./dist/histogram/blessed.js",
+      "require": "./dist/histogram/blessed.cjs"
+    },
+    "./inspector": {
+      "types": "./dist/inspector/index.d.ts",
+      "import": "./dist/inspector/index.js",
+      "require": "./dist/inspector/index.cjs"
+    },
+    "./inspector/blessed": {
+      "types": "./dist/inspector/blessed.d.ts",
+      "import": "./dist/inspector/blessed.js",
+      "require": "./dist/inspector/blessed.cjs"
+    },
+    "./json-viewer": {
+      "types": "./dist/json-viewer/index.d.ts",
+      "import": "./dist/json-viewer/index.js",
+      "require": "./dist/json-viewer/index.cjs"
+    },
+    "./json-viewer/blessed": {
+      "types": "./dist/json-viewer/blessed.d.ts",
+      "import": "./dist/json-viewer/blessed.js",
+      "require": "./dist/json-viewer/blessed.cjs"
+    },
     "./kbd": {
       "types": "./dist/kbd/index.d.ts",
       "import": "./dist/kbd/index.js",
@@ -338,6 +428,16 @@
       "types": "./dist/kbd/blessed.d.ts",
       "import": "./dist/kbd/blessed.js",
       "require": "./dist/kbd/blessed.cjs"
+    },
+    "./keybinding-input": {
+      "types": "./dist/keybinding-input/index.d.ts",
+      "import": "./dist/keybinding-input/index.js",
+      "require": "./dist/keybinding-input/index.cjs"
+    },
+    "./keybinding-input/blessed": {
+      "types": "./dist/keybinding-input/blessed.d.ts",
+      "import": "./dist/keybinding-input/blessed.js",
+      "require": "./dist/keybinding-input/blessed.cjs"
     },
     "./key-value": {
       "types": "./dist/key-value/index.d.ts",

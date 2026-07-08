@@ -397,14 +397,14 @@ virtualization primitives.
 | `Tree`         | Expandable hierarchical navigation.                        | Available   | P2       |
 | `TreeTable`    | Hierarchical rows plus columns.                            | Research    | P3       |
 | `Timeline`     | Ordered events with time and status.                       | Available   | P2       |
-| `ActivityFeed` | Live events with grouping and retention.                   | Build       | P2       |
+| `ActivityFeed` | Live events with grouping and retention.                   | Available   | P2       |
 | `DiffView`     | Side-by-side or unified text differences.                  | Available   | P2       |
-| `FileTree`     | File-specific tree with icons and git state.               | Build       | P2       |
+| `FileTree`     | File-specific tree with icons and git state.               | Available   | P2       |
 | `ProcessList`  | PID, CPU, memory, status, and actions.                     | Block first | P3       |
 | `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |
 | `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Available   | P2       |
-| `JsonViewer`   | Expandable structured JSON values.                         | Build       | P2       |
-| `Inspector`    | Generic nested object inspection.                          | Build       | P2       |
+| `JsonViewer`   | Expandable structured JSON values.                         | Available   | P2       |
+| `Inspector`    | Generic nested object inspection.                          | Available   | P2       |
 | `HexViewer`    | Byte offsets, hex, and text representation.                | Defer       | P3       |
 | `AnsiViewer`   | Safely display ANSI-formatted output.                      | Research    | P3       |
 
@@ -421,12 +421,12 @@ quality, or maintenance advantage.
 | `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
 | `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
 | `StackedGauge`     | Composition of portions in one track.               | Available    | P2       |
-| `BulletChart`      | Actual value against target and qualitative ranges. | Build        | P2       |
+| `BulletChart`      | Actual value against target and qualitative ranges. | Available    | P2       |
 | `BarChart`         | Categorical value comparison.                       | Research     | P2       |
 | `StackedBarChart`  | Category composition over multiple series.          | Research     | P3       |
 | `LineChart`        | One or more series over an axis.                    | Research     | P2       |
 | `AreaChart`        | Filled time-series trend.                           | Defer        | P3       |
-| `Histogram`        | Numeric distribution by bins.                       | Build        | P2       |
+| `Histogram`        | Numeric distribution by bins.                       | Available    | P2       |
 | `Heatmap`          | Dense matrix of intensity values.                   | Research     | P3       |
 | `CalendarHeatmap`  | Activity intensity by date.                         | Build        | P3       |
 | `ScatterPlot`      | Relationship between two numeric values.            | Defer        | P3       |
@@ -436,7 +436,7 @@ quality, or maintenance advantage.
 | `CandlestickChart` | Open/high/low/close financial series.               | Defer        | P3       |
 | `WaterfallChart`   | Sequential positive and negative contributions.     | Defer        | P3       |
 | `Legend`           | Shared series labels and glyphs.                    | Available    | P1       |
-| `Axis`             | Shared numeric/category axis renderer.              | Build        | P2       |
+| `Axis`             | Shared numeric/category axis renderer.              | Available    | P2       |
 | `Thresholds`       | Shared warning and critical ranges.                 | Available    | P1       |
 
 `PieChart` is a non-goal: terminal cell aspect ratios and low resolution make
@@ -459,7 +459,7 @@ Navigation components need a shared focus model and documented keyboard maps.
 | `Pagination`     | Move through bounded result pages.             | Available | P2       |
 | `Pager`          | Previous/next navigation for views or records. | Available | P2       |
 | `Carousel`       | Manual or timed view rotation.                 | Adapt    | P3       |
-| `CommandPalette` | Searchable command execution.                  | Build    | P2       |
+| `CommandPalette` | Searchable command execution.                  | Available | P2       |
 | `QuickSwitcher`  | Search and switch resources or views.          | Build    | P2       |
 | `HelpOverlay`    | Searchable keyboard shortcut reference.        | Available | P1       |
 
@@ -482,11 +482,11 @@ consistent state, composition, and cleanup.
 | `Switch`          | Immediate boolean setting.                             | Available | P2       |
 | `Select`          | One value from a popup or inline list.                 | Available | P1       |
 | `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
-| `Combobox`        | Searchable input plus suggestions.                     | Build    | P2       |
+| `Combobox`        | Searchable input plus suggestions.                     | Available | P2       |
 | `Autocomplete`    | Suggest completions while typing.                      | Build    | P2       |
 | `DateInput`       | Parse and validate a date string.                      | Research | P3       |
 | `TimeInput`       | Parse and validate time.                               | Research | P3       |
-| `KeybindingInput` | Capture and display shortcut combinations.             | Build    | P3       |
+| `KeybindingInput` | Capture and display shortcut combinations.             | Available | P3       |
 | `FilePicker`      | Navigate and select files or directories.              | Adapt    | P2       |
 | `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
 | `Form`            | Submission, validation, reset, and field registry.     | Available | P1       |

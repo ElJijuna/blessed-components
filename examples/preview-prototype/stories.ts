@@ -1,9 +1,12 @@
 import {
   accordion,
+  activityFeed,
   alert,
   appShell,
+  axis,
   badge,
   box,
+  bulletChart,
   button,
   cardBody,
   cardDescription,
@@ -15,6 +18,8 @@ import {
   checkbox,
   cluster,
   collapsible,
+  combobox,
+  commandPalette,
   dataTable,
   dialogBody,
   dialogContent,
@@ -32,14 +37,19 @@ import {
   dropdownMenu,
   emptyState,
   errorState,
+  fileTree,
   formField,
   gauge,
   grid,
   groupedList,
   heading,
   helpOverlay,
+  histogram,
   iconButton,
+  inspector,
+  jsonViewer,
   kbd,
+  keybindingInput,
   keyValue,
   label,
   legend,
@@ -2866,6 +2876,295 @@ export const stories: readonly PreviewStory[] = [
           unit: '%',
           value: 85,
         },
+      });
+    },
+  }),
+  defineStory({
+    id: 'activity-feed/deploy-events',
+    title: 'ActivityFeed / Deploy Events',
+    description: 'Chronological event rows with semantic state markers and details.',
+    mount(parent) {
+      return activityFeed({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          items: [
+            { detail: 'sha 3f2a91c', id: 'queued', label: 'Build queued', tone: 'info' },
+            { detail: '2m 14s', id: 'passed', label: 'Tests passed', tone: 'success' },
+            { detail: 'edge cache warming', id: 'deploying', label: 'Deploying', tone: 'warning' },
+            { detail: 'iad1', id: 'ready', label: 'Production ready', tone: 'success' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'file-tree/workspace',
+    title: 'FileTree / Workspace',
+    description: 'File-specific tree with directory, file, and git-state markers.',
+    mount(parent) {
+      return fileTree({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 48,
+        },
+        data: {
+          activeId: 'src/index.ts',
+          expandedIds: new Set(['src', 'src/components']),
+          nodes: [
+            {
+              children: [
+                {
+                  children: [
+                    {
+                      gitStatus: 'modified',
+                      id: 'src/components/button.ts',
+                      kind: 'file',
+                      label: 'button.ts',
+                    },
+                    {
+                      gitStatus: 'staged',
+                      id: 'src/components/card.ts',
+                      kind: 'file',
+                      label: 'card.ts',
+                    },
+                  ],
+                  id: 'src/components',
+                  kind: 'directory',
+                  label: 'components',
+                },
+                { gitStatus: 'untracked', id: 'src/index.ts', kind: 'file', label: 'index.ts' },
+              ],
+              id: 'src',
+              kind: 'directory',
+              label: 'src',
+            },
+          ],
+          selectedId: 'src/index.ts',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'json-viewer/config',
+    title: 'JsonViewer / Config',
+    description: 'Expandable JSON data with deterministic path ids.',
+    mount(parent) {
+      return jsonViewer({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 52,
+        },
+        data: {
+          expandedPaths: new Set(['$', '$.build', '$.build.env']),
+          value: {
+            build: {
+              command: 'npm run build',
+              env: { NODE_ENV: 'production', REGION: 'iad1' },
+            },
+            version: '1.10.0',
+          },
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'inspector/request',
+    title: 'Inspector / Request',
+    description: 'Nested object inspection with key, type, and preview values.',
+    mount(parent) {
+      return inspector({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          expandedPaths: new Set(['$', '$.headers']),
+          value: {
+            headers: { accept: 'application/json', authorization: '***' },
+            method: 'GET',
+            status: 200,
+          },
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'axis/latency-scale',
+    title: 'Axis / Latency Scale',
+    description: 'Two-line numeric axis with deterministic tick positions.',
+    mount(parent) {
+      return axis({
+        box: {
+          border: 'line',
+          height: 4,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 48,
+        },
+        data: {
+          max: 500,
+          min: 0,
+          tickCount: 5,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'bullet-chart/service-slo',
+    title: 'BulletChart / Service SLO',
+    description: 'Actual value against target with qualitative range background.',
+    mount(parent) {
+      return bulletChart({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 56,
+        },
+        data: {
+          label: 'Availability',
+          ranges: [
+            { end: 90, start: 0 },
+            { end: 99, start: 90 },
+          ],
+          target: 99,
+          value: 97,
+          width: 24,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'histogram/latency-distribution',
+    title: 'Histogram / Latency Distribution',
+    description: 'Binned numeric distribution rendered as horizontal bars.',
+    mount(parent) {
+      return histogram({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          barWidth: 14,
+          binCount: 5,
+          values: [12, 18, 22, 26, 31, 34, 38, 42, 58, 61, 74, 88, 94, 110, 144],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'command-palette/actions',
+    title: 'CommandPalette / Actions',
+    description: 'Searchable command surface with active and disabled command rows.',
+    mount(parent) {
+      return commandPalette({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 54,
+        },
+        data: {
+          activeId: 'deploy',
+          items: [
+            { description: 'Run production deploy', id: 'deploy', label: 'Deploy' },
+            { description: 'Open recent logs', id: 'logs', label: 'Show logs' },
+            {
+              description: 'Temporarily unavailable',
+              disabled: true,
+              id: 'rollback',
+              label: 'Rollback',
+            },
+          ],
+          query: 'de',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'combobox/runtime',
+    title: 'Combobox / Runtime',
+    description: 'Search input with filtered suggestion list and selected value.',
+    mount(parent) {
+      return combobox({
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 42,
+        },
+        data: {
+          activeId: 'node',
+          items: [
+            { id: 'node', label: 'Node.js' },
+            { id: 'bun', label: 'Bun' },
+            { id: 'edge', label: 'Edge runtime' },
+          ],
+          open: true,
+          query: 'n',
+          value: 'node',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'keybinding-input/shortcut',
+    title: 'KeybindingInput / Shortcut',
+    description: 'Captured keyboard shortcut display with recording state.',
+    mount(parent) {
+      return keybindingInput({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          keys: ['ctrl-k', 'shift-enter'],
+          recording: true,
+        },
+        parent,
       });
     },
   }),
