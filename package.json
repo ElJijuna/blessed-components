@@ -69,6 +69,16 @@
       "import": "./dist/alert/blessed.js",
       "require": "./dist/alert/blessed.cjs"
     },
+    "./ascii-art": {
+      "types": "./dist/ascii-art/index.d.ts",
+      "import": "./dist/ascii-art/index.js",
+      "require": "./dist/ascii-art/index.cjs"
+    },
+    "./ascii-art/blessed": {
+      "types": "./dist/ascii-art/blessed.d.ts",
+      "import": "./dist/ascii-art/blessed.js",
+      "require": "./dist/ascii-art/blessed.cjs"
+    },
     "./axis": {
       "types": "./dist/axis/index.d.ts",
       "import": "./dist/axis/index.js",
@@ -78,6 +88,16 @@
       "types": "./dist/axis/blessed.d.ts",
       "import": "./dist/axis/blessed.js",
       "require": "./dist/axis/blessed.cjs"
+    },
+    "./autocomplete": {
+      "types": "./dist/autocomplete/index.d.ts",
+      "import": "./dist/autocomplete/index.js",
+      "require": "./dist/autocomplete/index.cjs"
+    },
+    "./autocomplete/blessed": {
+      "types": "./dist/autocomplete/blessed.d.ts",
+      "import": "./dist/autocomplete/blessed.js",
+      "require": "./dist/autocomplete/blessed.cjs"
     },
     "./badge": {
       "types": "./dist/badge/index.d.ts",
@@ -129,6 +149,16 @@
       "import": "./dist/button/blessed.js",
       "require": "./dist/button/blessed.cjs"
     },
+    "./calendar-heatmap": {
+      "types": "./dist/calendar-heatmap/index.d.ts",
+      "import": "./dist/calendar-heatmap/index.js",
+      "require": "./dist/calendar-heatmap/index.cjs"
+    },
+    "./calendar-heatmap/blessed": {
+      "types": "./dist/calendar-heatmap/blessed.d.ts",
+      "import": "./dist/calendar-heatmap/blessed.js",
+      "require": "./dist/calendar-heatmap/blessed.cjs"
+    },
     "./checkbox": {
       "types": "./dist/checkbox/index.d.ts",
       "import": "./dist/checkbox/index.js",
@@ -139,6 +169,16 @@
       "import": "./dist/checkbox/blessed.js",
       "require": "./dist/checkbox/blessed.cjs"
     },
+    "./clock": {
+      "types": "./dist/clock/index.d.ts",
+      "import": "./dist/clock/index.js",
+      "require": "./dist/clock/index.cjs"
+    },
+    "./clock/blessed": {
+      "types": "./dist/clock/blessed.d.ts",
+      "import": "./dist/clock/blessed.js",
+      "require": "./dist/clock/blessed.cjs"
+    },
     "./code": {
       "types": "./dist/code/index.d.ts",
       "import": "./dist/code/index.js",
@@ -148,6 +188,16 @@
       "types": "./dist/code/blessed.d.ts",
       "import": "./dist/code/blessed.js",
       "require": "./dist/code/blessed.cjs"
+    },
+    "./color-swatch": {
+      "types": "./dist/color-swatch/index.d.ts",
+      "import": "./dist/color-swatch/index.js",
+      "require": "./dist/color-swatch/index.cjs"
+    },
+    "./color-swatch/blessed": {
+      "types": "./dist/color-swatch/blessed.d.ts",
+      "import": "./dist/color-swatch/blessed.js",
+      "require": "./dist/color-swatch/blessed.cjs"
     },
     "./collapsible": {
       "types": "./dist/collapsible/index.d.ts",
@@ -469,6 +519,16 @@
       "import": "./dist/legend/blessed.js",
       "require": "./dist/legend/blessed.cjs"
     },
+    "./link": {
+      "types": "./dist/link/index.d.ts",
+      "import": "./dist/link/index.js",
+      "require": "./dist/link/index.cjs"
+    },
+    "./link/blessed": {
+      "types": "./dist/link/blessed.d.ts",
+      "import": "./dist/link/blessed.js",
+      "require": "./dist/link/blessed.cjs"
+    },
     "./metric-bars": {
       "types": "./dist/metric-bars/index.d.ts",
       "import": "./dist/metric-bars/index.js",
@@ -689,6 +749,16 @@
       "import": "./dist/pagination/blessed.js",
       "require": "./dist/pagination/blessed.cjs"
     },
+    "./palette": {
+      "types": "./dist/palette/index.d.ts",
+      "import": "./dist/palette/index.js",
+      "require": "./dist/palette/index.cjs"
+    },
+    "./palette/blessed": {
+      "types": "./dist/palette/blessed.d.ts",
+      "import": "./dist/palette/blessed.js",
+      "require": "./dist/palette/blessed.cjs"
+    },
     "./progress-bar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js",
@@ -718,6 +788,16 @@
       "types": "./dist/progress-stack/blessed.d.ts",
       "import": "./dist/progress-stack/blessed.js",
       "require": "./dist/progress-stack/blessed.cjs"
+    },
+    "./quick-switcher": {
+      "types": "./dist/quick-switcher/index.d.ts",
+      "import": "./dist/quick-switcher/index.js",
+      "require": "./dist/quick-switcher/index.cjs"
+    },
+    "./quick-switcher/blessed": {
+      "types": "./dist/quick-switcher/blessed.d.ts",
+      "import": "./dist/quick-switcher/blessed.js",
+      "require": "./dist/quick-switcher/blessed.cjs"
     },
     "./radio-group": {
       "types": "./dist/radio-group/index.d.ts",
@@ -778,6 +858,16 @@
       "types": "./dist/switch/blessed.d.ts",
       "import": "./dist/switch/blessed.js",
       "require": "./dist/switch/blessed.cjs"
+    },
+    "./text-area": {
+      "types": "./dist/text-area/index.d.ts",
+      "import": "./dist/text-area/index.js",
+      "require": "./dist/text-area/index.cjs"
+    },
+    "./text-area/blessed": {
+      "types": "./dist/text-area/blessed.d.ts",
+      "import": "./dist/text-area/blessed.js",
+      "require": "./dist/text-area/blessed.cjs"
     },
     "./text-field": {
       "types": "./dist/text-field/index.d.ts",
@@ -988,6 +1078,16 @@
       "types": "./dist/timestamp/blessed.d.ts",
       "import": "./dist/timestamp/blessed.js",
       "require": "./dist/timestamp/blessed.cjs"
+    },
+    "./timer": {
+      "types": "./dist/timer/index.d.ts",
+      "import": "./dist/timer/index.js",
+      "require": "./dist/timer/index.cjs"
+    },
+    "./timer/blessed": {
+      "types": "./dist/timer/blessed.d.ts",
+      "import": "./dist/timer/blessed.js",
+      "require": "./dist/timer/blessed.cjs"
     },
     "./thresholds": {
       "types": "./dist/thresholds/index.d.ts",

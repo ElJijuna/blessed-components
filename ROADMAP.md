@@ -428,7 +428,7 @@ quality, or maintenance advantage.
 | `AreaChart`        | Filled time-series trend.                           | Defer        | P3       |
 | `Histogram`        | Numeric distribution by bins.                       | Available    | P2       |
 | `Heatmap`          | Dense matrix of intensity values.                   | Research     | P3       |
-| `CalendarHeatmap`  | Activity intensity by date.                         | Build        | P3       |
+| `CalendarHeatmap`  | Activity intensity by date.                         | Available    | P3       |
 | `ScatterPlot`      | Relationship between two numeric values.            | Defer        | P3       |
 | `BoxPlot`          | Statistical distribution summary.                   | Defer        | P3       |
 | `Donut`            | Part-to-whole radial display.                       | Defer        | P3       |
@@ -460,7 +460,7 @@ Navigation components need a shared focus model and documented keyboard maps.
 | `Pager`          | Previous/next navigation for views or records. | Available | P2       |
 | `Carousel`       | Manual or timed view rotation.                 | Adapt    | P3       |
 | `CommandPalette` | Searchable command execution.                  | Available | P2       |
-| `QuickSwitcher`  | Search and switch resources or views.          | Build    | P2       |
+| `QuickSwitcher`  | Search and switch resources or views.          | Available | P2       |
 | `HelpOverlay`    | Searchable keyboard shortcut reference.        | Available | P1       |
 
 ### 8. Inputs and forms
@@ -474,7 +474,7 @@ consistent state, composition, and cleanup.
 | `IconButton`      | Compact action with required text description.         | Available | P2       |
 | `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
 | `PasswordField`   | Masked input with reveal behavior.                     | Available | P2       |
-| `TextArea`        | Multiline text with validation and counters.           | Adapt    | P2       |
+| `TextArea`        | Multiline text with validation and counters.           | Available | P2       |
 | `NumberField`     | Numeric input with parsing, bounds, and step.          | Available | P2       |
 | `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
 | `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
@@ -483,7 +483,7 @@ consistent state, composition, and cleanup.
 | `Select`          | One value from a popup or inline list.                 | Available | P1       |
 | `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
 | `Combobox`        | Searchable input plus suggestions.                     | Available | P2       |
-| `Autocomplete`    | Suggest completions while typing.                      | Build    | P2       |
+| `Autocomplete`    | Suggest completions while typing.                      | Available | P2       |
 | `DateInput`       | Parse and validate a date string.                      | Research | P3       |
 | `TimeInput`       | Parse and validate time.                               | Research | P3       |
 | `KeybindingInput` | Capture and display shortcut combinations.             | Available | P3       |
@@ -556,20 +556,20 @@ Useful, but dependency-heavy features should remain optional entry points.
 | ---------------- | ------------------------------------------------------ | -------- | -------- |
 | `MarkdownViewer` | Render Markdown into terminal-safe content.            | Research | P3       |
 | `RichText`       | Styled spans, links, and selectable text.              | Research | P3       |
-| `Link`           | Visible URL plus optional terminal hyperlink sequence. | Build    | P2       |
+| `Link`           | Visible URL plus optional terminal hyperlink sequence. | Available | P2       |
 | `Image`          | Capability-aware terminal image or text fallback.      | Adapt    | P3       |
-| `AsciiArt`       | Render static art with alignment and cropping.         | Build    | P3       |
+| `AsciiArt`       | Render static art with alignment and cropping.         | Available | P3       |
 | `BigText`        | Large glyph text through Blessed.                      | Adapt    | P3       |
 | `QRCode`         | Render QR codes using terminal cells.                  | Build    | P3       |
-| `ColorSwatch`    | Show terminal color and numeric representation.        | Build    | P3       |
-| `Palette`        | Display semantic theme colors and contrast pairs.      | Build    | P3       |
+| `ColorSwatch`    | Show terminal color and numeric representation.        | Available | P3       |
+| `Palette`        | Display semantic theme colors and contrast pairs.      | Available | P3       |
 
 ### 13. Date, time, and scheduling
 
 | Component         | Purpose                                   | Decision | Priority |
 | ----------------- | ----------------------------------------- | -------- | -------- |
-| `Clock`           | Live local or zoned time.                 | Build    | P2       |
-| `Timer`           | Elapsed duration with pause and reset.    | Build    | P2       |
+| `Clock`           | Live local or zoned time.                 | Available | P2       |
+| `Timer`           | Elapsed duration with pause and reset.    | Available | P2       |
 | `Countdown`       | Remaining duration with completion event. | Build    | P2       |
 | `Calendar`        | Navigate and select dates.                | Research | P3       |
 | `DateRangePicker` | Select a bounded date interval.           | Defer    | P3       |

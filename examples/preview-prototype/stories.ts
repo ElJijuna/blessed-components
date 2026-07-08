@@ -3,11 +3,14 @@ import {
   activityFeed,
   alert,
   appShell,
+  asciiArt,
+  autocomplete,
   axis,
   badge,
   box,
   bulletChart,
   button,
+  calendarHeatmap,
   cardBody,
   cardDescription,
   cardFooter,
@@ -16,8 +19,10 @@ import {
   cardTitle,
   center,
   checkbox,
+  clock,
   cluster,
   collapsible,
+  colorSwatch,
   combobox,
   commandPalette,
   dataTable,
@@ -53,6 +58,7 @@ import {
   keyValue,
   label,
   legend,
+  link,
   list,
   loadingOverlay,
   logExplorer,
@@ -68,10 +74,12 @@ import {
   page,
   pager,
   pagination,
+  palette,
   passwordField,
   progressBar,
   progressList,
   progressStack,
+  quickSwitcher,
   radioGroup,
   scrollArea,
   searchField,
@@ -92,8 +100,10 @@ import {
   tabs,
   taskProgress,
   text,
+  textArea,
   textField,
   thresholds,
+  timer,
   toast,
   tree,
   trend,
@@ -3163,6 +3173,245 @@ export const stories: readonly PreviewStory[] = [
         data: {
           keys: ['ctrl-k', 'shift-enter'],
           recording: true,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'text-area/multiline',
+    title: 'TextArea / Multiline',
+    description: 'Bounded multiline text with line numbers and cursor marker.',
+    mount(parent) {
+      return textArea({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 52,
+        },
+        data: {
+          cursorLine: 1,
+          lineNumbers: true,
+          value: 'Deploy notes\nValidate smoke tests\nPromote release',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'autocomplete/language',
+    title: 'Autocomplete / Language',
+    description: 'Input row with prefix-first suggestion filtering.',
+    mount(parent) {
+      return autocomplete({
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 42,
+        },
+        data: {
+          activeId: 'ts',
+          items: [
+            { id: 'ts', label: 'TypeScript' },
+            { id: 'tsx', label: 'TSX' },
+            { id: 'js', label: 'JavaScript' },
+          ],
+          query: 't',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'quick-switcher/resources',
+    title: 'QuickSwitcher / Resources',
+    description: 'Search and switch views or resources with group and metadata.',
+    mount(parent) {
+      return quickSwitcher({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          activeId: 'logs',
+          items: [
+            { group: 'Views', id: 'logs', label: 'Logs', meta: 'live' },
+            { group: 'Views', id: 'deployments', label: 'Deployments', meta: '12' },
+            { group: 'Projects', id: 'api', label: 'API', meta: 'production' },
+          ],
+          query: 'log',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'calendar-heatmap/activity',
+    title: 'CalendarHeatmap / Activity',
+    description: 'Seven-row daily activity grid with intensity characters.',
+    mount(parent) {
+      return calendarHeatmap({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 28,
+        },
+        data: {
+          days: Array.from({ length: 28 }, (_, index) => ({
+            date: `2026-07-${String(index + 1).padStart(2, '0')}`,
+            value: (index * 3) % 9,
+          })),
+          max: 8,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'link/docs',
+    title: 'Link / Docs',
+    description: 'Visible URL row with terminal-safe text output.',
+    mount(parent) {
+      return link({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 62,
+        },
+        data: {
+          label: 'Roadmap',
+          url: 'https://example.com/roadmap',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'ascii-art/logo',
+    title: 'AsciiArt / Logo',
+    description: 'Aligned static ASCII art with bounded crop.',
+    mount(parent) {
+      return asciiArt({
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 30,
+        },
+        data: {
+          align: 'center',
+          art: 'BLESSED\nCOMPONENTS\n========',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'color-swatch/primary',
+    title: 'ColorSwatch / Primary',
+    description: 'Terminal-safe color token row that works without color.',
+    mount(parent) {
+      return colorSwatch({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          color: '#3b82f6',
+          label: 'Primary',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'palette/theme',
+    title: 'Palette / Theme',
+    description: 'Bounded list of semantic color swatches.',
+    mount(parent) {
+      return palette({
+        box: {
+          border: 'line',
+          height: 6,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 38,
+        },
+        data: {
+          items: [
+            { color: '#3b82f6', id: 'primary', label: 'Primary' },
+            { color: '#22c55e', id: 'success', label: 'Success' },
+            { color: '#ef4444', id: 'danger', label: 'Danger' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'clock/zoned-time',
+    title: 'Clock / Zoned Time',
+    description: 'Deterministic local or zoned time display.',
+    mount(parent) {
+      return clock({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          label: 'UTC',
+          timeZone: 'UTC',
+          value: '2026-07-08T12:00:00Z',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'timer/build-duration',
+    title: 'Timer / Build Duration',
+    description: 'Elapsed duration with paused state marker text.',
+    mount(parent) {
+      return timer({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 34,
+        },
+        data: {
+          elapsed: 125_000,
+          label: 'Build',
+          paused: true,
         },
         parent,
       });

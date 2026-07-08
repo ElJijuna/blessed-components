@@ -1,4 +1,5 @@
 /** Interactive form and action components. */
+export * from './autocomplete/index.js';
 export * from './button/index.js';
 export * from './checkbox/index.js';
 export * from './combobox/index.js';
@@ -13,4 +14,5 @@ export * from './radio-group/index.js';
 export * from './search-field/index.js';
 export * from './select/index.js';
 export * from './switch/index.js';
+export * from './text-area/index.js';
 export * from './text-field/index.js';

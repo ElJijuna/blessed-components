@@ -12,5 +12,6 @@ export * from './menu-bar/index.js';
 export * from './navigation-list/index.js';
 export * from './pager/index.js';
 export * from './pagination/index.js';
+export * from './quick-switcher/index.js';
 export * from './tab-list/index.js';
 export * from './tabs/index.js';

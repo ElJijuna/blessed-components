@@ -3,6 +3,7 @@
  */
 export * from './axis/index.js';
 export * from './bullet-chart/index.js';
+export * from './calendar-heatmap/index.js';
 export * from './gauge/index.js';
 export * from './histogram/index.js';
 export * from './legend/index.js';
