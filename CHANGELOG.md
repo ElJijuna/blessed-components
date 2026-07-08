@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/ElJijuna/blessed-components/compare/v1.10.0...v1.11.0) (2026-07-08)
+
+### Features
+
+* add new components for visualization, input, and navigation ([85ad4f3](https://github.com/ElJijuna/blessed-components/commit/85ad4f3c92601517afbf54a5b3358831fe00caa4))
+* add TextArea and QuickSwitcher components with respective rendering logic ([ef6784f](https://github.com/ElJijuna/blessed-components/commit/ef6784f0812ba40fee1ae8926ff1f22612b1b55b))
+
 ## [1.10.0](https://github.com/ElJijuna/blessed-components/compare/v1.9.0...v1.10.0) (2026-07-07)
 
 ### Features
