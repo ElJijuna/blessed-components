@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0](https://github.com/ElJijuna/blessed-components/compare/v1.11.0...v1.12.0) (2026-07-09)
+
+### Features
+
+* add DateInput and TimeInput components with parsing and rendering functionality ([788291b](https://github.com/ElJijuna/blessed-components/commit/788291b680e6670e57aa058c5fc65dcf824ce972))
+
 ## [1.11.0](https://github.com/ElJijuna/blessed-components/compare/v1.10.0...v1.11.0) (2026-07-08)
 
 ### Features
