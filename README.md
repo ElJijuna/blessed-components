@@ -6,7 +6,10 @@ Composable, typed terminal UI components for
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
 > `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `Kbd`, `KeyValue`, `Label`, `List`, `MetricBars`, `MutedText`, `ProgressBar`,
 > `ProgressList`, `ProgressStack`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
-> `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, and `Viewport` are available; more
+> `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, `Viewport`,
+> `DateInput`, `TimeInput`, `PromptDialog`, `Tooltip`, `ToastViewport`, `Countdown`, `Schedule`,
+> `CodeViewer`, `DiffViewer`, `StackTrace`, `EnvironmentTable`, `ShortcutRecorder`, `EventLog`,
+> `CommandOutput`, and `QrCode` are available; more
 > components are coming soon.
 
 ## Goals
@@ -93,6 +96,8 @@ npm install blessed blessed-components
 | [`IconButton`](./src/components/input/icon-button/README.md) | Compact action with required text description. | Available |
 | [`NumberField`](./src/components/input/number-field/README.md) | Numeric input with parsing, bounds, and step. | Available |
 | [`PasswordField`](./src/components/input/password-field/README.md) | Masked input with reveal behavior. | Available |
+| [`DateInput`](./src/components/input/date-input/README.md) | Parse and validate date text. | Available |
+| [`TimeInput`](./src/components/input/time-input/README.md) | Parse and validate time text. | Available |
 | `Tabs`           | Switch between views.        | Available |
 | `Menu`           | Navigate a list of actions.  | Available |
 | [`MenuBar`](./src/components/navigation/menu-bar/README.md) | Navigate top-level horizontal menus. | Available |
@@ -111,6 +116,29 @@ npm install blessed blessed-components
 | [`Dialog`](./src/components/overlays/dialog/README.md) | Show modal content with trapped and restored focus. | Available |
 | [`Drawer`](./src/components/overlays/drawer/README.md) | Show edge-attached temporary content. | Available |
 | [`Spotlight`](./src/components/overlays/spotlight/README.md) | Search and launch actions or resources. | Available |
+| [`PromptDialog`](./src/components/overlays/prompt-dialog/README.md) | Request one value in a modal flow. | Available |
+| [`Tooltip`](./src/components/overlays/tooltip/README.md) | Show delayed contextual help. | Available |
+
+### Developer tools
+
+| Component | Purpose | Priority |
+| --- | --- | --- |
+| [`CodeViewer`](./src/components/developer-tools/code-viewer/README.md) | Render source with line numbers. | Available |
+| [`DiffViewer`](./src/components/developer-tools/diff-viewer/README.md) | Render unified diff rows. | Available |
+| [`StackTrace`](./src/components/developer-tools/stack-trace/README.md) | Render structured stack frames. | Available |
+| [`EnvironmentTable`](./src/components/developer-tools/environment-table/README.md) | Render masked environment variables. | Available |
+| [`ShortcutRecorder`](./src/components/developer-tools/shortcut-recorder/README.md) | Display captured terminal shortcuts. | Available |
+| [`EventLog`](./src/components/developer-tools/event-log/README.md) | Render structured TUI events. | Available |
+| [`CommandOutput`](./src/components/developer-tools/command-output/README.md) | Render read-only command output. | Available |
+
+### Date, time, and content
+
+| Component | Purpose | Priority |
+| --- | --- | --- |
+| [`Countdown`](./src/components/scheduling/countdown/README.md) | Display remaining time until completion. | Available |
+| [`Schedule`](./src/components/scheduling/schedule/README.md) | Display ordered upcoming events. | Available |
+| [`QrCode`](./src/components/content/qr-code/README.md) | Render a supplied QR/module matrix. | Available |
+| [`ToastViewport`](./src/components/feedback/toast-viewport/README.md) | Position and manage toast notifications. | Available |
 
 See [ROADMAP.md](./ROADMAP.md) for milestones, proposed APIs, and TDD strategy.
 
@@ -134,9 +162,10 @@ examples/
 Renderers remain independent from Blessed. Adapters own element updates,
 listeners, timers, and cleanup.
 
-Current component source categories include `collections`, `data-display`,
-`feedback`, `input`, `layout`, `overlays`, and `visualization`. Public npm subpaths
-remain component-oriented, for example `blessed-components/list` and
+Current component source categories include `collections`, `content`,
+`data-display`, `developer-tools`, `feedback`, `input`, `layout`, `overlays`,
+`scheduling`, and `visualization`. Public npm subpaths remain
+component-oriented, for example `blessed-components/list` and
 `blessed-components/dialog`.
 
 ### Core utilities

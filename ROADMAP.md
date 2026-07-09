@@ -484,8 +484,8 @@ consistent state, composition, and cleanup.
 | `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
 | `Combobox`        | Searchable input plus suggestions.                     | Available | P2       |
 | `Autocomplete`    | Suggest completions while typing.                      | Available | P2       |
-| `DateInput`       | Parse and validate a date string.                      | Research | P3       |
-| `TimeInput`       | Parse and validate time.                               | Research | P3       |
+| `DateInput`       | Parse and validate a date string.                      | Available | P3       |
+| `TimeInput`       | Parse and validate time.                               | Available | P3       |
 | `KeybindingInput` | Capture and display shortcut combinations.             | Available | P3       |
 | `FilePicker`      | Navigate and select files or directories.              | Adapt    | P2       |
 | `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
@@ -501,11 +501,11 @@ global key cleanup.
 | `Overlay`       | Visual screen layer over the available stack primitive. | Available | P1       |
 | `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
 | `ConfirmDialog` | Confirm or cancel a consequential action.       | Available | P1       |
-| `PromptDialog`  | Request one value in a modal flow.              | Adapt    | P2       |
+| `PromptDialog`  | Request one value in a modal flow.              | Available | P2       |
 | `Drawer`        | Edge-attached temporary panel.                  | Available | P2       |
 | `Popover`       | Anchored temporary content.                     | Research | P3       |
-| `Tooltip`       | Delayed contextual help.                        | Adapt    | P3       |
-| `ToastViewport` | Position and manage toast notifications.        | Build    | P2       |
+| `Tooltip`       | Delayed contextual help.                        | Available | P3       |
+| `ToastViewport` | Position and manage toast notifications.        | Available | P2       |
 | `Spotlight`     | Full-screen searchable action/resource overlay. | Available | P2       |
 
 ### 10. Developer-tool components
@@ -516,9 +516,9 @@ libraries.
 
 | Component          | Purpose                                             | Decision    | Priority |
 | ------------------ | --------------------------------------------------- | ----------- | -------- |
-| `CodeViewer`       | Syntax-highlighted, scrollable source.              | Build       | P2       |
-| `DiffViewer`       | Unified or split patch rendering.                   | Build       | P2       |
-| `StackTrace`       | Parse and navigate stack frames.                    | Build       | P2       |
+| `CodeViewer`       | Syntax-highlighted, scrollable source.              | Available   | P2       |
+| `DiffViewer`       | Unified or split patch rendering.                   | Available   | P2       |
+| `StackTrace`       | Parse and navigate stack frames.                    | Available   | P2       |
 | `TestResults`      | Suites, tests, failures, duration, and retry state. | Block first | P2       |
 | `BuildStatus`      | Build phases, duration, logs, and outcome.          | Block first | P2       |
 | `GitStatus`        | Branch, staged, modified, untracked, conflicts.     | Block first | P2       |
@@ -526,9 +526,9 @@ libraries.
 | `DependencyTree`   | Package dependency hierarchy and problems.          | Block first | P3       |
 | `RequestInspector` | HTTP request/response headers and body.             | Block first | P3       |
 | `QueryResults`     | Database result table and execution metadata.       | Block first | P3       |
-| `EnvironmentTable` | Masked environment variable inspection.             | Build       | P3       |
-| `ShortcutRecorder` | Inspect keypress names emitted by terminal.         | Build       | P3       |
-| `EventLog`         | Structured event stream for debugging TUI behavior. | Build       | P2       |
+| `EnvironmentTable` | Masked environment variable inspection.             | Available   | P3       |
+| `ShortcutRecorder` | Inspect keypress names emitted by terminal.         | Available   | P3       |
+| `EventLog`         | Structured event stream for debugging TUI behavior. | Available   | P2       |
 | `PerformancePanel` | FPS, render time, memory, and event-loop delay.     | Research    | P3       |
 
 ### 11. Terminal and process components
@@ -540,7 +540,7 @@ High power, high lifecycle and security cost.
 | `TerminalPane`  | Embed a subprocess terminal.                    | Adapt       | P3       |
 | `ProcessRunner` | Run command, stream output, expose exit state.  | Research    | P3       |
 | `ProcessTable`  | Monitor multiple child processes.               | Block first | P3       |
-| `CommandOutput` | Read-only stdout/stderr viewer with status.     | Build       | P2       |
+| `CommandOutput` | Read-only stdout/stderr viewer with status.     | Available   | P2       |
 | `TaskRunner`    | Execute named tasks with logs and cancellation. | Block first | P3       |
 | `REPL`          | Prompt, history, evaluation, and results.       | Research    | P3       |
 | `ShellHistory`  | Search and select previous commands.            | Research    | P3       |
@@ -560,7 +560,7 @@ Useful, but dependency-heavy features should remain optional entry points.
 | `Image`          | Capability-aware terminal image or text fallback.      | Adapt    | P3       |
 | `AsciiArt`       | Render static art with alignment and cropping.         | Available | P3       |
 | `BigText`        | Large glyph text through Blessed.                      | Adapt    | P3       |
-| `QRCode`         | Render QR codes using terminal cells.                  | Build    | P3       |
+| `QRCode`         | Render QR codes using terminal cells.                  | Available | P3       |
 | `ColorSwatch`    | Show terminal color and numeric representation.        | Available | P3       |
 | `Palette`        | Display semantic theme colors and contrast pairs.      | Available | P3       |
 
@@ -570,10 +570,10 @@ Useful, but dependency-heavy features should remain optional entry points.
 | ----------------- | ----------------------------------------- | -------- | -------- |
 | `Clock`           | Live local or zoned time.                 | Available | P2       |
 | `Timer`           | Elapsed duration with pause and reset.    | Available | P2       |
-| `Countdown`       | Remaining duration with completion event. | Build    | P2       |
+| `Countdown`       | Remaining duration with completion event. | Available | P2       |
 | `Calendar`        | Navigate and select dates.                | Research | P3       |
 | `DateRangePicker` | Select a bounded date interval.           | Defer    | P3       |
-| `Schedule`        | Ordered upcoming events.                  | Build    | P3       |
+| `Schedule`        | Ordered upcoming events.                  | Available | P3       |
 | `Gantt`           | Time-based task spans.                    | Defer    | P3       |
 
 ### 14. Application blocks

@@ -1,3 +1,5 @@
+import blessed from 'blessed';
+
 import {
   accordion,
   activityFeed,
@@ -81,6 +83,21 @@ import {
   progressStack,
   quickSwitcher,
   radioGroup,
+  renderCodeViewer,
+  renderCommandOutput,
+  renderCountdown,
+  renderDateInput,
+  renderDiffViewer,
+  renderEnvironmentTable,
+  renderEventLog,
+  renderPromptDialog,
+  renderQrCode,
+  renderSchedule,
+  renderShortcutRecorder,
+  renderStackTrace,
+  renderTimeInput,
+  renderToastViewport,
+  renderTooltip,
   scrollArea,
   searchField,
   select,
@@ -111,6 +128,33 @@ import {
 } from '@/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
+
+interface RenderedTextStoryOptions {
+  content: string;
+  height: number;
+  label: string;
+  left?: number;
+  top?: number;
+  width: number;
+}
+
+function renderedTextStory(
+  parent: blessed.Widgets.Node,
+  { content, height, label, left = 3, top = 1, width }: RenderedTextStoryOptions,
+) {
+  return blessed.box({
+    border: 'line',
+    content,
+    height,
+    label: ` ${label} `,
+    left,
+    padding: { left: 1, right: 1 },
+    parent,
+    tags: false,
+    top,
+    width,
+  });
+}
 
 export const stories: readonly PreviewStory[] = [
   defineStory({
@@ -3414,6 +3458,315 @@ export const stories: readonly PreviewStory[] = [
           paused: true,
         },
         parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'date-input/release-date',
+    title: 'DateInput / Release Date',
+    description: 'Labeled date input preview with YYYY-MM-DD validation hint.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderDateInput({
+          focused: true,
+          hint: 'Window starts after freeze',
+          label: 'Release date',
+          value: '2026-07-09',
+          width: 34,
+        }),
+        height: 6,
+        label: 'DateInput',
+        top: 1,
+        width: 42,
+      });
+    },
+  }),
+  defineStory({
+    id: 'time-input/deploy-window',
+    title: 'TimeInput / Deploy Window',
+    description: '24-hour time input preview with deterministic validation hint.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderTimeInput({
+          hint: 'UTC maintenance window',
+          label: 'Run at',
+          value: '09:30',
+          width: 32,
+        }),
+        height: 6,
+        label: 'TimeInput',
+        top: 1,
+        width: 40,
+      });
+    },
+  }),
+  defineStory({
+    id: 'prompt-dialog/rename-branch',
+    title: 'PromptDialog / Rename Branch',
+    description: 'Prompt body with value, validation text, and actions.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderPromptDialog({
+          defaultValue: 'release/2026-07',
+          hint: 'Use lowercase branch names',
+          message: 'Branch name',
+          title: 'Rename branch',
+          width: 36,
+        }),
+        height: 8,
+        label: 'PromptDialog',
+        top: 1,
+        width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'tooltip/save-help',
+    title: 'Tooltip / Save Help',
+    description: 'Small contextual help bubble with placement metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderTooltip({
+          message: 'Save changes before deploy',
+          placement: 'bottom',
+          showPlacement: true,
+          width: 28,
+        }),
+        height: 4,
+        label: 'Tooltip',
+        top: 2,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'toast-viewport/deploy-events',
+    title: 'ToastViewport / Deploy Events',
+    description: 'Bounded newest-first notification viewport.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderToastViewport({
+          items: [
+            { id: 'queued', message: 'Rollout queued', tone: 'info' },
+            { id: 'workers', message: 'Workers draining', title: 'Deploy', tone: 'warning' },
+            { id: 'done', message: 'API promoted', title: 'Deploy', tone: 'success' },
+          ],
+          limit: 3,
+          width: 34,
+        }),
+        height: 6,
+        label: 'ToastViewport',
+        top: 1,
+        width: 42,
+      });
+    },
+  }),
+  defineStory({
+    id: 'countdown/deploy-freeze',
+    title: 'Countdown / Deploy Freeze',
+    description: 'Remaining duration until a scheduled target time.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCountdown({
+          endsAt: '2026-07-09T01:00:00.000Z',
+          label: 'Freeze lifts',
+          now: '2026-07-09T00:18:30.000Z',
+        }),
+        height: 3,
+        label: 'Countdown',
+        top: 2,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'schedule/release-plan',
+    title: 'Schedule / Release Plan',
+    description: 'Ordered upcoming events with status metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderSchedule({
+          items: [
+            { id: 'deploy', label: 'Deploy', time: '2026-07-09T10:30:00.000Z' },
+            {
+              id: 'build',
+              label: 'Build',
+              status: 'running',
+              time: '2026-07-09T09:00:00.000Z',
+            },
+            { id: 'verify', label: 'Verify', status: 'blocked', time: '2026-07-09T11:15:00.000Z' },
+          ],
+          locale: 'en-US',
+          timeZone: 'UTC',
+          width: 36,
+        }),
+        height: 6,
+        label: 'Schedule',
+        top: 1,
+        width: 44,
+      });
+    },
+  }),
+  defineStory({
+    id: 'code-viewer/source',
+    title: 'CodeViewer / Source',
+    description: 'Source preview with language header and line numbers.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCodeViewer({
+          code: 'export function deploy() {\n  return "ready";\n}',
+          firstLine: 41,
+          language: 'ts',
+          width: 42,
+        }),
+        height: 7,
+        label: 'CodeViewer',
+        top: 1,
+        width: 50,
+      });
+    },
+  }),
+  defineStory({
+    id: 'diff-viewer/patch',
+    title: 'DiffViewer / Patch',
+    description: 'Unified diff rows with explicit add/remove markers.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderDiffViewer({
+          lines: [
+            { kind: 'context', text: 'status: pending' },
+            { kind: 'remove', text: 'replicas: 2' },
+            { kind: 'add', text: 'replicas: 3' },
+          ],
+          title: '@@ deploy.yaml @@',
+          width: 38,
+        }),
+        height: 7,
+        label: 'DiffViewer',
+        top: 1,
+        width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'stack-trace/error',
+    title: 'StackTrace / Error',
+    description: 'Structured stack frames with stable frame numbering.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderStackTrace({
+          error: 'TypeError: cannot read status',
+          frames: [
+            { column: 7, file: 'src/deploy.ts', functionName: 'readStatus', line: 12 },
+            { file: 'src/app.ts', functionName: 'run', line: 44 },
+          ],
+          width: 48,
+        }),
+        height: 6,
+        label: 'StackTrace',
+        top: 1,
+        width: 56,
+      });
+    },
+  }),
+  defineStory({
+    id: 'environment-table/masked',
+    title: 'EnvironmentTable / Masked',
+    description: 'Aligned environment variables with secret masking.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderEnvironmentTable({
+          items: [
+            { name: 'NODE_ENV', value: 'production' },
+            { name: 'API_TOKEN', secret: true, value: 'abc123' },
+            { name: 'REGION', value: 'iad1' },
+          ],
+          width: 36,
+        }),
+        height: 6,
+        label: 'EnvironmentTable',
+        top: 1,
+        width: 44,
+      });
+    },
+  }),
+  defineStory({
+    id: 'shortcut-recorder/recent',
+    title: 'ShortcutRecorder / Recent',
+    description: 'Recent terminal shortcut names and sequences.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderShortcutRecorder({
+          items: [{ key: 'tab' }, { key: 'C-c', sequence: '\\u0003' }],
+          width: 28,
+        }),
+        height: 5,
+        label: 'ShortcutRecorder',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'event-log/render-events',
+    title: 'EventLog / Render Events',
+    description: 'Structured event rows with level, scope, and time labels.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderEventLog({
+          items: [
+            { level: 'info', message: 'mounted', scope: 'preview', time: '10:00' },
+            { level: 'warn', message: 'slow render', scope: 'render', time: '10:01' },
+          ],
+          width: 40,
+        }),
+        height: 5,
+        label: 'EventLog',
+        top: 1,
+        width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'command-output/test-run',
+    title: 'CommandOutput / Test Run',
+    description: 'Read-only command status and captured output.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCommandOutput({
+          command: 'npm test',
+          output: ['243 files passed', '621 assertions passed'],
+          status: 'succeeded',
+          width: 38,
+        }),
+        height: 6,
+        label: 'CommandOutput',
+        top: 1,
+        width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'qr-code/module-matrix',
+    title: 'QrCode / Module Matrix',
+    description: 'Terminal cells from a supplied boolean module matrix.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderQrCode({
+          matrix: [
+            [true, true, true, false, true],
+            [true, false, true, false, false],
+            [true, true, true, false, true],
+            [false, false, false, true, false],
+            [true, false, true, false, true],
+          ],
+          off: '  ',
+          on: '██',
+        }),
+        height: 7,
+        label: 'QrCode',
+        top: 1,
+        width: 18,
       });
     },
   }),

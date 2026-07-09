@@ -1119,6 +1119,81 @@
       "import": "./dist/viewport/blessed.js",
       "require": "./dist/viewport/blessed.cjs"
     },
+    "./code-viewer": {
+      "types": "./dist/code-viewer/index.d.ts",
+      "import": "./dist/code-viewer/index.js",
+      "require": "./dist/code-viewer/index.cjs"
+    },
+    "./command-output": {
+      "types": "./dist/command-output/index.d.ts",
+      "import": "./dist/command-output/index.js",
+      "require": "./dist/command-output/index.cjs"
+    },
+    "./countdown": {
+      "types": "./dist/countdown/index.d.ts",
+      "import": "./dist/countdown/index.js",
+      "require": "./dist/countdown/index.cjs"
+    },
+    "./date-input": {
+      "types": "./dist/date-input/index.d.ts",
+      "import": "./dist/date-input/index.js",
+      "require": "./dist/date-input/index.cjs"
+    },
+    "./diff-viewer": {
+      "types": "./dist/diff-viewer/index.d.ts",
+      "import": "./dist/diff-viewer/index.js",
+      "require": "./dist/diff-viewer/index.cjs"
+    },
+    "./environment-table": {
+      "types": "./dist/environment-table/index.d.ts",
+      "import": "./dist/environment-table/index.js",
+      "require": "./dist/environment-table/index.cjs"
+    },
+    "./event-log": {
+      "types": "./dist/event-log/index.d.ts",
+      "import": "./dist/event-log/index.js",
+      "require": "./dist/event-log/index.cjs"
+    },
+    "./prompt-dialog": {
+      "types": "./dist/prompt-dialog/index.d.ts",
+      "import": "./dist/prompt-dialog/index.js",
+      "require": "./dist/prompt-dialog/index.cjs"
+    },
+    "./qr-code": {
+      "types": "./dist/qr-code/index.d.ts",
+      "import": "./dist/qr-code/index.js",
+      "require": "./dist/qr-code/index.cjs"
+    },
+    "./schedule": {
+      "types": "./dist/schedule/index.d.ts",
+      "import": "./dist/schedule/index.js",
+      "require": "./dist/schedule/index.cjs"
+    },
+    "./shortcut-recorder": {
+      "types": "./dist/shortcut-recorder/index.d.ts",
+      "import": "./dist/shortcut-recorder/index.js",
+      "require": "./dist/shortcut-recorder/index.cjs"
+    },
+    "./stack-trace": {
+      "types": "./dist/stack-trace/index.d.ts",
+      "import": "./dist/stack-trace/index.js",
+      "require": "./dist/stack-trace/index.cjs"
+    },
+    "./time-input": {
+      "types": "./dist/time-input/index.d.ts",
+      "import": "./dist/time-input/index.js",
+      "require": "./dist/time-input/index.cjs"
+    },
+    "./toast-viewport": {
+      "types": "./dist/toast-viewport/index.d.ts",
+      "import": "./dist/toast-viewport/index.js",
+      "require": "./dist/toast-viewport/index.cjs"
+    },
+    "./tooltip": {
+      "types": "./dist/tooltip/index.d.ts",
+      "import": "./dist/tooltip/index.js",
+      "require": "./dist/tooltip/index.cjs"
+    },
     "./core": {
       "types": "./dist/core/index.d.ts",
       "import": "./dist/core/index.js",
