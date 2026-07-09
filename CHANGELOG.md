@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.13.0](https://github.com/ElJijuna/blessed-components/compare/v1.12.0...v1.13.0) (2026-07-09)
+
+### Features
+
+* add TerminalPane component for scrollable terminal session display ([15f418a](https://github.com/ElJijuna/blessed-components/commit/15f418af1fa05af24c9ea233b13158a571ec38ce))
+
 ## [1.12.0](https://github.com/ElJijuna/blessed-components/compare/v1.11.0...v1.12.0) (2026-07-09)
 
 ### Features
