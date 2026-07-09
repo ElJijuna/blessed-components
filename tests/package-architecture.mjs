@@ -110,6 +110,7 @@ const expectedComponents = [
   'src/components/developer-tools/event-log/index.ts',
   'src/components/developer-tools/shortcut-recorder/index.ts',
   'src/components/developer-tools/stack-trace/index.ts',
+  'src/components/terminal/terminal-pane/index.ts',
   'src/components/content/qr-code/index.ts',
   'src/components/visualization/gauge/index.ts',
   'src/components/visualization/axis/index.ts',

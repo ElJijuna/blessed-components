@@ -9,7 +9,7 @@ Composable, typed terminal UI components for
 > `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, `Viewport`,
 > `DateInput`, `TimeInput`, `PromptDialog`, `Tooltip`, `ToastViewport`, `Countdown`, `Schedule`,
 > `CodeViewer`, `DiffViewer`, `StackTrace`, `EnvironmentTable`, `ShortcutRecorder`, `EventLog`,
-> `CommandOutput`, and `QrCode` are available; more
+> `CommandOutput`, `TerminalPane`, and `QrCode` are available; more
 > components are coming soon.
 
 ## Goals
@@ -130,6 +130,7 @@ npm install blessed blessed-components
 | [`ShortcutRecorder`](./src/components/developer-tools/shortcut-recorder/README.md) | Display captured terminal shortcuts. | Available |
 | [`EventLog`](./src/components/developer-tools/event-log/README.md) | Render structured TUI events. | Available |
 | [`CommandOutput`](./src/components/developer-tools/command-output/README.md) | Render read-only command output. | Available |
+| [`TerminalPane`](./src/components/terminal/terminal-pane/README.md) | Display a scrollable terminal session pane. | Available |
 
 ### Date, time, and content
 

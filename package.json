@@ -1129,6 +1129,16 @@
       "import": "./dist/command-output/index.js",
       "require": "./dist/command-output/index.cjs"
     },
+    "./terminal-pane": {
+      "types": "./dist/terminal-pane/index.d.ts",
+      "import": "./dist/terminal-pane/index.js",
+      "require": "./dist/terminal-pane/index.cjs"
+    },
+    "./terminal-pane/blessed": {
+      "types": "./dist/terminal-pane/blessed.d.ts",
+      "import": "./dist/terminal-pane/blessed.js",
+      "require": "./dist/terminal-pane/blessed.cjs"
+    },
     "./countdown": {
       "types": "./dist/countdown/index.d.ts",
       "import": "./dist/countdown/index.js",

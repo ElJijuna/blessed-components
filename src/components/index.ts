@@ -15,4 +15,5 @@ export * from './layout/index.js';
 export * from './navigation/index.js';
 export * from './overlays/index.js';
 export * from './scheduling/index.js';
+export * from './terminal/index.js';
 export * from './visualization/index.js';

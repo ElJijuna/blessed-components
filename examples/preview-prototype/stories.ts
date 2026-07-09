@@ -116,6 +116,7 @@ import {
   table,
   tabs,
   taskProgress,
+  terminalPane,
   text,
   textArea,
   textField,
@@ -3743,6 +3744,35 @@ export const stories: readonly PreviewStory[] = [
         label: 'CommandOutput',
         top: 1,
         width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'terminal-pane/build-session',
+    title: 'TerminalPane / Build Session',
+    description: 'Scrollable terminal session with stream markers and status.',
+    mount(parent) {
+      return terminalPane({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 2,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 56,
+        },
+        data: {
+          command: { args: ['run', 'build'], command: 'npm' },
+          lines: [
+            { stream: 'system', text: 'workspace blessed-components' },
+            { stream: 'stdout', text: 'bundling entries' },
+            { stream: 'stdout', text: 'emitting declarations' },
+            { stream: 'stderr', text: 'warning: large bundle' },
+            { stream: 'stdout', text: 'done in 2.1s' },
+          ],
+          status: 'running',
+        },
+        parent,
       });
     },
   }),

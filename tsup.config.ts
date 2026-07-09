@@ -255,6 +255,8 @@ const entry = {
   'schedule/index': 'src/components/scheduling/schedule/index.ts',
   'shortcut-recorder/index': 'src/components/developer-tools/shortcut-recorder/index.ts',
   'stack-trace/index': 'src/components/developer-tools/stack-trace/index.ts',
+  'terminal-pane/blessed': 'src/adapters/blessed/terminal-pane.ts',
+  'terminal-pane/index': 'src/components/terminal/terminal-pane/index.ts',
   'time-input/index': 'src/components/input/time-input/index.ts',
   'toast-viewport/index': 'src/components/feedback/toast-viewport/index.ts',
   'tooltip/index': 'src/components/overlays/tooltip/index.ts',

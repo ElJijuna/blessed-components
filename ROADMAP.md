@@ -537,7 +537,7 @@ High power, high lifecycle and security cost.
 
 | Component       | Purpose                                         | Decision    | Priority |
 | --------------- | ----------------------------------------------- | ----------- | -------- |
-| `TerminalPane`  | Embed a subprocess terminal.                    | Adapt       | P3       |
+| `TerminalPane`  | Display a scrollable terminal session pane.     | Available   | P3       |
 | `ProcessRunner` | Run command, stream output, expose exit state.  | Research    | P3       |
 | `ProcessTable`  | Monitor multiple child processes.               | Block first | P3       |
 | `CommandOutput` | Read-only stdout/stderr viewer with status.     | Available   | P2       |
