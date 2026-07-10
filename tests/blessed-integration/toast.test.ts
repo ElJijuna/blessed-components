@@ -22,7 +22,9 @@ describe('Blessed Toast adapter', () => {
         },
         parent: screen,
       });
+      const resizeListenersAfterCreate = stack.element.listeners('resize').length;
 
+      expect(resizeListenersAfterCreate).toBeGreaterThan(0);
       expect(stack.element.hidden).toBe(false);
       expect(stack.element.getContent()).toBe('i Started');
 
@@ -52,6 +54,7 @@ describe('Blessed Toast adapter', () => {
       expect(stack.items()).toEqual([]);
 
       stack.destroy();
+      expect(stack.element.listeners('resize')).toHaveLength(resizeListenersAfterCreate - 1);
       expect(screen.children).not.toContain(stack.element);
     } finally {
       screen.destroy();

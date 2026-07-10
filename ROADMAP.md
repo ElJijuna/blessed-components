@@ -618,10 +618,29 @@ Run all lifecycle smoke tests:
 ```sh
 npm run examples:smoke
 ```
-| `KubernetesDashboard` | resource table, status, events, logs             |
-| `QueueMonitor`        | rates, depth, workers, failures, retries         |
-| `CI Dashboard`        | pipelines, jobs, duration, logs, artifacts       |
-| `CommandCenter`       | command palette, shortcuts, task runner          |
+
+## P1 hardening status
+
+These items raise the package from component collection toward application
+library quality.
+
+| Area | Status | Artifact |
+| --- | --- | --- |
+| Theme tokens | Available | `Theme` now includes density, spacing, borders, variants, high-contrast colors, and component color fallback helpers. |
+| Capability matrix | Available | `createCapabilityMatrix` validates dumb, no-color, Windows ASCII fallback, 256-color, and truecolor scenarios. |
+| Interaction tests | Available | Public tests cover event clearing, modified key chords, focus fallback, and focus-trap behavior through Dialog integration. |
+| Listener/timer cleanup | Available | Spinner timer cleanup and Toast resize-listener cleanup are covered by integration tests. |
+| Renderer benchmarks | Available | `npm run benchmark` measures large tables, log windows, line-chart sampling, and bar-chart rendering. |
+| Navigable component docs | Available | `npm run docs:index` generates `docs/component-index.md` with adapter/test/story/doc maturity per component. |
+
+### Future application blocks
+
+| Block | Components it validates |
+| --- | --- |
+| `KubernetesDashboard` | resource table, status, events, logs |
+| `QueueMonitor` | rates, depth, workers, failures, retries |
+| `CI Dashboard` | pipelines, jobs, duration, logs, artifacts |
+| `CommandCenter` | command palette, shortcuts, task runner |
 
 ## Recommended scope
 

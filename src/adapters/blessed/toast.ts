@@ -136,6 +136,7 @@ export function toast({ box, data: initialData = {}, parent }: ToastOptions): To
       return items;
     },
     destroy() {
+      element.off('resize', render);
       element.destroy();
     },
     dismiss(id) {

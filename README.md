@@ -241,6 +241,15 @@ import { visibleWidth } from 'blessed-components/core/width';
 
 See the [core reference](./src/core/README.md).
 
+Core hardening APIs include:
+
+- density-aware theme spacing, border, variant, and high-contrast tokens;
+- deterministic capability matrices for Unicode/ASCII, color/no-color, mouse,
+  and dumb-terminal behavior;
+- component color resolution that falls back from component overrides to
+  semantic theme tokens;
+- renderer benchmarks for tables, logs, charts, and high-frequency output.
+
 ### Headless primitives
 
 Primitives compose core algorithms into reusable behavior without choosing
@@ -288,7 +297,8 @@ npm test
 npm run test:watch
 npm run lint
 npm run lint:fix
-npm run biome:check
+npm run benchmark
+npm run docs:index
 npm run preview
 npm run typecheck
 npm run format
@@ -321,6 +331,18 @@ Verify every example without an interactive terminal:
 
 ```sh
 npm run examples:smoke
+```
+
+Generate the navigable component maturity index:
+
+```sh
+npm run docs:index
+```
+
+Benchmark render-heavy pure components after a build:
+
+```sh
+npm run benchmark
 ```
 
 ## Testing

@@ -64,9 +64,17 @@ formatPercent(0.856); // "85.6%"
 ## Terminal policy
 
 - `detectCapabilities` resolves color depth, Unicode, mouse, and TTY support.
+- `createCapabilityMatrix` generates repeatable terminal QA scenarios for
+  dumb, no-color, ASCII fallback, 256-color, and truecolor terminals.
+- `selectCharacterMode` maps capabilities to `ascii` or `unicode`.
+- `selectCapabilityProfile` groups terminals into `dumb`, `ascii`, `basic`,
+  and `rich` profiles.
 - `createCharacterSet` selects Unicode or ASCII drawing characters.
-- `createTheme` merges semantic colors and component overrides.
+- `createTheme` merges semantic colors, density, spacing, borders, variants,
+  high-contrast colors, and component overrides.
 - `resolveThemeColor` disables color tokens when color output is unavailable.
+- `resolveComponentThemeColor` checks component overrides before falling back
+  to semantic theme colors.
 
 Detection accepts explicit environment and platform values, making it
 deterministic in tests and server processes.

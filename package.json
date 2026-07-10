@@ -1473,10 +1473,13 @@
     "access": "public"
   },
   "scripts": {
+    "benchmark": "npm run build && node scripts/benchmark-renderers.mjs",
     "build": "tsup",
     "clean": "rm -rf coverage dist",
     "docs": "typedoc --options typedoc.json",
-    "docs:check": "typedoc --options typedoc.json --emit none",
+    "docs:check": "typedoc --options typedoc.json --emit none && npm run docs:index:check",
+    "docs:index": "node scripts/generate-component-index.mjs",
+    "docs:index:check": "node scripts/generate-component-index.mjs --check",
     "example:dashboard": "tsx examples/dashboard/app.ts",
     "example:gallery": "tsx examples/component-gallery/app.ts",
     "example:process-monitor": "tsx examples/process-monitor/app.ts",
