@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.14.0](https://github.com/ElJijuna/blessed-components/compare/v1.13.0...v1.14.0) (2026-07-10)
+
+### Features
+
+* complete pure renderer component roadmap ([ac8c024](https://github.com/ElJijuna/blessed-components/commit/ac8c024b78991f768bb43840793a5dfc9f292f9d))
+
 ## [1.13.0](https://github.com/ElJijuna/blessed-components/compare/v1.12.0...v1.13.0) (2026-07-09)
 
 ### Features
