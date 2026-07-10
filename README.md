@@ -36,6 +36,12 @@ npm install blessed blessed-components
 
 `blessed` is a peer dependency.
 
+Create a starter app:
+
+```sh
+npx blessed-components create my-terminal-app
+```
+
 ## Coming soon
 
 ### Core components
@@ -299,6 +305,8 @@ npm run lint
 npm run lint:fix
 npm run benchmark
 npm run docs:index
+npm run package:generate
+npm run package:check
 npm run preview
 npm run typecheck
 npm run format
@@ -345,6 +353,12 @@ Benchmark render-heavy pure components after a build:
 npm run benchmark
 ```
 
+Regenerate package exports and build entries from source layout:
+
+```sh
+npm run package:generate
+```
+
 ## Testing
 
 Development follows vertical TDD slices:
@@ -366,6 +380,9 @@ deploy documentation.
 
 Each release also updates [CHANGELOG.md](./CHANGELOG.md) and commits the
 generated changelog and package version with a `[skip ci]` release commit.
+
+See [library policies](./docs/policies.md) for stability, deprecation,
+fallback, performance, and packaging rules.
 
 ## License
 

@@ -23,1296 +23,230 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "blessed-components": "./bin/create-blessed-components-app.mjs",
+    "create-blessed-components-app": "./bin/create-blessed-components-app.mjs"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./app-shell": {
-      "types": "./dist/app-shell/index.d.ts",
-      "import": "./dist/app-shell/index.js",
-      "require": "./dist/app-shell/index.cjs"
-    },
-    "./app-shell/blessed": {
-      "types": "./dist/app-shell/blessed.d.ts",
-      "import": "./dist/app-shell/blessed.js",
-      "require": "./dist/app-shell/blessed.cjs"
-    },
-    "./accordion": {
-      "types": "./dist/accordion/index.d.ts",
-      "import": "./dist/accordion/index.js",
-      "require": "./dist/accordion/index.cjs"
-    },
-    "./accordion/blessed": {
-      "types": "./dist/accordion/blessed.d.ts",
-      "import": "./dist/accordion/blessed.js",
-      "require": "./dist/accordion/blessed.cjs"
-    },
-    "./activity-feed": {
-      "types": "./dist/activity-feed/index.d.ts",
-      "import": "./dist/activity-feed/index.js",
-      "require": "./dist/activity-feed/index.cjs"
-    },
-    "./activity-feed/blessed": {
-      "types": "./dist/activity-feed/blessed.d.ts",
-      "import": "./dist/activity-feed/blessed.js",
-      "require": "./dist/activity-feed/blessed.cjs"
-    },
-    "./alert": {
-      "types": "./dist/alert/index.d.ts",
-      "import": "./dist/alert/index.js",
-      "require": "./dist/alert/index.cjs"
-    },
-    "./alert/blessed": {
-      "types": "./dist/alert/blessed.d.ts",
-      "import": "./dist/alert/blessed.js",
-      "require": "./dist/alert/blessed.cjs"
-    },
-    "./ascii-art": {
-      "types": "./dist/ascii-art/index.d.ts",
-      "import": "./dist/ascii-art/index.js",
-      "require": "./dist/ascii-art/index.cjs"
-    },
-    "./ascii-art/blessed": {
-      "types": "./dist/ascii-art/blessed.d.ts",
-      "import": "./dist/ascii-art/blessed.js",
-      "require": "./dist/ascii-art/blessed.cjs"
-    },
-    "./axis": {
-      "types": "./dist/axis/index.d.ts",
-      "import": "./dist/axis/index.js",
-      "require": "./dist/axis/index.cjs"
-    },
-    "./axis/blessed": {
-      "types": "./dist/axis/blessed.d.ts",
-      "import": "./dist/axis/blessed.js",
-      "require": "./dist/axis/blessed.cjs"
-    },
-    "./autocomplete": {
-      "types": "./dist/autocomplete/index.d.ts",
-      "import": "./dist/autocomplete/index.js",
-      "require": "./dist/autocomplete/index.cjs"
-    },
-    "./autocomplete/blessed": {
-      "types": "./dist/autocomplete/blessed.d.ts",
-      "import": "./dist/autocomplete/blessed.js",
-      "require": "./dist/autocomplete/blessed.cjs"
-    },
-    "./badge": {
-      "types": "./dist/badge/index.d.ts",
-      "import": "./dist/badge/index.js",
-      "require": "./dist/badge/index.cjs"
-    },
-    "./badge/blessed": {
-      "types": "./dist/badge/blessed.d.ts",
-      "import": "./dist/badge/blessed.js",
-      "require": "./dist/badge/blessed.cjs"
-    },
-    "./breadcrumb": {
-      "types": "./dist/breadcrumb/index.d.ts",
-      "import": "./dist/breadcrumb/index.js",
-      "require": "./dist/breadcrumb/index.cjs"
-    },
-    "./breadcrumb/blessed": {
-      "types": "./dist/breadcrumb/blessed.d.ts",
-      "import": "./dist/breadcrumb/blessed.js",
-      "require": "./dist/breadcrumb/blessed.cjs"
-    },
-    "./box": {
-      "types": "./dist/box/index.d.ts",
-      "import": "./dist/box/index.js",
-      "require": "./dist/box/index.cjs"
-    },
-    "./box/blessed": {
-      "types": "./dist/box/blessed.d.ts",
-      "import": "./dist/box/blessed.js",
-      "require": "./dist/box/blessed.cjs"
-    },
-    "./bullet-chart": {
-      "types": "./dist/bullet-chart/index.d.ts",
-      "import": "./dist/bullet-chart/index.js",
-      "require": "./dist/bullet-chart/index.cjs"
-    },
-    "./bullet-chart/blessed": {
-      "types": "./dist/bullet-chart/blessed.d.ts",
-      "import": "./dist/bullet-chart/blessed.js",
-      "require": "./dist/bullet-chart/blessed.cjs"
-    },
-    "./button": {
-      "types": "./dist/button/index.d.ts",
-      "import": "./dist/button/index.js",
-      "require": "./dist/button/index.cjs"
-    },
-    "./button/blessed": {
-      "types": "./dist/button/blessed.d.ts",
-      "import": "./dist/button/blessed.js",
-      "require": "./dist/button/blessed.cjs"
-    },
-    "./calendar-heatmap": {
-      "types": "./dist/calendar-heatmap/index.d.ts",
-      "import": "./dist/calendar-heatmap/index.js",
-      "require": "./dist/calendar-heatmap/index.cjs"
-    },
-    "./calendar-heatmap/blessed": {
-      "types": "./dist/calendar-heatmap/blessed.d.ts",
-      "import": "./dist/calendar-heatmap/blessed.js",
-      "require": "./dist/calendar-heatmap/blessed.cjs"
-    },
-    "./checkbox": {
-      "types": "./dist/checkbox/index.d.ts",
-      "import": "./dist/checkbox/index.js",
-      "require": "./dist/checkbox/index.cjs"
-    },
-    "./checkbox/blessed": {
-      "types": "./dist/checkbox/blessed.d.ts",
-      "import": "./dist/checkbox/blessed.js",
-      "require": "./dist/checkbox/blessed.cjs"
-    },
-    "./clock": {
-      "types": "./dist/clock/index.d.ts",
-      "import": "./dist/clock/index.js",
-      "require": "./dist/clock/index.cjs"
-    },
-    "./clock/blessed": {
-      "types": "./dist/clock/blessed.d.ts",
-      "import": "./dist/clock/blessed.js",
-      "require": "./dist/clock/blessed.cjs"
-    },
-    "./code": {
-      "types": "./dist/code/index.d.ts",
-      "import": "./dist/code/index.js",
-      "require": "./dist/code/index.cjs"
-    },
-    "./code/blessed": {
-      "types": "./dist/code/blessed.d.ts",
-      "import": "./dist/code/blessed.js",
-      "require": "./dist/code/blessed.cjs"
-    },
-    "./color-swatch": {
-      "types": "./dist/color-swatch/index.d.ts",
-      "import": "./dist/color-swatch/index.js",
-      "require": "./dist/color-swatch/index.cjs"
-    },
-    "./color-swatch/blessed": {
-      "types": "./dist/color-swatch/blessed.d.ts",
-      "import": "./dist/color-swatch/blessed.js",
-      "require": "./dist/color-swatch/blessed.cjs"
-    },
-    "./collapsible": {
-      "types": "./dist/collapsible/index.d.ts",
-      "import": "./dist/collapsible/index.js",
-      "require": "./dist/collapsible/index.cjs"
-    },
-    "./collapsible/blessed": {
-      "types": "./dist/collapsible/blessed.d.ts",
-      "import": "./dist/collapsible/blessed.js",
-      "require": "./dist/collapsible/blessed.cjs"
-    },
-    "./combobox": {
-      "types": "./dist/combobox/index.d.ts",
-      "import": "./dist/combobox/index.js",
-      "require": "./dist/combobox/index.cjs"
-    },
-    "./combobox/blessed": {
-      "types": "./dist/combobox/blessed.d.ts",
-      "import": "./dist/combobox/blessed.js",
-      "require": "./dist/combobox/blessed.cjs"
-    },
-    "./command-palette": {
-      "types": "./dist/command-palette/index.d.ts",
-      "import": "./dist/command-palette/index.js",
-      "require": "./dist/command-palette/index.cjs"
-    },
-    "./command-palette/blessed": {
-      "types": "./dist/command-palette/blessed.d.ts",
-      "import": "./dist/command-palette/blessed.js",
-      "require": "./dist/command-palette/blessed.cjs"
-    },
-    "./confirm-dialog": {
-      "types": "./dist/confirm-dialog/index.d.ts",
-      "import": "./dist/confirm-dialog/index.js",
-      "require": "./dist/confirm-dialog/index.cjs"
-    },
-    "./confirm-dialog/blessed": {
-      "types": "./dist/confirm-dialog/blessed.d.ts",
-      "import": "./dist/confirm-dialog/blessed.js",
-      "require": "./dist/confirm-dialog/blessed.cjs"
-    },
-    "./connection-status": {
-      "types": "./dist/connection-status/index.d.ts",
-      "import": "./dist/connection-status/index.js",
-      "require": "./dist/connection-status/index.cjs"
-    },
-    "./connection-status/blessed": {
-      "types": "./dist/connection-status/blessed.d.ts",
-      "import": "./dist/connection-status/blessed.js",
-      "require": "./dist/connection-status/blessed.cjs"
-    },
-    "./description-list": {
-      "types": "./dist/description-list/index.d.ts",
-      "import": "./dist/description-list/index.js",
-      "require": "./dist/description-list/index.cjs"
-    },
-    "./description-list/blessed": {
-      "types": "./dist/description-list/blessed.d.ts",
-      "import": "./dist/description-list/blessed.js",
-      "require": "./dist/description-list/blessed.cjs"
-    },
-    "./form-field": {
-      "types": "./dist/form-field/index.d.ts",
-      "import": "./dist/form-field/index.js",
-      "require": "./dist/form-field/index.cjs"
-    },
-    "./form-field/blessed": {
-      "types": "./dist/form-field/blessed.d.ts",
-      "import": "./dist/form-field/blessed.js",
-      "require": "./dist/form-field/blessed.cjs"
-    },
-    "./icon-button": {
-      "types": "./dist/icon-button/index.d.ts",
-      "import": "./dist/icon-button/index.js",
-      "require": "./dist/icon-button/index.cjs"
-    },
-    "./icon-button/blessed": {
-      "types": "./dist/icon-button/blessed.d.ts",
-      "import": "./dist/icon-button/blessed.js",
-      "require": "./dist/icon-button/blessed.cjs"
-    },
-    "./card": {
-      "types": "./dist/card/index.d.ts",
-      "import": "./dist/card/index.js",
-      "require": "./dist/card/index.cjs"
-    },
-    "./card/blessed": {
-      "types": "./dist/card/blessed.d.ts",
-      "import": "./dist/card/blessed.js",
-      "require": "./dist/card/blessed.cjs"
-    },
-    "./center": {
-      "types": "./dist/center/index.d.ts",
-      "import": "./dist/center/index.js",
-      "require": "./dist/center/index.cjs"
-    },
-    "./center/blessed": {
-      "types": "./dist/center/blessed.d.ts",
-      "import": "./dist/center/blessed.js",
-      "require": "./dist/center/blessed.cjs"
-    },
-    "./cluster": {
-      "types": "./dist/cluster/index.d.ts",
-      "import": "./dist/cluster/index.js",
-      "require": "./dist/cluster/index.cjs"
-    },
-    "./cluster/blessed": {
-      "types": "./dist/cluster/blessed.d.ts",
-      "import": "./dist/cluster/blessed.js",
-      "require": "./dist/cluster/blessed.cjs"
-    },
-    "./callout": {
-      "types": "./dist/callout/index.d.ts",
-      "import": "./dist/callout/index.js",
-      "require": "./dist/callout/index.cjs"
-    },
-    "./callout/blessed": {
-      "types": "./dist/callout/blessed.d.ts",
-      "import": "./dist/callout/blessed.js",
-      "require": "./dist/callout/blessed.cjs"
-    },
-    "./divider": {
-      "types": "./dist/divider/index.d.ts",
-      "import": "./dist/divider/index.js",
-      "require": "./dist/divider/index.cjs"
-    },
-    "./divider/blessed": {
-      "types": "./dist/divider/blessed.d.ts",
-      "import": "./dist/divider/blessed.js",
-      "require": "./dist/divider/blessed.cjs"
-    },
-    "./dialog": {
-      "types": "./dist/dialog/index.d.ts",
-      "import": "./dist/dialog/index.js",
-      "require": "./dist/dialog/index.cjs"
-    },
-    "./dialog/blessed": {
-      "types": "./dist/dialog/blessed.d.ts",
-      "import": "./dist/dialog/blessed.js",
-      "require": "./dist/dialog/blessed.cjs"
-    },
-    "./drawer": {
-      "types": "./dist/drawer/index.d.ts",
-      "import": "./dist/drawer/index.js",
-      "require": "./dist/drawer/index.cjs"
-    },
-    "./drawer/blessed": {
-      "types": "./dist/drawer/blessed.d.ts",
-      "import": "./dist/drawer/blessed.js",
-      "require": "./dist/drawer/blessed.cjs"
-    },
-    "./empty-state": {
-      "types": "./dist/empty-state/index.d.ts",
-      "import": "./dist/empty-state/index.js",
-      "require": "./dist/empty-state/index.cjs"
-    },
-    "./empty-state/blessed": {
-      "types": "./dist/empty-state/blessed.d.ts",
-      "import": "./dist/empty-state/blessed.js",
-      "require": "./dist/empty-state/blessed.cjs"
-    },
-    "./error-state": {
-      "types": "./dist/error-state/index.d.ts",
-      "import": "./dist/error-state/index.js",
-      "require": "./dist/error-state/index.cjs"
-    },
-    "./error-state/blessed": {
-      "types": "./dist/error-state/blessed.d.ts",
-      "import": "./dist/error-state/blessed.js",
-      "require": "./dist/error-state/blessed.cjs"
-    },
-    "./file-tree": {
-      "types": "./dist/file-tree/index.d.ts",
-      "import": "./dist/file-tree/index.js",
-      "require": "./dist/file-tree/index.cjs"
-    },
-    "./file-tree/blessed": {
-      "types": "./dist/file-tree/blessed.d.ts",
-      "import": "./dist/file-tree/blessed.js",
-      "require": "./dist/file-tree/blessed.cjs"
-    },
-    "./form": {
-      "types": "./dist/form/index.d.ts",
-      "import": "./dist/form/index.js",
-      "require": "./dist/form/index.cjs"
-    },
-    "./form/blessed": {
-      "types": "./dist/form/blessed.d.ts",
-      "import": "./dist/form/blessed.js",
-      "require": "./dist/form/blessed.cjs"
-    },
-    "./gauge": {
-      "types": "./dist/gauge/index.d.ts",
-      "import": "./dist/gauge/index.js",
-      "require": "./dist/gauge/index.cjs"
-    },
-    "./gauge/blessed": {
-      "types": "./dist/gauge/blessed.d.ts",
-      "import": "./dist/gauge/blessed.js",
-      "require": "./dist/gauge/blessed.cjs"
-    },
-    "./grid": {
-      "types": "./dist/grid/index.d.ts",
-      "import": "./dist/grid/index.js",
-      "require": "./dist/grid/index.cjs"
-    },
-    "./grid/blessed": {
-      "types": "./dist/grid/blessed.d.ts",
-      "import": "./dist/grid/blessed.js",
-      "require": "./dist/grid/blessed.cjs"
-    },
-    "./heading": {
-      "types": "./dist/heading/index.d.ts",
-      "import": "./dist/heading/index.js",
-      "require": "./dist/heading/index.cjs"
-    },
-    "./heading/blessed": {
-      "types": "./dist/heading/blessed.d.ts",
-      "import": "./dist/heading/blessed.js",
-      "require": "./dist/heading/blessed.cjs"
-    },
-    "./health-indicator": {
-      "types": "./dist/health-indicator/index.d.ts",
-      "import": "./dist/health-indicator/index.js",
-      "require": "./dist/health-indicator/index.cjs"
-    },
-    "./health-indicator/blessed": {
-      "types": "./dist/health-indicator/blessed.d.ts",
-      "import": "./dist/health-indicator/blessed.js",
-      "require": "./dist/health-indicator/blessed.cjs"
-    },
-    "./help-overlay": {
-      "types": "./dist/help-overlay/index.d.ts",
-      "import": "./dist/help-overlay/index.js",
-      "require": "./dist/help-overlay/index.cjs"
-    },
-    "./help-overlay/blessed": {
-      "types": "./dist/help-overlay/blessed.d.ts",
-      "import": "./dist/help-overlay/blessed.js",
-      "require": "./dist/help-overlay/blessed.cjs"
-    },
-    "./histogram": {
-      "types": "./dist/histogram/index.d.ts",
-      "import": "./dist/histogram/index.js",
-      "require": "./dist/histogram/index.cjs"
-    },
-    "./histogram/blessed": {
-      "types": "./dist/histogram/blessed.d.ts",
-      "import": "./dist/histogram/blessed.js",
-      "require": "./dist/histogram/blessed.cjs"
-    },
-    "./inspector": {
-      "types": "./dist/inspector/index.d.ts",
-      "import": "./dist/inspector/index.js",
-      "require": "./dist/inspector/index.cjs"
-    },
-    "./inspector/blessed": {
-      "types": "./dist/inspector/blessed.d.ts",
-      "import": "./dist/inspector/blessed.js",
-      "require": "./dist/inspector/blessed.cjs"
-    },
-    "./json-viewer": {
-      "types": "./dist/json-viewer/index.d.ts",
-      "import": "./dist/json-viewer/index.js",
-      "require": "./dist/json-viewer/index.cjs"
-    },
-    "./json-viewer/blessed": {
-      "types": "./dist/json-viewer/blessed.d.ts",
-      "import": "./dist/json-viewer/blessed.js",
-      "require": "./dist/json-viewer/blessed.cjs"
-    },
-    "./kbd": {
-      "types": "./dist/kbd/index.d.ts",
-      "import": "./dist/kbd/index.js",
-      "require": "./dist/kbd/index.cjs"
-    },
-    "./kbd/blessed": {
-      "types": "./dist/kbd/blessed.d.ts",
-      "import": "./dist/kbd/blessed.js",
-      "require": "./dist/kbd/blessed.cjs"
-    },
-    "./keybinding-input": {
-      "types": "./dist/keybinding-input/index.d.ts",
-      "import": "./dist/keybinding-input/index.js",
-      "require": "./dist/keybinding-input/index.cjs"
-    },
-    "./keybinding-input/blessed": {
-      "types": "./dist/keybinding-input/blessed.d.ts",
-      "import": "./dist/keybinding-input/blessed.js",
-      "require": "./dist/keybinding-input/blessed.cjs"
-    },
-    "./key-value": {
-      "types": "./dist/key-value/index.d.ts",
-      "import": "./dist/key-value/index.js",
-      "require": "./dist/key-value/index.cjs"
-    },
-    "./key-value/blessed": {
-      "types": "./dist/key-value/blessed.d.ts",
-      "import": "./dist/key-value/blessed.js",
-      "require": "./dist/key-value/blessed.cjs"
-    },
-    "./label": {
-      "types": "./dist/label/index.d.ts",
-      "import": "./dist/label/index.js",
-      "require": "./dist/label/index.cjs"
-    },
-    "./label/blessed": {
-      "types": "./dist/label/blessed.d.ts",
-      "import": "./dist/label/blessed.js",
-      "require": "./dist/label/blessed.cjs"
-    },
-    "./legend": {
-      "types": "./dist/legend/index.d.ts",
-      "import": "./dist/legend/index.js",
-      "require": "./dist/legend/index.cjs"
-    },
-    "./legend/blessed": {
-      "types": "./dist/legend/blessed.d.ts",
-      "import": "./dist/legend/blessed.js",
-      "require": "./dist/legend/blessed.cjs"
-    },
-    "./link": {
-      "types": "./dist/link/index.d.ts",
-      "import": "./dist/link/index.js",
-      "require": "./dist/link/index.cjs"
-    },
-    "./link/blessed": {
-      "types": "./dist/link/blessed.d.ts",
-      "import": "./dist/link/blessed.js",
-      "require": "./dist/link/blessed.cjs"
-    },
-    "./metric-bars": {
-      "types": "./dist/metric-bars/index.d.ts",
-      "import": "./dist/metric-bars/index.js",
-      "require": "./dist/metric-bars/index.cjs"
-    },
-    "./metric-bars/blessed": {
-      "types": "./dist/metric-bars/blessed.d.ts",
-      "import": "./dist/metric-bars/blessed.js",
-      "require": "./dist/metric-bars/blessed.cjs"
-    },
-    "./multi-select": {
-      "types": "./dist/multi-select/index.d.ts",
-      "import": "./dist/multi-select/index.js",
-      "require": "./dist/multi-select/index.cjs"
-    },
-    "./multi-select/blessed": {
-      "types": "./dist/multi-select/blessed.d.ts",
-      "import": "./dist/multi-select/blessed.js",
-      "require": "./dist/multi-select/blessed.cjs"
-    },
-    "./muted-text": {
-      "types": "./dist/muted-text/index.d.ts",
-      "import": "./dist/muted-text/index.js",
-      "require": "./dist/muted-text/index.cjs"
-    },
-    "./muted-text/blessed": {
-      "types": "./dist/muted-text/blessed.d.ts",
-      "import": "./dist/muted-text/blessed.js",
-      "require": "./dist/muted-text/blessed.cjs"
-    },
-    "./multi-sparkline": {
-      "types": "./dist/multi-sparkline/index.d.ts",
-      "import": "./dist/multi-sparkline/index.js",
-      "require": "./dist/multi-sparkline/index.cjs"
-    },
-    "./multi-sparkline/blessed": {
-      "types": "./dist/multi-sparkline/blessed.d.ts",
-      "import": "./dist/multi-sparkline/blessed.js",
-      "require": "./dist/multi-sparkline/blessed.cjs"
-    },
-    "./overlay": {
-      "types": "./dist/overlay/index.d.ts",
-      "import": "./dist/overlay/index.js",
-      "require": "./dist/overlay/index.cjs"
-    },
-    "./overlay/blessed": {
-      "types": "./dist/overlay/blessed.d.ts",
-      "import": "./dist/overlay/blessed.js",
-      "require": "./dist/overlay/blessed.cjs"
-    },
-    "./page": {
-      "types": "./dist/page/index.d.ts",
-      "import": "./dist/page/index.js",
-      "require": "./dist/page/index.cjs"
-    },
-    "./page/blessed": {
-      "types": "./dist/page/blessed.d.ts",
-      "import": "./dist/page/blessed.js",
-      "require": "./dist/page/blessed.cjs"
-    },
-    "./preformatted": {
-      "types": "./dist/preformatted/index.d.ts",
-      "import": "./dist/preformatted/index.js",
-      "require": "./dist/preformatted/index.cjs"
-    },
-    "./preformatted/blessed": {
-      "types": "./dist/preformatted/blessed.d.ts",
-      "import": "./dist/preformatted/blessed.js",
-      "require": "./dist/preformatted/blessed.cjs"
-    },
-    "./list": {
-      "types": "./dist/list/index.d.ts",
-      "import": "./dist/list/index.js",
-      "require": "./dist/list/index.cjs"
-    },
-    "./list/blessed": {
-      "types": "./dist/list/blessed.d.ts",
-      "import": "./dist/list/blessed.js",
-      "require": "./dist/list/blessed.cjs"
-    },
-    "./grouped-list": {
-      "types": "./dist/grouped-list/index.d.ts",
-      "import": "./dist/grouped-list/index.js",
-      "require": "./dist/grouped-list/index.cjs"
-    },
-    "./grouped-list/blessed": {
-      "types": "./dist/grouped-list/blessed.d.ts",
-      "import": "./dist/grouped-list/blessed.js",
-      "require": "./dist/grouped-list/blessed.cjs"
-    },
-    "./diff-view": {
-      "types": "./dist/diff-view/index.d.ts",
-      "import": "./dist/diff-view/index.js",
-      "require": "./dist/diff-view/index.cjs"
-    },
-    "./diff-view/blessed": {
-      "types": "./dist/diff-view/blessed.d.ts",
-      "import": "./dist/diff-view/blessed.js",
-      "require": "./dist/diff-view/blessed.cjs"
-    },
-    "./tree": {
-      "types": "./dist/tree/index.d.ts",
-      "import": "./dist/tree/index.js",
-      "require": "./dist/tree/index.cjs"
-    },
-    "./tree/blessed": {
-      "types": "./dist/tree/blessed.d.ts",
-      "import": "./dist/tree/blessed.js",
-      "require": "./dist/tree/blessed.cjs"
-    },
-    "./virtual-list": {
-      "types": "./dist/virtual-list/index.d.ts",
-      "import": "./dist/virtual-list/index.js",
-      "require": "./dist/virtual-list/index.cjs"
-    },
-    "./virtual-list/blessed": {
-      "types": "./dist/virtual-list/blessed.d.ts",
-      "import": "./dist/virtual-list/blessed.js",
-      "require": "./dist/virtual-list/blessed.cjs"
-    },
-    "./log-viewer": {
-      "types": "./dist/log-viewer/index.d.ts",
-      "import": "./dist/log-viewer/index.js",
-      "require": "./dist/log-viewer/index.cjs"
-    },
-    "./log-viewer/blessed": {
-      "types": "./dist/log-viewer/blessed.d.ts",
-      "import": "./dist/log-viewer/blessed.js",
-      "require": "./dist/log-viewer/blessed.cjs"
-    },
-    "./log-explorer": {
-      "types": "./dist/log-explorer/index.d.ts",
-      "import": "./dist/log-explorer/index.js",
-      "require": "./dist/log-explorer/index.cjs"
-    },
-    "./log-explorer/blessed": {
-      "types": "./dist/log-explorer/blessed.d.ts",
-      "import": "./dist/log-explorer/blessed.js",
-      "require": "./dist/log-explorer/blessed.cjs"
-    },
-    "./loading-overlay": {
-      "types": "./dist/loading-overlay/index.d.ts",
-      "import": "./dist/loading-overlay/index.js",
-      "require": "./dist/loading-overlay/index.cjs"
-    },
-    "./loading-overlay/blessed": {
-      "types": "./dist/loading-overlay/blessed.d.ts",
-      "import": "./dist/loading-overlay/blessed.js",
-      "require": "./dist/loading-overlay/blessed.cjs"
-    },
-    "./timeline": {
-      "types": "./dist/timeline/index.d.ts",
-      "import": "./dist/timeline/index.js",
-      "require": "./dist/timeline/index.cjs"
-    },
-    "./timeline/blessed": {
-      "types": "./dist/timeline/blessed.d.ts",
-      "import": "./dist/timeline/blessed.js",
-      "require": "./dist/timeline/blessed.cjs"
-    },
-    "./menu": {
-      "types": "./dist/menu/index.d.ts",
-      "import": "./dist/menu/index.js",
-      "require": "./dist/menu/index.cjs"
-    },
-    "./menu/blessed": {
-      "types": "./dist/menu/blessed.d.ts",
-      "import": "./dist/menu/blessed.js",
-      "require": "./dist/menu/blessed.cjs"
-    },
-    "./menu-bar": {
-      "types": "./dist/menu-bar/index.d.ts",
-      "import": "./dist/menu-bar/index.js",
-      "require": "./dist/menu-bar/index.cjs"
-    },
-    "./menu-bar/blessed": {
-      "types": "./dist/menu-bar/blessed.d.ts",
-      "import": "./dist/menu-bar/blessed.js",
-      "require": "./dist/menu-bar/blessed.cjs"
-    },
-    "./dropdown-menu": {
-      "types": "./dist/dropdown-menu/index.d.ts",
-      "import": "./dist/dropdown-menu/index.js",
-      "require": "./dist/dropdown-menu/index.cjs"
-    },
-    "./dropdown-menu/blessed": {
-      "types": "./dist/dropdown-menu/blessed.d.ts",
-      "import": "./dist/dropdown-menu/blessed.js",
-      "require": "./dist/dropdown-menu/blessed.cjs"
-    },
-    "./navigation-list": {
-      "types": "./dist/navigation-list/index.d.ts",
-      "import": "./dist/navigation-list/index.js",
-      "require": "./dist/navigation-list/index.cjs"
-    },
-    "./navigation-list/blessed": {
-      "types": "./dist/navigation-list/blessed.d.ts",
-      "import": "./dist/navigation-list/blessed.js",
-      "require": "./dist/navigation-list/blessed.cjs"
-    },
-    "./pager": {
-      "types": "./dist/pager/index.d.ts",
-      "import": "./dist/pager/index.js",
-      "require": "./dist/pager/index.cjs"
-    },
-    "./pager/blessed": {
-      "types": "./dist/pager/blessed.d.ts",
-      "import": "./dist/pager/blessed.js",
-      "require": "./dist/pager/blessed.cjs"
-    },
-    "./pagination": {
-      "types": "./dist/pagination/index.d.ts",
-      "import": "./dist/pagination/index.js",
-      "require": "./dist/pagination/index.cjs"
-    },
-    "./pagination/blessed": {
-      "types": "./dist/pagination/blessed.d.ts",
-      "import": "./dist/pagination/blessed.js",
-      "require": "./dist/pagination/blessed.cjs"
-    },
-    "./palette": {
-      "types": "./dist/palette/index.d.ts",
-      "import": "./dist/palette/index.js",
-      "require": "./dist/palette/index.cjs"
-    },
-    "./palette/blessed": {
-      "types": "./dist/palette/blessed.d.ts",
-      "import": "./dist/palette/blessed.js",
-      "require": "./dist/palette/blessed.cjs"
-    },
-    "./progress-bar": {
-      "types": "./dist/progress-bar/index.d.ts",
-      "import": "./dist/progress-bar/index.js",
-      "require": "./dist/progress-bar/index.cjs"
-    },
-    "./progress-bar/blessed": {
-      "types": "./dist/progress-bar/blessed.d.ts",
-      "import": "./dist/progress-bar/blessed.js",
-      "require": "./dist/progress-bar/blessed.cjs"
-    },
-    "./progress-list": {
-      "types": "./dist/progress-list/index.d.ts",
-      "import": "./dist/progress-list/index.js",
-      "require": "./dist/progress-list/index.cjs"
-    },
-    "./progress-list/blessed": {
-      "types": "./dist/progress-list/blessed.d.ts",
-      "import": "./dist/progress-list/blessed.js",
-      "require": "./dist/progress-list/blessed.cjs"
-    },
-    "./progress-stack": {
-      "types": "./dist/progress-stack/index.d.ts",
-      "import": "./dist/progress-stack/index.js",
-      "require": "./dist/progress-stack/index.cjs"
-    },
-    "./progress-stack/blessed": {
-      "types": "./dist/progress-stack/blessed.d.ts",
-      "import": "./dist/progress-stack/blessed.js",
-      "require": "./dist/progress-stack/blessed.cjs"
-    },
-    "./quick-switcher": {
-      "types": "./dist/quick-switcher/index.d.ts",
-      "import": "./dist/quick-switcher/index.js",
-      "require": "./dist/quick-switcher/index.cjs"
-    },
-    "./quick-switcher/blessed": {
-      "types": "./dist/quick-switcher/blessed.d.ts",
-      "import": "./dist/quick-switcher/blessed.js",
-      "require": "./dist/quick-switcher/blessed.cjs"
-    },
-    "./radio-group": {
-      "types": "./dist/radio-group/index.d.ts",
-      "import": "./dist/radio-group/index.js",
-      "require": "./dist/radio-group/index.cjs"
-    },
-    "./radio-group/blessed": {
-      "types": "./dist/radio-group/blessed.d.ts",
-      "import": "./dist/radio-group/blessed.js",
-      "require": "./dist/radio-group/blessed.cjs"
-    },
-    "./number-field": {
-      "types": "./dist/number-field/index.d.ts",
-      "import": "./dist/number-field/index.js",
-      "require": "./dist/number-field/index.cjs"
-    },
-    "./number-field/blessed": {
-      "types": "./dist/number-field/blessed.d.ts",
-      "import": "./dist/number-field/blessed.js",
-      "require": "./dist/number-field/blessed.cjs"
-    },
-    "./password-field": {
-      "types": "./dist/password-field/index.d.ts",
-      "import": "./dist/password-field/index.js",
-      "require": "./dist/password-field/index.cjs"
-    },
-    "./password-field/blessed": {
-      "types": "./dist/password-field/blessed.d.ts",
-      "import": "./dist/password-field/blessed.js",
-      "require": "./dist/password-field/blessed.cjs"
-    },
-    "./search-field": {
-      "types": "./dist/search-field/index.d.ts",
-      "import": "./dist/search-field/index.js",
-      "require": "./dist/search-field/index.cjs"
-    },
-    "./search-field/blessed": {
-      "types": "./dist/search-field/blessed.d.ts",
-      "import": "./dist/search-field/blessed.js",
-      "require": "./dist/search-field/blessed.cjs"
-    },
-    "./select": {
-      "types": "./dist/select/index.d.ts",
-      "import": "./dist/select/index.js",
-      "require": "./dist/select/index.cjs"
-    },
-    "./select/blessed": {
-      "types": "./dist/select/blessed.d.ts",
-      "import": "./dist/select/blessed.js",
-      "require": "./dist/select/blessed.cjs"
-    },
-    "./switch": {
-      "types": "./dist/switch/index.d.ts",
-      "import": "./dist/switch/index.js",
-      "require": "./dist/switch/index.cjs"
-    },
-    "./switch/blessed": {
-      "types": "./dist/switch/blessed.d.ts",
-      "import": "./dist/switch/blessed.js",
-      "require": "./dist/switch/blessed.cjs"
-    },
-    "./text-area": {
-      "types": "./dist/text-area/index.d.ts",
-      "import": "./dist/text-area/index.js",
-      "require": "./dist/text-area/index.cjs"
-    },
-    "./text-area/blessed": {
-      "types": "./dist/text-area/blessed.d.ts",
-      "import": "./dist/text-area/blessed.js",
-      "require": "./dist/text-area/blessed.cjs"
-    },
-    "./text-field": {
-      "types": "./dist/text-field/index.d.ts",
-      "import": "./dist/text-field/index.js",
-      "require": "./dist/text-field/index.cjs"
-    },
-    "./text-field/blessed": {
-      "types": "./dist/text-field/blessed.d.ts",
-      "import": "./dist/text-field/blessed.js",
-      "require": "./dist/text-field/blessed.cjs"
-    },
-    "./scroll-area": {
-      "types": "./dist/scroll-area/index.d.ts",
-      "import": "./dist/scroll-area/index.js",
-      "require": "./dist/scroll-area/index.cjs"
-    },
-    "./scroll-area/blessed": {
-      "types": "./dist/scroll-area/blessed.d.ts",
-      "import": "./dist/scroll-area/blessed.js",
-      "require": "./dist/scroll-area/blessed.cjs"
-    },
-    "./sidebar-layout": {
-      "types": "./dist/sidebar-layout/index.d.ts",
-      "import": "./dist/sidebar-layout/index.js",
-      "require": "./dist/sidebar-layout/index.cjs"
-    },
-    "./sidebar-layout/blessed": {
-      "types": "./dist/sidebar-layout/blessed.d.ts",
-      "import": "./dist/sidebar-layout/blessed.js",
-      "require": "./dist/sidebar-layout/blessed.cjs"
-    },
-    "./sparkline": {
-      "types": "./dist/sparkline/index.d.ts",
-      "import": "./dist/sparkline/index.js",
-      "require": "./dist/sparkline/index.cjs"
-    },
-    "./sparkline/blessed": {
-      "types": "./dist/sparkline/blessed.d.ts",
-      "import": "./dist/sparkline/blessed.js",
-      "require": "./dist/sparkline/blessed.cjs"
-    },
-    "./stacked-gauge": {
-      "types": "./dist/stacked-gauge/index.d.ts",
-      "import": "./dist/stacked-gauge/index.js",
-      "require": "./dist/stacked-gauge/index.cjs"
-    },
-    "./stacked-gauge/blessed": {
-      "types": "./dist/stacked-gauge/blessed.d.ts",
-      "import": "./dist/stacked-gauge/blessed.js",
-      "require": "./dist/stacked-gauge/blessed.cjs"
-    },
-    "./spinner": {
-      "types": "./dist/spinner/index.d.ts",
-      "import": "./dist/spinner/index.js",
-      "require": "./dist/spinner/index.cjs"
-    },
-    "./spinner/blessed": {
-      "types": "./dist/spinner/blessed.d.ts",
-      "import": "./dist/spinner/blessed.js",
-      "require": "./dist/spinner/blessed.cjs"
-    },
-    "./spotlight": {
-      "types": "./dist/spotlight/index.d.ts",
-      "import": "./dist/spotlight/index.js",
-      "require": "./dist/spotlight/index.cjs"
-    },
-    "./spotlight/blessed": {
-      "types": "./dist/spotlight/blessed.d.ts",
-      "import": "./dist/spotlight/blessed.js",
-      "require": "./dist/spotlight/blessed.cjs"
-    },
-    "./status": {
-      "types": "./dist/status/index.d.ts",
-      "import": "./dist/status/index.js",
-      "require": "./dist/status/index.cjs"
-    },
-    "./status/blessed": {
-      "types": "./dist/status/blessed.d.ts",
-      "import": "./dist/status/blessed.js",
-      "require": "./dist/status/blessed.cjs"
-    },
-    "./step-indicator": {
-      "types": "./dist/step-indicator/index.d.ts",
-      "import": "./dist/step-indicator/index.js",
-      "require": "./dist/step-indicator/index.cjs"
-    },
-    "./step-indicator/blessed": {
-      "types": "./dist/step-indicator/blessed.d.ts",
-      "import": "./dist/step-indicator/blessed.js",
-      "require": "./dist/step-indicator/blessed.cjs"
-    },
-    "./task-progress": {
-      "types": "./dist/task-progress/index.d.ts",
-      "import": "./dist/task-progress/index.js",
-      "require": "./dist/task-progress/index.cjs"
-    },
-    "./task-progress/blessed": {
-      "types": "./dist/task-progress/blessed.d.ts",
-      "import": "./dist/task-progress/blessed.js",
-      "require": "./dist/task-progress/blessed.cjs"
-    },
-    "./toast": {
-      "types": "./dist/toast/index.d.ts",
-      "import": "./dist/toast/index.js",
-      "require": "./dist/toast/index.cjs"
-    },
-    "./toast/blessed": {
-      "types": "./dist/toast/blessed.d.ts",
-      "import": "./dist/toast/blessed.js",
-      "require": "./dist/toast/blessed.cjs"
-    },
-    "./tab-list": {
-      "types": "./dist/tab-list/index.d.ts",
-      "import": "./dist/tab-list/index.js",
-      "require": "./dist/tab-list/index.cjs"
-    },
-    "./tab-list/blessed": {
-      "types": "./dist/tab-list/blessed.d.ts",
-      "import": "./dist/tab-list/blessed.js",
-      "require": "./dist/tab-list/blessed.cjs"
-    },
-    "./tabs": {
-      "types": "./dist/tabs/index.d.ts",
-      "import": "./dist/tabs/index.js",
-      "require": "./dist/tabs/index.cjs"
-    },
-    "./tabs/blessed": {
-      "types": "./dist/tabs/blessed.d.ts",
-      "import": "./dist/tabs/blessed.js",
-      "require": "./dist/tabs/blessed.cjs"
-    },
-    "./table": {
-      "types": "./dist/table/index.d.ts",
-      "import": "./dist/table/index.js",
-      "require": "./dist/table/index.cjs"
-    },
-    "./table/blessed": {
-      "types": "./dist/table/blessed.d.ts",
-      "import": "./dist/table/blessed.js",
-      "require": "./dist/table/blessed.cjs"
-    },
-    "./data-table": {
-      "types": "./dist/data-table/index.d.ts",
-      "import": "./dist/data-table/index.js",
-      "require": "./dist/data-table/index.cjs"
-    },
-    "./data-table/blessed": {
-      "types": "./dist/data-table/blessed.d.ts",
-      "import": "./dist/data-table/blessed.js",
-      "require": "./dist/data-table/blessed.cjs"
-    },
-    "./spacer": {
-      "types": "./dist/spacer/index.d.ts",
-      "import": "./dist/spacer/index.js",
-      "require": "./dist/spacer/index.cjs"
-    },
-    "./spacer/blessed": {
-      "types": "./dist/spacer/blessed.d.ts",
-      "import": "./dist/spacer/blessed.js",
-      "require": "./dist/spacer/blessed.cjs"
-    },
-    "./stack": {
-      "types": "./dist/stack/index.d.ts",
-      "import": "./dist/stack/index.js",
-      "require": "./dist/stack/index.cjs"
-    },
-    "./stack/blessed": {
-      "types": "./dist/stack/blessed.d.ts",
-      "import": "./dist/stack/blessed.js",
-      "require": "./dist/stack/blessed.cjs"
-    },
-    "./stat": {
-      "types": "./dist/stat/index.d.ts",
-      "import": "./dist/stat/index.js",
-      "require": "./dist/stat/index.cjs"
-    },
-    "./stat/blessed": {
-      "types": "./dist/stat/blessed.d.ts",
-      "import": "./dist/stat/blessed.js",
-      "require": "./dist/stat/blessed.cjs"
-    },
-    "./tag": {
-      "types": "./dist/tag/index.d.ts",
-      "import": "./dist/tag/index.js",
-      "require": "./dist/tag/index.cjs"
-    },
-    "./tag/blessed": {
-      "types": "./dist/tag/blessed.d.ts",
-      "import": "./dist/tag/blessed.js",
-      "require": "./dist/tag/blessed.cjs"
-    },
-    "./text": {
-      "types": "./dist/text/index.d.ts",
-      "import": "./dist/text/index.js",
-      "require": "./dist/text/index.cjs"
-    },
-    "./text/blessed": {
-      "types": "./dist/text/blessed.d.ts",
-      "import": "./dist/text/blessed.js",
-      "require": "./dist/text/blessed.cjs"
-    },
-    "./timestamp": {
-      "types": "./dist/timestamp/index.d.ts",
-      "import": "./dist/timestamp/index.js",
-      "require": "./dist/timestamp/index.cjs"
-    },
-    "./timestamp/blessed": {
-      "types": "./dist/timestamp/blessed.d.ts",
-      "import": "./dist/timestamp/blessed.js",
-      "require": "./dist/timestamp/blessed.cjs"
-    },
-    "./timer": {
-      "types": "./dist/timer/index.d.ts",
-      "import": "./dist/timer/index.js",
-      "require": "./dist/timer/index.cjs"
-    },
-    "./timer/blessed": {
-      "types": "./dist/timer/blessed.d.ts",
-      "import": "./dist/timer/blessed.js",
-      "require": "./dist/timer/blessed.cjs"
-    },
-    "./thresholds": {
-      "types": "./dist/thresholds/index.d.ts",
-      "import": "./dist/thresholds/index.js",
-      "require": "./dist/thresholds/index.cjs"
-    },
-    "./thresholds/blessed": {
-      "types": "./dist/thresholds/blessed.d.ts",
-      "import": "./dist/thresholds/blessed.js",
-      "require": "./dist/thresholds/blessed.cjs"
-    },
-    "./trend": {
-      "types": "./dist/trend/index.d.ts",
-      "import": "./dist/trend/index.js",
-      "require": "./dist/trend/index.cjs"
-    },
-    "./trend/blessed": {
-      "types": "./dist/trend/blessed.d.ts",
-      "import": "./dist/trend/blessed.js",
-      "require": "./dist/trend/blessed.cjs"
-    },
-    "./viewport": {
-      "types": "./dist/viewport/index.d.ts",
-      "import": "./dist/viewport/index.js",
-      "require": "./dist/viewport/index.cjs"
-    },
-    "./viewport/blessed": {
-      "types": "./dist/viewport/blessed.d.ts",
-      "import": "./dist/viewport/blessed.js",
-      "require": "./dist/viewport/blessed.cjs"
-    },
-    "./code-viewer": {
-      "types": "./dist/code-viewer/index.d.ts",
-      "import": "./dist/code-viewer/index.js",
-      "require": "./dist/code-viewer/index.cjs"
-    },
-    "./command-output": {
-      "types": "./dist/command-output/index.d.ts",
-      "import": "./dist/command-output/index.js",
-      "require": "./dist/command-output/index.cjs"
-    },
-    "./terminal-pane": {
-      "types": "./dist/terminal-pane/index.d.ts",
-      "import": "./dist/terminal-pane/index.js",
-      "require": "./dist/terminal-pane/index.cjs"
-    },
-    "./terminal-pane/blessed": {
-      "types": "./dist/terminal-pane/blessed.d.ts",
-      "import": "./dist/terminal-pane/blessed.js",
-      "require": "./dist/terminal-pane/blessed.cjs"
-    },
-    "./countdown": {
-      "types": "./dist/countdown/index.d.ts",
-      "import": "./dist/countdown/index.js",
-      "require": "./dist/countdown/index.cjs"
-    },
-    "./date-input": {
-      "types": "./dist/date-input/index.d.ts",
-      "import": "./dist/date-input/index.js",
-      "require": "./dist/date-input/index.cjs"
-    },
-    "./diff-viewer": {
-      "types": "./dist/diff-viewer/index.d.ts",
-      "import": "./dist/diff-viewer/index.js",
-      "require": "./dist/diff-viewer/index.cjs"
-    },
-    "./environment-table": {
-      "types": "./dist/environment-table/index.d.ts",
-      "import": "./dist/environment-table/index.js",
-      "require": "./dist/environment-table/index.cjs"
-    },
-    "./event-log": {
-      "types": "./dist/event-log/index.d.ts",
-      "import": "./dist/event-log/index.js",
-      "require": "./dist/event-log/index.cjs"
-    },
-    "./prompt-dialog": {
-      "types": "./dist/prompt-dialog/index.d.ts",
-      "import": "./dist/prompt-dialog/index.js",
-      "require": "./dist/prompt-dialog/index.cjs"
-    },
-    "./qr-code": {
-      "types": "./dist/qr-code/index.d.ts",
-      "import": "./dist/qr-code/index.js",
-      "require": "./dist/qr-code/index.cjs"
-    },
-    "./schedule": {
-      "types": "./dist/schedule/index.d.ts",
-      "import": "./dist/schedule/index.js",
-      "require": "./dist/schedule/index.cjs"
-    },
-    "./shortcut-recorder": {
-      "types": "./dist/shortcut-recorder/index.d.ts",
-      "import": "./dist/shortcut-recorder/index.js",
-      "require": "./dist/shortcut-recorder/index.cjs"
-    },
-    "./stack-trace": {
-      "types": "./dist/stack-trace/index.d.ts",
-      "import": "./dist/stack-trace/index.js",
-      "require": "./dist/stack-trace/index.cjs"
-    },
-    "./time-input": {
-      "types": "./dist/time-input/index.d.ts",
-      "import": "./dist/time-input/index.js",
-      "require": "./dist/time-input/index.cjs"
-    },
-    "./toast-viewport": {
-      "types": "./dist/toast-viewport/index.d.ts",
-      "import": "./dist/toast-viewport/index.js",
-      "require": "./dist/toast-viewport/index.cjs"
-    },
-    "./tooltip": {
-      "types": "./dist/tooltip/index.d.ts",
-      "import": "./dist/tooltip/index.js",
-      "require": "./dist/tooltip/index.cjs"
+    "./core/capabilities": {
+      "types": "./dist/core/capabilities.d.ts",
+      "import": "./dist/core/capabilities.js",
+      "require": "./dist/core/capabilities.cjs"
+    },
+    "./core/characters": {
+      "types": "./dist/core/characters.d.ts",
+      "import": "./dist/core/characters.js",
+      "require": "./dist/core/characters.cjs"
+    },
+    "./core/color": {
+      "types": "./dist/core/color.d.ts",
+      "import": "./dist/core/color.js",
+      "require": "./dist/core/color.cjs"
+    },
+    "./core/crop": {
+      "types": "./dist/core/crop.d.ts",
+      "import": "./dist/core/crop.js",
+      "require": "./dist/core/crop.cjs"
+    },
+    "./core/events": {
+      "types": "./dist/core/events.d.ts",
+      "import": "./dist/core/events.js",
+      "require": "./dist/core/events.cjs"
+    },
+    "./core/focus": {
+      "types": "./dist/core/focus.d.ts",
+      "import": "./dist/core/focus.js",
+      "require": "./dist/core/focus.cjs"
+    },
+    "./core/format": {
+      "types": "./dist/core/format.d.ts",
+      "import": "./dist/core/format.js",
+      "require": "./dist/core/format.cjs"
     },
     "./core": {
       "types": "./dist/core/index.d.ts",
       "import": "./dist/core/index.js",
       "require": "./dist/core/index.cjs"
     },
-    "./core/*": {
-      "types": "./dist/core/*.d.ts",
-      "import": "./dist/core/*.js",
-      "require": "./dist/core/*.cjs"
+    "./core/keymap": {
+      "types": "./dist/core/keymap.d.ts",
+      "import": "./dist/core/keymap.js",
+      "require": "./dist/core/keymap.cjs"
+    },
+    "./core/layout": {
+      "types": "./dist/core/layout.d.ts",
+      "import": "./dist/core/layout.js",
+      "require": "./dist/core/layout.cjs"
+    },
+    "./core/render-model": {
+      "types": "./dist/core/render-model.d.ts",
+      "import": "./dist/core/render-model.js",
+      "require": "./dist/core/render-model.cjs"
+    },
+    "./core/scale": {
+      "types": "./dist/core/scale.d.ts",
+      "import": "./dist/core/scale.js",
+      "require": "./dist/core/scale.cjs"
+    },
+    "./core/tags": {
+      "types": "./dist/core/tags.d.ts",
+      "import": "./dist/core/tags.js",
+      "require": "./dist/core/tags.cjs"
+    },
+    "./core/theme": {
+      "types": "./dist/core/theme.d.ts",
+      "import": "./dist/core/theme.js",
+      "require": "./dist/core/theme.cjs"
+    },
+    "./core/truncate": {
+      "types": "./dist/core/truncate.d.ts",
+      "import": "./dist/core/truncate.js",
+      "require": "./dist/core/truncate.cjs"
+    },
+    "./core/width": {
+      "types": "./dist/core/width.d.ts",
+      "import": "./dist/core/width.js",
+      "require": "./dist/core/width.cjs"
+    },
+    "./primitives/collection": {
+      "types": "./dist/primitives/collection/index.d.ts",
+      "import": "./dist/primitives/collection/index.js",
+      "require": "./dist/primitives/collection/index.cjs"
+    },
+    "./primitives/focus-scope": {
+      "types": "./dist/primitives/focus-scope/index.d.ts",
+      "import": "./dist/primitives/focus-scope/index.js",
+      "require": "./dist/primitives/focus-scope/index.cjs"
     },
     "./primitives": {
       "types": "./dist/primitives/index.d.ts",
       "import": "./dist/primitives/index.js",
       "require": "./dist/primitives/index.cjs"
     },
-    "./primitives/*": {
-      "types": "./dist/primitives/*/index.d.ts",
-      "import": "./dist/primitives/*/index.js",
-      "require": "./dist/primitives/*/index.cjs"
+    "./primitives/overlay": {
+      "types": "./dist/primitives/overlay/index.d.ts",
+      "import": "./dist/primitives/overlay/index.js",
+      "require": "./dist/primitives/overlay/index.cjs"
     },
-    "./bar-chart": {
-      "types": "./dist/bar-chart/index.d.ts",
-      "import": "./dist/bar-chart/index.js",
-      "require": "./dist/bar-chart/index.cjs"
+    "./primitives/scroll-area": {
+      "types": "./dist/primitives/scroll-area/index.d.ts",
+      "import": "./dist/primitives/scroll-area/index.js",
+      "require": "./dist/primitives/scroll-area/index.cjs"
     },
-    "./build-status": {
-      "types": "./dist/build-status/index.d.ts",
-      "import": "./dist/build-status/index.js",
-      "require": "./dist/build-status/index.cjs"
+    "./primitives/selection": {
+      "types": "./dist/primitives/selection/index.d.ts",
+      "import": "./dist/primitives/selection/index.js",
+      "require": "./dist/primitives/selection/index.cjs"
     },
-    "./carousel": {
-      "types": "./dist/carousel/index.d.ts",
-      "import": "./dist/carousel/index.js",
-      "require": "./dist/carousel/index.cjs"
+    "./primitives/viewport": {
+      "types": "./dist/primitives/viewport/index.d.ts",
+      "import": "./dist/primitives/viewport/index.js",
+      "require": "./dist/primitives/viewport/index.cjs"
     },
-    "./commit-list": {
-      "types": "./dist/commit-list/index.d.ts",
-      "import": "./dist/commit-list/index.js",
-      "require": "./dist/commit-list/index.cjs"
+    "./accordion/blessed": {
+      "types": "./dist/accordion/blessed.d.ts",
+      "import": "./dist/accordion/blessed.js",
+      "require": "./dist/accordion/blessed.cjs"
     },
-    "./context-menu": {
-      "types": "./dist/context-menu/index.d.ts",
-      "import": "./dist/context-menu/index.js",
-      "require": "./dist/context-menu/index.cjs"
+    "./accordion": {
+      "types": "./dist/accordion/index.d.ts",
+      "import": "./dist/accordion/index.js",
+      "require": "./dist/accordion/index.cjs"
     },
-    "./dependency-tree": {
-      "types": "./dist/dependency-tree/index.d.ts",
-      "import": "./dist/dependency-tree/index.js",
-      "require": "./dist/dependency-tree/index.cjs"
+    "./activity-feed/blessed": {
+      "types": "./dist/activity-feed/blessed.d.ts",
+      "import": "./dist/activity-feed/blessed.js",
+      "require": "./dist/activity-feed/blessed.cjs"
     },
-    "./file-picker": {
-      "types": "./dist/file-picker/index.d.ts",
-      "import": "./dist/file-picker/index.js",
-      "require": "./dist/file-picker/index.cjs"
+    "./activity-feed": {
+      "types": "./dist/activity-feed/index.d.ts",
+      "import": "./dist/activity-feed/index.js",
+      "require": "./dist/activity-feed/index.cjs"
     },
-    "./git-status": {
-      "types": "./dist/git-status/index.d.ts",
-      "import": "./dist/git-status/index.js",
-      "require": "./dist/git-status/index.cjs"
+    "./alert/blessed": {
+      "types": "./dist/alert/blessed.d.ts",
+      "import": "./dist/alert/blessed.js",
+      "require": "./dist/alert/blessed.cjs"
     },
-    "./heatmap": {
-      "types": "./dist/heatmap/index.d.ts",
-      "import": "./dist/heatmap/index.js",
-      "require": "./dist/heatmap/index.cjs"
-    },
-    "./line-chart": {
-      "types": "./dist/line-chart/index.d.ts",
-      "import": "./dist/line-chart/index.js",
-      "require": "./dist/line-chart/index.cjs"
-    },
-    "./popover": {
-      "types": "./dist/popover/index.d.ts",
-      "import": "./dist/popover/index.js",
-      "require": "./dist/popover/index.cjs"
-    },
-    "./skeleton": {
-      "types": "./dist/skeleton/index.d.ts",
-      "import": "./dist/skeleton/index.js",
-      "require": "./dist/skeleton/index.cjs"
-    },
-    "./split-pane": {
-      "types": "./dist/split-pane/index.d.ts",
-      "import": "./dist/split-pane/index.js",
-      "require": "./dist/split-pane/index.cjs"
-    },
-    "./test-results": {
-      "types": "./dist/test-results/index.d.ts",
-      "import": "./dist/test-results/index.js",
-      "require": "./dist/test-results/index.cjs"
-    },
-    "./virtual-table": {
-      "types": "./dist/virtual-table/index.d.ts",
-      "import": "./dist/virtual-table/index.js",
-      "require": "./dist/virtual-table/index.cjs"
+    "./alert": {
+      "types": "./dist/alert/index.d.ts",
+      "import": "./dist/alert/index.js",
+      "require": "./dist/alert/index.cjs"
     },
     "./ansi-viewer": {
       "types": "./dist/ansi-viewer/index.d.ts",
       "import": "./dist/ansi-viewer/index.js",
       "require": "./dist/ansi-viewer/index.cjs"
     },
+    "./app-shell/blessed": {
+      "types": "./dist/app-shell/blessed.d.ts",
+      "import": "./dist/app-shell/blessed.js",
+      "require": "./dist/app-shell/blessed.cjs"
+    },
+    "./app-shell": {
+      "types": "./dist/app-shell/index.d.ts",
+      "import": "./dist/app-shell/index.js",
+      "require": "./dist/app-shell/index.cjs"
+    },
     "./area-chart": {
       "types": "./dist/area-chart/index.d.ts",
       "import": "./dist/area-chart/index.js",
       "require": "./dist/area-chart/index.cjs"
     },
+    "./ascii-art/blessed": {
+      "types": "./dist/ascii-art/blessed.d.ts",
+      "import": "./dist/ascii-art/blessed.js",
+      "require": "./dist/ascii-art/blessed.cjs"
+    },
+    "./ascii-art": {
+      "types": "./dist/ascii-art/index.d.ts",
+      "import": "./dist/ascii-art/index.js",
+      "require": "./dist/ascii-art/index.cjs"
+    },
     "./aspect-ratio": {
       "types": "./dist/aspect-ratio/index.d.ts",
       "import": "./dist/aspect-ratio/index.js",
       "require": "./dist/aspect-ratio/index.cjs"
+    },
+    "./autocomplete/blessed": {
+      "types": "./dist/autocomplete/blessed.d.ts",
+      "import": "./dist/autocomplete/blessed.js",
+      "require": "./dist/autocomplete/blessed.cjs"
+    },
+    "./autocomplete": {
+      "types": "./dist/autocomplete/index.d.ts",
+      "import": "./dist/autocomplete/index.js",
+      "require": "./dist/autocomplete/index.cjs"
+    },
+    "./axis/blessed": {
+      "types": "./dist/axis/blessed.d.ts",
+      "import": "./dist/axis/blessed.js",
+      "require": "./dist/axis/blessed.cjs"
+    },
+    "./axis": {
+      "types": "./dist/axis/index.d.ts",
+      "import": "./dist/axis/index.js",
+      "require": "./dist/axis/index.cjs"
+    },
+    "./badge/blessed": {
+      "types": "./dist/badge/blessed.d.ts",
+      "import": "./dist/badge/blessed.js",
+      "require": "./dist/badge/blessed.cjs"
+    },
+    "./badge": {
+      "types": "./dist/badge/index.d.ts",
+      "import": "./dist/badge/index.js",
+      "require": "./dist/badge/index.cjs"
+    },
+    "./bar-chart": {
+      "types": "./dist/bar-chart/index.d.ts",
+      "import": "./dist/bar-chart/index.js",
+      "require": "./dist/bar-chart/index.cjs"
     },
     "./big-text": {
       "types": "./dist/big-text/index.d.ts",
@@ -1324,50 +258,770 @@
       "import": "./dist/box-plot/index.js",
       "require": "./dist/box-plot/index.cjs"
     },
-    "./candlestick-chart": {
-      "types": "./dist/candlestick-chart/index.d.ts",
-      "import": "./dist/candlestick-chart/index.js",
-      "require": "./dist/candlestick-chart/index.cjs"
+    "./box/blessed": {
+      "types": "./dist/box/blessed.d.ts",
+      "import": "./dist/box/blessed.js",
+      "require": "./dist/box/blessed.cjs"
+    },
+    "./box": {
+      "types": "./dist/box/index.d.ts",
+      "import": "./dist/box/index.js",
+      "require": "./dist/box/index.cjs"
+    },
+    "./breadcrumb/blessed": {
+      "types": "./dist/breadcrumb/blessed.d.ts",
+      "import": "./dist/breadcrumb/blessed.js",
+      "require": "./dist/breadcrumb/blessed.cjs"
+    },
+    "./breadcrumb": {
+      "types": "./dist/breadcrumb/index.d.ts",
+      "import": "./dist/breadcrumb/index.js",
+      "require": "./dist/breadcrumb/index.cjs"
+    },
+    "./build-status": {
+      "types": "./dist/build-status/index.d.ts",
+      "import": "./dist/build-status/index.js",
+      "require": "./dist/build-status/index.cjs"
+    },
+    "./bullet-chart/blessed": {
+      "types": "./dist/bullet-chart/blessed.d.ts",
+      "import": "./dist/bullet-chart/blessed.js",
+      "require": "./dist/bullet-chart/blessed.cjs"
+    },
+    "./bullet-chart": {
+      "types": "./dist/bullet-chart/index.d.ts",
+      "import": "./dist/bullet-chart/index.js",
+      "require": "./dist/bullet-chart/index.cjs"
+    },
+    "./button/blessed": {
+      "types": "./dist/button/blessed.d.ts",
+      "import": "./dist/button/blessed.js",
+      "require": "./dist/button/blessed.cjs"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.js",
+      "require": "./dist/button/index.cjs"
+    },
+    "./calendar-heatmap/blessed": {
+      "types": "./dist/calendar-heatmap/blessed.d.ts",
+      "import": "./dist/calendar-heatmap/blessed.js",
+      "require": "./dist/calendar-heatmap/blessed.cjs"
+    },
+    "./calendar-heatmap": {
+      "types": "./dist/calendar-heatmap/index.d.ts",
+      "import": "./dist/calendar-heatmap/index.js",
+      "require": "./dist/calendar-heatmap/index.cjs"
     },
     "./calendar": {
       "types": "./dist/calendar/index.d.ts",
       "import": "./dist/calendar/index.js",
       "require": "./dist/calendar/index.cjs"
     },
+    "./callout/blessed": {
+      "types": "./dist/callout/blessed.d.ts",
+      "import": "./dist/callout/blessed.js",
+      "require": "./dist/callout/blessed.cjs"
+    },
+    "./callout": {
+      "types": "./dist/callout/index.d.ts",
+      "import": "./dist/callout/index.js",
+      "require": "./dist/callout/index.cjs"
+    },
+    "./candlestick-chart": {
+      "types": "./dist/candlestick-chart/index.d.ts",
+      "import": "./dist/candlestick-chart/index.js",
+      "require": "./dist/candlestick-chart/index.cjs"
+    },
+    "./card/blessed": {
+      "types": "./dist/card/blessed.d.ts",
+      "import": "./dist/card/blessed.js",
+      "require": "./dist/card/blessed.cjs"
+    },
+    "./card": {
+      "types": "./dist/card/index.d.ts",
+      "import": "./dist/card/index.js",
+      "require": "./dist/card/index.cjs"
+    },
+    "./carousel": {
+      "types": "./dist/carousel/index.d.ts",
+      "import": "./dist/carousel/index.js",
+      "require": "./dist/carousel/index.cjs"
+    },
+    "./center/blessed": {
+      "types": "./dist/center/blessed.d.ts",
+      "import": "./dist/center/blessed.js",
+      "require": "./dist/center/blessed.cjs"
+    },
+    "./center": {
+      "types": "./dist/center/index.d.ts",
+      "import": "./dist/center/index.js",
+      "require": "./dist/center/index.cjs"
+    },
+    "./checkbox/blessed": {
+      "types": "./dist/checkbox/blessed.d.ts",
+      "import": "./dist/checkbox/blessed.js",
+      "require": "./dist/checkbox/blessed.cjs"
+    },
+    "./checkbox": {
+      "types": "./dist/checkbox/index.d.ts",
+      "import": "./dist/checkbox/index.js",
+      "require": "./dist/checkbox/index.cjs"
+    },
+    "./clock/blessed": {
+      "types": "./dist/clock/blessed.d.ts",
+      "import": "./dist/clock/blessed.js",
+      "require": "./dist/clock/blessed.cjs"
+    },
+    "./clock": {
+      "types": "./dist/clock/index.d.ts",
+      "import": "./dist/clock/index.js",
+      "require": "./dist/clock/index.cjs"
+    },
+    "./cluster/blessed": {
+      "types": "./dist/cluster/blessed.d.ts",
+      "import": "./dist/cluster/blessed.js",
+      "require": "./dist/cluster/blessed.cjs"
+    },
+    "./cluster": {
+      "types": "./dist/cluster/index.d.ts",
+      "import": "./dist/cluster/index.js",
+      "require": "./dist/cluster/index.cjs"
+    },
+    "./code-viewer": {
+      "types": "./dist/code-viewer/index.d.ts",
+      "import": "./dist/code-viewer/index.js",
+      "require": "./dist/code-viewer/index.cjs"
+    },
+    "./code/blessed": {
+      "types": "./dist/code/blessed.d.ts",
+      "import": "./dist/code/blessed.js",
+      "require": "./dist/code/blessed.cjs"
+    },
+    "./code": {
+      "types": "./dist/code/index.d.ts",
+      "import": "./dist/code/index.js",
+      "require": "./dist/code/index.cjs"
+    },
+    "./collapsible/blessed": {
+      "types": "./dist/collapsible/blessed.d.ts",
+      "import": "./dist/collapsible/blessed.js",
+      "require": "./dist/collapsible/blessed.cjs"
+    },
+    "./collapsible": {
+      "types": "./dist/collapsible/index.d.ts",
+      "import": "./dist/collapsible/index.js",
+      "require": "./dist/collapsible/index.cjs"
+    },
+    "./color-swatch/blessed": {
+      "types": "./dist/color-swatch/blessed.d.ts",
+      "import": "./dist/color-swatch/blessed.js",
+      "require": "./dist/color-swatch/blessed.cjs"
+    },
+    "./color-swatch": {
+      "types": "./dist/color-swatch/index.d.ts",
+      "import": "./dist/color-swatch/index.js",
+      "require": "./dist/color-swatch/index.cjs"
+    },
+    "./combobox/blessed": {
+      "types": "./dist/combobox/blessed.d.ts",
+      "import": "./dist/combobox/blessed.js",
+      "require": "./dist/combobox/blessed.cjs"
+    },
+    "./combobox": {
+      "types": "./dist/combobox/index.d.ts",
+      "import": "./dist/combobox/index.js",
+      "require": "./dist/combobox/index.cjs"
+    },
+    "./command-output": {
+      "types": "./dist/command-output/index.d.ts",
+      "import": "./dist/command-output/index.js",
+      "require": "./dist/command-output/index.cjs"
+    },
+    "./command-palette/blessed": {
+      "types": "./dist/command-palette/blessed.d.ts",
+      "import": "./dist/command-palette/blessed.js",
+      "require": "./dist/command-palette/blessed.cjs"
+    },
+    "./command-palette": {
+      "types": "./dist/command-palette/index.d.ts",
+      "import": "./dist/command-palette/index.js",
+      "require": "./dist/command-palette/index.cjs"
+    },
+    "./commit-list": {
+      "types": "./dist/commit-list/index.d.ts",
+      "import": "./dist/commit-list/index.js",
+      "require": "./dist/commit-list/index.cjs"
+    },
+    "./confirm-dialog/blessed": {
+      "types": "./dist/confirm-dialog/blessed.d.ts",
+      "import": "./dist/confirm-dialog/blessed.js",
+      "require": "./dist/confirm-dialog/blessed.cjs"
+    },
+    "./confirm-dialog": {
+      "types": "./dist/confirm-dialog/index.d.ts",
+      "import": "./dist/confirm-dialog/index.js",
+      "require": "./dist/confirm-dialog/index.cjs"
+    },
+    "./connection-status/blessed": {
+      "types": "./dist/connection-status/blessed.d.ts",
+      "import": "./dist/connection-status/blessed.js",
+      "require": "./dist/connection-status/blessed.cjs"
+    },
+    "./connection-status": {
+      "types": "./dist/connection-status/index.d.ts",
+      "import": "./dist/connection-status/index.js",
+      "require": "./dist/connection-status/index.cjs"
+    },
+    "./context-menu": {
+      "types": "./dist/context-menu/index.d.ts",
+      "import": "./dist/context-menu/index.js",
+      "require": "./dist/context-menu/index.cjs"
+    },
+    "./countdown": {
+      "types": "./dist/countdown/index.d.ts",
+      "import": "./dist/countdown/index.js",
+      "require": "./dist/countdown/index.cjs"
+    },
+    "./data-table/blessed": {
+      "types": "./dist/data-table/blessed.d.ts",
+      "import": "./dist/data-table/blessed.js",
+      "require": "./dist/data-table/blessed.cjs"
+    },
+    "./data-table": {
+      "types": "./dist/data-table/index.d.ts",
+      "import": "./dist/data-table/index.js",
+      "require": "./dist/data-table/index.cjs"
+    },
+    "./date-input": {
+      "types": "./dist/date-input/index.d.ts",
+      "import": "./dist/date-input/index.js",
+      "require": "./dist/date-input/index.cjs"
+    },
     "./date-range-picker": {
       "types": "./dist/date-range-picker/index.d.ts",
       "import": "./dist/date-range-picker/index.js",
       "require": "./dist/date-range-picker/index.cjs"
+    },
+    "./dependency-tree": {
+      "types": "./dist/dependency-tree/index.d.ts",
+      "import": "./dist/dependency-tree/index.js",
+      "require": "./dist/dependency-tree/index.cjs"
+    },
+    "./description-list/blessed": {
+      "types": "./dist/description-list/blessed.d.ts",
+      "import": "./dist/description-list/blessed.js",
+      "require": "./dist/description-list/blessed.cjs"
+    },
+    "./description-list": {
+      "types": "./dist/description-list/index.d.ts",
+      "import": "./dist/description-list/index.js",
+      "require": "./dist/description-list/index.cjs"
+    },
+    "./dialog/blessed": {
+      "types": "./dist/dialog/blessed.d.ts",
+      "import": "./dist/dialog/blessed.js",
+      "require": "./dist/dialog/blessed.cjs"
+    },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "import": "./dist/dialog/index.js",
+      "require": "./dist/dialog/index.cjs"
+    },
+    "./diff-view/blessed": {
+      "types": "./dist/diff-view/blessed.d.ts",
+      "import": "./dist/diff-view/blessed.js",
+      "require": "./dist/diff-view/blessed.cjs"
+    },
+    "./diff-view": {
+      "types": "./dist/diff-view/index.d.ts",
+      "import": "./dist/diff-view/index.js",
+      "require": "./dist/diff-view/index.cjs"
+    },
+    "./diff-viewer": {
+      "types": "./dist/diff-viewer/index.d.ts",
+      "import": "./dist/diff-viewer/index.js",
+      "require": "./dist/diff-viewer/index.cjs"
+    },
+    "./divider/blessed": {
+      "types": "./dist/divider/blessed.d.ts",
+      "import": "./dist/divider/blessed.js",
+      "require": "./dist/divider/blessed.cjs"
+    },
+    "./divider": {
+      "types": "./dist/divider/index.d.ts",
+      "import": "./dist/divider/index.js",
+      "require": "./dist/divider/index.cjs"
     },
     "./donut": {
       "types": "./dist/donut/index.d.ts",
       "import": "./dist/donut/index.js",
       "require": "./dist/donut/index.cjs"
     },
+    "./drawer/blessed": {
+      "types": "./dist/drawer/blessed.d.ts",
+      "import": "./dist/drawer/blessed.js",
+      "require": "./dist/drawer/blessed.cjs"
+    },
+    "./drawer": {
+      "types": "./dist/drawer/index.d.ts",
+      "import": "./dist/drawer/index.js",
+      "require": "./dist/drawer/index.cjs"
+    },
+    "./dropdown-menu/blessed": {
+      "types": "./dist/dropdown-menu/blessed.d.ts",
+      "import": "./dist/dropdown-menu/blessed.js",
+      "require": "./dist/dropdown-menu/blessed.cjs"
+    },
+    "./dropdown-menu": {
+      "types": "./dist/dropdown-menu/index.d.ts",
+      "import": "./dist/dropdown-menu/index.js",
+      "require": "./dist/dropdown-menu/index.cjs"
+    },
+    "./empty-state/blessed": {
+      "types": "./dist/empty-state/blessed.d.ts",
+      "import": "./dist/empty-state/blessed.js",
+      "require": "./dist/empty-state/blessed.cjs"
+    },
+    "./empty-state": {
+      "types": "./dist/empty-state/index.d.ts",
+      "import": "./dist/empty-state/index.js",
+      "require": "./dist/empty-state/index.cjs"
+    },
+    "./environment-table": {
+      "types": "./dist/environment-table/index.d.ts",
+      "import": "./dist/environment-table/index.js",
+      "require": "./dist/environment-table/index.cjs"
+    },
+    "./error-state/blessed": {
+      "types": "./dist/error-state/blessed.d.ts",
+      "import": "./dist/error-state/blessed.js",
+      "require": "./dist/error-state/blessed.cjs"
+    },
+    "./error-state": {
+      "types": "./dist/error-state/index.d.ts",
+      "import": "./dist/error-state/index.js",
+      "require": "./dist/error-state/index.cjs"
+    },
+    "./event-log": {
+      "types": "./dist/event-log/index.d.ts",
+      "import": "./dist/event-log/index.js",
+      "require": "./dist/event-log/index.cjs"
+    },
+    "./file-picker": {
+      "types": "./dist/file-picker/index.d.ts",
+      "import": "./dist/file-picker/index.js",
+      "require": "./dist/file-picker/index.cjs"
+    },
+    "./file-tree/blessed": {
+      "types": "./dist/file-tree/blessed.d.ts",
+      "import": "./dist/file-tree/blessed.js",
+      "require": "./dist/file-tree/blessed.cjs"
+    },
+    "./file-tree": {
+      "types": "./dist/file-tree/index.d.ts",
+      "import": "./dist/file-tree/index.js",
+      "require": "./dist/file-tree/index.cjs"
+    },
+    "./form-field/blessed": {
+      "types": "./dist/form-field/blessed.d.ts",
+      "import": "./dist/form-field/blessed.js",
+      "require": "./dist/form-field/blessed.cjs"
+    },
+    "./form-field": {
+      "types": "./dist/form-field/index.d.ts",
+      "import": "./dist/form-field/index.js",
+      "require": "./dist/form-field/index.cjs"
+    },
+    "./form/blessed": {
+      "types": "./dist/form/blessed.d.ts",
+      "import": "./dist/form/blessed.js",
+      "require": "./dist/form/blessed.cjs"
+    },
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "import": "./dist/form/index.js",
+      "require": "./dist/form/index.cjs"
+    },
     "./gantt": {
       "types": "./dist/gantt/index.d.ts",
       "import": "./dist/gantt/index.js",
       "require": "./dist/gantt/index.cjs"
+    },
+    "./gauge/blessed": {
+      "types": "./dist/gauge/blessed.d.ts",
+      "import": "./dist/gauge/blessed.js",
+      "require": "./dist/gauge/blessed.cjs"
+    },
+    "./gauge": {
+      "types": "./dist/gauge/index.d.ts",
+      "import": "./dist/gauge/index.js",
+      "require": "./dist/gauge/index.cjs"
+    },
+    "./git-status": {
+      "types": "./dist/git-status/index.d.ts",
+      "import": "./dist/git-status/index.js",
+      "require": "./dist/git-status/index.cjs"
+    },
+    "./grid/blessed": {
+      "types": "./dist/grid/blessed.d.ts",
+      "import": "./dist/grid/blessed.js",
+      "require": "./dist/grid/blessed.cjs"
+    },
+    "./grid": {
+      "types": "./dist/grid/index.d.ts",
+      "import": "./dist/grid/index.js",
+      "require": "./dist/grid/index.cjs"
+    },
+    "./grouped-list/blessed": {
+      "types": "./dist/grouped-list/blessed.d.ts",
+      "import": "./dist/grouped-list/blessed.js",
+      "require": "./dist/grouped-list/blessed.cjs"
+    },
+    "./grouped-list": {
+      "types": "./dist/grouped-list/index.d.ts",
+      "import": "./dist/grouped-list/index.js",
+      "require": "./dist/grouped-list/index.cjs"
+    },
+    "./heading/blessed": {
+      "types": "./dist/heading/blessed.d.ts",
+      "import": "./dist/heading/blessed.js",
+      "require": "./dist/heading/blessed.cjs"
+    },
+    "./heading": {
+      "types": "./dist/heading/index.d.ts",
+      "import": "./dist/heading/index.js",
+      "require": "./dist/heading/index.cjs"
+    },
+    "./health-indicator/blessed": {
+      "types": "./dist/health-indicator/blessed.d.ts",
+      "import": "./dist/health-indicator/blessed.js",
+      "require": "./dist/health-indicator/blessed.cjs"
+    },
+    "./health-indicator": {
+      "types": "./dist/health-indicator/index.d.ts",
+      "import": "./dist/health-indicator/index.js",
+      "require": "./dist/health-indicator/index.cjs"
+    },
+    "./heatmap": {
+      "types": "./dist/heatmap/index.d.ts",
+      "import": "./dist/heatmap/index.js",
+      "require": "./dist/heatmap/index.cjs"
+    },
+    "./help-overlay/blessed": {
+      "types": "./dist/help-overlay/blessed.d.ts",
+      "import": "./dist/help-overlay/blessed.js",
+      "require": "./dist/help-overlay/blessed.cjs"
+    },
+    "./help-overlay": {
+      "types": "./dist/help-overlay/index.d.ts",
+      "import": "./dist/help-overlay/index.js",
+      "require": "./dist/help-overlay/index.cjs"
     },
     "./hex-viewer": {
       "types": "./dist/hex-viewer/index.d.ts",
       "import": "./dist/hex-viewer/index.js",
       "require": "./dist/hex-viewer/index.cjs"
     },
+    "./histogram/blessed": {
+      "types": "./dist/histogram/blessed.d.ts",
+      "import": "./dist/histogram/blessed.js",
+      "require": "./dist/histogram/blessed.cjs"
+    },
+    "./histogram": {
+      "types": "./dist/histogram/index.d.ts",
+      "import": "./dist/histogram/index.js",
+      "require": "./dist/histogram/index.cjs"
+    },
+    "./icon-button/blessed": {
+      "types": "./dist/icon-button/blessed.d.ts",
+      "import": "./dist/icon-button/blessed.js",
+      "require": "./dist/icon-button/blessed.cjs"
+    },
+    "./icon-button": {
+      "types": "./dist/icon-button/index.d.ts",
+      "import": "./dist/icon-button/index.js",
+      "require": "./dist/icon-button/index.cjs"
+    },
     "./image": {
       "types": "./dist/image/index.d.ts",
       "import": "./dist/image/index.js",
       "require": "./dist/image/index.cjs"
+    },
+    "./inspector/blessed": {
+      "types": "./dist/inspector/blessed.d.ts",
+      "import": "./dist/inspector/blessed.js",
+      "require": "./dist/inspector/blessed.cjs"
+    },
+    "./inspector": {
+      "types": "./dist/inspector/index.d.ts",
+      "import": "./dist/inspector/index.js",
+      "require": "./dist/inspector/index.cjs"
+    },
+    "./json-viewer/blessed": {
+      "types": "./dist/json-viewer/blessed.d.ts",
+      "import": "./dist/json-viewer/blessed.js",
+      "require": "./dist/json-viewer/blessed.cjs"
+    },
+    "./json-viewer": {
+      "types": "./dist/json-viewer/index.d.ts",
+      "import": "./dist/json-viewer/index.js",
+      "require": "./dist/json-viewer/index.cjs"
+    },
+    "./kbd/blessed": {
+      "types": "./dist/kbd/blessed.d.ts",
+      "import": "./dist/kbd/blessed.js",
+      "require": "./dist/kbd/blessed.cjs"
+    },
+    "./kbd": {
+      "types": "./dist/kbd/index.d.ts",
+      "import": "./dist/kbd/index.js",
+      "require": "./dist/kbd/index.cjs"
+    },
+    "./key-value/blessed": {
+      "types": "./dist/key-value/blessed.d.ts",
+      "import": "./dist/key-value/blessed.js",
+      "require": "./dist/key-value/blessed.cjs"
+    },
+    "./key-value": {
+      "types": "./dist/key-value/index.d.ts",
+      "import": "./dist/key-value/index.js",
+      "require": "./dist/key-value/index.cjs"
+    },
+    "./keybinding-input/blessed": {
+      "types": "./dist/keybinding-input/blessed.d.ts",
+      "import": "./dist/keybinding-input/blessed.js",
+      "require": "./dist/keybinding-input/blessed.cjs"
+    },
+    "./keybinding-input": {
+      "types": "./dist/keybinding-input/index.d.ts",
+      "import": "./dist/keybinding-input/index.js",
+      "require": "./dist/keybinding-input/index.cjs"
+    },
+    "./label/blessed": {
+      "types": "./dist/label/blessed.d.ts",
+      "import": "./dist/label/blessed.js",
+      "require": "./dist/label/blessed.cjs"
+    },
+    "./label": {
+      "types": "./dist/label/index.d.ts",
+      "import": "./dist/label/index.js",
+      "require": "./dist/label/index.cjs"
+    },
+    "./legend/blessed": {
+      "types": "./dist/legend/blessed.d.ts",
+      "import": "./dist/legend/blessed.js",
+      "require": "./dist/legend/blessed.cjs"
+    },
+    "./legend": {
+      "types": "./dist/legend/index.d.ts",
+      "import": "./dist/legend/index.js",
+      "require": "./dist/legend/index.cjs"
+    },
+    "./line-chart": {
+      "types": "./dist/line-chart/index.d.ts",
+      "import": "./dist/line-chart/index.js",
+      "require": "./dist/line-chart/index.cjs"
+    },
+    "./link/blessed": {
+      "types": "./dist/link/blessed.d.ts",
+      "import": "./dist/link/blessed.js",
+      "require": "./dist/link/blessed.cjs"
+    },
+    "./link": {
+      "types": "./dist/link/index.d.ts",
+      "import": "./dist/link/index.js",
+      "require": "./dist/link/index.cjs"
+    },
+    "./list/blessed": {
+      "types": "./dist/list/blessed.d.ts",
+      "import": "./dist/list/blessed.js",
+      "require": "./dist/list/blessed.cjs"
+    },
+    "./list": {
+      "types": "./dist/list/index.d.ts",
+      "import": "./dist/list/index.js",
+      "require": "./dist/list/index.cjs"
+    },
+    "./loading-overlay/blessed": {
+      "types": "./dist/loading-overlay/blessed.d.ts",
+      "import": "./dist/loading-overlay/blessed.js",
+      "require": "./dist/loading-overlay/blessed.cjs"
+    },
+    "./loading-overlay": {
+      "types": "./dist/loading-overlay/index.d.ts",
+      "import": "./dist/loading-overlay/index.js",
+      "require": "./dist/loading-overlay/index.cjs"
+    },
+    "./log-explorer/blessed": {
+      "types": "./dist/log-explorer/blessed.d.ts",
+      "import": "./dist/log-explorer/blessed.js",
+      "require": "./dist/log-explorer/blessed.cjs"
+    },
+    "./log-explorer": {
+      "types": "./dist/log-explorer/index.d.ts",
+      "import": "./dist/log-explorer/index.js",
+      "require": "./dist/log-explorer/index.cjs"
+    },
+    "./log-viewer/blessed": {
+      "types": "./dist/log-viewer/blessed.d.ts",
+      "import": "./dist/log-viewer/blessed.js",
+      "require": "./dist/log-viewer/blessed.cjs"
+    },
+    "./log-viewer": {
+      "types": "./dist/log-viewer/index.d.ts",
+      "import": "./dist/log-viewer/index.js",
+      "require": "./dist/log-viewer/index.cjs"
     },
     "./markdown-viewer": {
       "types": "./dist/markdown-viewer/index.d.ts",
       "import": "./dist/markdown-viewer/index.js",
       "require": "./dist/markdown-viewer/index.cjs"
     },
+    "./menu-bar/blessed": {
+      "types": "./dist/menu-bar/blessed.d.ts",
+      "import": "./dist/menu-bar/blessed.js",
+      "require": "./dist/menu-bar/blessed.cjs"
+    },
+    "./menu-bar": {
+      "types": "./dist/menu-bar/index.d.ts",
+      "import": "./dist/menu-bar/index.js",
+      "require": "./dist/menu-bar/index.cjs"
+    },
+    "./menu/blessed": {
+      "types": "./dist/menu/blessed.d.ts",
+      "import": "./dist/menu/blessed.js",
+      "require": "./dist/menu/blessed.cjs"
+    },
+    "./menu": {
+      "types": "./dist/menu/index.d.ts",
+      "import": "./dist/menu/index.js",
+      "require": "./dist/menu/index.cjs"
+    },
+    "./metric-bars/blessed": {
+      "types": "./dist/metric-bars/blessed.d.ts",
+      "import": "./dist/metric-bars/blessed.js",
+      "require": "./dist/metric-bars/blessed.cjs"
+    },
+    "./metric-bars": {
+      "types": "./dist/metric-bars/index.d.ts",
+      "import": "./dist/metric-bars/index.js",
+      "require": "./dist/metric-bars/index.cjs"
+    },
+    "./multi-select/blessed": {
+      "types": "./dist/multi-select/blessed.d.ts",
+      "import": "./dist/multi-select/blessed.js",
+      "require": "./dist/multi-select/blessed.cjs"
+    },
+    "./multi-select": {
+      "types": "./dist/multi-select/index.d.ts",
+      "import": "./dist/multi-select/index.js",
+      "require": "./dist/multi-select/index.cjs"
+    },
+    "./multi-sparkline/blessed": {
+      "types": "./dist/multi-sparkline/blessed.d.ts",
+      "import": "./dist/multi-sparkline/blessed.js",
+      "require": "./dist/multi-sparkline/blessed.cjs"
+    },
+    "./multi-sparkline": {
+      "types": "./dist/multi-sparkline/index.d.ts",
+      "import": "./dist/multi-sparkline/index.js",
+      "require": "./dist/multi-sparkline/index.cjs"
+    },
+    "./muted-text/blessed": {
+      "types": "./dist/muted-text/blessed.d.ts",
+      "import": "./dist/muted-text/blessed.js",
+      "require": "./dist/muted-text/blessed.cjs"
+    },
+    "./muted-text": {
+      "types": "./dist/muted-text/index.d.ts",
+      "import": "./dist/muted-text/index.js",
+      "require": "./dist/muted-text/index.cjs"
+    },
+    "./navigation-list/blessed": {
+      "types": "./dist/navigation-list/blessed.d.ts",
+      "import": "./dist/navigation-list/blessed.js",
+      "require": "./dist/navigation-list/blessed.cjs"
+    },
+    "./navigation-list": {
+      "types": "./dist/navigation-list/index.d.ts",
+      "import": "./dist/navigation-list/index.js",
+      "require": "./dist/navigation-list/index.cjs"
+    },
     "./notification-center": {
       "types": "./dist/notification-center/index.d.ts",
       "import": "./dist/notification-center/index.js",
       "require": "./dist/notification-center/index.cjs"
+    },
+    "./number-field/blessed": {
+      "types": "./dist/number-field/blessed.d.ts",
+      "import": "./dist/number-field/blessed.js",
+      "require": "./dist/number-field/blessed.cjs"
+    },
+    "./number-field": {
+      "types": "./dist/number-field/index.d.ts",
+      "import": "./dist/number-field/index.js",
+      "require": "./dist/number-field/index.cjs"
+    },
+    "./overlay/blessed": {
+      "types": "./dist/overlay/blessed.d.ts",
+      "import": "./dist/overlay/blessed.js",
+      "require": "./dist/overlay/blessed.cjs"
+    },
+    "./overlay": {
+      "types": "./dist/overlay/index.d.ts",
+      "import": "./dist/overlay/index.js",
+      "require": "./dist/overlay/index.cjs"
+    },
+    "./page/blessed": {
+      "types": "./dist/page/blessed.d.ts",
+      "import": "./dist/page/blessed.js",
+      "require": "./dist/page/blessed.cjs"
+    },
+    "./page": {
+      "types": "./dist/page/index.d.ts",
+      "import": "./dist/page/index.js",
+      "require": "./dist/page/index.cjs"
+    },
+    "./pager/blessed": {
+      "types": "./dist/pager/blessed.d.ts",
+      "import": "./dist/pager/blessed.js",
+      "require": "./dist/pager/blessed.cjs"
+    },
+    "./pager": {
+      "types": "./dist/pager/index.d.ts",
+      "import": "./dist/pager/index.js",
+      "require": "./dist/pager/index.cjs"
+    },
+    "./pagination/blessed": {
+      "types": "./dist/pagination/blessed.d.ts",
+      "import": "./dist/pagination/blessed.js",
+      "require": "./dist/pagination/blessed.cjs"
+    },
+    "./pagination": {
+      "types": "./dist/pagination/index.d.ts",
+      "import": "./dist/pagination/index.js",
+      "require": "./dist/pagination/index.cjs"
+    },
+    "./palette/blessed": {
+      "types": "./dist/palette/blessed.d.ts",
+      "import": "./dist/palette/blessed.js",
+      "require": "./dist/palette/blessed.cjs"
+    },
+    "./palette": {
+      "types": "./dist/palette/index.d.ts",
+      "import": "./dist/palette/index.js",
+      "require": "./dist/palette/index.cjs"
+    },
+    "./password-field/blessed": {
+      "types": "./dist/password-field/blessed.d.ts",
+      "import": "./dist/password-field/blessed.js",
+      "require": "./dist/password-field/blessed.cjs"
+    },
+    "./password-field": {
+      "types": "./dist/password-field/index.d.ts",
+      "import": "./dist/password-field/index.js",
+      "require": "./dist/password-field/index.cjs"
     },
     "./performance-panel": {
       "types": "./dist/performance-panel/index.d.ts",
@@ -1378,6 +1032,21 @@
       "types": "./dist/pill/index.d.ts",
       "import": "./dist/pill/index.js",
       "require": "./dist/pill/index.cjs"
+    },
+    "./popover": {
+      "types": "./dist/popover/index.d.ts",
+      "import": "./dist/popover/index.js",
+      "require": "./dist/popover/index.cjs"
+    },
+    "./preformatted/blessed": {
+      "types": "./dist/preformatted/blessed.d.ts",
+      "import": "./dist/preformatted/blessed.js",
+      "require": "./dist/preformatted/blessed.cjs"
+    },
+    "./preformatted": {
+      "types": "./dist/preformatted/index.d.ts",
+      "import": "./dist/preformatted/index.js",
+      "require": "./dist/preformatted/index.cjs"
     },
     "./process-list": {
       "types": "./dist/process-list/index.d.ts",
@@ -1394,10 +1063,70 @@
       "import": "./dist/process-table/index.js",
       "require": "./dist/process-table/index.cjs"
     },
+    "./progress-bar/blessed": {
+      "types": "./dist/progress-bar/blessed.d.ts",
+      "import": "./dist/progress-bar/blessed.js",
+      "require": "./dist/progress-bar/blessed.cjs"
+    },
+    "./progress-bar": {
+      "types": "./dist/progress-bar/index.d.ts",
+      "import": "./dist/progress-bar/index.js",
+      "require": "./dist/progress-bar/index.cjs"
+    },
+    "./progress-list/blessed": {
+      "types": "./dist/progress-list/blessed.d.ts",
+      "import": "./dist/progress-list/blessed.js",
+      "require": "./dist/progress-list/blessed.cjs"
+    },
+    "./progress-list": {
+      "types": "./dist/progress-list/index.d.ts",
+      "import": "./dist/progress-list/index.js",
+      "require": "./dist/progress-list/index.cjs"
+    },
+    "./progress-stack/blessed": {
+      "types": "./dist/progress-stack/blessed.d.ts",
+      "import": "./dist/progress-stack/blessed.js",
+      "require": "./dist/progress-stack/blessed.cjs"
+    },
+    "./progress-stack": {
+      "types": "./dist/progress-stack/index.d.ts",
+      "import": "./dist/progress-stack/index.js",
+      "require": "./dist/progress-stack/index.cjs"
+    },
+    "./prompt-dialog": {
+      "types": "./dist/prompt-dialog/index.d.ts",
+      "import": "./dist/prompt-dialog/index.js",
+      "require": "./dist/prompt-dialog/index.cjs"
+    },
+    "./qr-code": {
+      "types": "./dist/qr-code/index.d.ts",
+      "import": "./dist/qr-code/index.js",
+      "require": "./dist/qr-code/index.cjs"
+    },
     "./query-results": {
       "types": "./dist/query-results/index.d.ts",
       "import": "./dist/query-results/index.js",
       "require": "./dist/query-results/index.cjs"
+    },
+    "./quick-switcher/blessed": {
+      "types": "./dist/quick-switcher/blessed.d.ts",
+      "import": "./dist/quick-switcher/blessed.js",
+      "require": "./dist/quick-switcher/blessed.cjs"
+    },
+    "./quick-switcher": {
+      "types": "./dist/quick-switcher/index.d.ts",
+      "import": "./dist/quick-switcher/index.js",
+      "require": "./dist/quick-switcher/index.cjs"
+    },
+    "./radio-group/blessed": {
+      "types": "./dist/radio-group/blessed.d.ts",
+      "import": "./dist/radio-group/blessed.js",
+      "require": "./dist/radio-group/blessed.cjs"
+    },
+    "./radio-group": {
+      "types": "./dist/radio-group/index.d.ts",
+      "import": "./dist/radio-group/index.js",
+      "require": "./dist/radio-group/index.cjs"
     },
     "./rating": {
       "types": "./dist/rating/index.d.ts",
@@ -1429,25 +1158,395 @@
       "import": "./dist/scatter-plot/index.js",
       "require": "./dist/scatter-plot/index.cjs"
     },
+    "./schedule": {
+      "types": "./dist/schedule/index.d.ts",
+      "import": "./dist/schedule/index.js",
+      "require": "./dist/schedule/index.cjs"
+    },
+    "./scroll-area/blessed": {
+      "types": "./dist/scroll-area/blessed.d.ts",
+      "import": "./dist/scroll-area/blessed.js",
+      "require": "./dist/scroll-area/blessed.cjs"
+    },
+    "./scroll-area": {
+      "types": "./dist/scroll-area/index.d.ts",
+      "import": "./dist/scroll-area/index.js",
+      "require": "./dist/scroll-area/index.cjs"
+    },
+    "./search-field/blessed": {
+      "types": "./dist/search-field/blessed.d.ts",
+      "import": "./dist/search-field/blessed.js",
+      "require": "./dist/search-field/blessed.cjs"
+    },
+    "./search-field": {
+      "types": "./dist/search-field/index.d.ts",
+      "import": "./dist/search-field/index.js",
+      "require": "./dist/search-field/index.cjs"
+    },
+    "./select/blessed": {
+      "types": "./dist/select/blessed.d.ts",
+      "import": "./dist/select/blessed.js",
+      "require": "./dist/select/blessed.cjs"
+    },
+    "./select": {
+      "types": "./dist/select/index.d.ts",
+      "import": "./dist/select/index.js",
+      "require": "./dist/select/index.cjs"
+    },
     "./shell-history": {
       "types": "./dist/shell-history/index.d.ts",
       "import": "./dist/shell-history/index.js",
       "require": "./dist/shell-history/index.cjs"
+    },
+    "./shortcut-recorder": {
+      "types": "./dist/shortcut-recorder/index.d.ts",
+      "import": "./dist/shortcut-recorder/index.js",
+      "require": "./dist/shortcut-recorder/index.cjs"
+    },
+    "./sidebar-layout/blessed": {
+      "types": "./dist/sidebar-layout/blessed.d.ts",
+      "import": "./dist/sidebar-layout/blessed.js",
+      "require": "./dist/sidebar-layout/blessed.cjs"
+    },
+    "./sidebar-layout": {
+      "types": "./dist/sidebar-layout/index.d.ts",
+      "import": "./dist/sidebar-layout/index.js",
+      "require": "./dist/sidebar-layout/index.cjs"
+    },
+    "./skeleton": {
+      "types": "./dist/skeleton/index.d.ts",
+      "import": "./dist/skeleton/index.js",
+      "require": "./dist/skeleton/index.cjs"
+    },
+    "./spacer/blessed": {
+      "types": "./dist/spacer/blessed.d.ts",
+      "import": "./dist/spacer/blessed.js",
+      "require": "./dist/spacer/blessed.cjs"
+    },
+    "./spacer": {
+      "types": "./dist/spacer/index.d.ts",
+      "import": "./dist/spacer/index.js",
+      "require": "./dist/spacer/index.cjs"
+    },
+    "./sparkline/blessed": {
+      "types": "./dist/sparkline/blessed.d.ts",
+      "import": "./dist/sparkline/blessed.js",
+      "require": "./dist/sparkline/blessed.cjs"
+    },
+    "./sparkline": {
+      "types": "./dist/sparkline/index.d.ts",
+      "import": "./dist/sparkline/index.js",
+      "require": "./dist/sparkline/index.cjs"
+    },
+    "./spinner/blessed": {
+      "types": "./dist/spinner/blessed.d.ts",
+      "import": "./dist/spinner/blessed.js",
+      "require": "./dist/spinner/blessed.cjs"
+    },
+    "./spinner": {
+      "types": "./dist/spinner/index.d.ts",
+      "import": "./dist/spinner/index.js",
+      "require": "./dist/spinner/index.cjs"
+    },
+    "./split-pane": {
+      "types": "./dist/split-pane/index.d.ts",
+      "import": "./dist/split-pane/index.js",
+      "require": "./dist/split-pane/index.cjs"
+    },
+    "./spotlight/blessed": {
+      "types": "./dist/spotlight/blessed.d.ts",
+      "import": "./dist/spotlight/blessed.js",
+      "require": "./dist/spotlight/blessed.cjs"
+    },
+    "./spotlight": {
+      "types": "./dist/spotlight/index.d.ts",
+      "import": "./dist/spotlight/index.js",
+      "require": "./dist/spotlight/index.cjs"
+    },
+    "./stack-trace": {
+      "types": "./dist/stack-trace/index.d.ts",
+      "import": "./dist/stack-trace/index.js",
+      "require": "./dist/stack-trace/index.cjs"
+    },
+    "./stack/blessed": {
+      "types": "./dist/stack/blessed.d.ts",
+      "import": "./dist/stack/blessed.js",
+      "require": "./dist/stack/blessed.cjs"
+    },
+    "./stack": {
+      "types": "./dist/stack/index.d.ts",
+      "import": "./dist/stack/index.js",
+      "require": "./dist/stack/index.cjs"
     },
     "./stacked-bar-chart": {
       "types": "./dist/stacked-bar-chart/index.d.ts",
       "import": "./dist/stacked-bar-chart/index.js",
       "require": "./dist/stacked-bar-chart/index.cjs"
     },
+    "./stacked-gauge/blessed": {
+      "types": "./dist/stacked-gauge/blessed.d.ts",
+      "import": "./dist/stacked-gauge/blessed.js",
+      "require": "./dist/stacked-gauge/blessed.cjs"
+    },
+    "./stacked-gauge": {
+      "types": "./dist/stacked-gauge/index.d.ts",
+      "import": "./dist/stacked-gauge/index.js",
+      "require": "./dist/stacked-gauge/index.cjs"
+    },
+    "./stat/blessed": {
+      "types": "./dist/stat/blessed.d.ts",
+      "import": "./dist/stat/blessed.js",
+      "require": "./dist/stat/blessed.cjs"
+    },
+    "./stat": {
+      "types": "./dist/stat/index.d.ts",
+      "import": "./dist/stat/index.js",
+      "require": "./dist/stat/index.cjs"
+    },
+    "./status/blessed": {
+      "types": "./dist/status/blessed.d.ts",
+      "import": "./dist/status/blessed.js",
+      "require": "./dist/status/blessed.cjs"
+    },
+    "./status": {
+      "types": "./dist/status/index.d.ts",
+      "import": "./dist/status/index.js",
+      "require": "./dist/status/index.cjs"
+    },
+    "./step-indicator/blessed": {
+      "types": "./dist/step-indicator/blessed.d.ts",
+      "import": "./dist/step-indicator/blessed.js",
+      "require": "./dist/step-indicator/blessed.cjs"
+    },
+    "./step-indicator": {
+      "types": "./dist/step-indicator/index.d.ts",
+      "import": "./dist/step-indicator/index.js",
+      "require": "./dist/step-indicator/index.cjs"
+    },
+    "./switch/blessed": {
+      "types": "./dist/switch/blessed.d.ts",
+      "import": "./dist/switch/blessed.js",
+      "require": "./dist/switch/blessed.cjs"
+    },
+    "./switch": {
+      "types": "./dist/switch/index.d.ts",
+      "import": "./dist/switch/index.js",
+      "require": "./dist/switch/index.cjs"
+    },
+    "./tab-list/blessed": {
+      "types": "./dist/tab-list/blessed.d.ts",
+      "import": "./dist/tab-list/blessed.js",
+      "require": "./dist/tab-list/blessed.cjs"
+    },
+    "./tab-list": {
+      "types": "./dist/tab-list/index.d.ts",
+      "import": "./dist/tab-list/index.js",
+      "require": "./dist/tab-list/index.cjs"
+    },
+    "./table/blessed": {
+      "types": "./dist/table/blessed.d.ts",
+      "import": "./dist/table/blessed.js",
+      "require": "./dist/table/blessed.cjs"
+    },
+    "./table": {
+      "types": "./dist/table/index.d.ts",
+      "import": "./dist/table/index.js",
+      "require": "./dist/table/index.cjs"
+    },
+    "./tabs/blessed": {
+      "types": "./dist/tabs/blessed.d.ts",
+      "import": "./dist/tabs/blessed.js",
+      "require": "./dist/tabs/blessed.cjs"
+    },
+    "./tabs": {
+      "types": "./dist/tabs/index.d.ts",
+      "import": "./dist/tabs/index.js",
+      "require": "./dist/tabs/index.cjs"
+    },
+    "./tag/blessed": {
+      "types": "./dist/tag/blessed.d.ts",
+      "import": "./dist/tag/blessed.js",
+      "require": "./dist/tag/blessed.cjs"
+    },
+    "./tag": {
+      "types": "./dist/tag/index.d.ts",
+      "import": "./dist/tag/index.js",
+      "require": "./dist/tag/index.cjs"
+    },
+    "./task-progress/blessed": {
+      "types": "./dist/task-progress/blessed.d.ts",
+      "import": "./dist/task-progress/blessed.js",
+      "require": "./dist/task-progress/blessed.cjs"
+    },
+    "./task-progress": {
+      "types": "./dist/task-progress/index.d.ts",
+      "import": "./dist/task-progress/index.js",
+      "require": "./dist/task-progress/index.cjs"
+    },
     "./task-runner": {
       "types": "./dist/task-runner/index.d.ts",
       "import": "./dist/task-runner/index.js",
       "require": "./dist/task-runner/index.cjs"
     },
+    "./terminal-pane/blessed": {
+      "types": "./dist/terminal-pane/blessed.d.ts",
+      "import": "./dist/terminal-pane/blessed.js",
+      "require": "./dist/terminal-pane/blessed.cjs"
+    },
+    "./terminal-pane": {
+      "types": "./dist/terminal-pane/index.d.ts",
+      "import": "./dist/terminal-pane/index.js",
+      "require": "./dist/terminal-pane/index.cjs"
+    },
+    "./test-results": {
+      "types": "./dist/test-results/index.d.ts",
+      "import": "./dist/test-results/index.js",
+      "require": "./dist/test-results/index.cjs"
+    },
+    "./text-area/blessed": {
+      "types": "./dist/text-area/blessed.d.ts",
+      "import": "./dist/text-area/blessed.js",
+      "require": "./dist/text-area/blessed.cjs"
+    },
+    "./text-area": {
+      "types": "./dist/text-area/index.d.ts",
+      "import": "./dist/text-area/index.js",
+      "require": "./dist/text-area/index.cjs"
+    },
+    "./text-field/blessed": {
+      "types": "./dist/text-field/blessed.d.ts",
+      "import": "./dist/text-field/blessed.js",
+      "require": "./dist/text-field/blessed.cjs"
+    },
+    "./text-field": {
+      "types": "./dist/text-field/index.d.ts",
+      "import": "./dist/text-field/index.js",
+      "require": "./dist/text-field/index.cjs"
+    },
+    "./text/blessed": {
+      "types": "./dist/text/blessed.d.ts",
+      "import": "./dist/text/blessed.js",
+      "require": "./dist/text/blessed.cjs"
+    },
+    "./text": {
+      "types": "./dist/text/index.d.ts",
+      "import": "./dist/text/index.js",
+      "require": "./dist/text/index.cjs"
+    },
+    "./thresholds/blessed": {
+      "types": "./dist/thresholds/blessed.d.ts",
+      "import": "./dist/thresholds/blessed.js",
+      "require": "./dist/thresholds/blessed.cjs"
+    },
+    "./thresholds": {
+      "types": "./dist/thresholds/index.d.ts",
+      "import": "./dist/thresholds/index.js",
+      "require": "./dist/thresholds/index.cjs"
+    },
+    "./time-input": {
+      "types": "./dist/time-input/index.d.ts",
+      "import": "./dist/time-input/index.js",
+      "require": "./dist/time-input/index.cjs"
+    },
+    "./timeline/blessed": {
+      "types": "./dist/timeline/blessed.d.ts",
+      "import": "./dist/timeline/blessed.js",
+      "require": "./dist/timeline/blessed.cjs"
+    },
+    "./timeline": {
+      "types": "./dist/timeline/index.d.ts",
+      "import": "./dist/timeline/index.js",
+      "require": "./dist/timeline/index.cjs"
+    },
+    "./timer/blessed": {
+      "types": "./dist/timer/blessed.d.ts",
+      "import": "./dist/timer/blessed.js",
+      "require": "./dist/timer/blessed.cjs"
+    },
+    "./timer": {
+      "types": "./dist/timer/index.d.ts",
+      "import": "./dist/timer/index.js",
+      "require": "./dist/timer/index.cjs"
+    },
+    "./timestamp/blessed": {
+      "types": "./dist/timestamp/blessed.d.ts",
+      "import": "./dist/timestamp/blessed.js",
+      "require": "./dist/timestamp/blessed.cjs"
+    },
+    "./timestamp": {
+      "types": "./dist/timestamp/index.d.ts",
+      "import": "./dist/timestamp/index.js",
+      "require": "./dist/timestamp/index.cjs"
+    },
+    "./toast-viewport": {
+      "types": "./dist/toast-viewport/index.d.ts",
+      "import": "./dist/toast-viewport/index.js",
+      "require": "./dist/toast-viewport/index.cjs"
+    },
+    "./toast/blessed": {
+      "types": "./dist/toast/blessed.d.ts",
+      "import": "./dist/toast/blessed.js",
+      "require": "./dist/toast/blessed.cjs"
+    },
+    "./toast": {
+      "types": "./dist/toast/index.d.ts",
+      "import": "./dist/toast/index.js",
+      "require": "./dist/toast/index.cjs"
+    },
+    "./tooltip": {
+      "types": "./dist/tooltip/index.d.ts",
+      "import": "./dist/tooltip/index.js",
+      "require": "./dist/tooltip/index.cjs"
+    },
     "./tree-table": {
       "types": "./dist/tree-table/index.d.ts",
       "import": "./dist/tree-table/index.js",
       "require": "./dist/tree-table/index.cjs"
+    },
+    "./tree/blessed": {
+      "types": "./dist/tree/blessed.d.ts",
+      "import": "./dist/tree/blessed.js",
+      "require": "./dist/tree/blessed.cjs"
+    },
+    "./tree": {
+      "types": "./dist/tree/index.d.ts",
+      "import": "./dist/tree/index.js",
+      "require": "./dist/tree/index.cjs"
+    },
+    "./trend/blessed": {
+      "types": "./dist/trend/blessed.d.ts",
+      "import": "./dist/trend/blessed.js",
+      "require": "./dist/trend/blessed.cjs"
+    },
+    "./trend": {
+      "types": "./dist/trend/index.d.ts",
+      "import": "./dist/trend/index.js",
+      "require": "./dist/trend/index.cjs"
+    },
+    "./viewport/blessed": {
+      "types": "./dist/viewport/blessed.d.ts",
+      "import": "./dist/viewport/blessed.js",
+      "require": "./dist/viewport/blessed.cjs"
+    },
+    "./viewport": {
+      "types": "./dist/viewport/index.d.ts",
+      "import": "./dist/viewport/index.js",
+      "require": "./dist/viewport/index.cjs"
+    },
+    "./virtual-list/blessed": {
+      "types": "./dist/virtual-list/blessed.d.ts",
+      "import": "./dist/virtual-list/blessed.js",
+      "require": "./dist/virtual-list/blessed.cjs"
+    },
+    "./virtual-list": {
+      "types": "./dist/virtual-list/index.d.ts",
+      "import": "./dist/virtual-list/index.js",
+      "require": "./dist/virtual-list/index.cjs"
+    },
+    "./virtual-table": {
+      "types": "./dist/virtual-table/index.d.ts",
+      "import": "./dist/virtual-table/index.js",
+      "require": "./dist/virtual-table/index.cjs"
     },
     "./waterfall-chart": {
       "types": "./dist/waterfall-chart/index.d.ts",
@@ -1456,13 +1555,17 @@
     }
   },
   "files": [
+    "bin",
     "dist",
+    "docs/component-index.md",
+    "docs/policies.md",
     "LICENSE",
     "README.md",
     "ROADMAP.md",
     "src/core/README.md",
     "src/primitives/README.md",
-    "src/components/*/*/README.md"
+    "src/components/*/*/README.md",
+    "templates"
   ],
   "sideEffects": false,
   "engines": {
@@ -1489,13 +1592,15 @@
     "format:check": "biome check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "package:check": "node scripts/generate-package-config.mjs --check",
+    "package:generate": "node scripts/generate-package-config.mjs",
     "preview": "tsx examples/preview-prototype/app.ts",
     "release": "semantic-release",
     "test": "vitest run",
-    "test:package": "node tests/package-architecture.mjs && node tests/package-exports.mjs && node tests/package-contents.mjs",
+    "test:package": "npm run package:check && node tests/package-architecture.mjs && node tests/package-exports.mjs && node tests/package-contents.mjs",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run build && npm run test:package && npm run examples:smoke",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run docs:check && npm run package:check && npm run build && npm run test:package && npm run examples:smoke",
     "prepublishOnly": "npm run validate"
   },
   "peerDependencies": {

@@ -633,6 +633,16 @@ library quality.
 | Renderer benchmarks | Available | `npm run benchmark` measures large tables, log windows, line-chart sampling, and bar-chart rendering. |
 | Navigable component docs | Available | `npm run docs:index` generates `docs/component-index.md` with adapter/test/story/doc maturity per component. |
 
+## P2 packaging and starter status
+
+| Area | Status | Artifact |
+| --- | --- | --- |
+| Generated package config | Available | `npm run package:generate` derives `package.json` exports and `tsup.config.ts` entries from source layout. |
+| Package drift check | Available | `npm run package:check` blocks stale exports or build entries in validation. |
+| Starter CLI | Available | `npx blessed-components create my-app` scaffolds a typed Blessed application starter. |
+| Starter template | Available | `templates/starter` includes a typed app, package scripts, and local README. |
+| Library policy | Available | `docs/policies.md` documents stability, deprecation, terminal fallback, performance, and packaging rules. |
+
 ### Future application blocks
 
 | Block | Components it validates |

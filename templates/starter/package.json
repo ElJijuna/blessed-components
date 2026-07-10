@@ -1,0 +1,20 @@
+{
+  "name": "{{appName}}",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/app.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-components": "^1.14.0"
+  },
+  "devDependencies": {
+    "@types/blessed": "^0.1.27",
+    "@types/node": "^22.20.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}

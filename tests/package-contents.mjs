@@ -14,7 +14,9 @@ const forbiddenPaths = paths.filter(
   (path) =>
     path.startsWith('examples/') ||
     path.startsWith('tests/') ||
-    path.startsWith('docs/') ||
+    (path.startsWith('docs/') &&
+      path !== 'docs/component-index.md' &&
+      path !== 'docs/policies.md') ||
     path.includes('/stories/') ||
     path.includes('.story.'),
 );
