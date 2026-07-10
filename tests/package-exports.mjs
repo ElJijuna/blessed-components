@@ -194,6 +194,60 @@ const pureStackTraceModule = await import('../dist/stack-trace/index.js');
 const pureTimeInputModule = await import('../dist/time-input/index.js');
 const pureToastViewportModule = await import('../dist/toast-viewport/index.js');
 const pureTooltipModule = await import('../dist/tooltip/index.js');
+const newPureComponentModules = await Promise.all(
+  [
+    ['bar-chart', 'renderBarChart'],
+    ['build-status', 'renderBuildStatus'],
+    ['carousel', 'renderCarousel'],
+    ['commit-list', 'renderCommitList'],
+    ['context-menu', 'renderContextMenu'],
+    ['dependency-tree', 'renderDependencyTree'],
+    ['file-picker', 'renderFilePicker'],
+    ['git-status', 'renderGitStatus'],
+    ['heatmap', 'renderHeatmap'],
+    ['line-chart', 'renderLineChart'],
+    ['popover', 'renderPopover'],
+    ['skeleton', 'renderSkeleton'],
+    ['split-pane', 'renderSplitPane'],
+    ['test-results', 'renderTestResults'],
+    ['virtual-table', 'renderVirtualTable'],
+    ['ansi-viewer', 'renderAnsiViewer'],
+    ['area-chart', 'renderAreaChart'],
+    ['aspect-ratio', 'renderAspectRatio'],
+    ['big-text', 'renderBigText'],
+    ['box-plot', 'renderBoxPlot'],
+    ['candlestick-chart', 'renderCandlestickChart'],
+    ['calendar', 'renderCalendar'],
+    ['date-range-picker', 'renderDateRangePicker'],
+    ['donut', 'renderDonut'],
+    ['gantt', 'renderGantt'],
+    ['hex-viewer', 'renderHexViewer'],
+    ['image', 'renderImage'],
+    ['markdown-viewer', 'renderMarkdownViewer'],
+    ['notification-center', 'renderNotificationCenter'],
+    ['performance-panel', 'renderPerformancePanel'],
+    ['pill', 'renderPill'],
+    ['process-list', 'renderProcessList'],
+    ['process-runner', 'renderProcessRunner'],
+    ['process-table', 'renderProcessTable'],
+    ['query-results', 'renderQueryResults'],
+    ['rating', 'renderRating'],
+    ['repl', 'renderRepl'],
+    ['request-inspector', 'renderRequestInspector'],
+    ['resizable', 'renderResizable'],
+    ['rich-text', 'renderRichText'],
+    ['scatter-plot', 'renderScatterPlot'],
+    ['shell-history', 'renderShellHistory'],
+    ['stacked-bar-chart', 'renderStackedBarChart'],
+    ['task-runner', 'renderTaskRunner'],
+    ['tree-table', 'renderTreeTable'],
+    ['waterfall-chart', 'renderWaterfallChart'],
+  ].map(async ([path, exportName]) => ({
+    exportName,
+    module: await import(`../dist/${path}/index.js`),
+    path,
+  })),
+);
 const coreModule = await import('../dist/core/index.js');
 const scaleModule = await import('../dist/core/scale.js');
 const primitivesModule = await import('../dist/primitives/index.js');
@@ -878,6 +932,11 @@ assert.equal(typeof pureTimeInputModule.renderTimeInput, 'function');
 assert.equal(typeof pureTimeInputModule.parseTimeInput, 'function');
 assert.equal(typeof pureToastViewportModule.renderToastViewport, 'function');
 assert.equal(typeof pureTooltipModule.renderTooltip, 'function');
+
+for (const { exportName, module, path } of newPureComponentModules) {
+  assert.equal(typeof module[exportName], 'function', `${path} must export ${exportName}.`);
+}
+
 assert.equal(typeof coreModule.visibleWidth, 'function');
 assert.equal(typeof scaleModule.sampleSeries, 'function');
 assert.equal(typeof primitivesModule.createViewport, 'function');

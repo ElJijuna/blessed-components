@@ -9,8 +9,15 @@ Composable, typed terminal UI components for
 > `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, `Viewport`,
 > `DateInput`, `TimeInput`, `PromptDialog`, `Tooltip`, `ToastViewport`, `Countdown`, `Schedule`,
 > `CodeViewer`, `DiffViewer`, `StackTrace`, `EnvironmentTable`, `ShortcutRecorder`, `EventLog`,
-> `CommandOutput`, `TerminalPane`, and `QrCode` are available; more
-> components are coming soon.
+> `CommandOutput`, `TerminalPane`, `QrCode`, `SplitPane`, `Skeleton`, `VirtualTable`,
+> `BarChart`, `LineChart`, `Heatmap`, `ContextMenu`, `Carousel`, `FilePicker`, `Popover`,
+> `TestResults`, `BuildStatus`, `GitStatus`, `CommitList`, `DependencyTree`, `AspectRatio`,
+> `Resizable`, `Pill`, `Rating`, `NotificationCenter`, `TreeTable`, `ProcessList`,
+> `HexViewer`, `AnsiViewer`, `StackedBarChart`, `AreaChart`, `ScatterPlot`, `BoxPlot`,
+> `Donut`, `CandlestickChart`, `WaterfallChart`, `RequestInspector`, `QueryResults`,
+> `PerformancePanel`, `ProcessRunner`, `ProcessTable`, `TaskRunner`, `REPL`,
+> `ShellHistory`, `MarkdownViewer`, `RichText`, `Image`, `BigText`, `Calendar`,
+> `DateRangePicker`, and `Gantt` are available.
 
 ## Goals
 
@@ -53,6 +60,9 @@ npm install blessed blessed-components
 | [`Badge`](./src/components/data-display/badge/README.md) | Display compact semantic status text. | Available |
 | [`Divider`](./src/components/layout/divider/README.md) | Separate content horizontally or vertically. | Available |
 | [`Stack`](./src/components/layout/stack/README.md) | Arrange children with direction, gap, and alignment. | Available |
+| [`AspectRatio`](./src/components/layout/aspect-ratio/README.md) | Preserve terminal-cell proportions. | Available |
+| [`Resizable`](./src/components/layout/resizable/README.md) | Clamp and render one resizable region. | Available |
+| [`SplitPane`](./src/components/layout/split-pane/README.md) | Render horizontal or vertical region allocation. | Available |
 | [`ScrollArea`](./src/components/layout/scroll-area/README.md) | Scroll vertical content with keyboard and mouse. | Available |
 | [`Viewport`](./src/components/layout/viewport/README.md) | Clip and translate larger two-dimensional content. | Available |
 
@@ -63,6 +73,8 @@ npm install blessed blessed-components
 | [`Spinner`](./src/components/feedback/spinner/README.md) | Show ongoing work with controlled animation. | Available |
 | [`ProgressList`](./src/components/feedback/progress-list/README.md) | Display multiple labeled progress rows. | Available |
 | [`ProgressStack`](./src/components/feedback/progress-stack/README.md) | Display segmented progress across categories. | Available |
+| [`Skeleton`](./src/components/feedback/skeleton/README.md) | Display loading placeholder rows. | Available |
+| [`NotificationCenter`](./src/components/feedback/notification-center/README.md) | Display persistent notifications and unread state. | Available |
 | [`Status`](./src/components/feedback/status/README.md) | Display semantic state and optional details. | Available |
 | [`Alert`](./src/components/feedback/alert/README.md) | Display informational, warning, or error messages. | Available |
 | [`EmptyState`](./src/components/feedback/empty-state/README.md) | Display an empty result message with optional action. | Available |
@@ -74,19 +86,33 @@ npm install blessed blessed-components
 | [`StepIndicator`](./src/components/feedback/step-indicator/README.md) | Display completed, active, and pending steps. | Available |
 | [`TaskProgress`](./src/components/feedback/task-progress/README.md) | Display multi-step task status with current activity. | Available |
 | [`Trend`](./src/components/data-display/trend/README.md) | Display up, down, and flat indicators with text fallback. | Available |
-| `LogViewer` | Stream and retain bounded log output.              | P1       |
-| `Timer`     | Display elapsed or remaining time.                 | P1       |
+| [`Pill`](./src/components/data-display/pill/README.md) | Display compact capped labels. | Available |
+| [`Rating`](./src/components/data-display/rating/README.md) | Display discrete scores with numeric fallback. | Available |
+| [`LogViewer`](./src/components/collections/log-viewer/README.md) | Stream and retain bounded log output. | Available |
+| [`Timer`](./src/components/data-display/timer/README.md) | Display elapsed or remaining time. | Available |
 
 ### Data visualization
 
 | Component   | Purpose                               | Priority |
 | ----------- | ------------------------------------- | -------- |
-| `Table`     | Display structured tabular data.      | P1       |
-| `BarChart`  | Compare categorical values.           | P2       |
-| `LineChart` | Display one or more time series.      | P2       |
-| `Histogram` | Display value distributions.          | P2       |
-| `Tree`      | Navigate hierarchical data.           | P3       |
-| `Heatmap`   | Display dense two-dimensional values. | P3       |
+| [`Table`](./src/components/collections/table/README.md) | Display structured tabular data. | Available |
+| [`TreeTable`](./src/components/collections/tree-table/README.md) | Display hierarchical rows plus columns. | Available |
+| [`ProcessList`](./src/components/collections/process-list/README.md) | Display PID, CPU, memory, status, and command. | Available |
+| [`HexViewer`](./src/components/collections/hex-viewer/README.md) | Display byte offsets, hex, and ASCII text. | Available |
+| [`AnsiViewer`](./src/components/collections/ansi-viewer/README.md) | Safely display ANSI-formatted output. | Available |
+| [`VirtualTable`](./src/components/collections/virtual-table/README.md) | Render a bounded row window from large tables. | Available |
+| [`BarChart`](./src/components/visualization/bar-chart/README.md) | Compare categorical values. | Available |
+| [`StackedBarChart`](./src/components/visualization/stacked-bar-chart/README.md) | Compare category composition. | Available |
+| [`LineChart`](./src/components/visualization/line-chart/README.md) | Display one or more sampled time series. | Available |
+| [`AreaChart`](./src/components/visualization/area-chart/README.md) | Display a filled sampled trend. | Available |
+| [`ScatterPlot`](./src/components/visualization/scatter-plot/README.md) | Display x/y relationships. | Available |
+| [`BoxPlot`](./src/components/visualization/box-plot/README.md) | Display statistical summaries. | Available |
+| [`Donut`](./src/components/visualization/donut/README.md) | Display part-to-whole summaries. | Available |
+| [`CandlestickChart`](./src/components/visualization/candlestick-chart/README.md) | Display OHLC rows. | Available |
+| [`WaterfallChart`](./src/components/visualization/waterfall-chart/README.md) | Display sequential contributions. | Available |
+| [`Histogram`](./src/components/visualization/histogram/README.md) | Display value distributions. | Available |
+| [`Tree`](./src/components/collections/tree/README.md) | Navigate hierarchical data. | Available |
+| [`Heatmap`](./src/components/visualization/heatmap/README.md) | Display dense two-dimensional values. | Available |
 
 ### Interaction
 
@@ -98,16 +124,19 @@ npm install blessed blessed-components
 | [`PasswordField`](./src/components/input/password-field/README.md) | Masked input with reveal behavior. | Available |
 | [`DateInput`](./src/components/input/date-input/README.md) | Parse and validate date text. | Available |
 | [`TimeInput`](./src/components/input/time-input/README.md) | Parse and validate time text. | Available |
-| `Tabs`           | Switch between views.        | Available |
-| `Menu`           | Navigate a list of actions.  | Available |
+| [`Tabs`](./src/components/navigation/tabs/README.md) | Switch between views. | Available |
+| [`Menu`](./src/components/navigation/menu/README.md) | Navigate a list of actions. | Available |
 | [`MenuBar`](./src/components/navigation/menu-bar/README.md) | Navigate top-level horizontal menus. | Available |
 | [`NavigationList`](./src/components/navigation/navigation-list/README.md) | Navigate routes or views with active state. | Available |
 | [`Pager`](./src/components/navigation/pager/README.md) | Move to previous or next page. | Available |
 | [`Pagination`](./src/components/navigation/pagination/README.md) | Move through bounded result pages. | Available |
-| `Select`         | Choose one or more values.   | P3       |
-| `TextField`      | Enter and validate text.     | P3       |
-| `Form`           | Compose terminal inputs.     | P3       |
-| `CommandPalette` | Search and execute commands. | P3       |
+| [`ContextMenu`](./src/components/navigation/context-menu/README.md) | Render anchored action choices. | Available |
+| [`Carousel`](./src/components/navigation/carousel/README.md) | Render one active slide with position metadata. | Available |
+| [`FilePicker`](./src/components/input/file-picker/README.md) | Render caller-provided filesystem entries. | Available |
+| [`Select`](./src/components/input/select/README.md) | Choose one or more values. | Available |
+| [`TextField`](./src/components/input/text-field/README.md) | Enter and validate text. | Available |
+| [`Form`](./src/components/input/form/README.md) | Compose terminal inputs. | Available |
+| [`CommandPalette`](./src/components/navigation/command-palette/README.md) | Search and execute commands. | Available |
 
 ### Overlays
 
@@ -117,6 +146,7 @@ npm install blessed blessed-components
 | [`Drawer`](./src/components/overlays/drawer/README.md) | Show edge-attached temporary content. | Available |
 | [`Spotlight`](./src/components/overlays/spotlight/README.md) | Search and launch actions or resources. | Available |
 | [`PromptDialog`](./src/components/overlays/prompt-dialog/README.md) | Request one value in a modal flow. | Available |
+| [`Popover`](./src/components/overlays/popover/README.md) | Show anchored temporary content. | Available |
 | [`Tooltip`](./src/components/overlays/tooltip/README.md) | Show delayed contextual help. | Available |
 
 ### Developer tools
@@ -130,15 +160,35 @@ npm install blessed blessed-components
 | [`ShortcutRecorder`](./src/components/developer-tools/shortcut-recorder/README.md) | Display captured terminal shortcuts. | Available |
 | [`EventLog`](./src/components/developer-tools/event-log/README.md) | Render structured TUI events. | Available |
 | [`CommandOutput`](./src/components/developer-tools/command-output/README.md) | Render read-only command output. | Available |
+| [`TestResults`](./src/components/developer-tools/test-results/README.md) | Render test outcomes, durations, and failures. | Available |
+| [`BuildStatus`](./src/components/developer-tools/build-status/README.md) | Render build phases and outcome. | Available |
+| [`GitStatus`](./src/components/developer-tools/git-status/README.md) | Render branch and changed file groups. | Available |
+| [`CommitList`](./src/components/developer-tools/commit-list/README.md) | Render commit summaries and refs. | Available |
+| [`DependencyTree`](./src/components/developer-tools/dependency-tree/README.md) | Render dependency hierarchy and problems. | Available |
+| [`RequestInspector`](./src/components/developer-tools/request-inspector/README.md) | Render HTTP request and response details. | Available |
+| [`QueryResults`](./src/components/developer-tools/query-results/README.md) | Render database rows and execution metadata. | Available |
+| [`PerformancePanel`](./src/components/developer-tools/performance-panel/README.md) | Render runtime performance counters. | Available |
 | [`TerminalPane`](./src/components/terminal/terminal-pane/README.md) | Display a scrollable terminal session pane. | Available |
+| [`ProcessRunner`](./src/components/terminal/process-runner/README.md) | Render command execution state. | Available |
+| [`ProcessTable`](./src/components/terminal/process-table/README.md) | Render multiple managed process states. | Available |
+| [`TaskRunner`](./src/components/terminal/task-runner/README.md) | Render named task state. | Available |
+| [`REPL`](./src/components/terminal/repl/README.md) | Render prompt, history, and input. | Available |
+| [`ShellHistory`](./src/components/terminal/shell-history/README.md) | Render searchable command history. | Available |
 
 ### Date, time, and content
 
 | Component | Purpose | Priority |
 | --- | --- | --- |
 | [`Countdown`](./src/components/scheduling/countdown/README.md) | Display remaining time until completion. | Available |
+| [`Calendar`](./src/components/scheduling/calendar/README.md) | Navigate and select dates. | Available |
+| [`DateRangePicker`](./src/components/scheduling/date-range-picker/README.md) | Display a bounded date interval. | Available |
+| [`Gantt`](./src/components/scheduling/gantt/README.md) | Display time-based task spans. | Available |
 | [`Schedule`](./src/components/scheduling/schedule/README.md) | Display ordered upcoming events. | Available |
 | [`QrCode`](./src/components/content/qr-code/README.md) | Render a supplied QR/module matrix. | Available |
+| [`MarkdownViewer`](./src/components/content/markdown-viewer/README.md) | Render Markdown as terminal-safe text. | Available |
+| [`RichText`](./src/components/content/rich-text/README.md) | Render styled spans as plain text. | Available |
+| [`Image`](./src/components/content/image/README.md) | Render image fallback text with alt. | Available |
+| [`BigText`](./src/components/content/big-text/README.md) | Render large-text fallback. | Available |
 | [`ToastViewport`](./src/components/feedback/toast-viewport/README.md) | Position and manage toast notifications. | Available |
 
 See [ROADMAP.md](./ROADMAP.md) for milestones, proposed APIs, and TDD strategy.

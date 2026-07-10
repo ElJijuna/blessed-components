@@ -1223,6 +1223,236 @@
       "types": "./dist/primitives/*/index.d.ts",
       "import": "./dist/primitives/*/index.js",
       "require": "./dist/primitives/*/index.cjs"
+    },
+    "./bar-chart": {
+      "types": "./dist/bar-chart/index.d.ts",
+      "import": "./dist/bar-chart/index.js",
+      "require": "./dist/bar-chart/index.cjs"
+    },
+    "./build-status": {
+      "types": "./dist/build-status/index.d.ts",
+      "import": "./dist/build-status/index.js",
+      "require": "./dist/build-status/index.cjs"
+    },
+    "./carousel": {
+      "types": "./dist/carousel/index.d.ts",
+      "import": "./dist/carousel/index.js",
+      "require": "./dist/carousel/index.cjs"
+    },
+    "./commit-list": {
+      "types": "./dist/commit-list/index.d.ts",
+      "import": "./dist/commit-list/index.js",
+      "require": "./dist/commit-list/index.cjs"
+    },
+    "./context-menu": {
+      "types": "./dist/context-menu/index.d.ts",
+      "import": "./dist/context-menu/index.js",
+      "require": "./dist/context-menu/index.cjs"
+    },
+    "./dependency-tree": {
+      "types": "./dist/dependency-tree/index.d.ts",
+      "import": "./dist/dependency-tree/index.js",
+      "require": "./dist/dependency-tree/index.cjs"
+    },
+    "./file-picker": {
+      "types": "./dist/file-picker/index.d.ts",
+      "import": "./dist/file-picker/index.js",
+      "require": "./dist/file-picker/index.cjs"
+    },
+    "./git-status": {
+      "types": "./dist/git-status/index.d.ts",
+      "import": "./dist/git-status/index.js",
+      "require": "./dist/git-status/index.cjs"
+    },
+    "./heatmap": {
+      "types": "./dist/heatmap/index.d.ts",
+      "import": "./dist/heatmap/index.js",
+      "require": "./dist/heatmap/index.cjs"
+    },
+    "./line-chart": {
+      "types": "./dist/line-chart/index.d.ts",
+      "import": "./dist/line-chart/index.js",
+      "require": "./dist/line-chart/index.cjs"
+    },
+    "./popover": {
+      "types": "./dist/popover/index.d.ts",
+      "import": "./dist/popover/index.js",
+      "require": "./dist/popover/index.cjs"
+    },
+    "./skeleton": {
+      "types": "./dist/skeleton/index.d.ts",
+      "import": "./dist/skeleton/index.js",
+      "require": "./dist/skeleton/index.cjs"
+    },
+    "./split-pane": {
+      "types": "./dist/split-pane/index.d.ts",
+      "import": "./dist/split-pane/index.js",
+      "require": "./dist/split-pane/index.cjs"
+    },
+    "./test-results": {
+      "types": "./dist/test-results/index.d.ts",
+      "import": "./dist/test-results/index.js",
+      "require": "./dist/test-results/index.cjs"
+    },
+    "./virtual-table": {
+      "types": "./dist/virtual-table/index.d.ts",
+      "import": "./dist/virtual-table/index.js",
+      "require": "./dist/virtual-table/index.cjs"
+    },
+    "./ansi-viewer": {
+      "types": "./dist/ansi-viewer/index.d.ts",
+      "import": "./dist/ansi-viewer/index.js",
+      "require": "./dist/ansi-viewer/index.cjs"
+    },
+    "./area-chart": {
+      "types": "./dist/area-chart/index.d.ts",
+      "import": "./dist/area-chart/index.js",
+      "require": "./dist/area-chart/index.cjs"
+    },
+    "./aspect-ratio": {
+      "types": "./dist/aspect-ratio/index.d.ts",
+      "import": "./dist/aspect-ratio/index.js",
+      "require": "./dist/aspect-ratio/index.cjs"
+    },
+    "./big-text": {
+      "types": "./dist/big-text/index.d.ts",
+      "import": "./dist/big-text/index.js",
+      "require": "./dist/big-text/index.cjs"
+    },
+    "./box-plot": {
+      "types": "./dist/box-plot/index.d.ts",
+      "import": "./dist/box-plot/index.js",
+      "require": "./dist/box-plot/index.cjs"
+    },
+    "./candlestick-chart": {
+      "types": "./dist/candlestick-chart/index.d.ts",
+      "import": "./dist/candlestick-chart/index.js",
+      "require": "./dist/candlestick-chart/index.cjs"
+    },
+    "./calendar": {
+      "types": "./dist/calendar/index.d.ts",
+      "import": "./dist/calendar/index.js",
+      "require": "./dist/calendar/index.cjs"
+    },
+    "./date-range-picker": {
+      "types": "./dist/date-range-picker/index.d.ts",
+      "import": "./dist/date-range-picker/index.js",
+      "require": "./dist/date-range-picker/index.cjs"
+    },
+    "./donut": {
+      "types": "./dist/donut/index.d.ts",
+      "import": "./dist/donut/index.js",
+      "require": "./dist/donut/index.cjs"
+    },
+    "./gantt": {
+      "types": "./dist/gantt/index.d.ts",
+      "import": "./dist/gantt/index.js",
+      "require": "./dist/gantt/index.cjs"
+    },
+    "./hex-viewer": {
+      "types": "./dist/hex-viewer/index.d.ts",
+      "import": "./dist/hex-viewer/index.js",
+      "require": "./dist/hex-viewer/index.cjs"
+    },
+    "./image": {
+      "types": "./dist/image/index.d.ts",
+      "import": "./dist/image/index.js",
+      "require": "./dist/image/index.cjs"
+    },
+    "./markdown-viewer": {
+      "types": "./dist/markdown-viewer/index.d.ts",
+      "import": "./dist/markdown-viewer/index.js",
+      "require": "./dist/markdown-viewer/index.cjs"
+    },
+    "./notification-center": {
+      "types": "./dist/notification-center/index.d.ts",
+      "import": "./dist/notification-center/index.js",
+      "require": "./dist/notification-center/index.cjs"
+    },
+    "./performance-panel": {
+      "types": "./dist/performance-panel/index.d.ts",
+      "import": "./dist/performance-panel/index.js",
+      "require": "./dist/performance-panel/index.cjs"
+    },
+    "./pill": {
+      "types": "./dist/pill/index.d.ts",
+      "import": "./dist/pill/index.js",
+      "require": "./dist/pill/index.cjs"
+    },
+    "./process-list": {
+      "types": "./dist/process-list/index.d.ts",
+      "import": "./dist/process-list/index.js",
+      "require": "./dist/process-list/index.cjs"
+    },
+    "./process-runner": {
+      "types": "./dist/process-runner/index.d.ts",
+      "import": "./dist/process-runner/index.js",
+      "require": "./dist/process-runner/index.cjs"
+    },
+    "./process-table": {
+      "types": "./dist/process-table/index.d.ts",
+      "import": "./dist/process-table/index.js",
+      "require": "./dist/process-table/index.cjs"
+    },
+    "./query-results": {
+      "types": "./dist/query-results/index.d.ts",
+      "import": "./dist/query-results/index.js",
+      "require": "./dist/query-results/index.cjs"
+    },
+    "./rating": {
+      "types": "./dist/rating/index.d.ts",
+      "import": "./dist/rating/index.js",
+      "require": "./dist/rating/index.cjs"
+    },
+    "./repl": {
+      "types": "./dist/repl/index.d.ts",
+      "import": "./dist/repl/index.js",
+      "require": "./dist/repl/index.cjs"
+    },
+    "./request-inspector": {
+      "types": "./dist/request-inspector/index.d.ts",
+      "import": "./dist/request-inspector/index.js",
+      "require": "./dist/request-inspector/index.cjs"
+    },
+    "./resizable": {
+      "types": "./dist/resizable/index.d.ts",
+      "import": "./dist/resizable/index.js",
+      "require": "./dist/resizable/index.cjs"
+    },
+    "./rich-text": {
+      "types": "./dist/rich-text/index.d.ts",
+      "import": "./dist/rich-text/index.js",
+      "require": "./dist/rich-text/index.cjs"
+    },
+    "./scatter-plot": {
+      "types": "./dist/scatter-plot/index.d.ts",
+      "import": "./dist/scatter-plot/index.js",
+      "require": "./dist/scatter-plot/index.cjs"
+    },
+    "./shell-history": {
+      "types": "./dist/shell-history/index.d.ts",
+      "import": "./dist/shell-history/index.js",
+      "require": "./dist/shell-history/index.cjs"
+    },
+    "./stacked-bar-chart": {
+      "types": "./dist/stacked-bar-chart/index.d.ts",
+      "import": "./dist/stacked-bar-chart/index.js",
+      "require": "./dist/stacked-bar-chart/index.cjs"
+    },
+    "./task-runner": {
+      "types": "./dist/task-runner/index.d.ts",
+      "import": "./dist/task-runner/index.js",
+      "require": "./dist/task-runner/index.cjs"
+    },
+    "./tree-table": {
+      "types": "./dist/tree-table/index.d.ts",
+      "import": "./dist/tree-table/index.js",
+      "require": "./dist/tree-table/index.cjs"
+    },
+    "./waterfall-chart": {
+      "types": "./dist/waterfall-chart/index.d.ts",
+      "import": "./dist/waterfall-chart/index.js",
+      "require": "./dist/waterfall-chart/index.cjs"
     }
   },
   "files": [

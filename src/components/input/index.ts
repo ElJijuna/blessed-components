@@ -4,6 +4,7 @@ export * from './button/index.js';
 export * from './checkbox/index.js';
 export * from './combobox/index.js';
 export * from './date-input/index.js';
+export * from './file-picker/index.js';
 export * from './form/index.js';
 export * from './form-field/index.js';
 export * from './icon-button/index.js';

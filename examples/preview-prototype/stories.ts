@@ -83,21 +83,67 @@ import {
   progressStack,
   quickSwitcher,
   radioGroup,
+  renderAnsiViewer,
+  renderAreaChart,
+  renderAspectRatio,
+  renderBarChart,
+  renderBigText,
+  renderBoxPlot,
+  renderBuildStatus,
+  renderCalendar,
+  renderCandlestickChart,
+  renderCarousel,
   renderCodeViewer,
   renderCommandOutput,
+  renderCommitList,
+  renderContextMenu,
   renderCountdown,
   renderDateInput,
+  renderDateRangePicker,
+  renderDependencyTree,
   renderDiffViewer,
+  renderDonut,
   renderEnvironmentTable,
   renderEventLog,
+  renderFilePicker,
+  renderGantt,
+  renderGitStatus,
+  renderHeatmap,
+  renderHexViewer,
+  renderImage,
+  renderLineChart,
+  renderMarkdownViewer,
+  renderNotificationCenter,
+  renderPerformancePanel,
+  renderPill,
+  renderPopover,
+  renderProcessList,
+  renderProcessRunner,
+  renderProcessTable,
   renderPromptDialog,
   renderQrCode,
+  renderQueryResults,
+  renderRating,
+  renderRepl,
+  renderRequestInspector,
+  renderResizable,
+  renderRichText,
+  renderScatterPlot,
   renderSchedule,
+  renderShellHistory,
   renderShortcutRecorder,
+  renderSkeleton,
+  renderSplitPane,
+  renderStackedBarChart,
   renderStackTrace,
+  renderTaskRunner,
+  renderTestResults,
   renderTimeInput,
   renderToastViewport,
   renderTooltip,
+  renderTreeTable,
+  renderVirtualTable,
+  renderWaterfallChart,
   scrollArea,
   searchField,
   select,
@@ -3797,6 +3843,833 @@ export const stories: readonly PreviewStory[] = [
         label: 'QrCode',
         top: 1,
         width: 18,
+      });
+    },
+  }),
+  defineStory({
+    id: 'split-pane/regions',
+    title: 'SplitPane / Regions',
+    description: 'Horizontal region allocation with stable labels.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderSplitPane({
+          regions: [
+            { id: 'main', size: 80 },
+            { id: 'logs', size: 32 },
+          ],
+        }),
+        height: 4,
+        label: 'SplitPane',
+        top: 1,
+        width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'skeleton/loading',
+    title: 'Skeleton / Loading',
+    description: 'Fixed placeholder rows for loading states.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderSkeleton({ label: 'Loading services', rows: 3, width: 28 }),
+        height: 6,
+        label: 'Skeleton',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'virtual-table/window',
+    title: 'VirtualTable / Window',
+    description: 'Visible row window from a larger table.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderVirtualTable({
+          columns: [{ key: 'name' }, { header: 'CPU', key: 'cpu' }],
+          rowCount: 2,
+          rows: [
+            { cpu: '3%', name: 'web' },
+            { cpu: '8%', name: 'api' },
+            { cpu: '2%', name: 'cache' },
+          ],
+          start: 1,
+        }),
+        height: 5,
+        label: 'VirtualTable',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'bar-chart/services',
+    title: 'BarChart / Services',
+    description: 'Categorical values as horizontal bars.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderBarChart({
+          items: [
+            { label: 'api', value: 5 },
+            { label: 'web', value: 10 },
+          ],
+          max: 10,
+          width: 16,
+        }),
+        height: 5,
+        label: 'BarChart',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'line-chart/latency',
+    title: 'LineChart / Latency',
+    description: 'Sampled series rendered as compact glyph rows.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderLineChart({
+          max: 7,
+          min: 0,
+          series: [{ label: 'cpu', values: [0, 3, 2, 7, 4, 6] }],
+          width: 12,
+        }),
+        height: 4,
+        label: 'LineChart',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'heatmap/intensity',
+    title: 'Heatmap / Intensity',
+    description: 'Dense numeric matrix as terminal intensity cells.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderHeatmap({
+          max: 4,
+          min: 0,
+          values: [
+            [0, 1, 2, 3, 4],
+            [4, 3, 2, 1, 0],
+          ],
+        }),
+        height: 5,
+        label: 'Heatmap',
+        top: 1,
+        width: 18,
+      });
+    },
+  }),
+  defineStory({
+    id: 'context-menu/actions',
+    title: 'ContextMenu / Actions',
+    description: 'Anchored action rows with active and disabled state.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderContextMenu({
+          activeId: 'open',
+          items: [
+            { id: 'open', label: 'Open', shortcut: 'Enter' },
+            { disabled: true, id: 'delete', label: 'Delete' },
+          ],
+        }),
+        height: 5,
+        label: 'ContextMenu',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'carousel/slides',
+    title: 'Carousel / Slides',
+    description: 'One active slide with position metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCarousel({
+          activeIndex: 1,
+          slides: [
+            { content: 'First', id: 'one', label: 'One' },
+            { content: ['Second', 'Details'], id: 'two', label: 'Two' },
+          ],
+        }),
+        height: 6,
+        label: 'Carousel',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'file-picker/workspace',
+    title: 'FilePicker / Workspace',
+    description: 'Caller-provided filesystem entries.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderFilePicker({
+          cwd: '/repo',
+          entries: [
+            { name: 'src', path: 'src', type: 'directory' },
+            { name: 'README.md', path: 'README.md', type: 'file' },
+          ],
+          selectedPath: 'src',
+        }),
+        height: 6,
+        label: 'FilePicker',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'popover/details',
+    title: 'Popover / Details',
+    description: 'Anchored temporary content with side metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderPopover({ content: ['owner: cli'], side: 'right', title: 'Details' }),
+        height: 5,
+        label: 'Popover',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'test-results/suite',
+    title: 'TestResults / Suite',
+    description: 'Test outcome summary with failures and durations.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderTestResults({
+          tests: [
+            { durationMs: 4, name: 'renders', status: 'passed', suite: 'core' },
+            { message: 'expected true', name: 'validates', status: 'failed' },
+          ],
+        }),
+        height: 6,
+        label: 'TestResults',
+        top: 1,
+        width: 50,
+      });
+    },
+  }),
+  defineStory({
+    id: 'build-status/release',
+    title: 'BuildStatus / Release',
+    description: 'Build phases with outcome and duration.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderBuildStatus({
+          build: 'release',
+          phases: [
+            { durationMs: 1200, name: 'test', status: 'success' },
+            { name: 'publish', status: 'running' },
+          ],
+        }),
+        height: 6,
+        label: 'BuildStatus',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'git-status/changes',
+    title: 'GitStatus / Changes',
+    description: 'Branch and changed files grouped by state.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderGitStatus({
+          branch: 'main',
+          files: [
+            { path: 'README.md', state: 'staged' },
+            { path: 'src/app.ts', state: 'modified' },
+          ],
+        }),
+        height: 7,
+        label: 'GitStatus',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'commit-list/history',
+    title: 'CommitList / History',
+    description: 'Commit summaries with refs and author.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCommitList({
+          commits: [
+            { author: 'Ada', hash: 'abcdef123456', message: 'Add renderer', refs: ['HEAD'] },
+            { author: 'Lin', hash: '123456abcdef', message: 'Fix tests' },
+          ],
+        }),
+        height: 5,
+        label: 'CommitList',
+        top: 1,
+        width: 58,
+      });
+    },
+  }),
+  defineStory({
+    id: 'dependency-tree/packages',
+    title: 'DependencyTree / Packages',
+    description: 'Package dependency hierarchy with problem labels.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderDependencyTree({
+          roots: [
+            {
+              children: [{ name: 'left-pad', problem: 'deprecated', version: '1.3.0' }],
+              name: 'app',
+            },
+          ],
+        }),
+        height: 5,
+        label: 'DependencyTree',
+        top: 1,
+        width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'aspect-ratio/panel',
+    title: 'AspectRatio / Panel',
+    description: 'Resolved cell dimensions for a fixed ratio.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderAspectRatio({ ratioHeight: 9, ratioWidth: 16, width: 32 }),
+        height: 4,
+        label: 'AspectRatio',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'resizable/sidebar',
+    title: 'Resizable / Sidebar',
+    description: 'Bounded resizable region state.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderResizable({ label: 'sidebar', max: 40, min: 10, size: 50 }),
+        height: 4,
+        label: 'Resizable',
+        top: 1,
+        width: 44,
+      });
+    },
+  }),
+  defineStory({
+    id: 'pill/release-tag',
+    title: 'Pill / Release Tag',
+    description: 'Compact capped label fallback.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderPill({ label: 'beta' }),
+        height: 4,
+        label: 'Pill',
+        top: 1,
+        width: 20,
+      });
+    },
+  }),
+  defineStory({
+    id: 'rating/quality',
+    title: 'Rating / Quality',
+    description: 'Discrete score with numeric fallback.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderRating({ max: 5, value: 4 }),
+        height: 4,
+        label: 'Rating',
+        top: 1,
+        width: 24,
+      });
+    },
+  }),
+  defineStory({
+    id: 'notification-center/unread',
+    title: 'NotificationCenter / Unread',
+    description: 'Persistent notifications and unread count.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderNotificationCenter({
+          notifications: [
+            { id: 'build', message: 'Build passed', tone: 'success', unread: true },
+            { id: 'deploy', message: 'Deploy queued', tone: 'info' },
+          ],
+        }),
+        height: 6,
+        label: 'NotificationCenter',
+        top: 1,
+        width: 46,
+      });
+    },
+  }),
+  defineStory({
+    id: 'tree-table/files',
+    title: 'TreeTable / Files',
+    description: 'Hierarchical rows plus columns.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderTreeTable({
+          columns: [{ key: 'size' }],
+          expandedIds: ['src'],
+          rows: [
+            {
+              children: [{ id: 'app', label: 'app.ts', values: { size: '2 KB' } }],
+              id: 'src',
+              label: 'src',
+              values: { size: '4 KB' },
+            },
+          ],
+        }),
+        height: 6,
+        label: 'TreeTable',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'process-list/services',
+    title: 'ProcessList / Services',
+    description: 'PID, CPU, memory, status, and command.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderProcessList({
+          processes: [{ command: 'node', cpu: 7, memory: '32 MB', pid: 42, status: 'run' }],
+        }),
+        height: 5,
+        label: 'ProcessList',
+        top: 1,
+        width: 52,
+      });
+    },
+  }),
+  defineStory({
+    id: 'hex-viewer/bytes',
+    title: 'HexViewer / Bytes',
+    description: 'Byte offsets with hex and ASCII preview.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderHexViewer({ bytes: [72, 105, 10, 33, 0, 255], columns: 6 }),
+        height: 4,
+        label: 'HexViewer',
+        top: 1,
+        width: 42,
+      });
+    },
+  }),
+  defineStory({
+    id: 'ansi-viewer/output',
+    title: 'AnsiViewer / Output',
+    description: 'ANSI output sanitized to readable text.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderAnsiViewer({ lines: ['\u001b[31merror\u001b[0m', 'next line'] }),
+        height: 5,
+        label: 'AnsiViewer',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'stacked-bar-chart/composition',
+    title: 'StackedBarChart / Composition',
+    description: 'Category composition across segments.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderStackedBarChart({
+          items: [
+            {
+              label: 'api',
+              segments: [
+                { label: 'ok', value: 7 },
+                { label: 'err', value: 3 },
+              ],
+            },
+          ],
+          width: 18,
+        }),
+        height: 4,
+        label: 'StackedBarChart',
+        top: 1,
+        width: 44,
+      });
+    },
+  }),
+  defineStory({
+    id: 'area-chart/trend',
+    title: 'AreaChart / Trend',
+    description: 'Filled trend as sampled intensity cells.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderAreaChart({ max: 7, min: 0, values: [0, 3, 1, 7, 4, 6], width: 12 }),
+        height: 4,
+        label: 'AreaChart',
+        top: 1,
+        width: 28,
+      });
+    },
+  }),
+  defineStory({
+    id: 'scatter-plot/correlation',
+    title: 'ScatterPlot / Correlation',
+    description: 'X/Y points on a fixed terminal grid.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderScatterPlot({
+          height: 5,
+          points: [
+            { x: 1, y: 1 },
+            { x: 3, y: 4 },
+            { x: 5, y: 2 },
+          ],
+          width: 12,
+          xDomain: { max: 6, min: 0 },
+          yDomain: { max: 5, min: 0 },
+        }),
+        height: 8,
+        label: 'ScatterPlot',
+        top: 1,
+        width: 22,
+      });
+    },
+  }),
+  defineStory({
+    id: 'box-plot/latency',
+    title: 'BoxPlot / Latency',
+    description: 'Distribution summary with quartiles and median.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderBoxPlot({
+          items: [
+            { label: 'latency', lowerQuartile: 2, max: 8, median: 3, min: 1, upperQuartile: 5 },
+          ],
+          width: 16,
+        }),
+        height: 4,
+        label: 'BoxPlot',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'donut/capacity',
+    title: 'Donut / Capacity',
+    description: 'Part-to-whole values as text-first summary.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderDonut({
+          segments: [
+            { label: 'used', value: 7 },
+            { label: 'free', value: 3 },
+          ],
+        }),
+        height: 6,
+        label: 'Donut',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'candlestick-chart/ohlc',
+    title: 'CandlestickChart / OHLC',
+    description: 'Financial OHLC rows with direction.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCandlestickChart({
+          points: [{ close: 11, high: 12, label: 'D1', low: 9, open: 10 }],
+        }),
+        height: 4,
+        label: 'CandlestickChart',
+        top: 1,
+        width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'waterfall-chart/revenue',
+    title: 'WaterfallChart / Revenue',
+    description: 'Sequential signed contributions and running totals.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderWaterfallChart({
+          start: 10,
+          steps: [
+            { label: 'sales', value: 5 },
+            { label: 'cost', value: -3 },
+          ],
+        }),
+        height: 5,
+        label: 'WaterfallChart',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'request-inspector/http',
+    title: 'RequestInspector / HTTP',
+    description: 'HTTP request and response metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderRequestInspector({
+          body: '{"ok":true}',
+          headers: [{ name: 'content-type', value: 'application/json' }],
+          method: 'get',
+          status: 200,
+          url: '/health',
+        }),
+        height: 7,
+        label: 'RequestInspector',
+        top: 1,
+        width: 54,
+      });
+    },
+  }),
+  defineStory({
+    id: 'query-results/users',
+    title: 'QueryResults / Users',
+    description: 'Database rows with execution metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderQueryResults({
+          columns: [{ key: 'id' }, { key: 'name' }],
+          durationMs: 12,
+          rows: [{ id: 1, name: 'ada' }],
+        }),
+        height: 6,
+        label: 'QueryResults',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'performance-panel/runtime',
+    title: 'PerformancePanel / Runtime',
+    description: 'Runtime counters for render and event loop health.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderPerformancePanel({
+          eventLoopDelayMs: 2,
+          fps: 60,
+          memory: '42 MB',
+          renderMs: 4,
+        }),
+        height: 6,
+        label: 'PerformancePanel',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'process-runner/test',
+    title: 'ProcessRunner / Test',
+    description: 'Command execution state and output lines.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderProcessRunner({
+          command: 'npm test',
+          output: ['vitest'],
+          status: 'running',
+        }),
+        height: 5,
+        label: 'ProcessRunner',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'process-table/workers',
+    title: 'ProcessTable / Workers',
+    description: 'Multiple managed process states.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderProcessTable({
+          processes: [
+            { command: 'node server', name: 'api', status: 'running' },
+            { command: 'node worker', exitCode: 0, name: 'worker', status: 'success' },
+          ],
+        }),
+        height: 6,
+        label: 'ProcessTable',
+        top: 1,
+        width: 56,
+      });
+    },
+  }),
+  defineStory({
+    id: 'task-runner/build',
+    title: 'TaskRunner / Build',
+    description: 'Named task list with active state.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderTaskRunner({
+          activeTask: 'build',
+          tasks: [
+            { name: 'lint', status: 'success' },
+            { detail: 'tsup', name: 'build', status: 'running' },
+          ],
+        }),
+        height: 5,
+        label: 'TaskRunner',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'repl/session',
+    title: 'REPL / Session',
+    description: 'Prompt history and current input.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderRepl({ currentInput: 'Math.', history: [{ input: '1 + 1', output: '2' }] }),
+        height: 6,
+        label: 'REPL',
+        top: 1,
+        width: 28,
+      });
+    },
+  }),
+  defineStory({
+    id: 'shell-history/search',
+    title: 'ShellHistory / Search',
+    description: 'Searchable shell command history.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderShellHistory({
+          activeId: '2',
+          items: [
+            { command: 'npm test', id: '1' },
+            { command: 'git status', id: '2' },
+          ],
+          query: 'git',
+        }),
+        height: 5,
+        label: 'ShellHistory',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'markdown-viewer/readme',
+    title: 'MarkdownViewer / README',
+    description: 'Markdown degraded into terminal-safe text.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderMarkdownViewer({ markdown: '# Title\n**bold** and `code`' }),
+        height: 5,
+        label: 'MarkdownViewer',
+        top: 1,
+        width: 36,
+      });
+    },
+  }),
+  defineStory({
+    id: 'rich-text/spans',
+    title: 'RichText / Spans',
+    description: 'Styled spans rendered as contiguous readable text.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderRichText({ spans: [{ text: 'Hello' }, { text: ' world', tone: 'muted' }] }),
+        height: 4,
+        label: 'RichText',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'image/fallback',
+    title: 'Image / Fallback',
+    description: 'Image alt text and source fallback.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderImage({ alt: 'Logo', source: 'logo.png' }),
+        height: 5,
+        label: 'Image',
+        top: 1,
+        width: 32,
+      });
+    },
+  }),
+  defineStory({
+    id: 'big-text/title',
+    title: 'BigText / Title',
+    description: 'Large text fallback as spaced uppercase text.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderBigText({ text: 'ok' }),
+        height: 4,
+        label: 'BigText',
+        top: 1,
+        width: 20,
+      });
+    },
+  }),
+  defineStory({
+    id: 'calendar/month',
+    title: 'Calendar / Month',
+    description: 'Month grid with selected date.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCalendar({ month: 7, selectedDate: '2026-07-10', year: 2026 }),
+        height: 10,
+        label: 'Calendar',
+        top: 1,
+        width: 34,
+      });
+    },
+  }),
+  defineStory({
+    id: 'date-range-picker/release',
+    title: 'DateRangePicker / Release',
+    description: 'Bounded date interval labels.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderDateRangePicker({ end: '2026-07-10', start: '2026-07-01' }),
+        height: 5,
+        label: 'DateRangePicker',
+        top: 1,
+        width: 38,
+      });
+    },
+  }),
+  defineStory({
+    id: 'gantt/build-plan',
+    title: 'Gantt / Build Plan',
+    description: 'Task spans on a fixed track.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderGantt({
+          max: 8,
+          min: 0,
+          tasks: [
+            { end: 3, label: 'build', start: 1 },
+            { end: 7, label: 'deploy', start: 4 },
+          ],
+          width: 18,
+        }),
+        height: 5,
+        label: 'Gantt',
+        top: 1,
+        width: 34,
       });
     },
   }),

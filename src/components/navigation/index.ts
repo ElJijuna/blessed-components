@@ -4,7 +4,10 @@
  * Components in this category compose collection, selection, focus-scope, and
  * keymap contracts.
  */
+
+export * from './carousel/index.js';
 export * from './command-palette/index.js';
+export * from './context-menu/index.js';
 export * from './dropdown-menu/index.js';
 export * from './help-overlay/index.js';
 export * from './menu/index.js';
