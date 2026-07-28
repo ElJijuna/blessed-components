@@ -48,7 +48,7 @@ export function legend({ box, data: initialData, parent }: LegendOptions): Legen
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'legend' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 

@@ -5,6 +5,7 @@ import {
   type ClusterItemSize,
   calculateClusterLayout,
 } from '@/components/layout/cluster/index.js';
+import { resolveThemeTokens } from '@/core/theme.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
@@ -77,8 +78,12 @@ export function cluster({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'cluster' });
   const layout = (): void => {
+    const spacing =
+      data.theme === undefined
+        ? undefined
+        : resolveThemeTokens(data.theme, { component: 'cluster' }).spacing;
     const children = element.children.filter(isElement);
     const items = children.map((child) => {
       const existing = intrinsicSizes.get(child);
@@ -103,11 +108,17 @@ export function cluster({
     );
     const positions = calculateClusterLayout({
       ...(data.align === undefined ? {} : { align: data.align }),
-      ...(data.columnGap === undefined ? {} : { columnGap: data.columnGap }),
-      ...(data.gap === undefined ? {} : { gap: data.gap }),
+      ...(data.columnGap === undefined && spacing === undefined
+        ? {}
+        : { columnGap: data.columnGap ?? spacing?.itemGap ?? 0 }),
+      ...(data.gap === undefined && spacing === undefined
+        ? {}
+        : { gap: data.gap ?? spacing?.gap ?? 0 }),
       height,
       items,
-      ...(data.rowGap === undefined ? {} : { rowGap: data.rowGap }),
+      ...(data.rowGap === undefined && spacing === undefined
+        ? {}
+        : { rowGap: data.rowGap ?? spacing?.gap ?? 0 }),
       width,
     });
 

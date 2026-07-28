@@ -66,7 +66,7 @@ export function tag({ box, data: initialData, parent }: TagOptions): TagHandle {
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'tag' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth) ?? 0;

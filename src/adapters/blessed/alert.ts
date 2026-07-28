@@ -84,7 +84,7 @@ export function alert({ box, data: initialData, parent }: AlertOptions): AlertHa
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'alert' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities: configuredCapabilities, theme } = data;
     const capabilities = configuredCapabilities ?? detectCapabilities();

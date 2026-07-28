@@ -77,7 +77,7 @@ export function emptyState({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'empty-state' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth);

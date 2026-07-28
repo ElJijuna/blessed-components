@@ -104,9 +104,14 @@ export function spinner({ box, data: initialData = {}, parent }: SpinnerOptions)
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    foregroundTone: 'primary',
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      foregroundTone: 'primary',
+    },
+    { component: 'spinner' },
+  );
   const render = (): string => {
     validateInterval(data.interval ?? 80);
 

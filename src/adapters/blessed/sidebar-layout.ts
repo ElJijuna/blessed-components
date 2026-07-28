@@ -120,7 +120,7 @@ export function sidebarLayout({
     parent: element,
     tags: false,
   });
-  const style = createBoxStyleController(element, rootOptions);
+  const style = createBoxStyleController(element, rootOptions, {}, { component: 'sidebar-layout' });
   const width = (): number =>
     Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth));
   const height = (): number =>

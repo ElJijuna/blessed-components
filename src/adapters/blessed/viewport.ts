@@ -111,7 +111,7 @@ export function viewport({
     top: 0,
     width: data.contentWidth,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'viewport' });
   const applySnapshot = (snapshot: ViewportSnapshot): ViewportSnapshot => {
     const layout = calculateViewportLayout(snapshot);
 

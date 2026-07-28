@@ -1,6 +1,7 @@
 import blessed from 'blessed';
 
 import { calculateGridLayout, type GridItemPlacement } from '@/components/layout/grid/index.js';
+import { resolveThemeTokens } from '@/core/theme.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
@@ -68,8 +69,9 @@ export function grid({ box: elementOptions, data: initialData, parent }: GridOpt
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'grid' });
   const layout = (): void => {
+    const { spacing } = resolveThemeTokens(data.theme, { component: 'grid' });
     const children = element.children.filter(isElement);
     const width = Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth));
     const height = Math.max(
@@ -77,12 +79,18 @@ export function grid({ box: elementOptions, data: initialData, parent }: GridOpt
       numericDimension(element.height) - numericDimension(element.iheight),
     );
     const positions = calculateGridLayout({
-      ...(data.columnGap === undefined ? {} : { columnGap: data.columnGap }),
+      ...(data.columnGap === undefined && data.theme === undefined
+        ? {}
+        : { columnGap: data.columnGap ?? spacing.itemGap }),
       columns: data.columns,
-      ...(data.gap === undefined ? {} : { gap: data.gap }),
+      ...(data.gap === undefined && data.theme === undefined
+        ? {}
+        : { gap: data.gap ?? spacing.gap }),
       height,
       items: children.map((_, index) => data.items?.[index] ?? {}),
-      ...(data.rowGap === undefined ? {} : { rowGap: data.rowGap }),
+      ...(data.rowGap === undefined && data.theme === undefined
+        ? {}
+        : { rowGap: data.rowGap ?? spacing.gap }),
       ...(data.rows === undefined ? {} : { rows: data.rows }),
       width,
     });

@@ -81,7 +81,7 @@ export function connectionStatus({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'connection-status' });
   const render = (): void => {
     const {
       backgroundTone,

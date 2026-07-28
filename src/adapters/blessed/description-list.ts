@@ -67,7 +67,7 @@ export function descriptionList({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'description-list' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 

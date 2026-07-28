@@ -83,7 +83,7 @@ export function text({ box, data: initialData, parent }: TextOptions): TextHandl
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'text' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth) ?? 0;

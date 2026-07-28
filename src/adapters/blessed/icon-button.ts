@@ -104,7 +104,7 @@ export function iconButton({
     parent,
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'icon-button' });
   const render = (): void => {
     const disabled = data.disabled === true;
     const foregroundTone = disabled

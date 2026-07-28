@@ -92,7 +92,7 @@ export function taskProgress({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'task-progress' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities: configuredCapabilities, theme, tone } = data;
     const capabilities = configuredCapabilities ?? detectCapabilities();

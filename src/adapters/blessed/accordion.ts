@@ -147,7 +147,7 @@ export function accordion({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, rootOptions);
+  const style = createBoxStyleController(element, rootOptions, {}, { component: 'accordion' });
   const isControlled = (): boolean => Object.hasOwn(data, 'expandedIds');
   const currentExpandedIds = (): readonly string[] =>
     isControlled() ? (data.expandedIds ?? []) : uncontrolledExpandedIds;

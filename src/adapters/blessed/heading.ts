@@ -78,7 +78,7 @@ export function heading({ box, data: initialData, parent }: HeadingOptions): Hea
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'heading' });
   const render = (): void => {
     const { backgroundTone, bold, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth);

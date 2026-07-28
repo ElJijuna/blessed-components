@@ -65,7 +65,7 @@ export function timeline({ box, data: initialData, parent }: TimelineOptions): T
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'timeline' });
   const viewportSize = (): { height: number; width: number } => ({
     height: Math.max(0, numericDimension(element.height) - numericDimension(element.iheight)),
     width: Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth)),

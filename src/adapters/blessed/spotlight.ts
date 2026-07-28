@@ -157,11 +157,16 @@ export function spotlight<TItem extends SpotlightItem>({
     },
     tags: false,
   });
-  const panelStyle = createBoxStyleController(panel, content, {
-    backgroundTone: 'background',
-    borderTone: 'border',
-    ...(data.theme === undefined ? {} : { theme: data.theme }),
-  });
+  const panelStyle = createBoxStyleController(
+    panel,
+    content,
+    {
+      backgroundTone: 'background',
+      borderTone: 'border',
+      ...(data.theme === undefined ? {} : { theme: data.theme }),
+    },
+    { component: 'spotlight' },
+  );
   const status = blessed.box({
     bottom: 0,
     content: '',

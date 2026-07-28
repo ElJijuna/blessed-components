@@ -1,12 +1,15 @@
 # Box
 
-Typed, composable Blessed container with semantic theme colors.
+Typed, composable Blessed container with semantic theme tokens.
 
 ## Features
 
 - One Blessed `BoxElement`, suitable as parent for any component.
 - Semantic foreground, background, and border tokens.
-- Explicit Blessed styles override theme colors.
+- Density and active-variant spacing mapped to Blessed padding.
+- Theme border structure mapped to Blessed `line` or `bg` borders.
+- `theme.components.box` color overrides.
+- Explicit Blessed styles, padding, and borders override theme values.
 - Automatic no-color behavior.
 - Pure theme resolver without Blessed imports.
 - Shared `setData()` and `destroy()` lifecycle.
@@ -56,17 +59,30 @@ Box owns no text content. Pass `panel.element` as parent to nested components.
 ## Semantic colors
 
 ```ts
+import { createTheme } from 'blessed-components/core/theme';
+
+const theme = createTheme({
+  activeVariant: 'panel',
+  borders: { style: 'line' },
+  components: {
+    box: { foreground: 'bright-white' },
+  },
+  density: 'spacious',
+  variants: {
+    panel: {
+      colors: { background: 'blue' },
+      spacing: { paddingX: 2 },
+    },
+  },
+});
+
 const panel = box({
   parent: screen,
-  data: {
-    foregroundTone: 'foreground',
-    backgroundTone: 'background',
-    borderTone: 'border',
-  },
+  data: { theme },
 });
 ```
 
-Defaults:
+Semantic color defaults:
 
 | Option | Default |
 | --- | --- |
@@ -76,6 +92,8 @@ Defaults:
 
 Use `createTheme()` to replace semantic colors. Explicit
 `box.style.fg`, `box.style.bg`, and `box.style.border.fg` take precedence.
+Explicit `box.padding` and `box.border` likewise take precedence over
+structural theme tokens.
 
 ## Pure resolver
 
@@ -113,6 +131,8 @@ so they share:
 
 - `capabilities`;
 - `theme`;
+- component-level color fallback;
+- active theme variants;
 - semantic foreground, background, and border tones;
 - explicit Blessed style precedence;
 - no-color behavior.

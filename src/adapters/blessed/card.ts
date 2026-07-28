@@ -124,9 +124,14 @@ function createCardRegion(
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    foregroundTone: defaults.tone,
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      foregroundTone: defaults.tone,
+    },
+    { component: 'card' },
+  );
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth);
@@ -196,7 +201,7 @@ export function cardRoot({ box, data: initialData = {}, parent }: CardRootOption
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'card' });
   const render = (): void => style.apply(data);
 
   render();

@@ -67,9 +67,14 @@ export function divider({ box, data: initialData = {}, parent }: DividerOptions)
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    foregroundTone: 'border',
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      foregroundTone: 'border',
+    },
+    { component: 'divider' },
+  );
   const render = (): void => {
     const {
       backgroundTone,

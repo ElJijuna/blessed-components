@@ -89,7 +89,7 @@ export function progressList({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'progress-list' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities: configuredCapabilities, theme, tone } = data;
     const capabilities = configuredCapabilities ?? detectCapabilities();

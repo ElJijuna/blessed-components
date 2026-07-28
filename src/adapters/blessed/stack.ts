@@ -6,6 +6,7 @@ import {
   type StackDirection,
   type StackItemSize,
 } from '@/components/layout/stack/index.js';
+import { resolveThemeTokens } from '@/core/theme.js';
 import { type BoxData, type BoxElementOptions, createBoxStyleController } from './box.js';
 import type { BlessedComponentHandle } from './types.js';
 
@@ -74,8 +75,12 @@ export function stack({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'stack' });
   const layout = (): void => {
+    const spacing =
+      data.theme === undefined
+        ? undefined
+        : resolveThemeTokens(data.theme, { component: 'stack' }).spacing;
     const children = element.children.filter(isElement);
     const items = children.map((child) => {
       const existing = intrinsicSizes.get(child);
@@ -101,7 +106,9 @@ export function stack({
     const positions = calculateStackLayout({
       ...(data.align === undefined ? {} : { align: data.align }),
       ...(data.direction === undefined ? {} : { direction: data.direction }),
-      ...(data.gap === undefined ? {} : { gap: data.gap }),
+      ...(data.gap === undefined && spacing === undefined
+        ? {}
+        : { gap: data.gap ?? spacing?.gap ?? 0 }),
       height,
       items,
       width,

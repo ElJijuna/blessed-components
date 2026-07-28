@@ -48,7 +48,7 @@ export function gauge({ box, data: initialData, parent }: GaugeOptions): GaugeHa
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'gauge' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 

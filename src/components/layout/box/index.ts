@@ -1,6 +1,7 @@
 import type { TerminalCapabilities } from '@/core/capabilities.js';
 import {
   DEFAULT_THEME,
+  resolveComponentThemeColor,
   resolveThemeColor,
   type TerminalColor,
   type Theme,
@@ -11,6 +12,9 @@ import {
 export interface ResolveBoxThemeOptions {
   /** Explicit terminal color capability. */
   capabilities: Pick<TerminalCapabilities, 'colorLevel'>;
+
+  /** Component key used for component-level color overrides. */
+  component?: string;
 
   /** Semantic background token. @defaultValue `'background'` */
   backgroundTone?: keyof ThemeColors;
@@ -46,12 +50,18 @@ export function resolveBoxTheme({
   backgroundTone = 'background',
   borderTone = 'border',
   capabilities,
+  component,
   foregroundTone = 'foreground',
   theme = DEFAULT_THEME,
 }: ResolveBoxThemeOptions): BoxThemeStyle {
+  const resolveColor = (token: keyof ThemeColors): TerminalColor | undefined =>
+    component === undefined
+      ? resolveThemeColor(theme, token, capabilities)
+      : resolveComponentThemeColor(theme, component, token, capabilities);
+
   return {
-    background: resolveThemeColor(theme, backgroundTone, capabilities),
-    border: resolveThemeColor(theme, borderTone, capabilities),
-    foreground: resolveThemeColor(theme, foregroundTone, capabilities),
+    background: resolveColor(backgroundTone),
+    border: resolveColor(borderTone),
+    foreground: resolveColor(foregroundTone),
   };
 }

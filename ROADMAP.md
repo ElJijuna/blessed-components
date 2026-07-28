@@ -626,11 +626,12 @@ library quality.
 
 | Area | Status | Artifact |
 | --- | --- | --- |
-| Theme tokens | Available | `Theme` now includes density, spacing, borders, variants, high-contrast colors, and component color fallback helpers. |
-| Capability matrix | Available | `createCapabilityMatrix` validates dumb, no-color, Windows ASCII fallback, 256-color, and truecolor scenarios. |
+| Theme tokens | Available | Shared Blessed styling resolves component colors and active variants; `Box` consumes padding/borders, while `Stack`, `Cluster`, and `Grid` consume spacing defaults. |
+| Capability scenarios | Partial | `createCapabilityMatrix` covers deterministic simulated dumb, no-color, Windows ASCII fallback, 256-color, and truecolor inputs; it is not native OS coverage. |
+| Native platform matrix | Planned | CI still needs real Linux, macOS, and Windows jobs with terminal-sensitive integration tests. |
 | Interaction tests | Available | Public tests cover event clearing, modified key chords, focus fallback, and focus-trap behavior through Dialog integration. |
-| Listener/timer cleanup | Available | Spinner timer cleanup and Toast resize-listener cleanup are covered by integration tests. |
-| Renderer benchmarks | Available | `npm run benchmark` measures large tables, log windows, line-chart sampling, and bar-chart rendering. |
+| Listener/timer cleanup | Partial | Spinner timer cleanup and Toast resize-listener cleanup are covered; systematic memory, listener, stream, and process leak checks remain. |
+| Renderer benchmarks | Partial | `npm run benchmark` measures large tables, log windows, line-chart sampling, and bar-chart rendering, but stored baselines and CI budgets remain. |
 | Navigable component docs | Available | `npm run docs:index` generates `docs/component-index.md` with adapter/test/story/doc maturity per component. |
 
 ## P2 packaging and starter status

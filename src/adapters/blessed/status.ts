@@ -66,7 +66,7 @@ export function status({ box, data: initialData, parent }: StatusOptions): Statu
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'status' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities: configuredCapabilities, theme } = data;
     const capabilities = configuredCapabilities ?? detectCapabilities();

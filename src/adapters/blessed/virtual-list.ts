@@ -103,7 +103,7 @@ export function virtualList<TItem extends ListItem>({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'virtual-list' });
   const viewportSize = (): { height: number; width: number } => ({
     height: Math.max(0, numericDimension(element.height) - numericDimension(element.iheight)),
     width: Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth)),

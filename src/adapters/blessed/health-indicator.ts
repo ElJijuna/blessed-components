@@ -86,7 +86,7 @@ export function healthIndicator({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'health-indicator' });
   const render = (): void => {
     const {
       backgroundTone,

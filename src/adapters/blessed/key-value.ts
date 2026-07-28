@@ -55,7 +55,7 @@ export function keyValue({ box, data: initialData, parent }: KeyValueOptions): K
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'key-value' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 

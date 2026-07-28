@@ -247,14 +247,19 @@ import { visibleWidth } from 'blessed-components/core/width';
 
 See the [core reference](./src/core/README.md).
 
-Core hardening APIs include:
+Core hardening foundations include:
 
-- density-aware theme spacing, border, variant, and high-contrast tokens;
-- deterministic capability matrices for Unicode/ASCII, color/no-color, mouse,
-  and dumb-terminal behavior;
+- density-aware theme spacing, border, active-variant, high-contrast, and
+  component tokens consumed by Blessed adapters;
+- deterministic simulated capability scenarios for Unicode/ASCII,
+  color/no-color, mouse, and dumb-terminal behavior;
 - component color resolution that falls back from component overrides to
   semantic theme tokens;
 - renderer benchmarks for tables, logs, charts, and high-frequency output.
+
+The capability scenarios are deterministic unit-level coverage. Native
+macOS/Windows runners, memory/process leak checks, and enforced performance
+budgets remain hardening work rather than completed platform certification.
 
 ### Headless primitives
 

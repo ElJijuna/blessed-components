@@ -9,7 +9,9 @@ import {
   getColorLevel,
   resolveComponentThemeColor,
   resolveThemeColor,
+  resolveThemeTokens,
   selectCapabilityProfile,
+  type Theme,
   UNICODE_CHARACTERS,
 } from '@/core/index.js';
 
@@ -54,13 +56,14 @@ describe('core terminal policy', () => {
 
   it('creates semantic themes and resolves colors according to capability', () => {
     const theme = createTheme({
+      activeVariant: 'selected',
       colors: { primary: 'magenta' },
       components: { badge: { danger: 'bright-red' } },
       density: 'spacious',
       highContrast: true,
       variants: {
         selected: {
-          borders: { focus: 'yellow' },
+          borders: { character: '#', style: 'background' },
           colors: { primary: 'bright-blue' },
           spacing: { paddingX: 2 },
         },
@@ -71,18 +74,38 @@ describe('core terminal policy', () => {
     expect(theme.colors.foreground).toBe('bright-white');
     expect(theme.density).toBe('spacious');
     expect(theme.spacing).toEqual({ gap: 2, itemGap: 1, paddingX: 2, paddingY: 1 });
-    expect(theme.borders).toMatchObject({ focus: 'cyan', radius: 0, style: 'single' });
+    expect(theme.borders).toEqual({ character: ' ', style: 'none' });
     expect(theme.components.badge?.danger).toBe('bright-red');
     expect(theme.variants.selected?.colors?.primary).toBe('bright-blue');
-    expect(resolveThemeColor(theme, 'primary', { colorLevel: 3 })).toBe('magenta');
+    expect(resolveThemeTokens(theme, { component: 'badge' })).toEqual({
+      borders: { character: '#', style: 'background' },
+      colors: expect.objectContaining({
+        danger: 'bright-red',
+        primary: 'bright-blue',
+      }),
+      spacing: { gap: 2, itemGap: 1, paddingX: 2, paddingY: 1 },
+    });
+    expect(resolveThemeColor(theme, 'primary', { colorLevel: 3 })).toBe('bright-blue');
     expect(resolveThemeColor(theme, 'primary', { colorLevel: 0 })).toBeUndefined();
     expect(resolveComponentThemeColor(theme, 'badge', 'danger', { colorLevel: 3 })).toBe(
       'bright-red',
     );
     expect(resolveComponentThemeColor(theme, 'badge', 'primary', { colorLevel: 3 })).toBe(
-      'magenta',
+      'bright-blue',
     );
     expect(resolveComponentThemeColor(theme, 'badge', 'danger', { colorLevel: 0 })).toBeUndefined();
+  });
+
+  it('keeps pre-hardening Theme objects source-compatible', () => {
+    const theme: Theme = {
+      colors: { foreground: 'white' },
+      components: {},
+    };
+
+    expect(resolveThemeTokens(theme)).toMatchObject({
+      borders: { character: ' ', style: 'none' },
+      spacing: { gap: 1, itemGap: 0, paddingX: 1, paddingY: 0 },
+    });
   });
 
   it('builds a deterministic terminal capability matrix', () => {

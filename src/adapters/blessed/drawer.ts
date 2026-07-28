@@ -196,10 +196,15 @@ function createDrawerRegion(
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    ...defaults.theme,
-    foregroundTone: defaults.tone,
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      ...defaults.theme,
+      foregroundTone: defaults.tone,
+    },
+    { component: 'drawer' },
+  );
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
     const width = renderData.width ?? innerDimension(element.width, element.iwidth);

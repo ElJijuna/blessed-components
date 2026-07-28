@@ -168,10 +168,15 @@ export function loadingOverlay({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    backgroundTone: 'background',
-    foregroundTone: 'primary',
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      backgroundTone: 'background',
+      foregroundTone: 'primary',
+    },
+    { component: 'loading-overlay' },
+  );
   const render = (): string => {
     validateInterval(data.interval ?? 80);
 

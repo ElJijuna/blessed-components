@@ -112,7 +112,7 @@ export function preformatted({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'preformatted' });
   const viewportSize = (): { height: number; width: number } => ({
     height: Math.max(0, numericDimension(element.height) - numericDimension(element.iheight)),
     width: Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth)),

@@ -93,7 +93,7 @@ export function spacer({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'spacer' });
   const layout = (): void => {
     const dimensions = parentSize(parent);
     const size = calculateSpacerLayout({

@@ -93,10 +93,15 @@ export function overlay({ box, data: initialData, parent }: OverlayOptions): Ove
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box, {
-    backgroundTone: 'background',
-    foregroundTone: 'foreground',
-  });
+  const style = createBoxStyleController(
+    element,
+    box,
+    {
+      backgroundTone: 'background',
+      foregroundTone: 'foreground',
+    },
+    { component: 'overlay' },
+  );
   const activate = (): void => {
     if (active || destroyed) {
       return;

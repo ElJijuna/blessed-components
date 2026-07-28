@@ -84,7 +84,7 @@ export function toast({ box, data: initialData = {}, parent }: ToastOptions): To
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'toast' });
   const render = (): void => {
     const {
       backgroundTone,

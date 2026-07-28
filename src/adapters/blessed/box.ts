@@ -2,7 +2,12 @@ import blessed from 'blessed';
 
 import { resolveBoxTheme } from '@/components/layout/box/index.js';
 import { detectCapabilities, type TerminalCapabilities } from '@/core/capabilities.js';
-import type { Theme, ThemeColors } from '@/core/theme.js';
+import {
+  resolveThemeTokens,
+  type Theme,
+  type ThemeColors,
+  type ThemeSpacing,
+} from '@/core/theme.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /**
@@ -36,19 +41,62 @@ export interface BoxStyleController {
   apply(data?: BoxData): void;
 }
 
+/** Adapter context used to consume component and spacing theme tokens. */
+export interface BoxStyleControllerOptions {
+  /** Apply theme padding when Blessed padding is not explicit. */
+  applyPadding?: boolean;
+
+  /** Component key used for component-level color overrides. */
+  component?: string;
+}
+
+interface RuntimeBorder extends blessed.Widgets.Border {
+  bottom: boolean;
+  left: boolean;
+  right: boolean;
+  top: boolean;
+}
+
+type RuntimeBoxElement = Omit<blessed.Widgets.BoxElement, 'border'> & {
+  border: RuntimeBorder | undefined;
+  padding: {
+    bottom: number;
+    left: number;
+    right: number;
+    top: number;
+  };
+};
+
+function themePadding({ paddingX, paddingY }: ThemeSpacing): RuntimeBoxElement['padding'] {
+  return {
+    bottom: paddingY,
+    left: paddingX,
+    right: paddingX,
+    top: paddingY,
+  };
+}
+
 /**
  * Creates semantic style control for any Blessed box-based component.
  *
- * Explicit Blessed style values always win over semantic theme values.
+ * Explicit Blessed style, border, and padding values always win over semantic
+ * theme values.
  */
 export function createBoxStyleController(
   element: blessed.Widgets.BoxElement,
   elementOptions?: BoxElementOptions,
   defaults: BoxData = {},
+  options: BoxStyleControllerOptions = {},
 ): BoxStyleController {
   const explicitForeground = elementOptions?.style?.fg;
   const explicitBackground = elementOptions?.style?.bg;
   const explicitBorder = elementOptions?.style?.border?.fg;
+  const explicitBorderStructure = elementOptions?.border;
+  const explicitPadding = elementOptions?.padding;
+  const runtimeElement = element as RuntimeBoxElement;
+  const initialBorder =
+    runtimeElement.border === undefined ? undefined : { ...runtimeElement.border };
+  const initialPadding = { ...runtimeElement.padding };
 
   return {
     apply(data = {}) {
@@ -57,13 +105,38 @@ export function createBoxStyleController(
       const borderTone = data.borderTone ?? defaults.borderTone;
       const foregroundTone = data.foregroundTone ?? defaults.foregroundTone;
       const theme = data.theme ?? defaults.theme;
+      const tokens = resolveThemeTokens(theme, {
+        ...(options.component === undefined ? {} : { component: options.component }),
+      });
       const resolved = resolveBoxTheme({
         capabilities,
+        ...(options.component === undefined ? {} : { component: options.component }),
         ...(backgroundTone === undefined ? {} : { backgroundTone }),
         ...(borderTone === undefined ? {} : { borderTone }),
         ...(foregroundTone === undefined ? {} : { foregroundTone }),
         ...(theme === undefined ? {} : { theme }),
       });
+
+      if (explicitBorderStructure === undefined) {
+        runtimeElement.border =
+          theme === undefined
+            ? initialBorder
+            : tokens.borders.style === 'none'
+              ? undefined
+              : {
+                  bottom: true,
+                  ch: tokens.borders.character,
+                  left: true,
+                  right: true,
+                  top: true,
+                  type: tokens.borders.style === 'line' ? 'line' : 'bg',
+                };
+      }
+
+      if (options.applyPadding === true && explicitPadding === undefined) {
+        runtimeElement.padding =
+          theme === undefined ? initialPadding : themePadding(tokens.spacing);
+      }
 
       element.style.fg =
         explicitForeground ??
@@ -117,7 +190,15 @@ export function box({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(
+    element,
+    elementOptions,
+    {},
+    {
+      applyPadding: true,
+      component: 'box',
+    },
+  );
   const render = (): void => style.apply(data);
 
   render();

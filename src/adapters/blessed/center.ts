@@ -74,7 +74,7 @@ export function center({
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, elementOptions);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'center' });
   const layout = (): void => {
     const child = element.children.find(isElement);
 

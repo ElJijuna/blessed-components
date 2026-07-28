@@ -70,14 +70,39 @@ formatPercent(0.856); // "85.6%"
 - `selectCapabilityProfile` groups terminals into `dumb`, `ascii`, `basic`,
   and `rich` profiles.
 - `createCharacterSet` selects Unicode or ASCII drawing characters.
-- `createTheme` merges semantic colors, density, spacing, borders, variants,
-  high-contrast colors, and component overrides.
+- `createTheme` merges semantic colors, density, spacing, Blessed-compatible
+  borders, named variants, high-contrast colors, and component overrides.
+- `resolveThemeTokens` materializes the active variant and component context
+  into concrete color, spacing, and border tokens for adapters.
 - `resolveThemeColor` disables color tokens when color output is unavailable.
 - `resolveComponentThemeColor` checks component overrides before falling back
   to semantic theme colors.
 
 Detection accepts explicit environment and platform values, making it
 deterministic in tests and server processes.
+
+```ts
+const theme = createTheme({
+  activeVariant: 'focused',
+  borders: { style: 'line' },
+  components: {
+    button: { primary: 'bright-blue' },
+  },
+  density: 'spacious',
+  variants: {
+    focused: {
+      colors: { border: 'bright-cyan' },
+      spacing: { paddingX: 2 },
+    },
+  },
+});
+```
+
+Blessed adapters resolve their own component color overrides through the
+shared style controller. `Box` also maps theme padding and border structure;
+`Stack`, `Cluster`, and `Grid` use spacing tokens as layout gap defaults.
+Explicit Blessed padding, border, styles, and component gap options take
+precedence.
 
 ## Interaction and layout
 

@@ -94,7 +94,7 @@ export function button({ box, data: initialData, parent }: ButtonOptions): Butto
     parent,
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'button' });
   const render = (): void => {
     const disabled = data.disabled === true;
     const foregroundTone = disabled

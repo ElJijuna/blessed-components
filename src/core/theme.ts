@@ -2,7 +2,7 @@ import type { ColorLevel } from './color.js';
 
 export type TerminalColor = number | string;
 export type ThemeDensity = 'compact' | 'comfortable' | 'spacious';
-export type ThemeBorderStyle = 'none' | 'single' | 'double' | 'heavy';
+export type ThemeBorderStyle = 'background' | 'line' | 'none';
 
 export interface ThemeColors {
   background?: TerminalColor;
@@ -24,8 +24,7 @@ export interface ThemeSpacing {
 }
 
 export interface ThemeBorders {
-  focus?: TerminalColor;
-  radius: number;
+  character: string;
   style: ThemeBorderStyle;
 }
 
@@ -36,15 +35,26 @@ export interface ThemeVariant {
 }
 
 export interface Theme {
-  borders: ThemeBorders;
+  /** Named variant selected for all consumers of this theme. */
+  activeVariant?: string;
+  borders?: Partial<ThemeBorders>;
   colors: ThemeColors;
-  density: ThemeDensity;
   components: Record<string, Record<string, TerminalColor>>;
+  density?: ThemeDensity;
+  spacing?: Partial<ThemeSpacing>;
+  variants?: Record<string, ThemeVariant>;
+}
+
+/** Fully materialized theme returned by {@link createTheme}. */
+export interface ResolvedTheme extends Theme {
+  borders: ThemeBorders;
+  density: ThemeDensity;
   spacing: ThemeSpacing;
   variants: Record<string, ThemeVariant>;
 }
 
 export interface ThemeInput {
+  activeVariant?: string;
   borders?: Partial<ThemeBorders>;
   colors?: ThemeColors;
   components?: Record<string, Record<string, TerminalColor>>;
@@ -68,12 +78,11 @@ export const DENSITY_SPACING: Readonly<Record<ThemeDensity, ThemeSpacing>> = Obj
 });
 
 export const DEFAULT_THEME_BORDERS: Readonly<ThemeBorders> = Object.freeze({
-  focus: 'cyan',
-  radius: 0,
-  style: 'single',
+  character: ' ',
+  style: 'none',
 });
 
-export const DEFAULT_THEME: Readonly<Theme> = Object.freeze({
+export const DEFAULT_THEME: Readonly<ResolvedTheme> = Object.freeze({
   borders: DEFAULT_THEME_BORDERS,
   colors: Object.freeze({
     border: 'grey',
@@ -106,7 +115,7 @@ export const HIGH_CONTRAST_THEME_COLORS: Readonly<ThemeColors> = Object.freeze({
 /**
  * Creates a semantic terminal theme with layout, border, component, and variant tokens.
  */
-export function createTheme(input: ThemeInput = {}): Theme {
+export function createTheme(input: ThemeInput = {}): ResolvedTheme {
   const density = input.density ?? DEFAULT_THEME.density;
   const spacing = {
     ...DENSITY_SPACING[density],
@@ -145,12 +154,60 @@ export function createTheme(input: ThemeInput = {}): Theme {
   );
 
   return {
+    ...(input.activeVariant === undefined ? {} : { activeVariant: input.activeVariant }),
     borders,
     colors,
     components,
     density,
     spacing,
     variants,
+  };
+}
+
+export interface ResolveThemeTokensOptions {
+  /** Component key used for `theme.components` color overrides. */
+  component?: string;
+
+  /** Variant key. Defaults to `theme.activeVariant`. */
+  variant?: string;
+}
+
+export interface ResolvedThemeTokens {
+  borders: ThemeBorders;
+  colors: ThemeColors;
+  spacing: ThemeSpacing;
+}
+
+/**
+ * Resolves density defaults, component colors, and the active variant into
+ * concrete tokens that adapters can apply.
+ *
+ * Precedence is: defaults → theme → component colors → active variant.
+ */
+export function resolveThemeTokens(
+  theme: Theme = DEFAULT_THEME,
+  { component, variant = theme.activeVariant }: ResolveThemeTokensOptions = {},
+): ResolvedThemeTokens {
+  const density = theme.density ?? DEFAULT_THEME.density;
+  const selectedVariant = variant === undefined ? undefined : theme.variants?.[variant];
+
+  return {
+    borders: {
+      ...DEFAULT_THEME_BORDERS,
+      ...theme.borders,
+      ...selectedVariant?.borders,
+    },
+    colors: {
+      ...DEFAULT_THEME.colors,
+      ...theme.colors,
+      ...(component === undefined ? {} : theme.components[component]),
+      ...selectedVariant?.colors,
+    },
+    spacing: {
+      ...DENSITY_SPACING[density],
+      ...theme.spacing,
+      ...selectedVariant?.spacing,
+    },
   };
 }
 
@@ -162,7 +219,7 @@ export function resolveThemeColor(
   token: keyof ThemeColors,
   { colorLevel }: { colorLevel: ColorLevel },
 ): TerminalColor | undefined {
-  return colorLevel === 0 ? undefined : theme.colors[token];
+  return colorLevel === 0 ? undefined : resolveThemeTokens(theme).colors[token];
 }
 
 /**
@@ -172,11 +229,14 @@ export function resolveComponentThemeColor(
   theme: Theme,
   component: string,
   token: keyof ThemeColors,
-  { colorLevel }: { colorLevel: ColorLevel },
+  { colorLevel, variant }: { colorLevel: ColorLevel; variant?: string },
 ): TerminalColor | undefined {
   if (colorLevel === 0) {
     return undefined;
   }
 
-  return theme.components[component]?.[token] ?? theme.colors[token];
+  return resolveThemeTokens(theme, {
+    component,
+    ...(variant === undefined ? {} : { variant }),
+  }).colors[token];
 }

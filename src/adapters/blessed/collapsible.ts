@@ -155,7 +155,7 @@ export function collapsible({
     parent: element,
     tags: false,
   });
-  const style = createBoxStyleController(element, rootOptions);
+  const style = createBoxStyleController(element, rootOptions, {}, { component: 'collapsible' });
   const isControlled = (): boolean => Object.hasOwn(data, 'expanded');
   const currentExpanded = (): boolean =>
     isControlled() ? (data.expanded ?? false) : uncontrolledExpanded;

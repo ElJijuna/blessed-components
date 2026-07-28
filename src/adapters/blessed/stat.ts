@@ -95,7 +95,7 @@ export function stat({ box, data: initialData, parent }: StatOptions): StatHandl
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'stat' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 

@@ -4,6 +4,7 @@ import blessed from 'blessed';
 import { describe, expect, it } from 'vitest';
 
 import { stack } from '@/adapters/blessed/stack.js';
+import { createTheme } from '@/core/theme.js';
 
 describe('Blessed Stack adapter', () => {
   it('lays out direct children and updates direction without replacing elements', () => {
@@ -43,6 +44,14 @@ describe('Blessed Stack adapter', () => {
 
       expect(first.position).toMatchObject({ height: 2, left: 0, top: 4, width: 4 });
       expect(second.position).toMatchObject({ height: 3, left: 6, top: 3, width: 6 });
+
+      component.setData({
+        direction: 'vertical',
+        theme: createTheme({ density: 'spacious' }),
+      });
+
+      expect(first.position).toMatchObject({ height: 2, left: 0, top: 0, width: 20 });
+      expect(second.position).toMatchObject({ height: 3, left: 0, top: 4, width: 20 });
     } finally {
       screen.destroy();
     }

@@ -89,7 +89,7 @@ export function callout({ box, data: initialData, parent }: CalloutOptions): Cal
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'callout' });
   const render = (): void => {
     const {
       backgroundTone,

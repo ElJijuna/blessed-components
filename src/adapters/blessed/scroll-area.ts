@@ -173,8 +173,13 @@ export function scrollArea({
     top: 0,
     width: 1,
   });
-  const style = createBoxStyleController(element, elementOptions);
-  const scrollbarStyle = createBoxStyleController(scrollbarElement);
+  const style = createBoxStyleController(element, elementOptions, {}, { component: 'scroll-area' });
+  const scrollbarStyle = createBoxStyleController(
+    scrollbarElement,
+    undefined,
+    {},
+    { component: 'scroll-area' },
+  );
   const render = (): ScrollAreaMetrics => {
     if (destroyed) {
       return model.metrics();

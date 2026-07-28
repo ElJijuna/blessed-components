@@ -96,7 +96,7 @@ export function sparkline({ box, data: initialData, parent }: SparklineOptions):
     },
     tags: false,
   });
-  const style = createBoxStyleController(element, box);
+  const style = createBoxStyleController(element, box, {}, { component: 'sparkline' });
   const render = (): void => {
     const { backgroundTone, borderTone, capabilities, theme, tone, ...renderData } = data;
 
