@@ -2,6 +2,34 @@ import { PassThrough } from 'node:stream';
 
 import blessed from 'blessed';
 
+import { createTheme } from '@/core/theme.js';
+
+export const EXAMPLE_THEME = createTheme({
+  colors: {
+    background: 'black',
+    border: 'blue',
+    danger: 'bright-red',
+    foreground: 'white',
+    info: 'bright-cyan',
+    muted: 'grey',
+    primary: 'cyan',
+    success: 'bright-green',
+    warning: 'bright-yellow',
+  },
+  components: {
+    box: { border: 'cyan' },
+    grid: { border: 'cyan' },
+    stat: { border: 'blue' },
+  },
+  density: 'compact',
+  spacing: {
+    gap: 1,
+    itemGap: 1,
+    paddingX: 1,
+    paddingY: 0,
+  },
+});
+
 export interface ExampleHandle {
   destroy(): void;
 }

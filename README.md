@@ -329,15 +329,16 @@ Run the component gallery:
 npm run example:gallery
 ```
 
-Use arrow keys and Enter to select stories, `r` to reload, `Tab` to move
-focus, and `q` to quit. The prototype previews Badge, MetricBars, ProgressBar,
-available component stories through their public Blessed adapters.
+Use arrow keys or `j`/`k` and Enter to select stories, `r` to reload, `Tab` to
+move focus, and `q` to quit. The workbench presents all component stories
+through their public Blessed adapters with category context and live metadata.
 
 Run the composed application examples:
 
 ```sh
 npm run example:dashboard
 npm run example:process-monitor
+npm run example:system-inspector
 ```
 
 Verify every example without an interactive terminal:

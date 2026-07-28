@@ -601,9 +601,10 @@ component APIs.
 
 | Example | Artifact | Purpose | Status |
 | --- | --- | --- | --- |
-| `component-gallery` | Pattern | Browse and lifecycle-test every component story. | Available |
-| `dashboard` | Template | Compose display components into a service dashboard. | Available |
-| `process-monitor` | Block | Demonstrate live updates, render batching, and cleanup. | Available |
+| `component-gallery` | Pattern | Browse and lifecycle-test every component story in an interactive workbench. | Available |
+| `dashboard` | Template | Operate a service control plane with navigation, health, SLO, traffic, and deploy state. | Available |
+| `process-monitor` | Block | Monitor Node and host resources with bounded live histories and batched rendering. | Available |
+| `system-inspector` | Template | Inspect real host memory, load, and top-process snapshots. | Available |
 
 Run interactively:
 
@@ -611,6 +612,7 @@ Run interactively:
 npm run example:gallery
 npm run example:dashboard
 npm run example:process-monitor
+npm run example:system-inspector
 ```
 
 Run all lifecycle smoke tests:

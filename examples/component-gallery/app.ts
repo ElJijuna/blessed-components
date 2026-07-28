@@ -1,7 +1,7 @@
 /**
  * Component Gallery
  *
- * Formal ROADMAP entry point for the Storybook-like preview workbench.
+ * Interactive catalog and behavior workbench for every public component.
  *
  * Run:
  *   npm run example:gallery

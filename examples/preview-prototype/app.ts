@@ -1,8 +1,5 @@
 /**
- * PROTOTYPE — terminal component workbench.
- *
- * Question being tested: does a Storybook-like registry, navigation, mount,
- * update, and destroy lifecycle feel natural for Blessed components?
+ * Terminal component workbench.
  *
  * Run interactively with `npm run preview`.
  * Run a non-interactive lifecycle smoke test with
@@ -34,67 +31,98 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     output,
     smartCSR: true,
     terminal: smoke ? 'xterm-256color' : undefined,
-    title: 'blessed-components workbench',
+    title: 'Blessed Components — Workbench',
+  });
+  const categories = new Set(stories.map(({ id }) => id.split('/')[0])).size;
+  const header = blessed.box({
+    content:
+      ' {bold}{white-fg}◆ BLESSED COMPONENTS{/white-fg}{/bold}  {cyan-fg}/ TERMINAL WORKBENCH{/cyan-fg}\n' +
+      ' {grey-fg}Explore behavior, states and interaction contracts without leaving the terminal.{/grey-fg}',
+    height: 3,
+    left: 0,
+    parent: screen,
+    right: 0,
+    style: { bg: 'blue', fg: 'white' },
+    tags: true,
+    top: 0,
+  });
+
+  blessed.box({
+    align: 'right',
+    content: `{bold}${stories.length}{/bold} stories  ·  ${categories} groups\n{grey-fg}keyboard + mouse ready{/grey-fg} `,
+    height: 2,
+    parent: header,
+    right: 1,
+    style: { bg: 'blue', fg: 'white' },
+    tags: true,
+    top: 0,
+    width: 30,
   });
   const navigation = blessed.list({
-    parent: screen,
-    top: 0,
-    left: 0,
+    alwaysScroll: true,
     bottom: 5,
-    width: '30%',
     border: 'line',
+    items: stories.map(({ title }) => ` ${title}`),
     keys: true,
-    label: ' Components ',
+    label: ` Catalog · ${stories.length} `,
+    left: 0,
     mouse: !smoke,
-    items: stories.map(({ title }) => title),
+    parent: screen,
+    scrollable: true,
     scrollbar: {
-      ch: ' ',
+      ch: '▐',
       track: {
-        bg: 'grey',
+        bg: 'black',
       },
       style: {
-        inverse: true,
+        bg: 'cyan',
       },
     },
     style: {
       border: {
-        fg: 'cyan',
+        fg: 'blue',
       },
       item: {
-        fg: 'white',
+        fg: 'grey',
       },
       selected: {
-        bg: 'cyan',
-        fg: 'black',
+        bg: 'blue',
+        bold: true,
+        fg: 'white',
       },
     },
+    top: 3,
+    vi: true,
+    width: '31%',
   });
   const viewport = blessed.box({
-    parent: screen,
-    top: 0,
-    left: '30%',
-    right: 0,
     bottom: 5,
     border: 'line',
-    label: ' Preview ',
+    label: ' Preview · live ',
+    left: '31%',
+    padding: { left: 1, right: 1 },
+    parent: screen,
+    right: 0,
     style: {
       border: {
         fg: 'cyan',
       },
     },
+    top: 3,
   });
   const status = blessed.box({
-    parent: screen,
-    left: 0,
-    right: 0,
     bottom: 0,
-    height: 5,
     border: 'line',
-    label: ' Story ',
+    height: 5,
+    label: ' Inspector ',
+    left: 0,
+    padding: { left: 1, right: 1 },
+    parent: screen,
+    right: 0,
     tags: false,
     style: {
       border: {
-        fg: 'grey',
+        fg: 'blue',
       },
     },
   });
@@ -119,8 +147,12 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
 
     try {
       currentHandle = story.mount(viewport);
+      const category = (story.id.split('/')[0] ?? 'component').replaceAll('-', ' ').toUpperCase();
+
+      viewport.setLabel(` Preview · ${story.title} `);
+      status.setLabel(` Inspector · ${String(index + 1).padStart(3, '0')}/${stories.length} `);
       status.setContent(
-        ` ${story.id}\n ${story.description}\n ↑/↓ select  enter/click open  r reload  tab focus  q quit`,
+        `${category}  ›  ${story.id}\n${story.description}\n↑/↓ or j/k browse · enter/click open · r reload · tab change focus · q quit`,
       );
     } catch (error) {
       const message = error instanceof Error ? (error.stack ?? error.message) : String(error);
