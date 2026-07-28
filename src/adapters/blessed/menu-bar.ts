@@ -5,6 +5,7 @@ import {
   type MenuBarItem,
   renderMenuBar,
 } from '@/components/navigation/menu-bar/index.js';
+import { visibleWidth } from '@/core/width.js';
 import { createFocusScope } from '@/primitives/focus-scope/index.js';
 import { createSelectionModel } from '@/primitives/selection/index.js';
 import type { BlessedComponentHandle } from './types.js';
@@ -29,7 +30,7 @@ export interface MenuBarData<TItem extends MenuBarItem = MenuBarItem> {
   /** Ordered top-level menus. Disabled menus are visible but not interactive. */
   items: readonly TItem[];
 
-  /** Called when Enter, Space, or {@link MenuBarHandle.activateFocused} requests activation. */
+  /** Called when Enter, Space, click, or {@link MenuBarHandle.activateFocused} requests activation. */
   onActivate?: (value: string) => void;
 
   /** Called after focus moves to a different enabled menu. */
@@ -90,8 +91,32 @@ interface Keypress {
   name?: string;
 }
 
+interface MouseEvent {
+  x?: number;
+}
+
+interface RenderedRegion<TItem extends MenuBarItem> {
+  end: number;
+  item: TItem;
+  start: number;
+}
+
+const DEFAULT_CHARACTERS: MenuBarCharacters = {
+  active: '●',
+  disabled: '×',
+  focused: '›',
+};
+
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+}
+
+function absoluteElementLeft(element: blessed.Widgets.BoxElement): number {
+  const positionedElement = element as blessed.Widgets.BoxElement & {
+    aleft?: blessed.Widgets.Types.TPosition;
+  };
+
+  return numericDimension(positionedElement.aleft ?? positionedElement.left);
 }
 
 /** Creates an interactive horizontal MenuBar backed by a Blessed box. */
@@ -103,9 +128,11 @@ export function menuBar<TItem extends MenuBarItem>({
   let data = initialData;
   let uncontrolledValue = initialData.defaultValue;
   let currentActiveId = initialData.activeId;
+  let regions: RenderedRegion<TItem>[] = [];
 
   const element = blessed.box({
     keys: true,
+    mouse: true,
     ...box,
     content: '',
     parent,
@@ -116,6 +143,8 @@ export function menuBar<TItem extends MenuBarItem>({
   const isControlled = (): boolean => Object.hasOwn(data, 'value');
   const selectedValue = (): string | undefined => (isControlled() ? data.value : uncontrolledValue);
   const initialValue = selectedValue();
+  const characters = (): MenuBarCharacters => data.characters ?? DEFAULT_CHARACTERS;
+  const separator = (): string => data.separator ?? '  ';
 
   let focusScope = createFocusScope({ items: data.items });
   let selection = createSelectionModel({
@@ -123,6 +152,32 @@ export function menuBar<TItem extends MenuBarItem>({
     items: data.items,
   });
 
+  const rebuildRegions = (): void => {
+    const itemCharacters = characters();
+    const itemSeparator = separator();
+    const value = selectedValue();
+
+    let cursor = 0;
+
+    regions = data.items.map((item, index) => {
+      if (index > 0) {
+        cursor += visibleWidth(itemSeparator);
+      }
+
+      const start = cursor;
+      const focus = item.id === currentActiveId ? itemCharacters.focused : ' ';
+      const state =
+        item.disabled === true
+          ? itemCharacters.disabled
+          : item.id === value
+            ? itemCharacters.active
+            : ' ';
+
+      cursor += visibleWidth(`${focus}${state} ${item.label}`);
+
+      return { end: cursor, item, start };
+    });
+  };
   const render = (): void => {
     const value = selectedValue();
 
@@ -137,6 +192,7 @@ export function menuBar<TItem extends MenuBarItem>({
         width: width(),
       }),
     );
+    rebuildRegions();
   };
   const setActive = (id: string | undefined): string | undefined => {
     if (id === undefined || id === currentActiveId) {
@@ -169,6 +225,17 @@ export function menuBar<TItem extends MenuBarItem>({
     }
 
     return currentActiveId;
+  };
+  const clickedItem = (screenX: number): TItem | undefined => {
+    const column = screenX - absoluteElementLeft(element) - numericDimension(element.ileft);
+
+    if (!Number.isInteger(column) || column < 0 || column >= width()) {
+      return undefined;
+    }
+
+    const item = regions.find(({ end, start }) => column >= start && column < end)?.item;
+
+    return item?.disabled === true ? undefined : item;
   };
   const rebuildModels = (): void => {
     const previousActiveId = currentActiveId;
@@ -269,6 +336,20 @@ export function menuBar<TItem extends MenuBarItem>({
         handle.next();
         break;
     }
+  });
+  element.on('click', (event: MouseEvent) => {
+    if (event.x === undefined) {
+      return;
+    }
+
+    const item = clickedItem(event.x);
+
+    if (item === undefined) {
+      return;
+    }
+
+    handle.focusItem(item.id);
+    handle.activateFocused();
   });
   element.on('wheeldown', () => {
     handle.next();

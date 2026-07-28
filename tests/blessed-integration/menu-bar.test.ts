@@ -66,8 +66,7 @@ describe('Blessed MenuBar adapter', () => {
         parent: screen,
       });
 
-      component.next();
-      component.activateFocused();
+      component.element.emit('click', { x: 11 });
 
       expect(onActivate).toHaveBeenCalledWith('view');
       expect(component.value()).toBe('file');
@@ -77,6 +76,81 @@ describe('Blessed MenuBar adapter', () => {
 
       expect(component.value()).toBe('view');
       expect(component.element.getContent()).toContain('● View');
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('activates enabled menus by click and ignores disabled menus and separators', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onActivate = vi.fn();
+    const onActiveIdChange = vi.fn();
+
+    try {
+      const component = menuBar({
+        box: { height: 1, width: 40 },
+        data: {
+          items: [
+            { id: 'file', label: 'File' },
+            { disabled: true, id: 'edit', label: 'Edit' },
+            { id: 'view', label: 'View' },
+          ],
+          onActivate,
+          onActiveIdChange,
+        },
+        parent: screen,
+      });
+
+      expect(screen.clickable).toContain(component.element);
+
+      component.element.emit('click', { x: 10 });
+      component.element.emit('click', { x: 8 });
+
+      expect(component.activeId()).toBe('file');
+      expect(component.value()).toBeUndefined();
+      expect(onActivate).not.toHaveBeenCalled();
+
+      component.element.emit('click', { x: 20 });
+
+      expect(component.activeId()).toBe('view');
+      expect(component.value()).toBe('view');
+      expect(onActiveIdChange).toHaveBeenCalledWith('view');
+      expect(onActivate).toHaveBeenCalledWith('view');
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('uses visible label width and box offsets for click hit testing', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onActivate = vi.fn();
+
+    try {
+      const component = menuBar({
+        box: { height: 1, left: 3, padding: { left: 1 }, width: 30 },
+        data: {
+          items: [
+            { id: 'file', label: '{bold}F{/bold}' },
+            { id: 'view', label: 'View' },
+          ],
+          onActivate,
+        },
+        parent: screen,
+      });
+
+      component.element.emit('click', { x: 10 });
+
+      expect(component.activeId()).toBe('view');
+      expect(component.value()).toBe('view');
+      expect(onActivate).toHaveBeenCalledWith('view');
     } finally {
       screen.destroy();
     }

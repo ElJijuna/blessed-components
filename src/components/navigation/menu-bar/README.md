@@ -36,8 +36,9 @@ top.focus();
 ```
 
 The pure renderer returns plain terminal text. The Blessed adapter owns focus,
-keyboard, and wheel listeners while applications decide when to call
-`screen.render()`.
+keyboard, click, and wheel listeners while applications decide when to call
+`screen.render()`. Clicking an enabled menu moves focus to it and activates it;
+clicks on disabled menus or separators are ignored.
 
 Keyboard navigation:
 
