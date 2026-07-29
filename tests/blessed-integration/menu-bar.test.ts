@@ -6,6 +6,48 @@ import { describe, expect, it, vi } from 'vitest';
 import { menuBar } from '@/adapters/blessed/menu-bar.js';
 
 describe('Blessed MenuBar adapter', () => {
+  it('activates an item from a real terminal mouse sequence', () => {
+    const input = new PassThrough();
+    const screen = blessed.screen({
+      input,
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onActivate = vi.fn();
+
+    try {
+      menuBar({
+        box: { height: 1, left: 2, top: 3, width: 50 },
+        data: {
+          defaultValue: 'overview',
+          items: [
+            { id: 'overview', label: 'Overview' },
+            { id: 'traffic', label: 'Traffic' },
+            { id: 'deploys', label: 'Deploys' },
+          ],
+          onActivate,
+        },
+        parent: screen,
+      });
+      const mouseModes = (
+        screen.program as typeof screen.program & {
+          _currentMouse?: Record<string, boolean>;
+        }
+      )._currentMouse;
+
+      expect(mouseModes?.sgrMouse).toBe(true);
+
+      screen.render();
+
+      input.write('\u001B[<0;20;4M');
+      input.write('\u001B[<0;20;4m');
+
+      expect(onActivate).toHaveBeenCalledWith('traffic');
+    } finally {
+      screen.destroy();
+    }
+  });
+
   it('navigates enabled menus and activates the focused menu', () => {
     const screen = blessed.screen({
       input: new PassThrough(),

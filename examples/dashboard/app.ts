@@ -75,7 +75,7 @@ const navigation = menuBar({
     height: 1,
     left: 2,
     right: 2,
-    style: { bg: 'black', fg: 'white' },
+    style: { bg: 'default', fg: 'white' },
     top: 3,
   },
   data: {
@@ -145,7 +145,7 @@ const errors = stat({
   parent: panel.element,
 });
 const availability = stat({
-  box: { border: 'line', height: 4, left: '75%', label: ' SLO ', top: 0, width: '25%' },
+  box: { border: 'line', height: 4, left: '75%', label: ' SLO ', top: 0, width: '24%' },
   data: {
     description: '30-day availability',
     label: 'Availability',
@@ -174,7 +174,7 @@ const services = progressList({
     label: ' Service saturation ',
     left: '51%',
     top: 5,
-    width: '49%',
+    width: '48%',
   },
   data: {
     items: [
@@ -232,7 +232,7 @@ const release = keyValue({
     label: ' Current release ',
     left: '51%',
     top: 10,
-    width: '49%',
+    width: '48%',
   },
   data: {
     items: [
