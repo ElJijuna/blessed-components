@@ -52,7 +52,7 @@ function numericDimension(value: blessed.Widgets.Types.TPosition): number {
 }
 
 function isElement(node: blessed.Widgets.Node): node is blessed.Widgets.BlessedElement {
-  return 'position' in node;
+  return 'position' in node && !('_isLabel' in node);
 }
 
 /** Creates a themed container that lays out its direct Blessed children in a grid. */

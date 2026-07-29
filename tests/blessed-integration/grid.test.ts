@@ -6,6 +6,33 @@ import { describe, expect, it } from 'vitest';
 import { grid } from '@/adapters/blessed/grid.js';
 
 describe('Blessed Grid adapter', () => {
+  it('ignores the internal border label when laying out direct children', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+
+    try {
+      const component = grid({
+        box: { border: 'line', height: 5, label: ' Host overview ', width: 14 },
+        data: { columns: 3, gap: 1 },
+        parent: screen,
+      });
+      const first = blessed.box({ parent: component.element });
+      const second = blessed.box({ parent: component.element });
+      const third = blessed.box({ parent: component.element });
+
+      component.layout();
+
+      expect(first.position.left).toBe(0);
+      expect(second.position.left).toBeGreaterThan(first.position.left as number);
+      expect(third.position.left).toBeGreaterThan(second.position.left as number);
+    } finally {
+      screen.destroy();
+    }
+  });
+
   it('lays out direct children and updates placement without replacing elements', () => {
     const screen = blessed.screen({
       input: new PassThrough(),
