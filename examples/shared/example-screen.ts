@@ -6,7 +6,8 @@ import { createTheme } from '@/core/theme.js';
 
 export const EXAMPLE_THEME = createTheme({
   colors: {
-    background: 'black',
+    // ANSI black can be customized to grey; use the terminal's actual background instead.
+    background: 'default',
     border: 'blue',
     danger: 'bright-red',
     foreground: 'white',
