@@ -138,9 +138,11 @@ export function menuBar<TItem extends MenuBarItem>({
     parent,
     tags: false,
   });
+
   // Blessed defaults xterm-compatible terminals to legacy UTF mouse reporting.
   // Keep that fallback while also enabling the modern, broadly supported SGR protocol.
   element.screen.program.setMouse({ sgrMouse: true }, true);
+
   const width = (): number =>
     Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth));
   const isControlled = (): boolean => Object.hasOwn(data, 'value');
