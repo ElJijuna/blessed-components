@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.15.0](https://github.com/ElJijuna/blessed-components/compare/v1.14.0...v1.15.0) (2026-08-06)
+
+### Features
+
+* add horizontal selection controller and related components for enhanced UI navigation ([79dcdb6](https://github.com/ElJijuna/blessed-components/commit/79dcdb6304b4d4a6d9cb2cdc9b912c86f6dd06c4))
+* add package config generation script and starter template for blessed applications ([b3eb86c](https://github.com/ElJijuna/blessed-components/commit/b3eb86c26809acc0f407f84b61cb883a31c20df4))
+* enhance MenuBar interaction with click support and improved documentation ([585b7af](https://github.com/ElJijuna/blessed-components/commit/585b7af2c2c4e59e8132575a95bd6fe159450e31))
+* enhance theme handling in Blessed components ([5cd0f26](https://github.com/ElJijuna/blessed-components/commit/5cd0f263bde5c50887a16334584f88b5df0a4a3c))
+* harden terminal library core ([cf16de3](https://github.com/ElJijuna/blessed-components/commit/cf16de3d2f1f48672c046ba482a1afb680df96b6))
+* update MenuBar styles and enhance mouse interaction support ([b0511b5](https://github.com/ElJijuna/blessed-components/commit/b0511b5a955f1ad90ab2c8edf561f2230517207f))
+
+### Bug Fixes
+
+* biome and eslint fix format applied ([1dd13a4](https://github.com/ElJijuna/blessed-components/commit/1dd13a415edd55e82c307f53bd45036ea6a92bd9))
+* update background color in example theme to use terminal's actual background ([fcd5d34](https://github.com/ElJijuna/blessed-components/commit/fcd5d345a5d3e1c19b1bf4bf493feeb71bc8d115))
+
 ## [1.14.0](https://github.com/ElJijuna/blessed-components/compare/v1.13.0...v1.14.0) (2026-07-10)
 
 ### Features
