@@ -7,7 +7,11 @@ const check = process.argv.includes('--check');
 
 function readDirNames(dir) {
   return readdirSync(join(root, dir), { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        readdirSync(join(root, dir, entry.name), { withFileTypes: true }).length > 0,
+    )
     .map((entry) => entry.name)
     .sort((a, b) => a.localeCompare(b));
 }

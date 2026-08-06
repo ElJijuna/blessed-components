@@ -10,9 +10,11 @@ import {
   axis,
   badge,
   box,
+  breadcrumb,
   bulletChart,
   button,
   calendarHeatmap,
+  callout,
   cardBody,
   cardDescription,
   cardFooter,
@@ -23,11 +25,15 @@ import {
   checkbox,
   clock,
   cluster,
+  code,
   collapsible,
   colorSwatch,
   combobox,
   commandPalette,
+  confirmDialog,
+  connectionStatus,
   dataTable,
+  descriptionList,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -45,11 +51,13 @@ import {
   emptyState,
   errorState,
   fileTree,
+  form,
   formField,
   gauge,
   grid,
   groupedList,
   heading,
+  healthIndicator,
   helpOverlay,
   histogram,
   iconButton,
@@ -64,6 +72,7 @@ import {
   list,
   loadingOverlay,
   logExplorer,
+  logViewer,
   menu,
   menuBar,
   metricBars,
@@ -78,6 +87,7 @@ import {
   pagination,
   palette,
   passwordField,
+  preformatted,
   progressBar,
   progressList,
   progressStack,
@@ -161,17 +171,21 @@ import {
   tabList,
   table,
   tabs,
+  tag,
   taskProgress,
   terminalPane,
   text,
   textArea,
   textField,
   thresholds,
+  timeline,
   timer,
+  timestamp,
   toast,
   tree,
   trend,
   viewport,
+  virtualList,
 } from '@/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
@@ -4620,6 +4634,377 @@ export const stories: readonly PreviewStory[] = [
         label: 'BigText',
         top: 1,
         width: 20,
+      });
+    },
+  }),
+  defineStory({
+    id: 'log-viewer/deploy-stream',
+    title: 'LogViewer / Deploy Stream',
+    description: 'Scrollable retained log output with level, source, and pause controls.',
+    mount(parent) {
+      return logViewer({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          entries: [
+            { id: '1', level: 'info', message: 'Resolving workspace packages', source: 'build' },
+            { id: '2', level: 'info', message: 'Running component tests', source: 'test' },
+            { id: '3', level: 'warn', message: 'Retrying registry request', source: 'npm' },
+            { id: '4', level: 'info', message: 'Publishing release candidate', source: 'release' },
+          ],
+          follow: false,
+          maxEntries: 50,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'timeline/release-events',
+    title: 'Timeline / Release Events',
+    description: 'Chronological release events with semantic status markers.',
+    mount(parent) {
+      return timeline({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          items: [
+            { id: 'queued', timestamp: '2026-08-06T12:00:00Z', title: 'Release queued' },
+            {
+              id: 'verified',
+              timestamp: '2026-08-06T12:03:00Z',
+              title: 'Package verified',
+              tone: 'success',
+            },
+            {
+              id: 'deploying',
+              timestamp: '2026-08-06T12:05:00Z',
+              title: 'Deploying documentation',
+              tone: 'warning',
+            },
+          ],
+          timeZone: 'UTC',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'virtual-list/releases',
+    title: 'VirtualList / Releases',
+    description: 'Bounded keyboard-scrollable window over a larger release collection.',
+    mount(parent) {
+      return virtualList({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 38,
+        },
+        data: {
+          items: Array.from({ length: 40 }, (_, index) => ({
+            id: String(index + 1),
+            label: `Release candidate ${String(index + 1).padStart(2, '0')}`,
+          })),
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'breadcrumb/workspace-path',
+    title: 'Breadcrumb / Workspace Path',
+    description: 'Cell-aware path compression for a deeply nested workspace location.',
+    mount(parent) {
+      return breadcrumb({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 48,
+        },
+        data: {
+          items: [
+            { label: 'Workspace' },
+            { label: 'Packages' },
+            { label: 'blessed-components' },
+            { label: 'Navigation' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'code/package-command',
+    title: 'Code / Package Command',
+    description: 'Safe inline command text with truncation and semantic styling.',
+    mount(parent) {
+      return code({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 42,
+        },
+        data: {
+          content: 'npm run examples:smoke',
+          tone: 'muted',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'description-list/release-metadata',
+    title: 'DescriptionList / Release Metadata',
+    description: 'Aligned terms and values for compact package metadata.',
+    mount(parent) {
+      return descriptionList({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 44,
+        },
+        data: {
+          items: [
+            { description: '1.14.0', term: 'Version' },
+            { description: 'Node >=22.14', term: 'Runtime' },
+            { description: 'MIT', term: 'License' },
+            { description: '305', term: 'Exports' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'preformatted/build-output',
+    title: 'Preformatted / Build Output',
+    description: 'Scrollable fixed-width output that preserves indentation and line breaks.',
+    mount(parent) {
+      return preformatted({
+        box: {
+          border: 'line',
+          height: 8,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 52,
+        },
+        data: {
+          content: [
+            '> blessed-components@1.14.0 build',
+            '> tsup',
+            '',
+            'ESM Build start',
+            'CJS Build start',
+            'DTS Build start',
+            'Build success',
+          ].join('\n'),
+          tone: 'muted',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'tag/environment',
+    title: 'Tag / Environment',
+    description: 'Compact removable environment label with safe truncation.',
+    mount(parent) {
+      return tag({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 28,
+        },
+        data: {
+          removable: true,
+          text: 'production-us-east',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'timestamp/deploy-age',
+    title: 'Timestamp / Deploy Age',
+    description: 'Deterministic relative time for the latest deployment.',
+    mount(parent) {
+      return timestamp({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 30,
+        },
+        data: {
+          format: 'relative',
+          now: '2026-08-06T16:00:00Z',
+          value: '2026-08-06T15:42:00Z',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'callout/release-warning',
+    title: 'Callout / Release Warning',
+    description: 'Framed semantic guidance with readable ASCII fallback.',
+    mount(parent) {
+      return callout({
+        box: { height: 5, left: 3, top: 2, width: 50 },
+        data: {
+          content: 'Verify the changelog before publishing this release.',
+          tone: 'warning',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'connection-status/registry',
+    title: 'ConnectionStatus / Registry',
+    description: 'Online registry state with measured request latency.',
+    mount(parent) {
+      return connectionStatus({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 34,
+        },
+        data: {
+          latency: 28,
+          state: 'online',
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'health-indicator/services',
+    title: 'HealthIndicator / Services',
+    description: 'Aggregated service health with affected-service details.',
+    mount(parent) {
+      return healthIndicator({
+        box: {
+          border: 'line',
+          height: 7,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 52,
+        },
+        data: {
+          services: [
+            { label: 'API', state: 'healthy' },
+            { label: 'Database', state: 'healthy' },
+            { label: 'Queue', reason: 'retry backlog', state: 'degraded' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'form/deploy-settings',
+    title: 'Form / Deploy Settings',
+    description: 'Focusable deployment fields registered with a typed form controller.',
+    mount(parent) {
+      const component = form({
+        box: {
+          border: 'line',
+          height: 9,
+          left: 3,
+          top: 1,
+          width: 48,
+        },
+        parent,
+      });
+      const environment = textField({
+        box: { height: 3, left: 2, top: 1, width: 38 },
+        data: { defaultValue: 'production', label: 'Environment' },
+        parent: component.element,
+      });
+      const force = checkbox({
+        box: { height: 1, left: 2, top: 5, width: 32 },
+        data: { defaultChecked: false, label: 'Force deployment' },
+        parent: component.element,
+      });
+
+      component.registerField({
+        defaultValue: 'production',
+        getValue: environment.value,
+        id: 'environment',
+        setValue: (value) => environment.setValue(String(value ?? '')),
+      });
+      component.registerField({
+        defaultValue: false,
+        getValue: force.checked,
+        id: 'force',
+        setValue(value) {
+          if (Boolean(value) !== force.checked()) {
+            force.toggle();
+          }
+        },
+      });
+
+      return {
+        destroy() {
+          component.destroy();
+        },
+        focus() {
+          environment.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'confirm-dialog/publish-release',
+    title: 'ConfirmDialog / Publish Release',
+    description: 'Modal release confirmation with trapped focus and Escape cancellation.',
+    mount(parent) {
+      return confirmDialog({
+        content: { height: 9, width: 54 },
+        data: {
+          confirmLabel: 'Publish',
+          defaultOpen: true,
+          description: 'The package will become publicly available.',
+          id: 'publish-release',
+          message: 'Publish blessed-components@1.14.0?',
+          title: 'Confirm release',
+        },
+        parent,
       });
     },
   }),
