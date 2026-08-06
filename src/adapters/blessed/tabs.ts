@@ -1,12 +1,11 @@
-import blessed from 'blessed';
+import type blessed from 'blessed';
 
 import {
   renderTabs,
   type TabItem,
   type TabsCharacters,
 } from '@/components/navigation/tabs/index.js';
-import { createFocusScope } from '@/primitives/focus-scope/index.js';
-import { createSelectionModel } from '@/primitives/selection/index.js';
+import { createHorizontalSelection } from './internal/horizontal-selection.js';
 import type { BlessedComponentHandle } from './types.js';
 
 /** Blessed box options supported by the Tabs adapter. */
@@ -85,192 +84,32 @@ export interface TabsHandle<TItem extends TabItem = TabItem>
   value(): string | undefined;
 }
 
-interface Keypress {
-  full?: string;
-  name?: string;
-}
-
-function numericDimension(value: blessed.Widgets.Types.TPosition): number {
-  return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
-}
-
 /** Creates interactive horizontal Tabs backed by a Blessed box. */
 export function tabs<TItem extends TabItem>({
   box,
   data: initialData,
   parent,
 }: TabsOptions<TItem>): TabsHandle<TItem> {
-  let data = initialData;
-  let uncontrolledValue = initialData.defaultValue;
-  let currentActiveId = initialData.activeId;
-
-  const element = blessed.box({
-    keys: true,
-    ...box,
-    content: '',
+  const controller = createHorizontalSelection<TItem, TabsData<TItem>>({
+    ...(box === undefined ? {} : { box }),
+    data: initialData,
+    onActivate: (data, value) => data.onValueChange?.(value),
     parent,
-    tags: false,
-  });
-  const width = (): number =>
-    Math.max(0, numericDimension(element.width) - numericDimension(element.iwidth));
-  const isControlled = (): boolean => Object.hasOwn(data, 'value');
-  const selectedValue = (): string | undefined => (isControlled() ? data.value : uncontrolledValue);
-  const initialValue = selectedValue();
-
-  let focusScope = createFocusScope({ items: data.items });
-  let selection = createSelectionModel({
-    defaultSelectedIds: initialValue === undefined ? [] : [initialValue],
-    items: data.items,
-  });
-
-  const render = (): void => {
-    const value = selectedValue();
-
-    element.setContent(
+    render: ({ activeId, data, value, width }) =>
       renderTabs({
         ...(data.characters === undefined ? {} : { characters: data.characters }),
         ...(data.emptyText === undefined ? {} : { emptyText: data.emptyText }),
-        ...(currentActiveId === undefined ? {} : { focusedId: currentActiveId }),
+        ...(activeId === undefined ? {} : { focusedId: activeId }),
         items: data.items,
         ...(data.separator === undefined ? {} : { separator: data.separator }),
         ...(value === undefined ? {} : { activeId: value }),
-        width: width(),
+        width,
       }),
-    );
-  };
-  const setActive = (id: string | undefined): string | undefined => {
-    if (id === undefined || id === currentActiveId) {
-      return currentActiveId;
-    }
-
-    currentActiveId = id;
-    data.onActiveIdChange?.(id);
-    render();
-
-    return currentActiveId;
-  };
-  const move = (direction: 'next' | 'previous'): string | undefined =>
-    setActive(focusScope[direction]());
-  const focusNearest = (index: number, direction: 'backward' | 'forward'): string | undefined => {
-    const step = direction === 'forward' ? 1 : -1;
-
-    for (
-      let candidateIndex = index;
-      candidateIndex >= 0 && candidateIndex < data.items.length;
-      candidateIndex += step
-    ) {
-      const candidate = data.items[candidateIndex];
-
-      if (candidate?.disabled !== true) {
-        return candidate === undefined
-          ? currentActiveId
-          : setActive(focusScope.focus(candidate.id));
-      }
-    }
-
-    return currentActiveId;
-  };
-  const rebuildModels = (): void => {
-    const previousActiveId = currentActiveId;
-
-    focusScope = createFocusScope({
-      ...(data.activeId === undefined ? {} : { initialFocusId: data.activeId }),
-      items: data.items,
-    });
-    currentActiveId = focusScope.activate();
-
-    if (
-      data.activeId === undefined &&
-      previousActiveId !== undefined &&
-      data.items.some(({ disabled, id }) => id === previousActiveId && disabled !== true)
-    ) {
-      currentActiveId = focusScope.focus(previousActiveId);
-    }
-
-    const currentValue = selectedValue();
-
-    selection = createSelectionModel({
-      defaultSelectedIds: currentValue === undefined ? [] : [currentValue],
-      items: data.items,
-    });
-  };
-
-  focusScope.activate();
-  currentActiveId = focusScope.focus(currentActiveId ?? '') ?? focusScope.current();
-  render();
-
-  const handle: TabsHandle<TItem> = {
-    activeId: () => currentActiveId,
-    destroy() {
-      element.destroy();
-    },
-    element,
-    first: () => focusNearest(0, 'forward'),
-    focus() {
-      element.focus();
-    },
-    focusTab: (id) => setActive(focusScope.focus(id)),
-    last: () => focusNearest(data.items.length - 1, 'backward'),
-    next: () => move('next'),
-    previous: () => move('previous'),
-    selectActive() {
-      if (currentActiveId === undefined) {
-        return undefined;
-      }
-
-      if (isControlled()) {
-        data.onValueChange?.(currentActiveId);
-
-        return currentActiveId;
-      }
-
-      if (selection.select(currentActiveId)) {
-        uncontrolledValue = currentActiveId;
-        data.onValueChange?.(currentActiveId);
-        render();
-      }
-
-      return currentActiveId;
-    },
-    setData(nextData) {
-      data = nextData;
-
-      if (isControlled()) {
-        uncontrolledValue = undefined;
-      } else if (
-        uncontrolledValue !== undefined &&
-        !data.items.some(({ disabled, id }) => id === uncontrolledValue && disabled !== true)
-      ) {
-        uncontrolledValue = data.defaultValue;
-      }
-
-      rebuildModels();
-      render();
-    },
-    value: selectedValue,
-  };
-
-  element.on('keypress', (_character: string, key: Keypress) => {
-    switch (key.full ?? key.name) {
-      case 'end':
-        handle.last();
-        break;
-      case 'enter':
-      case 'space':
-        handle.selectActive();
-        break;
-      case 'home':
-        handle.first();
-        break;
-      case 'left':
-        handle.previous();
-        break;
-      case 'right':
-        handle.next();
-        break;
-    }
   });
-  element.on('resize', render);
 
-  return handle;
+  return {
+    ...controller,
+    focusTab: controller.focusItem,
+    selectActive: controller.activateFocused,
+  };
 }
