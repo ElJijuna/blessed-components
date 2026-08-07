@@ -158,6 +158,7 @@ import {
   searchField,
   select,
   sidebarLayout,
+  slider,
   spacer,
   sparkline,
   spinner,
@@ -926,6 +927,59 @@ export const stories: readonly PreviewStory[] = [
         },
         focus() {
           field.focus();
+        },
+      };
+    },
+  }),
+  defineStory({
+    id: 'slider/volume',
+    title: 'Slider / Volume',
+    description: 'Bounded numeric input with keyboard, wheel, and pointer controls.',
+    mount(parent) {
+      let value = 40;
+
+      const handleValueChange = (nextValue: number): void => {
+        value = nextValue;
+        control.setData({
+          formatValue: ({ value: currentValue }) => `${currentValue}%`,
+          label: 'Volume',
+          max: 100,
+          min: 0,
+          onValueChange: handleValueChange,
+          step: 5,
+          value,
+          width: 24,
+        });
+        parent.screen.render();
+      };
+      const control = slider({
+        box: {
+          border: 'line',
+          height: 4,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 36,
+        },
+        data: {
+          formatValue: ({ value: currentValue }) => `${currentValue}%`,
+          label: 'Volume',
+          max: 100,
+          min: 0,
+          onValueChange: handleValueChange,
+          step: 5,
+          value,
+          width: 24,
+        },
+        parent,
+      });
+
+      return {
+        destroy() {
+          control.destroy();
+        },
+        focus() {
+          control.focus();
         },
       };
     },

@@ -1218,6 +1218,16 @@
       "import": "./dist/skeleton/index.js",
       "require": "./dist/skeleton/index.cjs"
     },
+    "./slider/blessed": {
+      "types": "./dist/slider/blessed.d.ts",
+      "import": "./dist/slider/blessed.js",
+      "require": "./dist/slider/blessed.cjs"
+    },
+    "./slider": {
+      "types": "./dist/slider/index.d.ts",
+      "import": "./dist/slider/index.js",
+      "require": "./dist/slider/index.cjs"
+    },
     "./spacer/blessed": {
       "types": "./dist/spacer/blessed.d.ts",
       "import": "./dist/spacer/blessed.js",

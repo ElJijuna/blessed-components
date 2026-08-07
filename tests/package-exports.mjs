@@ -53,6 +53,8 @@ const pureTextFieldModule = await import('../dist/text-field/index.js');
 const blessedTextFieldModule = await import('../dist/text-field/blessed.js');
 const pureNumberFieldModule = await import('../dist/number-field/index.js');
 const blessedNumberFieldModule = await import('../dist/number-field/blessed.js');
+const pureSliderModule = await import('../dist/slider/index.js');
+const blessedSliderModule = await import('../dist/slider/blessed.js');
 const purePasswordFieldModule = await import('../dist/password-field/index.js');
 const blessedPasswordFieldModule = await import('../dist/password-field/blessed.js');
 const pureGaugeModule = await import('../dist/gauge/index.js');
@@ -392,6 +394,11 @@ const [textFieldEsmSource, textFieldCjsSource] = await Promise.all(
 );
 const [numberFieldEsmSource, numberFieldCjsSource] = await Promise.all(
   ['../dist/number-field/index.js', '../dist/number-field/index.cjs'].map((path) =>
+    readFile(new URL(path, import.meta.url), 'utf8'),
+  ),
+);
+const [sliderEsmSource, sliderCjsSource] = await Promise.all(
+  ['../dist/slider/index.js', '../dist/slider/index.cjs'].map((path) =>
     readFile(new URL(path, import.meta.url), 'utf8'),
   ),
 );
@@ -780,6 +787,9 @@ assert.equal(typeof blessedTextFieldModule.textField, 'function');
 assert.equal(typeof pureNumberFieldModule.renderNumberField, 'function');
 assert.equal(typeof pureNumberFieldModule.parseNumberFieldInput, 'function');
 assert.equal(typeof blessedNumberFieldModule.numberField, 'function');
+assert.equal(typeof pureSliderModule.normalizeSliderValue, 'function');
+assert.equal(typeof pureSliderModule.renderSlider, 'function');
+assert.equal(typeof blessedSliderModule.slider, 'function');
 assert.equal(typeof purePasswordFieldModule.renderPasswordField, 'function');
 assert.equal(typeof blessedPasswordFieldModule.passwordField, 'function');
 assert.equal(typeof pureGaugeModule.renderGauge, 'function');
@@ -1078,6 +1088,10 @@ for (const source of [numberFieldEsmSource, numberFieldCjsSource]) {
     false,
     'Pure NumberField entry must not import Blessed.',
   );
+}
+
+for (const source of [sliderEsmSource, sliderCjsSource]) {
+  assert.equal(source.includes('blessed'), false, 'Pure Slider entry must not import Blessed.');
 }
 
 for (const source of [passwordFieldEsmSource, passwordFieldCjsSource]) {

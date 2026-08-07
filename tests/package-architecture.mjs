@@ -22,6 +22,7 @@ const expectedComponents = [
   'src/components/input/radio-group/index.ts',
   'src/components/input/search-field/index.ts',
   'src/components/input/select/index.ts',
+  'src/components/input/slider/index.ts',
   'src/components/input/switch/index.ts',
   'src/components/input/time-input/index.ts',
   'src/components/input/text-area/index.ts',

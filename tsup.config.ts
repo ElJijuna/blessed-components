@@ -239,6 +239,8 @@ const entry = {
   'sidebar-layout/blessed': 'src/adapters/blessed/sidebar-layout.ts',
   'sidebar-layout/index': 'src/components/layout/sidebar-layout/index.ts',
   'skeleton/index': 'src/components/feedback/skeleton/index.ts',
+  'slider/blessed': 'src/adapters/blessed/slider.ts',
+  'slider/index': 'src/components/input/slider/index.ts',
   'spacer/blessed': 'src/adapters/blessed/spacer.ts',
   'spacer/index': 'src/components/layout/spacer/index.ts',
   'sparkline/blessed': 'src/adapters/blessed/sparkline.ts',
