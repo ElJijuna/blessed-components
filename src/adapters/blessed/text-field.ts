@@ -99,7 +99,7 @@ export function textField({ box, data: initialData, parent }: TextFieldOptions):
 
   const element = blessed.textbox({
     ...box,
-    inputOnFocus: true,
+    inputOnFocus: box?.inputOnFocus ?? true,
     keys: true,
     mouse: true,
     multiline: false,

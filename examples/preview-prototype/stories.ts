@@ -91,6 +91,7 @@ import {
   progressBar,
   progressList,
   progressStack,
+  promptDialog,
   quickSwitcher,
   radioGroup,
   renderAnsiViewer,
@@ -130,7 +131,6 @@ import {
   renderProcessList,
   renderProcessRunner,
   renderProcessTable,
-  renderPromptDialog,
   renderQrCode,
   renderQueryResults,
   renderRating,
@@ -3618,21 +3618,67 @@ export const stories: readonly PreviewStory[] = [
   defineStory({
     id: 'prompt-dialog/rename-branch',
     title: 'PromptDialog / Rename Branch',
-    description: 'Prompt body with value, validation text, and actions.',
+    description: 'Modal text input with focus trap, validation hint, submit, and cancel.',
     mount(parent) {
-      return renderedTextStory(parent, {
-        content: renderPromptDialog({
-          defaultValue: 'release/2026-07',
-          hint: 'Use lowercase branch names',
+      let hint = 'Use lowercase branch names';
+      let value = 'release/2026-07';
+
+      const sync = (): void => {
+        dialog.setData({
+          closeOnAction: false,
+          hint,
+          id: 'preview-rename-branch',
           message: 'Branch name',
+          onCancel: handleCancel,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          open: true,
+          submitLabel: 'Rename',
           title: 'Rename branch',
-          width: 36,
-        }),
-        height: 8,
-        label: 'PromptDialog',
-        top: 1,
-        width: 46,
+          value,
+        });
+        parent.screen.render();
+      };
+      const handleCancel = (): void => {
+        dialog.close();
+        parent.screen.render();
+      };
+      const handleSubmit = (nextValue: string): void => {
+        hint = `Ready to rename as ${nextValue}`;
+        value = nextValue;
+        sync();
+      };
+      const handleValueChange = (nextValue: string): void => {
+        hint = 'Use lowercase branch names';
+        value = nextValue;
+        sync();
+      };
+      const dialog = promptDialog({
+        content: { height: 10, width: 52 },
+        data: {
+          closeOnAction: false,
+          defaultOpen: true,
+          hint,
+          id: 'preview-rename-branch',
+          message: 'Branch name',
+          onCancel: handleCancel,
+          onSubmit: handleSubmit,
+          onValueChange: handleValueChange,
+          submitLabel: 'Rename',
+          title: 'Rename branch',
+          value,
+        },
+        parent,
       });
+
+      return {
+        destroy() {
+          dialog.destroy();
+        },
+        focus() {
+          dialog.focus();
+        },
+      };
     },
   }),
   defineStory({

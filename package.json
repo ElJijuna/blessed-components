@@ -1093,6 +1093,11 @@
       "import": "./dist/progress-stack/index.js",
       "require": "./dist/progress-stack/index.cjs"
     },
+    "./prompt-dialog/blessed": {
+      "types": "./dist/prompt-dialog/blessed.d.ts",
+      "import": "./dist/prompt-dialog/blessed.js",
+      "require": "./dist/prompt-dialog/blessed.cjs"
+    },
     "./prompt-dialog": {
       "types": "./dist/prompt-dialog/index.d.ts",
       "import": "./dist/prompt-dialog/index.js",

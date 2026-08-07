@@ -214,6 +214,7 @@ const entry = {
   'progress-list/index': 'src/components/feedback/progress-list/index.ts',
   'progress-stack/blessed': 'src/adapters/blessed/progress-stack.ts',
   'progress-stack/index': 'src/components/feedback/progress-stack/index.ts',
+  'prompt-dialog/blessed': 'src/adapters/blessed/prompt-dialog.ts',
   'prompt-dialog/index': 'src/components/overlays/prompt-dialog/index.ts',
   'qr-code/index': 'src/components/content/qr-code/index.ts',
   'query-results/index': 'src/components/developer-tools/query-results/index.ts',
