@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/ElJijuna/blessed-components/compare/v1.15.0...v1.16.0) (2026-08-07)
+
+### Features
+
+* add prompt dialog component with controlled input and visibility, including tests and documentation ([4a5f889](https://github.com/ElJijuna/blessed-components/commit/4a5f889a67c0d0a5211c70c5279c2d84421ab224))
+* add slider component with keyboard and mouse controls, including tests and documentation ([862b449](https://github.com/ElJijuna/blessed-components/commit/862b449db2a6961802094b2871c593b37b6f423a))
+
 ## [1.15.0](https://github.com/ElJijuna/blessed-components/compare/v1.14.0...v1.15.0) (2026-08-06)
 
 ### Features
