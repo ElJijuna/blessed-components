@@ -410,8 +410,10 @@ export function dialogRoot({
 
     if (keyName === 'tab') {
       focusId(key.shift === true ? focusScope.previous() : focusScope.next());
+      screen.render();
     } else if (keyName === 'S-tab') {
       focusId(focusScope.previous());
+      screen.render();
     }
   };
 

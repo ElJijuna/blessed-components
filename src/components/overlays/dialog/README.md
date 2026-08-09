@@ -118,6 +118,7 @@ state changes only after `setData()` receives the new `open` value.
 - `initialFocusId` selects preferred initial focus.
 - Removed or disabled controls should be unregistered.
 - Tab and Shift+Tab wrap inside active Dialog.
+- Keyboard focus traversal repaints immediately.
 - Closing restores the Blessed element focused before opening.
 
 ## Escape and nested dialogs

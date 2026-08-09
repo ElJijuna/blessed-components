@@ -57,6 +57,126 @@ describe('Blessed ConfirmDialog adapter', () => {
     }
   });
 
+  it('repaints focus while navigating actions with Tab and arrow keys', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+
+    try {
+      confirmDialog({
+        data: {
+          cancelLabel: 'No',
+          confirmLabel: 'Yes',
+          defaultOpen: true,
+          id: 'update-confirm',
+          title: 'Update packages',
+        },
+        parent: screen,
+      });
+      const render = vi.spyOn(screen, 'render');
+
+      expect(screen.focused.getContent()).toBe('› [ No ]');
+
+      screen.emit('keypress', undefined, { name: 'tab' });
+
+      expect(screen.focused.getContent()).toBe('› [ Yes ]');
+      expect(render).toHaveBeenCalledTimes(1);
+
+      screen.emit('keypress', undefined, { name: 'left' });
+
+      expect(screen.focused.getContent()).toBe('› [ No ]');
+      expect(render).toHaveBeenCalledTimes(2);
+
+      screen.emit('keypress', undefined, { name: 'down' });
+
+      expect(screen.focused.getContent()).toBe('› [ Yes ]');
+      expect(render).toHaveBeenCalledTimes(3);
+
+      screen.emit('keypress', undefined, { name: 'up' });
+
+      expect(screen.focused.getContent()).toBe('› [ No ]');
+      expect(render).toHaveBeenCalledTimes(4);
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('focuses and repaints a clicked action before keeping the dialog open', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onConfirm = vi.fn();
+
+    try {
+      confirmDialog({
+        data: {
+          cancelLabel: 'No',
+          closeOnAction: false,
+          confirmLabel: 'Yes',
+          defaultOpen: true,
+          id: 'update-confirm',
+          onConfirm,
+          title: 'Update packages',
+        },
+        parent: screen,
+      });
+      const cancel = screen.focused;
+
+      screen.emit('keypress', undefined, { name: 'tab' });
+
+      const confirm = screen.focused;
+      const render = vi.spyOn(screen, 'render');
+
+      cancel.focus();
+      confirm.emit('click');
+
+      expect(onConfirm).toHaveBeenCalledOnce();
+      expect(screen.focused).toBe(confirm);
+      expect(confirm.getContent()).toBe('› [ Yes ]');
+      expect(render).toHaveBeenCalledOnce();
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('restores previous focus after a clicked action closes the dialog', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const trigger = blessed.button({ content: 'Open', parent: screen });
+    const onConfirm = vi.fn();
+
+    try {
+      trigger.focus();
+
+      const component = confirmDialog({
+        data: {
+          confirmLabel: 'Yes',
+          defaultOpen: true,
+          id: 'update-confirm',
+          onConfirm,
+          title: 'Update packages',
+        },
+        parent: screen,
+      });
+
+      screen.emit('keypress', undefined, { name: 'right' });
+      screen.focused.emit('click');
+
+      expect(onConfirm).toHaveBeenCalledOnce();
+      expect(component.isOpen).toBe(false);
+      expect(screen.focused).toBe(trigger);
+    } finally {
+      screen.destroy();
+    }
+  });
+
   it('treats Escape as cancel for the top dialog', () => {
     const screen = blessed.screen({
       input: new PassThrough(),

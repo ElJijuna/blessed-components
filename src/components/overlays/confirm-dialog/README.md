@@ -8,6 +8,7 @@ Opinionated modal decision dialog built from Dialog and Button.
 - Controlled `open` and uncontrolled `defaultOpen`.
 - Escape maps to cancel.
 - Cancel receives initial focus by default.
+- Tab and arrow-key action navigation with immediate visual feedback.
 - Confirm, cancel, and generic result callbacks.
 - Shared Dialog focus trapping and restoration.
 
@@ -74,9 +75,17 @@ when confirming is safe and reversible.
 
 | Input | Behavior |
 | --- | --- |
+| Tab or Shift+Tab | Move focus between Cancel and Confirm |
+| Left or Up | Focus Cancel |
+| Right or Down | Focus Confirm |
 | Enter or Space on Confirm | Calls `onConfirm`, then `onResult('confirm')` |
 | Enter or Space on Cancel | Calls `onCancel`, then `onResult('cancel')` |
+| Mouse click | Focus and activate the clicked action |
 | Escape | Cancels |
+
+Keyboard and mouse interaction repaints immediately so the `›` marker and
+focused theme are visible. Imperative handle calls still require an explicit
+`screen.render()` when their changes should be flushed.
 
 ## Pure APIs
 
@@ -91,4 +100,3 @@ labels are one safe terminal line, and returns deterministic action metadata.
 
 The handle exposes `isOpen`, `open()`, `close()`, `toggle()`, `cancel()`,
 `confirm()`, `setData()`, and `destroy()`.
-

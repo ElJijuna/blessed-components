@@ -71,8 +71,9 @@ deploy.focus();
 screen.render();
 ```
 
-Enter, Space, and mouse click call `onPress`. The adapter never calls
-`screen.render()`, so applications can batch updates.
+Enter, Space, and mouse click call `onPress` and repaint the screen after the
+interaction. Imperative `focus()`, `press()`, and `setData()` calls remain under
+application render control so several updates can be batched.
 
 ## Renderer API
 
@@ -101,7 +102,7 @@ Enter, Space, and mouse click call `onPress`. The adapter never calls
 | --- | --- |
 | `Enter` | Activate |
 | `Space` | Activate |
-| Mouse click | Activate |
+| Mouse click | Focus, then activate |
 
 Disabled buttons cannot receive focus through the adapter and are removed
 from Blessed keyable and clickable collections.

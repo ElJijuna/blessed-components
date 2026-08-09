@@ -28,12 +28,15 @@ describe('Blessed Button adapter', () => {
       expect(screen.focused).toBe(component.element);
       expect(component.element.getContent()).toBe('› [ Deploy ]');
 
+      const render = vi.spyOn(screen, 'render');
+
       component.element.emit('keypress', undefined, { name: 'enter' });
       component.element.emit('keypress', undefined, { name: 'space' });
       component.element.emit('click');
 
       expect(component.press()).toBe(true);
       expect(onPress).toHaveBeenCalledTimes(4);
+      expect(render).toHaveBeenCalledTimes(3);
       expect(screen.keyable).toContain(component.element);
       expect(screen.clickable).toContain(component.element);
 

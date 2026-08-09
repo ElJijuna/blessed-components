@@ -89,6 +89,7 @@ export function button({ box, data: initialData, parent }: ButtonOptions): Butto
   let focused = false;
 
   const element = blessed.box({
+    autoFocus: false,
     ...box,
     content: '',
     parent,
@@ -182,7 +183,11 @@ export function button({ box, data: initialData, parent }: ButtonOptions): Butto
     render();
   });
   element.on('click', () => {
-    handle.press();
+    handle.focus();
+
+    if (handle.press()) {
+      element.screen.render();
+    }
   });
   element.on('focus', () => {
     focused = true;
@@ -192,7 +197,10 @@ export function button({ box, data: initialData, parent }: ButtonOptions): Butto
     switch (key.full ?? key.name) {
       case 'enter':
       case 'space':
-        handle.press();
+        if (handle.press()) {
+          element.screen.render();
+        }
+
         break;
     }
   });

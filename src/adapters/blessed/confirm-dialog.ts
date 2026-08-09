@@ -260,9 +260,23 @@ export function confirmDialog({
       return;
     }
 
-    if ((key.full ?? key.name) === 'escape') {
-      handle.cancel();
+    switch (key.full ?? key.name) {
+      case 'down':
+      case 'right':
+        confirm.focus();
+        break;
+      case 'escape':
+        handle.cancel();
+        break;
+      case 'left':
+      case 'up':
+        cancel.focus();
+        break;
+      default:
+        return;
     }
+
+    root.element.screen.render();
   };
   const handle: ConfirmDialogHandle = {
     cancel() {

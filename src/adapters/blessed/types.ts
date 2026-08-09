@@ -3,9 +3,11 @@ import type blessed from 'blessed';
 /**
  * Shared imperative contract implemented by Blessed component adapters.
  *
- * Adapters own one element but never own the parent screen and never call
- * `screen.render()`. This lets applications batch updates before flushing the
- * terminal.
+ * Adapters own one element but never own the parent screen. Imperative data
+ * updates do not call `screen.render()`, which lets applications batch them
+ * before flushing the terminal. Interactive adapters may render after direct
+ * keyboard or mouse input so focus and selection feedback is immediately
+ * visible.
  *
  * @typeParam TData - Complete renderer input accepted by {@link setData}.
  * @typeParam TElement - Blessed element owned by the adapter.
