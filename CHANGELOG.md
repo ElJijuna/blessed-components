@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0](https://github.com/ElJijuna/blessed-components/compare/v1.16.0...v1.17.0) (2026-08-09)
+
+### Features
+
+* enhance button and dialog components with focus navigation and immediate visual feedback ([dd84d73](https://github.com/ElJijuna/blessed-components/commit/dd84d73a082b6148dff1dfd5737800f0c59b8667))
+* enhance checkbox, multi-select, select, and switch components with immediate visual feedback on interactions ([340832d](https://github.com/ElJijuna/blessed-components/commit/340832d47910a6df59ec9972c834054a01a7db7d))
+
 ## [1.16.0](https://github.com/ElJijuna/blessed-components/compare/v1.15.0...v1.16.0) (2026-08-07)
 
 ### Features
