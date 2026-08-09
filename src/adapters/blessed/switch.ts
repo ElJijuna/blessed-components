@@ -80,6 +80,7 @@ export function switchControl({ box, data: initialData, parent }: SwitchOptions)
   let uncontrolledChecked = initialData.defaultChecked ?? false;
 
   const element = blessed.box({
+    autoFocus: false,
     ...box,
     content: '',
     parent,
@@ -167,7 +168,11 @@ export function switchControl({ box, data: initialData, parent }: SwitchOptions)
     render();
   });
   element.on('click', () => {
-    handle.toggle();
+    handle.focus();
+
+    if (handle.toggle()) {
+      element.screen.render();
+    }
   });
   element.on('focus', () => {
     focused = true;
@@ -177,7 +182,10 @@ export function switchControl({ box, data: initialData, parent }: SwitchOptions)
     switch (key.full ?? key.name) {
       case 'enter':
       case 'space':
-        handle.toggle();
+        if (handle.toggle()) {
+          element.screen.render();
+        }
+
         break;
     }
   });

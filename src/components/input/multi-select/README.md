@@ -36,3 +36,9 @@ const services = multiSelect({
   parent: screen,
 });
 ```
+
+Up and Down open the list and move the active option. Enter or Space opens a
+closed control and toggles the active option while open; Escape closes it.
+Click the trigger to open or close, or click an open option to select or
+deselect it. Keyboard and mouse interactions repaint immediately. Imperative
+handle calls remain under application render control.

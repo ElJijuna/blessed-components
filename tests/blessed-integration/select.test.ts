@@ -101,17 +101,53 @@ describe('Blessed Select adapter', () => {
         data: { defaultValue: 'prod', items },
         parent: screen,
       });
+      const render = vi.spyOn(screen, 'render');
 
       component.element.emit('keypress', undefined, { name: 'space' });
       expect(component.opened()).toBe(true);
+      expect(render).toHaveBeenCalledTimes(1);
 
       component.element.emit('keypress', undefined, { name: 'escape' });
       expect(component.opened()).toBe(false);
+      expect(render).toHaveBeenCalledTimes(2);
 
       component.element.emit('keypress', undefined, { name: 'down' });
       component.element.emit('keypress', undefined, { name: 'enter' });
 
       expect(component.value()).toBe('stage');
+      expect(render).toHaveBeenCalledTimes(4);
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('focuses and selects an open option by mouse row', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onValueChange = vi.fn();
+
+    try {
+      const component = select({
+        box: { height: 4, width: 24 },
+        data: { defaultValue: 'prod', items, onValueChange },
+        parent: screen,
+      });
+
+      component.open();
+      screen.render();
+
+      const render = vi.spyOn(screen, 'render');
+
+      component.element.emit('click', { y: 2 });
+
+      expect(screen.focused).toBe(component.element);
+      expect(component.value()).toBe('stage');
+      expect(component.opened()).toBe(false);
+      expect(onValueChange).toHaveBeenCalledWith('stage');
+      expect(render).toHaveBeenCalledOnce();
     } finally {
       screen.destroy();
     }

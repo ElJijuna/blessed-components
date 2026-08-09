@@ -40,4 +40,7 @@ const environment = select({
 ```
 
 Use `value`/`open` for controlled state, or `defaultValue` for uncontrolled
-selection. Keyboard support includes Up, Down, Enter, Space, and Escape.
+selection. Keyboard support includes Up, Down, Enter, Space, and Escape. Click
+the trigger to open or close, or click an open option to select it. Keyboard
+and mouse interactions repaint immediately; imperative handle calls remain
+under application render control.

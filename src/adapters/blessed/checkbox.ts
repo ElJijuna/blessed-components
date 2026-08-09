@@ -75,6 +75,7 @@ export function checkbox({ box, data: initialData, parent }: CheckboxOptions): C
   let uncontrolledChecked = initialData.defaultChecked ?? false;
 
   const element = blessed.box({
+    autoFocus: false,
     ...box,
     content: '',
     parent,
@@ -158,7 +159,11 @@ export function checkbox({ box, data: initialData, parent }: CheckboxOptions): C
     render();
   });
   element.on('click', () => {
-    handle.toggle();
+    handle.focus();
+
+    if (handle.toggle()) {
+      element.screen.render();
+    }
   });
   element.on('focus', () => {
     focused = true;
@@ -168,7 +173,10 @@ export function checkbox({ box, data: initialData, parent }: CheckboxOptions): C
     switch (key.full ?? key.name) {
       case 'enter':
       case 'space':
-        handle.toggle();
+        if (handle.toggle()) {
+          element.screen.render();
+        }
+
         break;
     }
   });

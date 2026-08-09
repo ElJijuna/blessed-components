@@ -25,6 +25,8 @@ describe('Blessed Checkbox adapter', () => {
       expect(component.element.getContent()).toBe('[ ] Include prereleases');
 
       component.focus();
+      const render = vi.spyOn(screen, 'render');
+
       component.element.emit('keypress', undefined, { name: 'enter' });
       component.element.emit('keypress', undefined, { name: 'space' });
       component.element.emit('click');
@@ -32,6 +34,7 @@ describe('Blessed Checkbox adapter', () => {
       expect(component.toggle()).toBe(true);
       expect(component.checked()).toBe(false);
       expect(onCheckedChange).toHaveBeenCalledTimes(4);
+      expect(render).toHaveBeenCalledTimes(3);
       expect(screen.keyable).toContain(component.element);
       expect(screen.clickable).toContain(component.element);
 

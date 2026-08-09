@@ -94,15 +94,60 @@ describe('Blessed MultiSelect adapter', () => {
         data: { items },
         parent: screen,
       });
+      const render = vi.spyOn(screen, 'render');
 
       component.element.emit('keypress', undefined, { name: 'space' });
       expect(component.opened()).toBe(true);
+      expect(render).toHaveBeenCalledTimes(1);
 
       component.element.emit('keypress', undefined, { name: 'space' });
       expect(component.values()).toEqual(['api']);
+      expect(render).toHaveBeenCalledTimes(2);
+
+      component.element.emit('keypress', undefined, { name: 'space' });
+      expect(component.values()).toEqual([]);
+      expect(render).toHaveBeenCalledTimes(3);
 
       component.element.emit('keypress', undefined, { name: 'escape' });
       expect(component.opened()).toBe(false);
+      expect(render).toHaveBeenCalledTimes(4);
+    } finally {
+      screen.destroy();
+    }
+  });
+
+  it('focuses, selects, and deselects an open option by mouse row', () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm-256color',
+    });
+    const onValuesChange = vi.fn();
+
+    try {
+      const component = multiSelect({
+        box: { height: 4, width: 24 },
+        data: { defaultValues: ['api'], items, onValuesChange, open: true },
+        parent: screen,
+      });
+
+      screen.render();
+
+      const render = vi.spyOn(screen, 'render');
+
+      component.element.emit('click', { y: 2 });
+
+      expect(screen.focused).toBe(component.element);
+      expect(component.activeId()).toBe('worker');
+      expect(component.values()).toEqual(['api', 'worker']);
+      expect(component.opened()).toBe(true);
+      expect(render).toHaveBeenCalledTimes(1);
+
+      component.element.emit('click', { y: 2 });
+
+      expect(component.values()).toEqual(['api']);
+      expect(onValuesChange.mock.calls).toEqual([[['api', 'worker']], [['api']]]);
+      expect(render).toHaveBeenCalledTimes(2);
     } finally {
       screen.destroy();
     }

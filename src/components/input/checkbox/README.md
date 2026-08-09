@@ -27,5 +27,8 @@ Keyboard support:
 - Enter and Space toggle the checkbox.
 - Mouse click toggles the checkbox.
 
+Keyboard and mouse toggles repaint immediately. Imperative `toggle()`,
+`setData()`, and `focus()` calls remain under application render control.
+
 Controlled checkboxes emit `onCheckedChange`; visual state updates when the
 caller passes a new `checked` value to `setData`.

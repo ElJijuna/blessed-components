@@ -31,4 +31,6 @@ const autoDeploy = switchControl({
 ```
 
 Use `checked` for controlled state or `defaultChecked` for uncontrolled state.
-Keyboard support includes Enter and Space.
+Keyboard support includes Enter and Space; mouse click also toggles the switch.
+Keyboard and mouse toggles repaint immediately. Imperative handle calls remain
+under application render control.

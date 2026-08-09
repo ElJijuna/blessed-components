@@ -103,8 +103,18 @@ interface Keypress {
   name?: string;
 }
 
+interface MouseEvent {
+  y?: number;
+}
+
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+}
+
+function absoluteElementTop(element: blessed.Widgets.BoxElement): number {
+  return typeof element.lpos?.yi === 'number'
+    ? element.lpos.yi
+    : numericDimension(element.atop ?? element.top);
 }
 
 /** Creates an interactive single-selection Select backed by a Blessed box. */
@@ -120,6 +130,7 @@ export function select<TItem extends SelectItem>({
   let offset = 0;
 
   const element = blessed.box({
+    autoFocus: false,
     keys: true,
     mouse: true,
     ...box,
@@ -315,8 +326,38 @@ export function select<TItem extends SelectItem>({
     value: selectedValue,
   };
 
-  element.on('click', () => {
-    handle.toggle();
+  element.on('click', (event?: MouseEvent) => {
+    element.focus();
+
+    if (event?.y === undefined) {
+      handle.toggle();
+      element.screen.render();
+
+      return;
+    }
+
+    const row = event.y - absoluteElementTop(element) - numericDimension(element.itop);
+
+    if (row === 0) {
+      handle.toggle();
+      element.screen.render();
+
+      return;
+    }
+
+    if (!opened() || row < 1 || row > optionViewportHeight()) {
+      return;
+    }
+
+    const item = data.items[offset + row - 1];
+
+    if (item === undefined || item.disabled === true) {
+      return;
+    }
+
+    setActive(focusScope.focus(item.id));
+    handle.selectActive();
+    element.screen.render();
   });
   element.on('keypress', (_character: string, key: Keypress) => {
     switch (key.full ?? key.name) {
@@ -338,7 +379,11 @@ export function select<TItem extends SelectItem>({
       case 'up':
         handle.previous();
         break;
+      default:
+        return;
     }
+
+    element.screen.render();
   });
   element.on('resize', render);
 
