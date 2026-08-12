@@ -266,17 +266,19 @@ safe defaults. This keeps core renderers deterministic and no-color friendly.
 
 | Primitive     | Shared behavior                                             | Status    |
 | ------------- | ----------------------------------------------------------- | --------- |
-| `Collection`  | Ordered identity, lookup, disabled items, looping navigation | Available |
-| `Selection`   | Single and multiple selection with deterministic ordering   | Available |
-| `FocusScope`  | Focus capture, trapping, traversal, and restoration          | Available |
-| `Viewport`    | Two-dimensional bounds, resizing, and visibility             | Available |
-| `ScrollArea`  | Line/page movement and scrollbar metrics                     | Available |
-| `Overlay`     | Layer stack, modal blocking, Escape, and focus return        | Available |
+| [x] `Collection`  | Ordered identity, lookup, disabled items, looping navigation | Available |
+| [x] `Selection`   | Single and multiple selection with deterministic ordering   | Available |
+| [x] `FocusScope`  | Focus capture, trapping, traversal, and restoration          | Available |
+| [x] `Viewport`    | Two-dimensional bounds, resizing, and visibility             | Available |
+| [x] `ScrollArea`  | Line/page movement and scrollbar metrics                     | Available |
+| [x] `Overlay`     | Layer stack, modal blocking, Escape, and focus return        | Available |
 
 ## Component opportunity analysis
 
 Legend:
 
+- `[x]`: implemented and available through the public API.
+- `[ ]`: not implemented yet (or intentionally excluded from the package).
 - **Available**: implemented, documented, and published through public exports.
 - **Build**: strong fit and clear differentiation.
 - **Adapt**: wrap or compose existing Blessed behavior with better contracts.
@@ -289,24 +291,24 @@ These unlock almost every visual component and should be built first.
 
 | Utility              | Purpose                                                   | Decision | Priority |
 | -------------------- | --------------------------------------------------------- | -------- | -------- |
-| `visibleWidth`       | Measure text while ignoring Blessed tags and ANSI codes.  | Available | P0       |
-| `truncate`           | End, middle, and start truncation by terminal cell width. | Available | P0       |
-| `wrapText`           | Cell-aware wrapping with indentation.                     | Available | P0       |
-| `escapeTags`         | Prevent dynamic text from becoming Blessed markup.        | Available | P0       |
-| `scaleValue`         | Map numeric domains into cell or glyph ranges.            | Available | P0       |
-| `clamp`              | Bound values safely.                                      | Available | P0       |
-| `sampleSeries`       | Downsample time-series data to available width.           | Available | P0       |
-| `formatNumber`       | Locale-aware compact and full numbers.                    | Available | P0       |
-| `formatPercent`      | Consistent percentages and precision.                     | Available | P0       |
-| `formatBytes`        | IEC/SI byte formatting.                                   | Available | P1       |
-| `formatDuration`     | Human and clock duration formats.                         | Available | P1       |
-| `formatRate`         | Values per second or interval.                            | Available | P1       |
-| `formatDateTime`     | Terminal-friendly timestamps.                             | Available | P1       |
-| `detectCapabilities` | Unicode, color depth, mouse, and terminal features.       | Available | P1       |
-| `createKeymap`       | Normalized key bindings with help metadata.               | Available | P1       |
-| `createTheme`        | Merge semantic tokens and component overrides.            | Available | P1       |
-| `renderToString`     | Render pure models for tests and static terminal output.  | Available | P1       |
-| `diffRows`           | Identify changed rows for high-frequency updates.         | Available | P2       |
+| [x] `visibleWidth`       | Measure text while ignoring Blessed tags and ANSI codes.  | Available | P0       |
+| [x] `truncate`           | End, middle, and start truncation by terminal cell width. | Available | P0       |
+| [x] `wrapText`           | Cell-aware wrapping with indentation.                     | Available | P0       |
+| [x] `escapeTags`         | Prevent dynamic text from becoming Blessed markup.        | Available | P0       |
+| [x] `scaleValue`         | Map numeric domains into cell or glyph ranges.            | Available | P0       |
+| [x] `clamp`              | Bound values safely.                                      | Available | P0       |
+| [x] `sampleSeries`       | Downsample time-series data to available width.           | Available | P0       |
+| [x] `formatNumber`       | Locale-aware compact and full numbers.                    | Available | P0       |
+| [x] `formatPercent`      | Consistent percentages and precision.                     | Available | P0       |
+| [x] `formatBytes`        | IEC/SI byte formatting.                                   | Available | P1       |
+| [x] `formatDuration`     | Human and clock duration formats.                         | Available | P1       |
+| [x] `formatRate`         | Values per second or interval.                            | Available | P1       |
+| [x] `formatDateTime`     | Terminal-friendly timestamps.                             | Available | P1       |
+| [x] `detectCapabilities` | Unicode, color depth, mouse, and terminal features.       | Available | P1       |
+| [x] `createKeymap`       | Normalized key bindings with help metadata.               | Available | P1       |
+| [x] `createTheme`        | Merge semantic tokens and component overrides.            | Available | P1       |
+| [x] `renderToString`     | Render pure models for tests and static terminal output.  | Available | P1       |
+| [x] `diffRows`           | Identify changed rows for high-frequency updates.         | Available | P2       |
 
 ### 2. Layout and composition
 
@@ -315,24 +317,24 @@ predictable, typed composition and responsive rules.
 
 | Component       | Purpose                                                 | Decision | Priority |
 | --------------- | ------------------------------------------------------- | -------- | -------- |
-| `Box`           | Typed base container with theme defaults.               | Available | P1       |
-| `Card`          | Root, header, title, description, body, footer.         | Available | P1       |
-| `Stack`         | Vertical or horizontal flow with gaps.                  | Available | P1       |
-| `Cluster`       | Wrapping inline group for badges and actions.           | Available | P2       |
-| `Grid`          | Responsive row/column placement with spans.             | Available | P2       |
-| `SplitPane`     | Resizable horizontal or vertical regions.               | Available | P2       |
-| `SidebarLayout` | Sidebar plus main content with collapse rules.          | Available | P2       |
-| `Center`        | Center one child in available space.                    | Available | P2       |
-| `Spacer`        | Flexible or fixed empty space.                          | Available | P2       |
-| `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |
-| `AspectRatio`   | Preserve cell-aware proportions.                        | Available | P3       |
-| `Viewport`      | Visual wrapper around the available headless primitive. | Available | P1       |
-| `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Available | P1       |
-| `Resizable`     | Keyboard/mouse resize behavior for one region.          | Available | P3       |
-| `Collapsible`   | Show or hide a region while preserving state.           | Available | P2       |
-| `Accordion`     | Multiple collapsible sections with keyboard navigation. | Available | P2       |
-| `Page`          | Full-screen region with title and action slots.         | Available | P2       |
-| `AppShell`      | Header, footer, sidebar, content, and overlay layers.   | Available | P2       |
+| [x] `Box`           | Typed base container with theme defaults.               | Available | P1       |
+| [x] `Card`          | Root, header, title, description, body, footer.         | Available | P1       |
+| [x] `Stack`         | Vertical or horizontal flow with gaps.                  | Available | P1       |
+| [x] `Cluster`       | Wrapping inline group for badges and actions.           | Available | P2       |
+| [x] `Grid`          | Responsive row/column placement with spans.             | Available | P2       |
+| [x] `SplitPane`     | Resizable horizontal or vertical regions.               | Available | P2       |
+| [x] `SidebarLayout` | Sidebar plus main content with collapse rules.          | Available | P2       |
+| [x] `Center`        | Center one child in available space.                    | Available | P2       |
+| [x] `Spacer`        | Flexible or fixed empty space.                          | Available | P2       |
+| [x] `Divider`       | Horizontal or vertical separator with optional label.   | Available | P1       |
+| [x] `AspectRatio`   | Preserve cell-aware proportions.                        | Available | P3       |
+| [x] `Viewport`      | Visual wrapper around the available headless primitive. | Available | P1       |
+| [x] `ScrollArea`    | Styled Blessed wrapper around the headless primitive.   | Available | P1       |
+| [x] `Resizable`     | Keyboard/mouse resize behavior for one region.          | Available | P3       |
+| [x] `Collapsible`   | Show or hide a region while preserving state.           | Available | P2       |
+| [x] `Accordion`     | Multiple collapsible sections with keyboard navigation. | Available | P2       |
+| [x] `Page`          | Full-screen region with title and action slots.         | Available | P2       |
+| [x] `AppShell`      | Header, footer, sidebar, content, and overlay layers.   | Available | P2       |
 
 ### 3. Typography and small data display
 
@@ -340,23 +342,23 @@ High value, low complexity, excellent early components.
 
 | Component         | Purpose                                               | Decision | Priority |
 | ----------------- | ----------------------------------------------------- | -------- | -------- |
-| `Text`            | Safe themed text with truncation and wrapping.        | Available | P0       |
-| `Heading`         | Hierarchical terminal heading styles.                 | Available | P1       |
-| `Label`           | Stable labels for controls and values.                | Available | P1       |
-| `MutedText`       | Secondary information using semantic theme tokens.    | Available | P1       |
-| `Code`            | Inline code with safe escaping.                       | Available | P2       |
-| `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Available | P2       |
-| `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
-| `KeyValue`        | Aligned label/value rows.                             | Available | P1       |
-| `DescriptionList` | Responsive term/description groups.                   | Available | P2       |
-| `Badge`           | Compact semantic status.                              | Available | P1       |
-| `Tag`             | Removable or static categorization token.             | Available | P2       |
-| `Pill`            | Rounded-character compact label where supported.      | Available | P3       |
-| `Timestamp`       | Formatted absolute or relative time.                  | Available | P2       |
-| `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |
-| `Rating`          | Discrete score using symbols and text fallback.       | Available | P3       |
-| `Kbd`             | Display keyboard shortcuts consistently.              | Available | P1       |
-| `Breadcrumb`      | Current location path with truncation.                | Available | P2       |
+| [x] `Text`            | Safe themed text with truncation and wrapping.        | Available | P0       |
+| [x] `Heading`         | Hierarchical terminal heading styles.                 | Available | P1       |
+| [x] `Label`           | Stable labels for controls and values.                | Available | P1       |
+| [x] `MutedText`       | Secondary information using semantic theme tokens.    | Available | P1       |
+| [x] `Code`            | Inline code with safe escaping.                       | Available | P2       |
+| [x] `Preformatted`    | Preserve whitespace with horizontal scroll policy.    | Available | P2       |
+| [x] `Stat`            | Label, value, unit, trend, and description.           | Available | P0       |
+| [x] `KeyValue`        | Aligned label/value rows.                             | Available | P1       |
+| [x] `DescriptionList` | Responsive term/description groups.                   | Available | P2       |
+| [x] `Badge`           | Compact semantic status.                              | Available | P1       |
+| [x] `Tag`             | Removable or static categorization token.             | Available | P2       |
+| [x] `Pill`            | Rounded-character compact label where supported.      | Available | P3       |
+| [x] `Timestamp`       | Formatted absolute or relative time.                  | Available | P2       |
+| [x] `Trend`           | Up/down/flat indicator with accessible text fallback. | Available | P1       |
+| [x] `Rating`          | Discrete score using symbols and text fallback.       | Available | P3       |
+| [x] `Kbd`             | Display keyboard shortcuts consistently.              | Available | P1       |
+| [x] `Breadcrumb`      | Current location path with truncation.                | Available | P2       |
 
 ### 4. Progress, status, and feedback
 
@@ -364,23 +366,23 @@ These components share bounded values, semantic tones, and live updates.
 
 | Component            | Purpose                                                 | Decision | Priority |
 | -------------------- | ------------------------------------------------------- | -------- | -------- |
-| `ProgressBar`        | One determinate horizontal progress bar.                | Available | P0       |
-| `ProgressStack`      | Segmented progress across categories.                   | Available | P1       |
-| `ProgressList`       | Multiple labeled progress rows.                         | Available | P1       |
-| `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
-| `Status`             | State icon, label, and optional detail.                 | Available | P1       |
-| `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
-| `Callout`            | Framed explanatory content.                             | Available | P2       |
-| `Toast`              | Timed transient notification stack.                     | Available | P2       |
-| `NotificationCenter` | Persistent notification list and unread state.          | Available | P3       |
-| `Skeleton`           | Placeholder rows while content loads.                   | Available | P2       |
-| `EmptyState`         | Empty result message with optional action.              | Available | P1       |
-| `ErrorState`         | Error details, cause, and retry action.                 | Available | P1       |
-| `LoadingOverlay`     | Block interaction while work runs.                      | Available | P2       |
-| `TaskProgress`       | Multi-step task status with current activity.           | Available | P1       |
-| `StepIndicator`      | Completed, active, and pending steps.                   | Available | P1       |
-| `ConnectionStatus`   | Online, reconnecting, offline, latency.                 | Available | P2       |
-| `HealthIndicator`    | Service health summary with reasons.                    | Available | P2       |
+| [x] `ProgressBar`        | One determinate horizontal progress bar.                | Available | P0       |
+| [x] `ProgressStack`      | Segmented progress across categories.                   | Available | P1       |
+| [x] `ProgressList`       | Multiple labeled progress rows.                         | Available | P1       |
+| [x] `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
+| [x] `Status`             | State icon, label, and optional detail.                 | Available | P1       |
+| [x] `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
+| [x] `Callout`            | Framed explanatory content.                             | Available | P2       |
+| [x] `Toast`              | Timed transient notification stack.                     | Available | P2       |
+| [x] `NotificationCenter` | Persistent notification list and unread state.          | Available | P3       |
+| [x] `Skeleton`           | Placeholder rows while content loads.                   | Available | P2       |
+| [x] `EmptyState`         | Empty result message with optional action.              | Available | P1       |
+| [x] `ErrorState`         | Error details, cause, and retry action.                 | Available | P1       |
+| [x] `LoadingOverlay`     | Block interaction while work runs.                      | Available | P2       |
+| [x] `TaskProgress`       | Multi-step task status with current activity.           | Available | P1       |
+| [x] `StepIndicator`      | Completed, active, and pending steps.                   | Available | P1       |
+| [x] `ConnectionStatus`   | Online, reconnecting, offline, latency.                 | Available | P2       |
+| [x] `HealthIndicator`    | Service health summary with reasons.                    | Available | P2       |
 
 ### 5. Collections and structured data
 
@@ -389,25 +391,25 @@ virtualization primitives.
 
 | Component      | Purpose                                                    | Decision    | Priority |
 | -------------- | ---------------------------------------------------------- | ----------- | -------- |
-| `List`         | Typed items, selection, empty state, and bounded rendering. | Available   | P1       |
-| `VirtualList`  | Render large lists using visible rows only.                | Available   | P2       |
-| `GroupedList`  | Sections with sticky or repeated headings.                 | Available   | P2       |
-| `Table`        | Typed columns, alignment, truncation, and selection.       | Available   | P1       |
-| `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Available   | P2       |
-| `VirtualTable` | Large row sets with bounded rendering.                     | Available   | P2       |
-| `Tree`         | Expandable hierarchical navigation.                        | Available   | P2       |
-| `TreeTable`    | Hierarchical rows plus columns.                            | Available   | P3       |
-| `Timeline`     | Ordered events with time and status.                       | Available   | P2       |
-| `ActivityFeed` | Live events with grouping and retention.                   | Available   | P2       |
-| `DiffView`     | Side-by-side or unified text differences.                  | Available   | P2       |
-| `FileTree`     | File-specific tree with icons and git state.               | Available   | P2       |
-| `ProcessList`  | PID, CPU, memory, status, and actions.                     | Available   | P3       |
-| `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |
-| `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Available   | P2       |
-| `JsonViewer`   | Expandable structured JSON values.                         | Available   | P2       |
-| `Inspector`    | Generic nested object inspection.                          | Available   | P2       |
-| `HexViewer`    | Byte offsets, hex, and text representation.                | Available   | P3       |
-| `AnsiViewer`   | Safely display ANSI-formatted output.                      | Available   | P3       |
+| [x] `List`         | Typed items, selection, empty state, and bounded rendering. | Available   | P1       |
+| [x] `VirtualList`  | Render large lists using visible rows only.                | Available   | P2       |
+| [x] `GroupedList`  | Sections with sticky or repeated headings.                 | Available   | P2       |
+| [x] `Table`        | Typed columns, alignment, truncation, and selection.       | Available   | P1       |
+| [x] `DataTable`    | Sort, filter, paginate, resize, and column visibility.     | Available   | P2       |
+| [x] `VirtualTable` | Large row sets with bounded rendering.                     | Available   | P2       |
+| [x] `Tree`         | Expandable hierarchical navigation.                        | Available   | P2       |
+| [x] `TreeTable`    | Hierarchical rows plus columns.                            | Available   | P3       |
+| [x] `Timeline`     | Ordered events with time and status.                       | Available   | P2       |
+| [x] `ActivityFeed` | Live events with grouping and retention.                   | Available   | P2       |
+| [x] `DiffView`     | Side-by-side or unified text differences.                  | Available   | P2       |
+| [x] `FileTree`     | File-specific tree with icons and git state.               | Available   | P2       |
+| [x] `ProcessList`  | PID, CPU, memory, status, and actions.                     | Available   | P3       |
+| [x] `LogViewer`    | Streaming logs with retention and pause.                   | Available   | P1       |
+| [x] `LogExplorer`  | Search, filters, levels, timestamps, and follow mode.      | Available   | P2       |
+| [x] `JsonViewer`   | Expandable structured JSON values.                         | Available   | P2       |
+| [x] `Inspector`    | Generic nested object inspection.                          | Available   | P2       |
+| [x] `HexViewer`    | Byte offsets, hex, and text representation.                | Available   | P3       |
+| [x] `AnsiViewer`   | Safely display ANSI-formatted output.                      | Available   | P3       |
 
 ### 6. Charts and numeric visualization
 
@@ -417,28 +419,28 @@ quality, or maintenance advantage.
 
 | Component          | Purpose                                             | Decision     | Priority |
 | ------------------ | --------------------------------------------------- | ------------ | -------- |
-| `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
-| `MultiSparkline`   | Aligned compact series with labels.                 | Available    | P1       |
-| `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
-| `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
-| `StackedGauge`     | Composition of portions in one track.               | Available    | P2       |
-| `BulletChart`      | Actual value against target and qualitative ranges. | Available    | P2       |
-| `BarChart`         | Categorical value comparison.                       | Available    | P2       |
-| `StackedBarChart`  | Category composition over multiple series.          | Available    | P3       |
-| `LineChart`        | One or more series over an axis.                    | Available    | P2       |
-| `AreaChart`        | Filled time-series trend.                           | Available    | P3       |
-| `Histogram`        | Numeric distribution by bins.                       | Available    | P2       |
-| `Heatmap`          | Dense matrix of intensity values.                   | Available    | P3       |
-| `CalendarHeatmap`  | Activity intensity by date.                         | Available    | P3       |
-| `ScatterPlot`      | Relationship between two numeric values.            | Available    | P3       |
-| `BoxPlot`          | Statistical distribution summary.                   | Available    | P3       |
-| `Donut`            | Part-to-whole radial display.                       | Available    | P3       |
-| `PieChart`         | Part-to-whole radial display.                       | Do not build | —        |
-| `CandlestickChart` | Open/high/low/close financial series.               | Available    | P3       |
-| `WaterfallChart`   | Sequential positive and negative contributions.     | Available    | P3       |
-| `Legend`           | Shared series labels and glyphs.                    | Available    | P1       |
-| `Axis`             | Shared numeric/category axis renderer.              | Available    | P2       |
-| `Thresholds`       | Shared warning and critical ranges.                 | Available    | P1       |
+| [x] `Sparkline`        | Compact single-series trend.                        | Available    | P0       |
+| [x] `MultiSparkline`   | Aligned compact series with labels.                 | Available    | P1       |
+| [x] `MetricBars`       | Labeled horizontal metric bars.                     | Available    | P0       |
+| [x] `Gauge`            | One bounded value with label and thresholds.        | Available    | P1       |
+| [x] `StackedGauge`     | Composition of portions in one track.               | Available    | P2       |
+| [x] `BulletChart`      | Actual value against target and qualitative ranges. | Available    | P2       |
+| [x] `BarChart`         | Categorical value comparison.                       | Available    | P2       |
+| [x] `StackedBarChart`  | Category composition over multiple series.          | Available    | P3       |
+| [x] `LineChart`        | One or more series over an axis.                    | Available    | P2       |
+| [x] `AreaChart`        | Filled time-series trend.                           | Available    | P3       |
+| [x] `Histogram`        | Numeric distribution by bins.                       | Available    | P2       |
+| [x] `Heatmap`          | Dense matrix of intensity values.                   | Available    | P3       |
+| [x] `CalendarHeatmap`  | Activity intensity by date.                         | Available    | P3       |
+| [x] `ScatterPlot`      | Relationship between two numeric values.            | Available    | P3       |
+| [x] `BoxPlot`          | Statistical distribution summary.                   | Available    | P3       |
+| [x] `Donut`            | Part-to-whole radial display.                       | Available    | P3       |
+| [ ] `PieChart`         | Part-to-whole radial display.                       | Do not build | —        |
+| [x] `CandlestickChart` | Open/high/low/close financial series.               | Available    | P3       |
+| [x] `WaterfallChart`   | Sequential positive and negative contributions.     | Available    | P3       |
+| [x] `Legend`           | Shared series labels and glyphs.                    | Available    | P1       |
+| [x] `Axis`             | Shared numeric/category axis renderer.              | Available    | P2       |
+| [x] `Thresholds`       | Shared warning and critical ranges.                 | Available    | P1       |
 
 `PieChart` is a non-goal: terminal cell aspect ratios and low resolution make
 angle and area comparison poor. Prefer `MetricBars`, `ProgressStack`, or
@@ -450,19 +452,19 @@ Navigation components need a shared focus model and documented keyboard maps.
 
 | Component        | Purpose                                        | Decision | Priority |
 | ---------------- | ---------------------------------------------- | -------- | -------- |
-| `Tabs`           | Switch between labeled views.                  | Available | P1       |
-| `TabList`        | Compound tab trigger collection.               | Available | P1       |
-| `Menu`           | Vertical action navigation.                    | Available | P1       |
-| `MenuBar`        | Top-level horizontal menus.                    | Available | P2       |
-| `DropdownMenu`   | Top-level menus with open action dropdowns.    | Available | P2       |
-| `ContextMenu`    | Mouse or keyboard anchored action menu.        | Available | P3       |
-| `NavigationList` | Route or view navigation with active state.    | Available | P2       |
-| `Pagination`     | Move through bounded result pages.             | Available | P2       |
-| `Pager`          | Previous/next navigation for views or records. | Available | P2       |
-| `Carousel`       | Manual or timed view rotation.                 | Available | P3       |
-| `CommandPalette` | Searchable command execution.                  | Available | P2       |
-| `QuickSwitcher`  | Search and switch resources or views.          | Available | P2       |
-| `HelpOverlay`    | Searchable keyboard shortcut reference.        | Available | P1       |
+| [x] `Tabs`           | Switch between labeled views.                  | Available | P1       |
+| [x] `TabList`        | Compound tab trigger collection.               | Available | P1       |
+| [x] `Menu`           | Vertical action navigation.                    | Available | P1       |
+| [x] `MenuBar`        | Top-level horizontal menus.                    | Available | P2       |
+| [x] `DropdownMenu`   | Top-level menus with open action dropdowns.    | Available | P2       |
+| [x] `ContextMenu`    | Mouse or keyboard anchored action menu.        | Available | P3       |
+| [x] `NavigationList` | Route or view navigation with active state.    | Available | P2       |
+| [x] `Pagination`     | Move through bounded result pages.             | Available | P2       |
+| [x] `Pager`          | Previous/next navigation for views or records. | Available | P2       |
+| [x] `Carousel`       | Manual or timed view rotation.                 | Available | P3       |
+| [x] `CommandPalette` | Searchable command execution.                  | Available | P2       |
+| [x] `QuickSwitcher`  | Search and switch resources or views.          | Available | P2       |
+| [x] `HelpOverlay`    | Searchable keyboard shortcut reference.        | Available | P1       |
 
 ### 8. Inputs and forms
 
@@ -471,26 +473,26 @@ consistent state, composition, and cleanup.
 
 | Component         | Purpose                                                | Decision | Priority |
 | ----------------- | ------------------------------------------------------ | -------- | -------- |
-| `Button`          | Typed action with tone and disabled states.            | Available | P1       |
-| `IconButton`      | Compact action with required text description.         | Available | P2       |
-| `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
-| `PasswordField`   | Masked input with reveal behavior.                     | Available | P2       |
-| `TextArea`        | Multiline text with validation and counters.           | Available | P2       |
-| `NumberField`     | Numeric input with parsing, bounds, and step.          | Available | P2       |
-| `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
-| `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
-| `RadioGroup`      | One value from visible choices.                        | Available | P1       |
-| `Switch`          | Immediate boolean setting.                             | Available | P2       |
-| `Select`          | One value from a popup or inline list.                 | Available | P1       |
-| `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
-| `Combobox`        | Searchable input plus suggestions.                     | Available | P2       |
-| `Autocomplete`    | Suggest completions while typing.                      | Available | P2       |
-| `DateInput`       | Parse and validate a date string.                      | Available | P3       |
-| `TimeInput`       | Parse and validate time.                               | Available | P3       |
-| `KeybindingInput` | Capture and display shortcut combinations.             | Available | P3       |
-| `FilePicker`      | Navigate and select files or directories.              | Available | P2       |
-| `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
-| `Form`            | Submission, validation, reset, and field registry.     | Available | P1       |
+| [x] `Button`          | Typed action with tone and disabled states.            | Available | P1       |
+| [x] `IconButton`      | Compact action with required text description.         | Available | P2       |
+| [x] `TextField`       | Single-line text with label, hint, and error.          | Available | P1       |
+| [x] `PasswordField`   | Masked input with reveal behavior.                     | Available | P2       |
+| [x] `TextArea`        | Multiline text with validation and counters.           | Available | P2       |
+| [x] `NumberField`     | Numeric input with parsing, bounds, and step.          | Available | P2       |
+| [x] `SearchField`     | Query input with clear and submit actions.             | Available | P1       |
+| [x] `Checkbox`        | Boolean value with indeterminate state.                | Available | P1       |
+| [x] `RadioGroup`      | One value from visible choices.                        | Available | P1       |
+| [x] `Switch`          | Immediate boolean setting.                             | Available | P2       |
+| [x] `Select`          | One value from a popup or inline list.                 | Available | P1       |
+| [x] `MultiSelect`     | Multiple values with filtering.                        | Available | P2       |
+| [x] `Combobox`        | Searchable input plus suggestions.                     | Available | P2       |
+| [x] `Autocomplete`    | Suggest completions while typing.                      | Available | P2       |
+| [x] `DateInput`       | Parse and validate a date string.                      | Available | P3       |
+| [x] `TimeInput`       | Parse and validate time.                               | Available | P3       |
+| [x] `KeybindingInput` | Capture and display shortcut combinations.             | Available | P3       |
+| [x] `FilePicker`      | Navigate and select files or directories.              | Available | P2       |
+| [x] `FormField`       | Label, control, hint, required, and error composition. | Available | P1       |
+| [x] `Form`            | Submission, validation, reset, and field registry.     | Available | P1       |
 
 ### 9. Overlays and transient UI
 
@@ -499,15 +501,15 @@ global key cleanup.
 
 | Component       | Purpose                                         | Decision | Priority |
 | --------------- | ----------------------------------------------- | -------- | -------- |
-| `Overlay`       | Visual screen layer over the available stack primitive. | Available | P1       |
-| `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
-| `ConfirmDialog` | Confirm or cancel a consequential action.       | Available | P1       |
-| `PromptDialog`  | Request one value in a modal flow.              | Available | P2       |
-| `Drawer`        | Edge-attached temporary panel.                  | Available | P2       |
-| `Popover`       | Anchored temporary content.                     | Available | P3       |
-| `Tooltip`       | Delayed contextual help.                        | Available | P3       |
-| `ToastViewport` | Position and manage toast notifications.        | Available | P2       |
-| `Spotlight`     | Full-screen searchable action/resource overlay. | Available | P2       |
+| [x] `Overlay`       | Visual screen layer over the available stack primitive. | Available | P1       |
+| [x] `Dialog`        | Modal content with focus capture and restore.   | Available | P1       |
+| [x] `ConfirmDialog` | Confirm or cancel a consequential action.       | Available | P1       |
+| [x] `PromptDialog`  | Request one value in a modal flow.              | Available | P2       |
+| [x] `Drawer`        | Edge-attached temporary panel.                  | Available | P2       |
+| [x] `Popover`       | Anchored temporary content.                     | Available | P3       |
+| [x] `Tooltip`       | Delayed contextual help.                        | Available | P3       |
+| [x] `ToastViewport` | Position and manage toast notifications.        | Available | P2       |
+| [x] `Spotlight`     | Full-screen searchable action/resource overlay. | Available | P2       |
 
 ### 10. Developer-tool components
 
@@ -517,20 +519,20 @@ libraries.
 
 | Component          | Purpose                                             | Decision    | Priority |
 | ------------------ | --------------------------------------------------- | ----------- | -------- |
-| `CodeViewer`       | Syntax-highlighted, scrollable source.              | Available   | P2       |
-| `DiffViewer`       | Unified or split patch rendering.                   | Available   | P2       |
-| `StackTrace`       | Parse and navigate stack frames.                    | Available   | P2       |
-| `TestResults`      | Suites, tests, failures, duration, and retry state. | Available   | P2       |
-| `BuildStatus`      | Build phases, duration, logs, and outcome.          | Available   | P2       |
-| `GitStatus`        | Branch, staged, modified, untracked, conflicts.     | Available   | P2       |
-| `CommitList`       | Commit summary, author, date, and refs.             | Available   | P3       |
-| `DependencyTree`   | Package dependency hierarchy and problems.          | Available   | P3       |
-| `RequestInspector` | HTTP request/response headers and body.             | Available   | P3       |
-| `QueryResults`     | Database result table and execution metadata.       | Available   | P3       |
-| `EnvironmentTable` | Masked environment variable inspection.             | Available   | P3       |
-| `ShortcutRecorder` | Inspect keypress names emitted by terminal.         | Available   | P3       |
-| `EventLog`         | Structured event stream for debugging TUI behavior. | Available   | P2       |
-| `PerformancePanel` | FPS, render time, memory, and event-loop delay.     | Available   | P3       |
+| [x] `CodeViewer`       | Syntax-highlighted, scrollable source.              | Available   | P2       |
+| [x] `DiffViewer`       | Unified or split patch rendering.                   | Available   | P2       |
+| [x] `StackTrace`       | Parse and navigate stack frames.                    | Available   | P2       |
+| [x] `TestResults`      | Suites, tests, failures, duration, and retry state. | Available   | P2       |
+| [x] `BuildStatus`      | Build phases, duration, logs, and outcome.          | Available   | P2       |
+| [x] `GitStatus`        | Branch, staged, modified, untracked, conflicts.     | Available   | P2       |
+| [x] `CommitList`       | Commit summary, author, date, and refs.             | Available   | P3       |
+| [x] `DependencyTree`   | Package dependency hierarchy and problems.          | Available   | P3       |
+| [x] `RequestInspector` | HTTP request/response headers and body.             | Available   | P3       |
+| [x] `QueryResults`     | Database result table and execution metadata.       | Available   | P3       |
+| [x] `EnvironmentTable` | Masked environment variable inspection.             | Available   | P3       |
+| [x] `ShortcutRecorder` | Inspect keypress names emitted by terminal.         | Available   | P3       |
+| [x] `EventLog`         | Structured event stream for debugging TUI behavior. | Available   | P2       |
+| [x] `PerformancePanel` | FPS, render time, memory, and event-loop delay.     | Available   | P3       |
 
 ### 11. Terminal and process components
 
@@ -538,13 +540,13 @@ High power, high lifecycle and security cost.
 
 | Component       | Purpose                                         | Decision    | Priority |
 | --------------- | ----------------------------------------------- | ----------- | -------- |
-| `TerminalPane`  | Display a scrollable terminal session pane.     | Available   | P3       |
-| `ProcessRunner` | Run command, stream output, expose exit state.  | Available   | P3       |
-| `ProcessTable`  | Monitor multiple child processes.               | Available   | P3       |
-| `CommandOutput` | Read-only stdout/stderr viewer with status.     | Available   | P2       |
-| `TaskRunner`    | Execute named tasks with logs and cancellation. | Available   | P3       |
-| `REPL`          | Prompt, history, evaluation, and results.       | Available   | P3       |
-| `ShellHistory`  | Search and select previous commands.            | Available   | P3       |
+| [x] `TerminalPane`  | Display a scrollable terminal session pane.     | Available   | P3       |
+| [x] `ProcessRunner` | Run command, stream output, expose exit state.  | Available   | P3       |
+| [x] `ProcessTable`  | Monitor multiple child processes.               | Available   | P3       |
+| [x] `CommandOutput` | Read-only stdout/stderr viewer with status.     | Available   | P2       |
+| [x] `TaskRunner`    | Execute named tasks with logs and cancellation. | Available   | P3       |
+| [x] `REPL`          | Prompt, history, evaluation, and results.       | Available   | P3       |
+| [x] `ShellHistory`  | Search and select previous commands.            | Available   | P3       |
 
 Process APIs must never execute shell strings implicitly. Commands, arguments,
 environment, cancellation, and signal behavior require explicit contracts.
@@ -555,27 +557,27 @@ Useful, but dependency-heavy features should remain optional entry points.
 
 | Component        | Purpose                                                | Decision | Priority |
 | ---------------- | ------------------------------------------------------ | -------- | -------- |
-| `MarkdownViewer` | Render Markdown into terminal-safe content.            | Available | P3       |
-| `RichText`       | Styled spans, links, and selectable text.              | Available | P3       |
-| `Link`           | Visible URL plus optional terminal hyperlink sequence. | Available | P2       |
-| `Image`          | Capability-aware terminal image or text fallback.      | Available | P3       |
-| `AsciiArt`       | Render static art with alignment and cropping.         | Available | P3       |
-| `BigText`        | Large glyph text through Blessed.                      | Available | P3       |
-| `QRCode`         | Render QR codes using terminal cells.                  | Available | P3       |
-| `ColorSwatch`    | Show terminal color and numeric representation.        | Available | P3       |
-| `Palette`        | Display semantic theme colors and contrast pairs.      | Available | P3       |
+| [x] `MarkdownViewer` | Render Markdown into terminal-safe content.            | Available | P3       |
+| [x] `RichText`       | Styled spans, links, and selectable text.              | Available | P3       |
+| [x] `Link`           | Visible URL plus optional terminal hyperlink sequence. | Available | P2       |
+| [x] `Image`          | Capability-aware terminal image or text fallback.      | Available | P3       |
+| [x] `AsciiArt`       | Render static art with alignment and cropping.         | Available | P3       |
+| [x] `BigText`        | Large glyph text through Blessed.                      | Available | P3       |
+| [x] `QRCode`         | Render QR codes using terminal cells.                  | Available | P3       |
+| [x] `ColorSwatch`    | Show terminal color and numeric representation.        | Available | P3       |
+| [x] `Palette`        | Display semantic theme colors and contrast pairs.      | Available | P3       |
 
 ### 13. Date, time, and scheduling
 
 | Component         | Purpose                                   | Decision | Priority |
 | ----------------- | ----------------------------------------- | -------- | -------- |
-| `Clock`           | Live local or zoned time.                 | Available | P2       |
-| `Timer`           | Elapsed duration with pause and reset.    | Available | P2       |
-| `Countdown`       | Remaining duration with completion event. | Available | P2       |
-| `Calendar`        | Navigate and select dates.                | Available | P3       |
-| `DateRangePicker` | Select a bounded date interval.           | Available | P3       |
-| `Schedule`        | Ordered upcoming events.                  | Available | P3       |
-| `Gantt`           | Time-based task spans.                    | Available | P3       |
+| [x] `Clock`           | Live local or zoned time.                 | Available | P2       |
+| [x] `Timer`           | Elapsed duration with pause and reset.    | Available | P2       |
+| [x] `Countdown`       | Remaining duration with completion event. | Available | P2       |
+| [x] `Calendar`        | Navigate and select dates.                | Available | P3       |
+| [x] `DateRangePicker` | Select a bounded date interval.           | Available | P3       |
+| [x] `Schedule`        | Ordered upcoming events.                  | Available | P3       |
+| [x] `Gantt`           | Time-based task spans.                    | Available | P3       |
 
 ### 14. Application blocks
 
@@ -601,10 +603,10 @@ component APIs.
 
 | Example | Artifact | Purpose | Status |
 | --- | --- | --- | --- |
-| `component-gallery` | Pattern | Browse and lifecycle-test every component story in an interactive workbench. | Available |
-| `dashboard` | Template | Operate a service control plane with navigation, health, SLO, traffic, and deploy state. | Available |
-| `process-monitor` | Block | Monitor Node and host resources with bounded live histories and batched rendering. | Available |
-| `system-inspector` | Template | Inspect real host memory, load, and top-process snapshots. | Available |
+| [x] `component-gallery` | Pattern | Browse and lifecycle-test every component story in an interactive workbench. | Available |
+| [x] `dashboard` | Template | Operate a service control plane with navigation, health, SLO, traffic, and deploy state. | Available |
+| [x] `process-monitor` | Block | Monitor Node and host resources with bounded live histories and batched rendering. | Available |
+| [x] `system-inspector` | Template | Inspect real host memory, load, and top-process snapshots. | Available |
 
 Run interactively:
 
@@ -669,16 +671,16 @@ without duplicating charts, tables, or low-level Blessed widgets.
 
 | Component | Purpose | Decision | Priority |
 | --- | --- | --- | --- |
-| `ActionBar` | Compact row of actions with labels, shortcuts, disabled state, and overflow handling. | Build next | P1 |
-| `StatusBar` | Persistent application footer for mode, selection, connection, task, and shortcut hints. | Build | P1 |
-| `FilterBar` | Render active filters, query state, clear/reset actions, and compact result metadata. | Build | P1 |
-| `Toolbar` | Horizontal command group for icon-like terminal actions, separators, and keyboard hints. | Build | P2 |
-| `CommandLog` | Structured history of executed actions with status, timestamps, and retry metadata. | Build | P2 |
-| `JobQueue` | Queue of background jobs with progress, cancellation, retry, and terminal-safe summaries. | Build | P2 |
-| `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Build | P2 |
-| `SelectionSummary` | Summarize selected rows/items and expose bulk action affordances. | Build | P2 |
-| `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Build | P2 |
-| `DetailsPanel` | Responsive master-detail side panel for selected collection items. | Build | P2 |
+| [ ] `ActionBar` | Compact row of actions with labels, shortcuts, disabled state, and overflow handling. | Build next | P1 |
+| [x] `StatusBar` | Persistent application footer for mode, selection, connection, task, and shortcut hints. | Available | P1 |
+| [ ] `FilterBar` | Render active filters, query state, clear/reset actions, and compact result metadata. | Build | P1 |
+| [ ] `Toolbar` | Horizontal command group for icon-like terminal actions, separators, and keyboard hints. | Build | P2 |
+| [ ] `CommandLog` | Structured history of executed actions with status, timestamps, and retry metadata. | Build | P2 |
+| [ ] `JobQueue` | Queue of background jobs with progress, cancellation, retry, and terminal-safe summaries. | Build | P2 |
+| [ ] `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Build | P2 |
+| [ ] `SelectionSummary` | Summarize selected rows/items and expose bulk action affordances. | Build | P2 |
+| [ ] `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Build | P2 |
+| [ ] `DetailsPanel` | Responsive master-detail side panel for selected collection items. | Build | P2 |
 
 ### Extended candidate list
 
@@ -687,57 +689,57 @@ start as examples or documented patterns before becoming package components.
 
 | Category | Component | Purpose | Decision | Priority |
 | --- | --- | --- | --- | --- |
-| app-shell | `HeaderBar` | Application title, environment, active workspace, and primary status. | Research | P2 |
-| app-shell | `FooterBar` | Persistent footer for shortcuts, messages, and transient app state. | Research | P2 |
-| app-shell | `WorkspaceSwitcher` | Switch between named projects, clusters, databases, or sessions. | Research | P2 |
-| app-shell | `ModeIndicator` | Display current mode such as normal, insert, command, or visual. | Research | P3 |
-| app-shell | `CommandCenter` | Opinionated composition of palette, recent commands, help, and actions. | Pattern first | P3 |
-| app-shell | `DashboardGrid` | Higher-level responsive grid for metric panels and live widgets. | Pattern first | P3 |
-| navigation | `BreadcrumbBar` | Breadcrumb plus sibling navigation and contextual actions. | Research | P3 |
-| navigation | `StepperForm` | Multi-step form flow with validation and navigation controls. | Build | P2 |
-| navigation | `Wizard` | Modal or page-level guided flow with next/back/cancel contracts. | Build | P2 |
-| navigation | `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Research | P3 |
-| navigation | `HistoryList` | Back/forward stack viewer for navigable terminal apps. | Research | P3 |
-| navigation | `RecentItems` | Bounded recently opened resources with fuzzy labels. | Build | P3 |
-| input | `SearchBar` | Search field plus scope, submit, clear, and result count. | Build | P2 |
-| input | `FilterMenu` | Menu for composing boolean, enum, text, and range filters. | Build | P2 |
-| input | `SortMenu` | Sort fields and directions for tables and lists. | Build | P3 |
-| input | `ColumnPicker` | Toggle table column visibility and ordering. | Build | P3 |
-| input | `RangeInput` | Bounded min/max numeric pair with validation. | Build | P3 |
-| input | `TokenInput` | Enter, remove, and navigate compact tokens. | Research | P3 |
-| input | `TagInput` | Specialization of token input for labels and categorization. | Research | P3 |
-| input | `CommandInput` | Prompt-style command entry with suggestions and history. | Build | P2 |
-| data-display | `MetadataPanel` | Dense key-value sections with badges, links, and timestamps. | Build | P2 |
-| data-display | `ResourceHeader` | Name, type, status, tags, timestamps, and primary actions. | Build | P2 |
-| data-display | `SummaryStrip` | Compact sequence of stats or status chips. | Build | P2 |
-| data-display | `PropertyGrid` | Editable or read-only property list with grouped fields. | Research | P3 |
-| data-display | `ComparePanel` | Side-by-side comparison of structured metadata. | Research | P3 |
-| data-display | `VersionBadge` | Package/image/runtime version with channel and freshness state. | Research | P3 |
-| feedback | `InlineProgress` | Progress text intended to fit inside action bars and table rows. | Build | P2 |
-| feedback | `OperationStatus` | One operation's lifecycle: queued, running, succeeded, failed, retried. | Build | P2 |
-| feedback | `ErrorList` | Multiple validation or runtime errors with focusable locations. | Build | P2 |
-| feedback | `ValidationSummary` | Form-level errors grouped by field and severity. | Build | P2 |
-| feedback | `Banner` | Full-width persistent alert region for app-level state. | Build | P3 |
-| feedback | `SyncStatus` | Last sync, dirty state, conflicts, and retry affordance. | Research | P3 |
-| collections | `ResourceList` | Opinionated list for named resources with status, tags, and actions. | Pattern first | P2 |
-| collections | `CommandList` | Action list with shortcuts, grouping, disabled reasons, and search text. | Build | P2 |
-| collections | `IssueList` | Issue/task rows with priority, assignee, labels, and state. | Pattern first | P3 |
-| collections | `FileList` | Flat file list with size, modified date, git state, and selection. | Build | P2 |
-| collections | `KeyValueTable` | Table optimized for configuration and environment inspection. | Research | P3 |
-| collections | `AuditTrail` | Chronological actor/action feed with filters and retention. | Build | P3 |
-| developer-tools | `DiagnosticsPanel` | Problems, warnings, logs, and suggested actions in one view. | Build | P2 |
-| developer-tools | `TraceViewer` | Structured span/tree rendering for traces and timings. | Research | P3 |
-| developer-tools | `ProfilerPanel` | Render sampled timings, hotspots, and memory counters. | Research | P3 |
-| developer-tools | `PackageSummary` | Package metadata, scripts, dependency health, and versions. | Pattern first | P3 |
-| developer-tools | `PullRequestSummary` | PR metadata, checks, files, reviews, and mergeability. | Pattern first | P3 |
-| terminal | `TaskList` | Select and run defined tasks with status and shortcuts. | Build | P2 |
-| terminal | `SessionTabs` | Multiple terminal/process sessions with status and close behavior. | Research | P3 |
-| terminal | `OutputSearch` | Search controls and match navigation for terminal output panes. | Build | P2 |
-| terminal | `ProcessSummary` | Compact process group health, resource use, and exit status. | Build | P3 |
-| overlays | `Sheet` | Modal bottom or side sheet optimized for forms and actions. | Research | P3 |
-| overlays | `ActionSheet` | Compact modal action chooser for contextual commands. | Build | P2 |
-| overlays | `NotificationToast` | Opinionated transient notification with action and timeout controls. | Research | P3 |
-| overlays | `QuickOpen` | Resource opener combining recent items, search, and grouped results. | Build | P2 |
+| app-shell | [ ] `HeaderBar` | Application title, environment, active workspace, and primary status. | Research | P2 |
+| app-shell | [ ] `FooterBar` | Persistent footer for shortcuts, messages, and transient app state. | Research | P2 |
+| app-shell | [ ] `WorkspaceSwitcher` | Switch between named projects, clusters, databases, or sessions. | Research | P2 |
+| app-shell | [ ] `ModeIndicator` | Display current mode such as normal, insert, command, or visual. | Research | P3 |
+| app-shell | [ ] `CommandCenter` | Opinionated composition of palette, recent commands, help, and actions. | Pattern first | P3 |
+| app-shell | [ ] `DashboardGrid` | Higher-level responsive grid for metric panels and live widgets. | Pattern first | P3 |
+| navigation | [ ] `BreadcrumbBar` | Breadcrumb plus sibling navigation and contextual actions. | Research | P3 |
+| navigation | [ ] `StepperForm` | Multi-step form flow with validation and navigation controls. | Build | P2 |
+| navigation | [ ] `Wizard` | Modal or page-level guided flow with next/back/cancel contracts. | Build | P2 |
+| navigation | [ ] `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Research | P3 |
+| navigation | [ ] `HistoryList` | Back/forward stack viewer for navigable terminal apps. | Research | P3 |
+| navigation | [ ] `RecentItems` | Bounded recently opened resources with fuzzy labels. | Build | P3 |
+| input | [ ] `SearchBar` | Search field plus scope, submit, clear, and result count. | Build | P2 |
+| input | [ ] `FilterMenu` | Menu for composing boolean, enum, text, and range filters. | Build | P2 |
+| input | [ ] `SortMenu` | Sort fields and directions for tables and lists. | Build | P3 |
+| input | [ ] `ColumnPicker` | Toggle table column visibility and ordering. | Build | P3 |
+| input | [ ] `RangeInput` | Bounded min/max numeric pair with validation. | Build | P3 |
+| input | [ ] `TokenInput` | Enter, remove, and navigate compact tokens. | Research | P3 |
+| input | [ ] `TagInput` | Specialization of token input for labels and categorization. | Research | P3 |
+| input | [ ] `CommandInput` | Prompt-style command entry with suggestions and history. | Build | P2 |
+| data-display | [ ] `MetadataPanel` | Dense key-value sections with badges, links, and timestamps. | Build | P2 |
+| data-display | [ ] `ResourceHeader` | Name, type, status, tags, timestamps, and primary actions. | Build | P2 |
+| data-display | [ ] `SummaryStrip` | Compact sequence of stats or status chips. | Build | P2 |
+| data-display | [ ] `PropertyGrid` | Editable or read-only property list with grouped fields. | Research | P3 |
+| data-display | [ ] `ComparePanel` | Side-by-side comparison of structured metadata. | Research | P3 |
+| data-display | [ ] `VersionBadge` | Package/image/runtime version with channel and freshness state. | Research | P3 |
+| feedback | [ ] `InlineProgress` | Progress text intended to fit inside action bars and table rows. | Build | P2 |
+| feedback | [ ] `OperationStatus` | One operation's lifecycle: queued, running, succeeded, failed, retried. | Build | P2 |
+| feedback | [ ] `ErrorList` | Multiple validation or runtime errors with focusable locations. | Build | P2 |
+| feedback | [ ] `ValidationSummary` | Form-level errors grouped by field and severity. | Build | P2 |
+| feedback | [ ] `Banner` | Full-width persistent alert region for app-level state. | Build | P3 |
+| feedback | [ ] `SyncStatus` | Last sync, dirty state, conflicts, and retry affordance. | Research | P3 |
+| collections | [ ] `ResourceList` | Opinionated list for named resources with status, tags, and actions. | Pattern first | P2 |
+| collections | [ ] `CommandList` | Action list with shortcuts, grouping, disabled reasons, and search text. | Build | P2 |
+| collections | [ ] `IssueList` | Issue/task rows with priority, assignee, labels, and state. | Pattern first | P3 |
+| collections | [ ] `FileList` | Flat file list with size, modified date, git state, and selection. | Build | P2 |
+| collections | [ ] `KeyValueTable` | Table optimized for configuration and environment inspection. | Research | P3 |
+| collections | [ ] `AuditTrail` | Chronological actor/action feed with filters and retention. | Build | P3 |
+| developer-tools | [ ] `DiagnosticsPanel` | Problems, warnings, logs, and suggested actions in one view. | Build | P2 |
+| developer-tools | [ ] `TraceViewer` | Structured span/tree rendering for traces and timings. | Research | P3 |
+| developer-tools | [ ] `ProfilerPanel` | Render sampled timings, hotspots, and memory counters. | Research | P3 |
+| developer-tools | [ ] `PackageSummary` | Package metadata, scripts, dependency health, and versions. | Pattern first | P3 |
+| developer-tools | [ ] `PullRequestSummary` | PR metadata, checks, files, reviews, and mergeability. | Pattern first | P3 |
+| terminal | [ ] `TaskList` | Select and run defined tasks with status and shortcuts. | Build | P2 |
+| terminal | [ ] `SessionTabs` | Multiple terminal/process sessions with status and close behavior. | Research | P3 |
+| terminal | [ ] `OutputSearch` | Search controls and match navigation for terminal output panes. | Build | P2 |
+| terminal | [ ] `ProcessSummary` | Compact process group health, resource use, and exit status. | Build | P3 |
+| overlays | [ ] `Sheet` | Modal bottom or side sheet optimized for forms and actions. | Research | P3 |
+| overlays | [ ] `ActionSheet` | Compact modal action chooser for contextual commands. | Build | P2 |
+| overlays | [ ] `NotificationToast` | Opinionated transient notification with action and timeout controls. | Research | P3 |
+| overlays | [ ] `QuickOpen` | Resource opener combining recent items, search, and grouped results. | Build | P2 |
 
 ### Immediate tracer bullet: ActionBar
 
