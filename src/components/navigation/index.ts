@@ -20,3 +20,4 @@ export * from './pagination/index.js';
 export * from './quick-switcher/index.js';
 export * from './tab-list/index.js';
 export * from './tabs/index.js';
+export * from './toolbar/index.js';

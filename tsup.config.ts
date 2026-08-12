@@ -303,6 +303,8 @@ const entry = {
   'toast-viewport/index': 'src/components/feedback/toast-viewport/index.ts',
   'toast/blessed': 'src/adapters/blessed/toast.ts',
   'toast/index': 'src/components/feedback/toast/index.ts',
+  'toolbar/blessed': 'src/adapters/blessed/toolbar.ts',
+  'toolbar/index': 'src/components/navigation/toolbar/index.ts',
   'tooltip/index': 'src/components/overlays/tooltip/index.ts',
   'tree-table/index': 'src/components/collections/tree-table/index.ts',
   'tree/blessed': 'src/adapters/blessed/tree.ts',

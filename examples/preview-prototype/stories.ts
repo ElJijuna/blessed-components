@@ -186,6 +186,7 @@ import {
   timer,
   timestamp,
   toast,
+  toolbar,
   tree,
   trend,
   viewport,
@@ -1790,6 +1791,25 @@ export const stories: readonly PreviewStory[] = [
           }
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'toolbar/command-groups',
+    title: 'Toolbar / Command Groups',
+    description: 'Compact icon commands with labels, shortcuts, groups, and disabled state.',
+    mount(parent) {
+      return toolbar({
+        box: { height: 1, left: 3, top: 3, width: 70 },
+        data: {
+          items: [
+            { icon: '+', id: 'create', label: 'Create', shortcut: 'N' },
+            { icon: '↻', id: 'refresh', label: 'Refresh', shortcut: 'R' },
+            { icon: '⌕', id: 'search', label: 'Search', separator: true, shortcut: '/' },
+            { disabled: true, icon: '×', id: 'delete', label: 'Delete' },
+          ],
+        },
+        parent,
+      });
     },
   }),
   defineStory({

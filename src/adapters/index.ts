@@ -116,6 +116,7 @@ export * from './blessed/timeline.js';
 export * from './blessed/timer.js';
 export * from './blessed/timestamp.js';
 export * from './blessed/toast.js';
+export * from './blessed/toolbar.js';
 export * from './blessed/tree.js';
 export * from './blessed/trend.js';
 export * from './blessed/types.js';

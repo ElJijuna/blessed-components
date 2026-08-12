@@ -1538,6 +1538,16 @@
       "import": "./dist/toast/index.js",
       "require": "./dist/toast/index.cjs"
     },
+    "./toolbar/blessed": {
+      "types": "./dist/toolbar/blessed.d.ts",
+      "import": "./dist/toolbar/blessed.js",
+      "require": "./dist/toolbar/blessed.cjs"
+    },
+    "./toolbar": {
+      "types": "./dist/toolbar/index.d.ts",
+      "import": "./dist/toolbar/index.js",
+      "require": "./dist/toolbar/index.cjs"
+    },
     "./tooltip": {
       "types": "./dist/tooltip/index.d.ts",
       "import": "./dist/tooltip/index.js",
