@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.18.0](https://github.com/ElJijuna/blessed-components/compare/v1.17.0...v1.18.0) (2026-08-12)
+
+### Features
+
+* add action-bar component with keyboard and mouse controls, including tests and documentation ([7e1755a](https://github.com/ElJijuna/blessed-components/commit/7e1755a9be5c4cc5c67776c4bda0d491f2d4b87b))
+* add filter-bar component with keyboard and mouse controls, including tests and documentation ([5370b77](https://github.com/ElJijuna/blessed-components/commit/5370b772761b5f4d1204c58cd8ebce867d5cc5fa))
+* add status-bar component with keyboard and mouse controls, including tests and documentation ([294d351](https://github.com/ElJijuna/blessed-components/commit/294d351447d2d17442a2e539637f71f4cc1aab8c))
+* add toolbar component with keyboard and mouse controls, including tests and documentation ([5b1e6fc](https://github.com/ElJijuna/blessed-components/commit/5b1e6fc0c8e741d282bf39d57f00915081c22339))
+
 ## [1.17.0](https://github.com/ElJijuna/blessed-components/compare/v1.16.0...v1.17.0) (2026-08-09)
 
 ### Features
