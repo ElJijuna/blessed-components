@@ -6,6 +6,7 @@
  */
 
 export * from './carousel/index.js';
+export * from './action-bar/index.js';
 export * from './command-palette/index.js';
 export * from './context-menu/index.js';
 export * from './dropdown-menu/index.js';

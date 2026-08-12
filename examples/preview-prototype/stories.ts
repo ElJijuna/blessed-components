@@ -2,6 +2,7 @@ import blessed from 'blessed';
 
 import {
   accordion,
+  actionBar,
   activityFeed,
   alert,
   appShell,
@@ -1788,6 +1789,25 @@ export const stories: readonly PreviewStory[] = [
           }
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'action-bar/commands',
+    title: 'ActionBar / Commands',
+    description: 'Keyboard and mouse command surface with shortcuts, separators, and disabled state.',
+    mount(parent) {
+      return actionBar({
+        box: { height: 1, left: 3, top: 3, width: 68 },
+        data: {
+          actions: [
+            { id: 'run', label: 'Run', shortcut: 'Enter', tone: 'primary' },
+            { id: 'stop', label: 'Stop', separator: true, shortcut: 'S', tone: 'danger' },
+            { disabled: true, disabledReason: 'No failed job', id: 'retry', label: 'Retry' },
+            { id: 'logs', label: 'Open logs', shortcut: 'L' },
+          ],
+        },
+        parent,
+      });
     },
   }),
   defineStory({

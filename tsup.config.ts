@@ -27,6 +27,8 @@ const entry = {
   'primitives/viewport/index': 'src/primitives/viewport/index.ts',
   'accordion/blessed': 'src/adapters/blessed/accordion.ts',
   'accordion/index': 'src/components/layout/accordion/index.ts',
+  'action-bar/blessed': 'src/adapters/blessed/action-bar.ts',
+  'action-bar/index': 'src/components/navigation/action-bar/index.ts',
   'activity-feed/blessed': 'src/adapters/blessed/activity-feed.ts',
   'activity-feed/index': 'src/components/collections/activity-feed/index.ts',
   'alert/blessed': 'src/adapters/blessed/alert.ts',

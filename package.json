@@ -158,6 +158,16 @@
       "import": "./dist/accordion/index.js",
       "require": "./dist/accordion/index.cjs"
     },
+    "./action-bar/blessed": {
+      "types": "./dist/action-bar/blessed.d.ts",
+      "import": "./dist/action-bar/blessed.js",
+      "require": "./dist/action-bar/blessed.cjs"
+    },
+    "./action-bar": {
+      "types": "./dist/action-bar/index.d.ts",
+      "import": "./dist/action-bar/index.js",
+      "require": "./dist/action-bar/index.cjs"
+    },
     "./activity-feed/blessed": {
       "types": "./dist/activity-feed/blessed.d.ts",
       "import": "./dist/activity-feed/blessed.js",

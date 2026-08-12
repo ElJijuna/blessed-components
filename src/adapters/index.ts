@@ -6,6 +6,7 @@
  */
 
 export * from './blessed/accordion.js';
+export * from './blessed/action-bar.js';
 export * from './blessed/activity-feed.js';
 export * from './blessed/alert.js';
 export * from './blessed/app-shell.js';

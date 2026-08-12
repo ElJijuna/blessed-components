@@ -671,7 +671,7 @@ without duplicating charts, tables, or low-level Blessed widgets.
 
 | Component | Purpose | Decision | Priority |
 | --- | --- | --- | --- |
-| [ ] `ActionBar` | Compact row of actions with labels, shortcuts, disabled state, and overflow handling. | Build next | P1 |
+| [x] `ActionBar` | Compact row of actions with labels, shortcuts, disabled state, and overflow handling. | Available | P1 |
 | [x] `StatusBar` | Persistent application footer for mode, selection, connection, task, and shortcut hints. | Available | P1 |
 | [ ] `FilterBar` | Render active filters, query state, clear/reset actions, and compact result metadata. | Build | P1 |
 | [ ] `Toolbar` | Horizontal command group for icon-like terminal actions, separators, and keyboard hints. | Build | P2 |
@@ -741,10 +741,9 @@ start as examples or documented patterns before becoming package components.
 | overlays | [ ] `NotificationToast` | Opinionated transient notification with action and timeout controls. | Research | P3 |
 | overlays | [ ] `QuickOpen` | Resource opener combining recent items, search, and grouped results. | Build | P2 |
 
-### Immediate tracer bullet: ActionBar
+### Completed tracer bullet: ActionBar
 
-`ActionBar` is the next recommended implementation because it validates the
-new direction without requiring new infrastructure.
+`ActionBar` validates the new direction without requiring new infrastructure.
 
 Initial scope:
 
