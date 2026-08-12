@@ -16,10 +16,14 @@ describe('ActionBar', () => {
   });
 
   it('uses ASCII characters and sanitizes dynamic terminal markup', () => {
-    expect(renderActionBar({
-      actions: [{ id: 'run', label: '{bold}\u001B[31mRun\u001B[0m{/bold}', shortcut: 'R' }],
-      activeId: 'run', characters: ACTION_BAR_ASCII_CHARACTERS, width: 20,
-    })).toBe('>Run [R]<');
+    expect(
+      renderActionBar({
+        actions: [{ id: 'run', label: '{bold}\u001B[31mRun\u001B[0m{/bold}', shortcut: 'R' }],
+        activeId: 'run',
+        characters: ACTION_BAR_ASCII_CHARACTERS,
+        width: 20,
+      }),
+    ).toBe('>Run [R]<');
   });
 
   it('shows overflow and reports only visible action ids', () => {
@@ -32,6 +36,8 @@ describe('ActionBar', () => {
   it('pads output and validates width and required text', () => {
     expect(renderActionBar({ actions: [actions[0]], pad: true, width: 16 })).toHaveLength(16);
     expect(() => renderActionBar({ actions, width: -1 })).toThrow(RangeError);
-    expect(() => renderActionBar({ actions: [{ id: '', label: 'Bad' }], width: 10 })).toThrow(RangeError);
+    expect(() => renderActionBar({ actions: [{ id: '', label: 'Bad' }], width: 10 })).toThrow(
+      RangeError,
+    );
   });
 });

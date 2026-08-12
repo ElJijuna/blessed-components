@@ -52,6 +52,7 @@ import {
   emptyState,
   errorState,
   fileTree,
+  filterBar,
   form,
   formField,
   gauge,
@@ -1792,9 +1793,30 @@ export const stories: readonly PreviewStory[] = [
     },
   }),
   defineStory({
+    id: 'filter-bar/active-filters',
+    title: 'FilterBar / Active Filters',
+    description: 'Query context, removable filters, result metadata, and reset controls.',
+    mount(parent) {
+      return filterBar({
+        box: { height: 1, left: 3, top: 3, width: 72 },
+        data: {
+          filters: [
+            { id: 'status', label: 'Status', value: 'open' },
+            { id: 'owner', label: 'Owner', removable: false, value: 'me' },
+          ],
+          query: 'terminal bug',
+          resultCount: 12,
+          showReset: true,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
     id: 'action-bar/commands',
     title: 'ActionBar / Commands',
-    description: 'Keyboard and mouse command surface with shortcuts, separators, and disabled state.',
+    description:
+      'Keyboard and mouse command surface with shortcuts, separators, and disabled state.',
     mount(parent) {
       return actionBar({
         box: { height: 1, left: 3, top: 3, width: 68 },

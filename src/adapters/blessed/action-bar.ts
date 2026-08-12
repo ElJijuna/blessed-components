@@ -42,28 +42,48 @@ export interface ActionBarHandle<TAction extends ActionBarAction = ActionBarActi
   previous(): string | undefined;
 }
 
-interface Keypress { full?: string; name?: string }
-interface MouseEvent { x?: number }
+interface Keypress {
+  full?: string;
+  name?: string;
+}
+interface MouseEvent {
+  x?: number;
+}
 
 function dimension(value: blessed.Widgets.Types.TPosition): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
 }
 
 /** Creates an interactive horizontal ActionBar backed by a Blessed box. */
-export function actionBar<TAction extends ActionBarAction>({ box, data: initialData, parent }: ActionBarOptions<TAction>): ActionBarHandle<TAction> {
+export function actionBar<TAction extends ActionBarAction>({
+  box,
+  data: initialData,
+  parent,
+}: ActionBarOptions<TAction>): ActionBarHandle<TAction> {
   let data = initialData;
   let active = initialData.activeId;
   let visibleIds: readonly string[] = [];
   let scope = createFocusScope({ items: data.actions });
 
-  const element = blessed.box({ height: 1, keys: true, mouse: true, ...box, content: '', parent, tags: false });
-  const innerWidth = () => data.width ?? Math.max(0, dimension(element.width) - dimension(element.iwidth));
+  const element = blessed.box({
+    height: 1,
+    keys: true,
+    mouse: true,
+    ...box,
+    content: '',
+    parent,
+    tags: false,
+  });
+  const innerWidth = () =>
+    data.width ?? Math.max(0, dimension(element.width) - dimension(element.iwidth));
   const render = () => {
     const capabilities = data.capabilities ?? detectCapabilities();
     const model = renderActionBarModel({
       actions: data.actions,
       ...(active === undefined ? {} : { activeId: active }),
-      characters: data.characters ?? (capabilities.unicode ? ACTION_BAR_UNICODE_CHARACTERS : ACTION_BAR_ASCII_CHARACTERS),
+      characters:
+        data.characters ??
+        (capabilities.unicode ? ACTION_BAR_UNICODE_CHARACTERS : ACTION_BAR_ASCII_CHARACTERS),
       width: innerWidth(),
     });
 
@@ -71,7 +91,11 @@ export function actionBar<TAction extends ActionBarAction>({ box, data: initialD
     element.setContent(model.content);
   };
   const setActive = (id: string | undefined) => {
-    if (id !== undefined && id !== active) { active = id; data.onActiveIdChange?.(id); render(); }
+    if (id !== undefined && id !== active) {
+      active = id;
+      data.onActiveIdChange?.(id);
+      render();
+    }
 
     return active;
   };
@@ -89,7 +113,9 @@ export function actionBar<TAction extends ActionBarAction>({ box, data: initialD
     activateActive() {
       const action = data.actions.find(({ disabled, id }) => id === active && disabled !== true);
 
-      if (action) {data.onAction?.(action);}
+      if (action) {
+        data.onAction?.(action);
+      }
 
       return action;
     },
@@ -106,40 +132,77 @@ export function actionBar<TAction extends ActionBarAction>({ box, data: initialD
       const previous = active;
 
       data = nextData;
-      scope = createFocusScope({ ...(data.activeId ? { initialFocusId: data.activeId } : {}), items: data.actions });
+      scope = createFocusScope({
+        ...(data.activeId ? { initialFocusId: data.activeId } : {}),
+        items: data.actions,
+      });
       scope.activate();
-      active = data.activeId === undefined && previous !== undefined ? scope.focus(previous) ?? scope.current() : scope.current();
+      active =
+        data.activeId === undefined && previous !== undefined
+          ? (scope.focus(previous) ?? scope.current())
+          : scope.current();
       render();
     },
   };
 
   element.on('keypress', (_character: string, key: Keypress) => {
     switch (key.full ?? key.name) {
-      case 'left': case 'shift-tab': handle.previous(); break;
-      case 'right': case 'tab': handle.next(); break;
-      case 'home': handle.first(); break;
-      case 'end': handle.last(); break;
-      case 'enter': case 'space': handle.activateActive(); break;
+      case 'left':
+      case 'shift-tab':
+        handle.previous();
+        break;
+      case 'right':
+      case 'tab':
+        handle.next();
+        break;
+      case 'home':
+        handle.first();
+        break;
+      case 'end':
+        handle.last();
+        break;
+      case 'enter':
+      case 'space':
+        handle.activateActive();
+        break;
     }
   });
   element.on('click', (event: MouseEvent) => {
-    if (event.x === undefined) {return;}
+    if (event.x === undefined) {
+      return;
+    }
 
-    const localX = event.x - dimension((element as blessed.Widgets.BoxElement & { aleft?: blessed.Widgets.Types.TPosition }).aleft ?? element.left) - dimension(element.ileft);
+    const localX =
+      event.x -
+      dimension(
+        (element as blessed.Widgets.BoxElement & { aleft?: blessed.Widgets.Types.TPosition })
+          .aleft ?? element.left,
+      ) -
+      dimension(element.ileft);
 
     let cursor = 0;
 
     for (const id of visibleIds) {
       const action = data.actions.find((candidate) => candidate.id === id);
 
-      if (!action) {continue;}
+      if (!action) {
+        continue;
+      }
 
-      const text = renderActionBarModel({ actions: [action], activeId: id, characters: data.characters ?? ACTION_BAR_UNICODE_CHARACTERS, width: innerWidth() }).content;
+      const text = renderActionBarModel({
+        actions: [action],
+        activeId: id,
+        characters: data.characters ?? ACTION_BAR_UNICODE_CHARACTERS,
+        width: innerWidth(),
+      }).content;
       const end = cursor + visibleWidth(text) + 2;
 
-      if (localX >= cursor && localX < end && !action.disabled) { handle.focusAction(id); handle.activateActive();
+      if (localX >= cursor && localX < end && !action.disabled) {
+        handle.focusAction(id);
+        handle.activateActive();
 
- return; }
+        return;
+      }
 
       cursor = end;
     }

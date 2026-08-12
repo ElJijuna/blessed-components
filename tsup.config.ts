@@ -122,6 +122,8 @@ const entry = {
   'file-picker/index': 'src/components/input/file-picker/index.ts',
   'file-tree/blessed': 'src/adapters/blessed/file-tree.ts',
   'file-tree/index': 'src/components/collections/file-tree/index.ts',
+  'filter-bar/blessed': 'src/adapters/blessed/filter-bar.ts',
+  'filter-bar/index': 'src/components/navigation/filter-bar/index.ts',
   'form-field/blessed': 'src/adapters/blessed/form-field.ts',
   'form-field/index': 'src/components/input/form-field/index.ts',
   'form/blessed': 'src/adapters/blessed/form.ts',

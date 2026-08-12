@@ -36,13 +36,25 @@ export interface ActionBarCharacters {
 }
 
 export const ACTION_BAR_UNICODE_CHARACTERS: Readonly<ActionBarCharacters> = Object.freeze({
-  activeLeft: '▸', activeRight: '◂', disabledLeft: '(', disabledRight: ')', overflow: '…',
-  separator: '│', shortcutLeft: '[', shortcutRight: ']',
+  activeLeft: '▸',
+  activeRight: '◂',
+  disabledLeft: '(',
+  disabledRight: ')',
+  overflow: '…',
+  separator: '│',
+  shortcutLeft: '[',
+  shortcutRight: ']',
 });
 
 export const ACTION_BAR_ASCII_CHARACTERS: Readonly<ActionBarCharacters> = Object.freeze({
-  activeLeft: '>', activeRight: '<', disabledLeft: '(', disabledRight: ')', overflow: '...',
-  separator: '|', shortcutLeft: '[', shortcutRight: ']',
+  activeLeft: '>',
+  activeRight: '<',
+  disabledLeft: '(',
+  disabledRight: ')',
+  overflow: '...',
+  separator: '|',
+  shortcutLeft: '[',
+  shortcutRight: ']',
 });
 
 /** Options accepted by {@link renderActionBar}. */
@@ -68,7 +80,9 @@ export interface ActionBarRenderResult {
 }
 
 function plainText(value: string): string {
-  return stripAnsi(stripBlessedTags(value)).replace(/[\r\n]+/gu, ' ').trim();
+  return stripAnsi(stripBlessedTags(value))
+    .replace(/[\r\n]+/gu, ' ')
+    .trim();
 }
 
 function assertAction(action: ActionBarAction): void {
@@ -77,15 +91,26 @@ function assertAction(action: ActionBarAction): void {
   }
 }
 
-function renderAction(action: ActionBarAction, activeId: string | undefined, c: ActionBarCharacters): string {
+function renderAction(
+  action: ActionBarAction,
+  activeId: string | undefined,
+  c: ActionBarCharacters,
+): string {
   const label = plainText(action.label);
-  const shortcut = action.shortcut === undefined ? '' : ` ${c.shortcutLeft}${plainText(action.shortcut)}${c.shortcutRight}`;
+  const shortcut =
+    action.shortcut === undefined
+      ? ''
+      : ` ${c.shortcutLeft}${plainText(action.shortcut)}${c.shortcutRight}`;
   const reason = action.disabledReason === undefined ? '' : `: ${plainText(action.disabledReason)}`;
   const body = `${label}${shortcut}${action.disabled ? reason : ''}`;
 
-  if (action.disabled) {return `${c.disabledLeft}${body}${c.disabledRight}`;}
+  if (action.disabled) {
+    return `${c.disabledLeft}${body}${c.disabledRight}`;
+  }
 
-  if (action.id === activeId) {return `${c.activeLeft}${body}${c.activeRight}`;}
+  if (action.id === activeId) {
+    return `${c.activeLeft}${body}${c.activeRight}`;
+  }
 
   return body;
 }
@@ -98,11 +123,15 @@ export function renderActionBarModel<TAction extends ActionBarAction>({
   pad = false,
   width,
 }: RenderActionBarOptions<TAction>): ActionBarRenderResult {
-  if (!Number.isInteger(width) || width < 0) {throw new RangeError('ActionBar width must be a non-negative integer.');}
+  if (!Number.isInteger(width) || width < 0) {
+    throw new RangeError('ActionBar width must be a non-negative integer.');
+  }
 
   actions.forEach(assertAction);
 
-  if (width === 0) {return { content: '', visibleActionIds: [] };}
+  if (width === 0) {
+    return { content: '', visibleActionIds: [] };
+  }
 
   const parts: string[] = [];
   const ids: string[] = [];
@@ -116,7 +145,9 @@ export function renderActionBarModel<TAction extends ActionBarAction>({
     const remaining = actions.length - ids.length - 1;
     const reserve = remaining > 0 ? visibleWidth(` ${characters.overflow}`) : 0;
 
-    if (used + candidateWidth + reserve > width) {break;}
+    if (used + candidateWidth + reserve > width) {
+      break;
+    }
 
     parts.push(`${prefix}${actionText}`);
     ids.push(action.id);
@@ -131,12 +162,16 @@ export function renderActionBarModel<TAction extends ActionBarAction>({
     content = truncateText(`${content}${content.length > 0 ? ' ' : ''}${overflow}`, width);
   }
 
-  if (pad) {content += ' '.repeat(Math.max(0, width - visibleWidth(content)));}
+  if (pad) {
+    content += ' '.repeat(Math.max(0, width - visibleWidth(content)));
+  }
 
   return { content, visibleActionIds: ids };
 }
 
 /** Renders a width-aware, single-line collection of application actions. */
-export function renderActionBar<TAction extends ActionBarAction>(options: RenderActionBarOptions<TAction>): string {
+export function renderActionBar<TAction extends ActionBarAction>(
+  options: RenderActionBarOptions<TAction>,
+): string {
   return renderActionBarModel(options).content;
 }

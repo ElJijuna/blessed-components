@@ -42,6 +42,7 @@ export * from './blessed/dropdown-menu.js';
 export * from './blessed/empty-state.js';
 export * from './blessed/error-state.js';
 export * from './blessed/file-tree.js';
+export * from './blessed/filter-bar.js';
 export * from './blessed/form.js';
 export * from './blessed/form-field.js';
 export * from './blessed/gauge.js';

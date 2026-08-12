@@ -633,6 +633,16 @@
       "import": "./dist/file-tree/index.js",
       "require": "./dist/file-tree/index.cjs"
     },
+    "./filter-bar/blessed": {
+      "types": "./dist/filter-bar/blessed.d.ts",
+      "import": "./dist/filter-bar/blessed.js",
+      "require": "./dist/filter-bar/blessed.cjs"
+    },
+    "./filter-bar": {
+      "types": "./dist/filter-bar/index.d.ts",
+      "import": "./dist/filter-bar/index.js",
+      "require": "./dist/filter-bar/index.cjs"
+    },
     "./form-field/blessed": {
       "types": "./dist/form-field/blessed.d.ts",
       "import": "./dist/form-field/blessed.js",
