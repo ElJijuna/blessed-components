@@ -167,6 +167,7 @@ import {
   stackedGauge,
   stat,
   status,
+  statusBar,
   stepIndicator,
   switchControl,
   tabList,
@@ -1787,6 +1788,32 @@ export const stories: readonly PreviewStory[] = [
           }
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'status-bar/application-footer',
+    title: 'StatusBar / Application Footer',
+    description: 'Persistent application footer with mode, message, and right-aligned context.',
+    mount(parent) {
+      return statusBar({
+        box: {
+          bottom: 1,
+          height: 1,
+          left: 2,
+          width: 70,
+        },
+        data: {
+          items: [
+            { label: 'NORMAL' },
+            { label: 'main', marker: '●', section: 'center' },
+            { detail: 'online', label: 'API', marker: '✓', section: 'right' },
+            { detail: '3 jobs', label: 'Queue', section: 'right' },
+          ],
+          message: 'Ready',
+          width: 70,
+        },
+        parent,
+      });
     },
   }),
   defineStory({

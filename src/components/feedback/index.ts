@@ -15,6 +15,7 @@ export * from './progress-stack/index.js';
 export * from './skeleton/index.js';
 export * from './spinner/index.js';
 export * from './status/index.js';
+export * from './status-bar/index.js';
 export * from './step-indicator/index.js';
 export * from './task-progress/index.js';
 export * from './toast/index.js';

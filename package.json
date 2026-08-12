@@ -1318,6 +1318,16 @@
       "import": "./dist/stat/index.js",
       "require": "./dist/stat/index.cjs"
     },
+    "./status-bar/blessed": {
+      "types": "./dist/status-bar/blessed.d.ts",
+      "import": "./dist/status-bar/blessed.js",
+      "require": "./dist/status-bar/blessed.cjs"
+    },
+    "./status-bar": {
+      "types": "./dist/status-bar/index.d.ts",
+      "import": "./dist/status-bar/index.js",
+      "require": "./dist/status-bar/index.cjs"
+    },
     "./status/blessed": {
       "types": "./dist/status/blessed.d.ts",
       "import": "./dist/status/blessed.js",

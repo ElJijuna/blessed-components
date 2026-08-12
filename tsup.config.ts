@@ -259,6 +259,8 @@ const entry = {
   'stacked-gauge/index': 'src/components/visualization/stacked-gauge/index.ts',
   'stat/blessed': 'src/adapters/blessed/stat.ts',
   'stat/index': 'src/components/data-display/stat/index.ts',
+  'status-bar/blessed': 'src/adapters/blessed/status-bar.ts',
+  'status-bar/index': 'src/components/feedback/status-bar/index.ts',
   'status/blessed': 'src/adapters/blessed/status.ts',
   'status/index': 'src/components/feedback/status/index.ts',
   'step-indicator/blessed': 'src/adapters/blessed/step-indicator.ts',

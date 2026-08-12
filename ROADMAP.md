@@ -655,6 +655,108 @@ library quality.
 | `CI Dashboard` | pipelines, jobs, duration, logs, artifacts |
 | `CommandCenter` | command palette, shortcuts, task runner |
 
+## New component backlog
+
+The current package already covers the original foundation. New components
+should now prioritize application ergonomics: command surfaces, filtering,
+status context, inspector workflows, and reusable panels that appear across
+real TUI applications.
+
+### Next application components
+
+These are the strongest candidates because they compose existing primitives
+without duplicating charts, tables, or low-level Blessed widgets.
+
+| Component | Purpose | Decision | Priority |
+| --- | --- | --- | --- |
+| `ActionBar` | Compact row of actions with labels, shortcuts, disabled state, and overflow handling. | Build next | P1 |
+| `StatusBar` | Persistent application footer for mode, selection, connection, task, and shortcut hints. | Build | P1 |
+| `FilterBar` | Render active filters, query state, clear/reset actions, and compact result metadata. | Build | P1 |
+| `Toolbar` | Horizontal command group for icon-like terminal actions, separators, and keyboard hints. | Build | P2 |
+| `CommandLog` | Structured history of executed actions with status, timestamps, and retry metadata. | Build | P2 |
+| `JobQueue` | Queue of background jobs with progress, cancellation, retry, and terminal-safe summaries. | Build | P2 |
+| `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Build | P2 |
+| `SelectionSummary` | Summarize selected rows/items and expose bulk action affordances. | Build | P2 |
+| `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Build | P2 |
+| `DetailsPanel` | Responsive master-detail side panel for selected collection items. | Build | P2 |
+
+### Extended candidate list
+
+These should enter only after the admission criteria are satisfied. Many may
+start as examples or documented patterns before becoming package components.
+
+| Category | Component | Purpose | Decision | Priority |
+| --- | --- | --- | --- | --- |
+| app-shell | `HeaderBar` | Application title, environment, active workspace, and primary status. | Research | P2 |
+| app-shell | `FooterBar` | Persistent footer for shortcuts, messages, and transient app state. | Research | P2 |
+| app-shell | `WorkspaceSwitcher` | Switch between named projects, clusters, databases, or sessions. | Research | P2 |
+| app-shell | `ModeIndicator` | Display current mode such as normal, insert, command, or visual. | Research | P3 |
+| app-shell | `CommandCenter` | Opinionated composition of palette, recent commands, help, and actions. | Pattern first | P3 |
+| app-shell | `DashboardGrid` | Higher-level responsive grid for metric panels and live widgets. | Pattern first | P3 |
+| navigation | `BreadcrumbBar` | Breadcrumb plus sibling navigation and contextual actions. | Research | P3 |
+| navigation | `StepperForm` | Multi-step form flow with validation and navigation controls. | Build | P2 |
+| navigation | `Wizard` | Modal or page-level guided flow with next/back/cancel contracts. | Build | P2 |
+| navigation | `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Research | P3 |
+| navigation | `HistoryList` | Back/forward stack viewer for navigable terminal apps. | Research | P3 |
+| navigation | `RecentItems` | Bounded recently opened resources with fuzzy labels. | Build | P3 |
+| input | `SearchBar` | Search field plus scope, submit, clear, and result count. | Build | P2 |
+| input | `FilterMenu` | Menu for composing boolean, enum, text, and range filters. | Build | P2 |
+| input | `SortMenu` | Sort fields and directions for tables and lists. | Build | P3 |
+| input | `ColumnPicker` | Toggle table column visibility and ordering. | Build | P3 |
+| input | `RangeInput` | Bounded min/max numeric pair with validation. | Build | P3 |
+| input | `TokenInput` | Enter, remove, and navigate compact tokens. | Research | P3 |
+| input | `TagInput` | Specialization of token input for labels and categorization. | Research | P3 |
+| input | `CommandInput` | Prompt-style command entry with suggestions and history. | Build | P2 |
+| data-display | `MetadataPanel` | Dense key-value sections with badges, links, and timestamps. | Build | P2 |
+| data-display | `ResourceHeader` | Name, type, status, tags, timestamps, and primary actions. | Build | P2 |
+| data-display | `SummaryStrip` | Compact sequence of stats or status chips. | Build | P2 |
+| data-display | `PropertyGrid` | Editable or read-only property list with grouped fields. | Research | P3 |
+| data-display | `ComparePanel` | Side-by-side comparison of structured metadata. | Research | P3 |
+| data-display | `VersionBadge` | Package/image/runtime version with channel and freshness state. | Research | P3 |
+| feedback | `InlineProgress` | Progress text intended to fit inside action bars and table rows. | Build | P2 |
+| feedback | `OperationStatus` | One operation's lifecycle: queued, running, succeeded, failed, retried. | Build | P2 |
+| feedback | `ErrorList` | Multiple validation or runtime errors with focusable locations. | Build | P2 |
+| feedback | `ValidationSummary` | Form-level errors grouped by field and severity. | Build | P2 |
+| feedback | `Banner` | Full-width persistent alert region for app-level state. | Build | P3 |
+| feedback | `SyncStatus` | Last sync, dirty state, conflicts, and retry affordance. | Research | P3 |
+| collections | `ResourceList` | Opinionated list for named resources with status, tags, and actions. | Pattern first | P2 |
+| collections | `CommandList` | Action list with shortcuts, grouping, disabled reasons, and search text. | Build | P2 |
+| collections | `IssueList` | Issue/task rows with priority, assignee, labels, and state. | Pattern first | P3 |
+| collections | `FileList` | Flat file list with size, modified date, git state, and selection. | Build | P2 |
+| collections | `KeyValueTable` | Table optimized for configuration and environment inspection. | Research | P3 |
+| collections | `AuditTrail` | Chronological actor/action feed with filters and retention. | Build | P3 |
+| developer-tools | `DiagnosticsPanel` | Problems, warnings, logs, and suggested actions in one view. | Build | P2 |
+| developer-tools | `TraceViewer` | Structured span/tree rendering for traces and timings. | Research | P3 |
+| developer-tools | `ProfilerPanel` | Render sampled timings, hotspots, and memory counters. | Research | P3 |
+| developer-tools | `PackageSummary` | Package metadata, scripts, dependency health, and versions. | Pattern first | P3 |
+| developer-tools | `PullRequestSummary` | PR metadata, checks, files, reviews, and mergeability. | Pattern first | P3 |
+| terminal | `TaskList` | Select and run defined tasks with status and shortcuts. | Build | P2 |
+| terminal | `SessionTabs` | Multiple terminal/process sessions with status and close behavior. | Research | P3 |
+| terminal | `OutputSearch` | Search controls and match navigation for terminal output panes. | Build | P2 |
+| terminal | `ProcessSummary` | Compact process group health, resource use, and exit status. | Build | P3 |
+| overlays | `Sheet` | Modal bottom or side sheet optimized for forms and actions. | Research | P3 |
+| overlays | `ActionSheet` | Compact modal action chooser for contextual commands. | Build | P2 |
+| overlays | `NotificationToast` | Opinionated transient notification with action and timeout controls. | Research | P3 |
+| overlays | `QuickOpen` | Resource opener combining recent items, search, and grouped results. | Build | P2 |
+
+### Immediate tracer bullet: ActionBar
+
+`ActionBar` is the next recommended implementation because it validates the
+new direction without requiring new infrastructure.
+
+Initial scope:
+
+1. Pure renderer for ordered actions with label, shortcut, disabled reason,
+   tone, selected index, separators, and width-aware overflow.
+2. Blessed adapter with keyboard navigation, Enter/Space activation, optional
+   mouse activation, disabled-state protection, and lifecycle cleanup.
+3. Public tests for width, truncation, disabled actions, overflow, keyboard
+   labels, ASCII/no-color output, and activation callbacks.
+4. Integration test proving focus, key handling, mouse opt-out, `setData`, and
+   `destroy`.
+5. Component gallery story showing normal, dense, overflow, and disabled
+   states.
+
 ## Recommended scope
 
 ### Release 0.1 — Display foundation
