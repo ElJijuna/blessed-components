@@ -103,6 +103,8 @@ const entry = {
   'dependency-tree/index': 'src/components/developer-tools/dependency-tree/index.ts',
   'description-list/blessed': 'src/adapters/blessed/description-list.ts',
   'description-list/index': 'src/components/data-display/description-list/index.ts',
+  'details-panel/blessed': 'src/adapters/blessed/details-panel.ts',
+  'details-panel/index': 'src/components/layout/details-panel/index.ts',
   'dialog/blessed': 'src/adapters/blessed/dialog.ts',
   'dialog/index': 'src/components/overlays/dialog/index.ts',
   'diff-view/blessed': 'src/adapters/blessed/diff-view.ts',

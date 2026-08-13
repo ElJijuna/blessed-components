@@ -11,6 +11,7 @@ export * from './card/index.js';
 export * from './center/index.js';
 export * from './cluster/index.js';
 export * from './collapsible/index.js';
+export * from './details-panel/index.js';
 export * from './divider/index.js';
 export * from './grid/index.js';
 export * from './page/index.js';

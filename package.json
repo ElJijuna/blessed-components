@@ -538,6 +538,16 @@
       "import": "./dist/description-list/index.js",
       "require": "./dist/description-list/index.cjs"
     },
+    "./details-panel/blessed": {
+      "types": "./dist/details-panel/blessed.d.ts",
+      "import": "./dist/details-panel/blessed.js",
+      "require": "./dist/details-panel/blessed.cjs"
+    },
+    "./details-panel": {
+      "types": "./dist/details-panel/index.d.ts",
+      "import": "./dist/details-panel/index.js",
+      "require": "./dist/details-panel/index.cjs"
+    },
     "./dialog/blessed": {
       "types": "./dist/dialog/blessed.d.ts",
       "import": "./dist/dialog/blessed.js",

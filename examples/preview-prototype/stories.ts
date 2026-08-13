@@ -35,6 +35,7 @@ import {
   connectionStatus,
   dataTable,
   descriptionList,
+  detailsPanel,
   dialogBody,
   dialogContent,
   dialogDescription,
@@ -1922,6 +1923,27 @@ export const stories: readonly PreviewStory[] = [
           message: 'Ready',
           width: 70,
         },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'details-panel/service-details',
+    title: 'DetailsPanel / Service Details',
+    description: 'Responsive master-detail layout that switches to detail-only on narrow screens.',
+    mount(parent) {
+      return detailsPanel({
+        box: { height: 12, left: 2, top: 1, width: 72 },
+        data: {
+          detailContent:
+            'API Service\n\nStatus: healthy\nReplicas: 3/3\nLatency: 24ms\n\nEsc  Back',
+          gap: 2,
+          masterContent: 'Services\n\n> API\n  Queue\n  Search\n  Cache',
+          masterWidth: 20,
+          selectedId: 'api',
+        },
+        detail: { border: 'line', label: ' Details ' },
+        master: { border: 'line', label: ' Services ' },
         parent,
       });
     },
