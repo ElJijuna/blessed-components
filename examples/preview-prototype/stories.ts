@@ -199,6 +199,7 @@ import {
   trend,
   viewport,
   virtualList,
+  workspaceSwitcher,
 } from '@/index.js';
 
 import { defineStory, type PreviewStory } from './story.js';
@@ -1877,6 +1878,34 @@ export const stories: readonly PreviewStory[] = [
           noun: 'row',
           selectedCount: 3,
           totalCount: 12,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'workspace-switcher/environments',
+    title: 'WorkspaceSwitcher / Environments',
+    description: 'Searchable workspace selection with environment and status metadata.',
+    mount(parent) {
+      return workspaceSwitcher({
+        box: {
+          border: 'line',
+          height: 9,
+          label: ' Workspaces ',
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 58,
+        },
+        data: {
+          defaultValue: 'payments',
+          items: [
+            { environment: 'production', id: 'payments', label: 'Payments', status: 'online' },
+            { environment: 'staging', id: 'search', label: 'Search', status: 'degraded' },
+            { environment: 'production', id: 'analytics', label: 'Analytics', status: 'online' },
+            { disabled: true, environment: 'archived', id: 'legacy', label: 'Legacy API' },
+          ],
         },
         parent,
       });

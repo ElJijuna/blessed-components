@@ -333,6 +333,8 @@ const entry = {
   'virtual-list/index': 'src/components/collections/virtual-list/index.ts',
   'virtual-table/index': 'src/components/collections/virtual-table/index.ts',
   'waterfall-chart/index': 'src/components/visualization/waterfall-chart/index.ts',
+  'workspace-switcher/blessed': 'src/adapters/blessed/workspace-switcher.ts',
+  'workspace-switcher/index': 'src/components/navigation/workspace-switcher/index.ts',
 };
 const entryChunks = Array.from(
   { length: Math.ceil(Object.entries(entry).length / 35) },

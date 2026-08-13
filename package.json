@@ -1687,6 +1687,16 @@
       "types": "./dist/waterfall-chart/index.d.ts",
       "import": "./dist/waterfall-chart/index.js",
       "require": "./dist/waterfall-chart/index.cjs"
+    },
+    "./workspace-switcher/blessed": {
+      "types": "./dist/workspace-switcher/blessed.d.ts",
+      "import": "./dist/workspace-switcher/blessed.js",
+      "require": "./dist/workspace-switcher/blessed.cjs"
+    },
+    "./workspace-switcher": {
+      "types": "./dist/workspace-switcher/index.d.ts",
+      "import": "./dist/workspace-switcher/index.js",
+      "require": "./dist/workspace-switcher/index.cjs"
     }
   },
   "files": [

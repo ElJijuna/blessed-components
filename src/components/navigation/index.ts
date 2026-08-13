@@ -24,3 +24,4 @@ export * from './selection-summary/index.js';
 export * from './tab-list/index.js';
 export * from './tabs/index.js';
 export * from './toolbar/index.js';
+export * from './workspace-switcher/index.js';
