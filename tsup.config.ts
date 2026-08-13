@@ -86,6 +86,8 @@ const entry = {
   'combobox/index': 'src/components/input/combobox/index.ts',
   'command-center/blessed': 'src/adapters/blessed/command-center.ts',
   'command-center/index': 'src/components/navigation/command-center/index.ts',
+  'command-input/blessed': 'src/adapters/blessed/command-input.ts',
+  'command-input/index': 'src/components/input/command-input/index.ts',
   'command-log/blessed': 'src/adapters/blessed/command-log.ts',
   'command-log/index': 'src/components/developer-tools/command-log/index.ts',
   'command-output/index': 'src/components/developer-tools/command-output/index.ts',

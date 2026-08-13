@@ -3,6 +3,7 @@ export * from './autocomplete/index.js';
 export * from './button/index.js';
 export * from './checkbox/index.js';
 export * from './combobox/index.js';
+export * from './command-input/index.js';
 export * from './date-input/index.js';
 export * from './file-picker/index.js';
 export * from './form/index.js';

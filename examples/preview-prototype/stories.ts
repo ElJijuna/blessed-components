@@ -31,6 +31,7 @@ import {
   colorSwatch,
   combobox,
   commandCenter,
+  commandInput,
   commandPalette,
   confirmDialog,
   connectionStatus,
@@ -1881,6 +1882,41 @@ export const stories: readonly PreviewStory[] = [
           noun: 'row',
           selectedCount: 3,
           totalCount: 12,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'command-input/suggestions-and-history',
+    title: 'CommandInput / Suggestions and History',
+    description:
+      'Prompt-style command entry with completion suggestions, history, and execution state.',
+    mount(parent) {
+      return commandInput({
+        box: {
+          border: 'line',
+          height: 8,
+          label: ' Command ',
+          left: 4,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 66,
+        },
+        data: {
+          defaultValue: 'dep',
+          history: ['status', 'logs --follow', 'deploy staging'],
+          suggestions: [
+            { description: 'Deploy to production', id: 'deploy-prod', value: 'deploy production' },
+            { description: 'Deploy to staging', id: 'deploy-staging', value: 'deploy staging' },
+            { id: 'status', value: 'status' },
+            {
+              disabled: true,
+              description: 'No previous release',
+              id: 'rollback',
+              value: 'rollback',
+            },
+          ],
         },
         parent,
       });

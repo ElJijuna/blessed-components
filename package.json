@@ -453,6 +453,16 @@
       "import": "./dist/command-center/index.js",
       "require": "./dist/command-center/index.cjs"
     },
+    "./command-input/blessed": {
+      "types": "./dist/command-input/blessed.d.ts",
+      "import": "./dist/command-input/blessed.js",
+      "require": "./dist/command-input/blessed.cjs"
+    },
+    "./command-input": {
+      "types": "./dist/command-input/index.d.ts",
+      "import": "./dist/command-input/index.js",
+      "require": "./dist/command-input/index.cjs"
+    },
     "./command-log/blessed": {
       "types": "./dist/command-log/blessed.d.ts",
       "import": "./dist/command-log/blessed.js",

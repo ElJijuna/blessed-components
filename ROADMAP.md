@@ -708,7 +708,7 @@ start as examples or documented patterns before becoming package components.
 | input | [ ] `RangeInput` | Bounded min/max numeric pair with validation. | Build | P3 |
 | input | [ ] `TokenInput` | Enter, remove, and navigate compact tokens. | Research | P3 |
 | input | [ ] `TagInput` | Specialization of token input for labels and categorization. | Research | P3 |
-| input | [ ] `CommandInput` | Prompt-style command entry with suggestions and history. | Build | P2 |
+| input | [x] `CommandInput` | Prompt-style command entry with suggestions and history. | Available | P2 |
 | data-display | [ ] `MetadataPanel` | Dense key-value sections with badges, links, and timestamps. | Build | P2 |
 | data-display | [ ] `ResourceHeader` | Name, type, status, tags, timestamps, and primary actions. | Build | P2 |
 | data-display | [ ] `SummaryStrip` | Compact sequence of stats or status chips. | Build | P2 |
