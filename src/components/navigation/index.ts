@@ -11,6 +11,7 @@ export * from './command-palette/index.js';
 export * from './context-menu/index.js';
 export * from './dropdown-menu/index.js';
 export * from './filter-bar/index.js';
+export * from './header-bar/index.js';
 export * from './help-overlay/index.js';
 export * from './keymap-help/index.js';
 export * from './menu/index.js';

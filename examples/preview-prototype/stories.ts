@@ -60,6 +60,7 @@ import {
   gauge,
   grid,
   groupedList,
+  headerBar,
   heading,
   healthIndicator,
   helpOverlay,
@@ -1876,6 +1877,28 @@ export const stories: readonly PreviewStory[] = [
           noun: 'row',
           selectedCount: 3,
           totalCount: 12,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'header-bar/application-context',
+    title: 'HeaderBar / Application Context',
+    description: 'Application identity, workspace, environment, status, and contextual actions.',
+    mount(parent) {
+      return headerBar({
+        box: { left: 2, top: 1, width: 72 },
+        data: {
+          actions: [
+            { id: 'refresh', label: 'Refresh', shortcut: 'R' },
+            { id: 'settings', label: 'Settings', shortcut: ',' },
+          ],
+          environment: 'production',
+          status: { label: 'online', marker: '●' },
+          title: 'Operations Console',
+          width: 72,
+          workspace: 'payments',
         },
         parent,
       });

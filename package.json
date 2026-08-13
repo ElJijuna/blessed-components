@@ -733,6 +733,16 @@
       "import": "./dist/grouped-list/index.js",
       "require": "./dist/grouped-list/index.cjs"
     },
+    "./header-bar/blessed": {
+      "types": "./dist/header-bar/blessed.d.ts",
+      "import": "./dist/header-bar/blessed.js",
+      "require": "./dist/header-bar/blessed.cjs"
+    },
+    "./header-bar": {
+      "types": "./dist/header-bar/index.d.ts",
+      "import": "./dist/header-bar/index.js",
+      "require": "./dist/header-bar/index.cjs"
+    },
     "./heading/blessed": {
       "types": "./dist/heading/blessed.d.ts",
       "import": "./dist/heading/blessed.js",

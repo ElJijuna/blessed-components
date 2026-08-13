@@ -142,6 +142,8 @@ const entry = {
   'grid/index': 'src/components/layout/grid/index.ts',
   'grouped-list/blessed': 'src/adapters/blessed/grouped-list.ts',
   'grouped-list/index': 'src/components/collections/grouped-list/index.ts',
+  'header-bar/blessed': 'src/adapters/blessed/header-bar.ts',
+  'header-bar/index': 'src/components/navigation/header-bar/index.ts',
   'heading/blessed': 'src/adapters/blessed/heading.ts',
   'heading/index': 'src/components/data-display/heading/index.ts',
   'health-indicator/blessed': 'src/adapters/blessed/health-indicator.ts',
