@@ -692,7 +692,7 @@ start as examples or documented patterns before becoming package components.
 | app-shell | [x] `HeaderBar` | Application title, environment, active workspace, and primary status. | Available | P2 |
 | app-shell | [x] `FooterBar` | Persistent footer for shortcuts, messages, and transient app state. | Available | P2 |
 | app-shell | [x] `WorkspaceSwitcher` | Switch between named projects, clusters, databases, or sessions. | Available | P2 |
-| app-shell | [ ] `ModeIndicator` | Display current mode such as normal, insert, command, or visual. | Research | P3 |
+| app-shell | [x] `ModeIndicator` | Display current mode such as normal, insert, command, or visual. | Available | P3 |
 | app-shell | [ ] `CommandCenter` | Opinionated composition of palette, recent commands, help, and actions. | Pattern first | P3 |
 | app-shell | [ ] `DashboardGrid` | Higher-level responsive grid for metric panels and live widgets. | Pattern first | P3 |
 | navigation | [ ] `BreadcrumbBar` | Breadcrumb plus sibling navigation and contextual actions. | Research | P3 |

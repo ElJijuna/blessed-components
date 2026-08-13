@@ -84,6 +84,7 @@ import {
   menu,
   menuBar,
   metricBars,
+  modeIndicator,
   multiSelect,
   multiSparkline,
   mutedText,
@@ -1881,6 +1882,43 @@ export const stories: readonly PreviewStory[] = [
         },
         parent,
       });
+    },
+  }),
+  defineStory({
+    id: 'mode-indicator/editor-modes',
+    title: 'ModeIndicator / Editor Modes',
+    description: 'Compact current-mode display with modified state, detail, and exit shortcut.',
+    mount(parent) {
+      const indicators = [
+        modeIndicator({ box: { left: 3, top: 2, width: 36 }, data: { mode: 'normal' }, parent }),
+        modeIndicator({
+          box: { left: 3, top: 4, width: 36 },
+          data: { detail: 'editing', mode: 'insert', shortcut: 'Esc' },
+          parent,
+        }),
+        modeIndicator({
+          box: { left: 3, top: 6, width: 36 },
+          data: { detail: '3 lines', mode: 'visual', modified: true, shortcut: 'Esc' },
+          parent,
+        }),
+        modeIndicator({
+          box: { left: 3, top: 8, width: 36 },
+          data: {
+            capabilities: { colorLevel: 0, unicode: false },
+            mode: 'command',
+            modified: true,
+          },
+          parent,
+        }),
+      ];
+
+      return {
+        destroy() {
+          for (const indicator of indicators) {
+            indicator.destroy();
+          }
+        },
+      };
     },
   }),
   defineStory({

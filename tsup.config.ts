@@ -195,6 +195,8 @@ const entry = {
   'menu/index': 'src/components/navigation/menu/index.ts',
   'metric-bars/blessed': 'src/adapters/blessed/metric-bars.ts',
   'metric-bars/index': 'src/components/visualization/metric-bars/index.ts',
+  'mode-indicator/blessed': 'src/adapters/blessed/mode-indicator.ts',
+  'mode-indicator/index': 'src/components/feedback/mode-indicator/index.ts',
   'multi-select/blessed': 'src/adapters/blessed/multi-select.ts',
   'multi-select/index': 'src/components/input/multi-select/index.ts',
   'multi-sparkline/blessed': 'src/adapters/blessed/multi-sparkline.ts',

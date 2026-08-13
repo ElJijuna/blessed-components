@@ -998,6 +998,16 @@
       "import": "./dist/metric-bars/index.js",
       "require": "./dist/metric-bars/index.cjs"
     },
+    "./mode-indicator/blessed": {
+      "types": "./dist/mode-indicator/blessed.d.ts",
+      "import": "./dist/mode-indicator/blessed.js",
+      "require": "./dist/mode-indicator/blessed.cjs"
+    },
+    "./mode-indicator": {
+      "types": "./dist/mode-indicator/index.d.ts",
+      "import": "./dist/mode-indicator/index.js",
+      "require": "./dist/mode-indicator/index.cjs"
+    },
     "./multi-select/blessed": {
       "types": "./dist/multi-select/blessed.d.ts",
       "import": "./dist/multi-select/blessed.js",

@@ -9,6 +9,7 @@ export * from './error-state/index.js';
 export * from './footer-bar/index.js';
 export * from './health-indicator/index.js';
 export * from './loading-overlay/index.js';
+export * from './mode-indicator/index.js';
 export * from './notification-center/index.js';
 export * from './progress-bar/index.js';
 export * from './progress-list/index.js';

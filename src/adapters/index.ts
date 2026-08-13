@@ -75,6 +75,7 @@ export * from './blessed/log-viewer.js';
 export * from './blessed/menu.js';
 export * from './blessed/menu-bar.js';
 export * from './blessed/metric-bars.js';
+export * from './blessed/mode-indicator.js';
 export * from './blessed/multi-select.js';
 export * from './blessed/multi-sparkline.js';
 export * from './blessed/muted-text.js';
