@@ -34,6 +34,7 @@ export * from './blessed/command-log.js';
 export * from './blessed/command-palette.js';
 export * from './blessed/confirm-dialog.js';
 export * from './blessed/connection-status.js';
+export * from './blessed/dashboard-grid.js';
 export * from './blessed/data-table.js';
 export * from './blessed/description-list.js';
 export * from './blessed/details-panel.js';

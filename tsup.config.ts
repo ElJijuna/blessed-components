@@ -98,6 +98,8 @@ const entry = {
   'connection-status/index': 'src/components/feedback/connection-status/index.ts',
   'context-menu/index': 'src/components/navigation/context-menu/index.ts',
   'countdown/index': 'src/components/scheduling/countdown/index.ts',
+  'dashboard-grid/blessed': 'src/adapters/blessed/dashboard-grid.ts',
+  'dashboard-grid/index': 'src/components/layout/dashboard-grid/index.ts',
   'data-table/blessed': 'src/adapters/blessed/data-table.ts',
   'data-table/index': 'src/components/collections/data-table/index.ts',
   'date-input/index': 'src/components/input/date-input/index.ts',

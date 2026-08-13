@@ -513,6 +513,16 @@
       "import": "./dist/countdown/index.js",
       "require": "./dist/countdown/index.cjs"
     },
+    "./dashboard-grid/blessed": {
+      "types": "./dist/dashboard-grid/blessed.d.ts",
+      "import": "./dist/dashboard-grid/blessed.js",
+      "require": "./dist/dashboard-grid/blessed.cjs"
+    },
+    "./dashboard-grid": {
+      "types": "./dist/dashboard-grid/index.d.ts",
+      "import": "./dist/dashboard-grid/index.js",
+      "require": "./dist/dashboard-grid/index.cjs"
+    },
     "./data-table/blessed": {
       "types": "./dist/data-table/blessed.d.ts",
       "import": "./dist/data-table/blessed.js",

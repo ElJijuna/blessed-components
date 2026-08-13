@@ -34,6 +34,7 @@ import {
   commandPalette,
   confirmDialog,
   connectionStatus,
+  dashboardGrid,
   dataTable,
   descriptionList,
   detailsPanel,
@@ -1883,6 +1884,47 @@ export const stories: readonly PreviewStory[] = [
         },
         parent,
       });
+    },
+  }),
+  defineStory({
+    id: 'dashboard-grid/operations-overview',
+    title: 'DashboardGrid / Operations Overview',
+    description: 'Responsive dashboard widgets with automatic columns, gaps, and spans.',
+    mount(parent) {
+      const dashboard = dashboardGrid({
+        box: { height: 16, left: 2, top: 1, width: 72 },
+        data: {
+          items: [
+            { columnSpan: 2, id: 'health' },
+            { id: 'cpu' },
+            { id: 'memory' },
+            { columnSpan: 2, id: 'logs' },
+          ],
+          rowHeight: 4,
+        },
+        parent,
+        slots: {
+          cpu: { border: 'line', label: ' CPU ' },
+          health: { border: 'line', label: ' Health ' },
+          logs: { border: 'line', label: ' Logs ' },
+          memory: { border: 'line', label: ' Memory ' },
+        },
+      });
+
+      for (const [id, slot] of dashboard.slots) {
+        const content = {
+          cpu: 'CPU\n18%',
+          health: 'Services\nAPI healthy · Queue healthy',
+          logs: '10:00 deploy complete\n10:01 health checks passed',
+          memory: 'Memory\n242 MB',
+        }[id];
+
+        if (content !== undefined) {
+          slot.setContent(content);
+        }
+      }
+
+      return dashboard;
     },
   }),
   defineStory({
