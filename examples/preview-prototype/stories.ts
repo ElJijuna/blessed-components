@@ -66,6 +66,7 @@ import {
   histogram,
   iconButton,
   inspector,
+  inspectorPanel,
   jobQueue,
   jsonViewer,
   kbd,
@@ -4044,6 +4045,55 @@ export const stories: readonly PreviewStory[] = [
         label: 'EventLog',
         top: 1,
         width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'inspector-panel/service-inspector',
+    title: 'InspectorPanel / Service Inspector',
+    description: 'Opinionated inspection surface with metadata, tabs, content, and actions.',
+    mount(parent) {
+      return inspectorPanel({
+        box: {
+          border: 'line',
+          height: 13,
+          label: ' Inspector ',
+          left: 2,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 72,
+        },
+        data: {
+          actions: [
+            { id: 'refresh', label: 'Refresh', shortcut: 'R' },
+            { id: 'restart', label: 'Restart', shortcut: 'S', tone: 'danger' },
+          ],
+          metadata: [
+            { key: 'Status', value: 'healthy' },
+            { key: 'Region', value: 'us-east-1' },
+            { key: 'Replicas', value: '3/3' },
+          ],
+          subtitle: 'production',
+          tabs: [
+            {
+              content: '{\n  "name": "api",\n  "port": 3000,\n  "healthy": true\n}',
+              id: 'json',
+              label: 'JSON',
+            },
+            {
+              content: '10:00 started\n10:01 health check passed\n10:02 request p95 24ms',
+              id: 'logs',
+              label: 'Logs',
+            },
+            {
+              content: 'CPU 18%\nMemory 242 MB\nRequests 1.2k/min',
+              id: 'metrics',
+              label: 'Metrics',
+            },
+          ],
+          title: 'API Service',
+        },
+        parent,
       });
     },
   }),

@@ -798,6 +798,16 @@
       "import": "./dist/image/index.js",
       "require": "./dist/image/index.cjs"
     },
+    "./inspector-panel/blessed": {
+      "types": "./dist/inspector-panel/blessed.d.ts",
+      "import": "./dist/inspector-panel/blessed.js",
+      "require": "./dist/inspector-panel/blessed.cjs"
+    },
+    "./inspector-panel": {
+      "types": "./dist/inspector-panel/index.d.ts",
+      "import": "./dist/inspector-panel/index.js",
+      "require": "./dist/inspector-panel/index.cjs"
+    },
     "./inspector/blessed": {
       "types": "./dist/inspector/blessed.d.ts",
       "import": "./dist/inspector/blessed.js",

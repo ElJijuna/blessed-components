@@ -155,6 +155,8 @@ const entry = {
   'icon-button/blessed': 'src/adapters/blessed/icon-button.ts',
   'icon-button/index': 'src/components/input/icon-button/index.ts',
   'image/index': 'src/components/content/image/index.ts',
+  'inspector-panel/blessed': 'src/adapters/blessed/inspector-panel.ts',
+  'inspector-panel/index': 'src/components/developer-tools/inspector-panel/index.ts',
   'inspector/blessed': 'src/adapters/blessed/inspector.ts',
   'inspector/index': 'src/components/collections/inspector/index.ts',
   'job-queue/blessed': 'src/adapters/blessed/job-queue.ts',

@@ -679,7 +679,7 @@ without duplicating charts, tables, or low-level Blessed widgets.
 | [x] `JobQueue` | Queue of background jobs with progress, cancellation, retry, and terminal-safe summaries. | Available | P2 |
 | [ ] `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Build | P2 |
 | [x] `SelectionSummary` | Summarize selected rows/items and expose bulk action affordances. | Available | P2 |
-| [ ] `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Build | P2 |
+| [x] `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Available | P2 |
 | [x] `DetailsPanel` | Responsive master-detail side panel for selected collection items. | Available | P2 |
 
 ### Extended candidate list

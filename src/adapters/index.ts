@@ -57,6 +57,7 @@ export * from './blessed/help-overlay.js';
 export * from './blessed/histogram.js';
 export * from './blessed/icon-button.js';
 export * from './blessed/inspector.js';
+export * from './blessed/inspector-panel.js';
 export * from './blessed/job-queue.js';
 export * from './blessed/json-viewer.js';
 export * from './blessed/kbd.js';
