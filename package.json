@@ -1238,6 +1238,16 @@
       "import": "./dist/select/index.js",
       "require": "./dist/select/index.cjs"
     },
+    "./selection-summary/blessed": {
+      "types": "./dist/selection-summary/blessed.d.ts",
+      "import": "./dist/selection-summary/blessed.js",
+      "require": "./dist/selection-summary/blessed.cjs"
+    },
+    "./selection-summary": {
+      "types": "./dist/selection-summary/index.d.ts",
+      "import": "./dist/selection-summary/index.js",
+      "require": "./dist/selection-summary/index.cjs"
+    },
     "./shell-history": {
       "types": "./dist/shell-history/index.d.ts",
       "import": "./dist/shell-history/index.js",

@@ -161,6 +161,7 @@ import {
   scrollArea,
   searchField,
   select,
+  selectionSummary,
   sidebarLayout,
   slider,
   spacer,
@@ -1849,6 +1850,28 @@ export const stories: readonly PreviewStory[] = [
             { disabled: true, disabledReason: 'No failed job', id: 'retry', label: 'Retry' },
             { id: 'logs', label: 'Open logs', shortcut: 'L' },
           ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'selection-summary/bulk-actions',
+    title: 'SelectionSummary / Bulk Actions',
+    description: 'Selected-row context with keyboard-accessible bulk action affordances.',
+    mount(parent) {
+      return selectionSummary({
+        box: { height: 1, left: 3, top: 3, width: 72 },
+        data: {
+          actions: [
+            { id: 'export', label: 'Export', shortcut: 'E' },
+            { id: 'archive', label: 'Archive', shortcut: 'A' },
+            { id: 'delete', label: 'Delete', shortcut: 'D', tone: 'danger' },
+          ],
+          detail: '2 hidden by filter',
+          noun: 'row',
+          selectedCount: 3,
+          totalCount: 12,
         },
         parent,
       });

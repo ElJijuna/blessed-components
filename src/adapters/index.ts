@@ -91,6 +91,7 @@ export * from './blessed/radio-group.js';
 export * from './blessed/scroll-area.js';
 export * from './blessed/search-field.js';
 export * from './blessed/select.js';
+export * from './blessed/selection-summary.js';
 export * from './blessed/sidebar-layout.js';
 export * from './blessed/slider.js';
 export * from './blessed/spacer.js';

@@ -243,6 +243,8 @@ const entry = {
   'search-field/index': 'src/components/input/search-field/index.ts',
   'select/blessed': 'src/adapters/blessed/select.ts',
   'select/index': 'src/components/input/select/index.ts',
+  'selection-summary/blessed': 'src/adapters/blessed/selection-summary.ts',
+  'selection-summary/index': 'src/components/navigation/selection-summary/index.ts',
   'shell-history/index': 'src/components/terminal/shell-history/index.ts',
   'shortcut-recorder/index': 'src/components/developer-tools/shortcut-recorder/index.ts',
   'sidebar-layout/blessed': 'src/adapters/blessed/sidebar-layout.ts',
