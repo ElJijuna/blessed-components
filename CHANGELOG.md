@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.20.0](https://github.com/ElJijuna/blessed-components/compare/v1.19.0...v1.20.0) (2026-08-13)
+
+### Features
+
+* add command-center component with keyboard and mouse controls, including tests and documentation ([dfa81c8](https://github.com/ElJijuna/blessed-components/commit/dfa81c8229e7afdd67e2fceebde79ed1f7abaaf8))
+* add dashboard-grid component with keyboard and mouse controls, including tests and documentation ([14b439c](https://github.com/ElJijuna/blessed-components/commit/14b439ca98c255144dba950becc9da4dd54b41c3))
+* add details-panel component with keyboard and mouse controls, including tests and documentation ([19b29f7](https://github.com/ElJijuna/blessed-components/commit/19b29f79e5b2443716a39e382d62564bcb21b031))
+* add footer-bar component with keyboard and mouse controls, including tests and documentation ([77e6861](https://github.com/ElJijuna/blessed-components/commit/77e6861acd89c52a4c2d1c1d606c837620d86560))
+* add header-bar component with keyboard and mouse controls, including tests and documentation ([f3f0c48](https://github.com/ElJijuna/blessed-components/commit/f3f0c485a5f6dd96e0eb1bffeb0e7f15bded782d))
+* add inspector-panel component with keyboard and mouse controls, including tests and documentation ([01c2bfc](https://github.com/ElJijuna/blessed-components/commit/01c2bfcc80512ae47ed0d6cec7d9c46874a322bd))
+* add job-queue component with keyboard and mouse controls, including tests and documentation ([c1c72d7](https://github.com/ElJijuna/blessed-components/commit/c1c72d7a215ebc6a293b37255b0249fd535db9cc))
+* add keymap-help component with keyboard and mouse controls, including tests and documentation ([805ea99](https://github.com/ElJijuna/blessed-components/commit/805ea992dc6f87feafd824097edf0d9b61a1a8a5))
+* add mode-indicator component with keyboard and mouse controls, including tests and documentation ([57567cc](https://github.com/ElJijuna/blessed-components/commit/57567cc714a2f34d9a70dcb3cc16dfa3c6a38578))
+* add selection-summary component with keyboard and mouse controls, including tests and documentation ([86df219](https://github.com/ElJijuna/blessed-components/commit/86df219f1522ef21b13b343a9a565383f942264f))
+* add workspace-switcher component with keyboard and mouse controls, including tests and documentation ([993e2c3](https://github.com/ElJijuna/blessed-components/commit/993e2c39fa372651923f356c20cef4118c7d38da))
+
 ## [1.19.0](https://github.com/ElJijuna/blessed-components/compare/v1.18.0...v1.19.0) (2026-08-13)
 
 ### Features
