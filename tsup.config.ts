@@ -169,6 +169,8 @@ const entry = {
   'key-value/index': 'src/components/data-display/key-value/index.ts',
   'keybinding-input/blessed': 'src/adapters/blessed/keybinding-input.ts',
   'keybinding-input/index': 'src/components/input/keybinding-input/index.ts',
+  'keymap-help/blessed': 'src/adapters/blessed/keymap-help.ts',
+  'keymap-help/index': 'src/components/navigation/keymap-help/index.ts',
   'label/blessed': 'src/adapters/blessed/label.ts',
   'label/index': 'src/components/data-display/label/index.ts',
   'legend/blessed': 'src/adapters/blessed/legend.ts',

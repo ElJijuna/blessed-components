@@ -868,6 +868,16 @@
       "import": "./dist/keybinding-input/index.js",
       "require": "./dist/keybinding-input/index.cjs"
     },
+    "./keymap-help/blessed": {
+      "types": "./dist/keymap-help/blessed.d.ts",
+      "import": "./dist/keymap-help/blessed.js",
+      "require": "./dist/keymap-help/blessed.cjs"
+    },
+    "./keymap-help": {
+      "types": "./dist/keymap-help/index.d.ts",
+      "import": "./dist/keymap-help/index.js",
+      "require": "./dist/keymap-help/index.cjs"
+    },
     "./label/blessed": {
       "types": "./dist/label/blessed.d.ts",
       "import": "./dist/label/blessed.js",

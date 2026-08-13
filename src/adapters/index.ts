@@ -63,6 +63,7 @@ export * from './blessed/json-viewer.js';
 export * from './blessed/kbd.js';
 export * from './blessed/key-value.js';
 export * from './blessed/keybinding-input.js';
+export * from './blessed/keymap-help.js';
 export * from './blessed/label.js';
 export * from './blessed/legend.js';
 export * from './blessed/link.js';

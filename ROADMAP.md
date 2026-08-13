@@ -677,7 +677,7 @@ without duplicating charts, tables, or low-level Blessed widgets.
 | [x] `Toolbar` | Horizontal command group for icon-like terminal actions, separators, and keyboard hints. | Available | P2 |
 | [x] `CommandLog` | Structured history of executed actions with status, timestamps, and retry metadata. | Available | P2 |
 | [x] `JobQueue` | Queue of background jobs with progress, cancellation, retry, and terminal-safe summaries. | Available | P2 |
-| [ ] `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Build | P2 |
+| [x] `KeymapHelp` | Render registered keymaps grouped by scope with conflicts and disabled commands. | Available | P2 |
 | [x] `SelectionSummary` | Summarize selected rows/items and expose bulk action affordances. | Available | P2 |
 | [x] `InspectorPanel` | Opinionated panel combining heading, metadata, tabs, JSON, logs, and actions. | Available | P2 |
 | [x] `DetailsPanel` | Responsive master-detail side panel for selected collection items. | Available | P2 |

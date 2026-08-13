@@ -71,6 +71,7 @@ import {
   jsonViewer,
   kbd,
   keybindingInput,
+  keymapHelp,
   keyValue,
   label,
   legend,
@@ -4045,6 +4046,51 @@ export const stories: readonly PreviewStory[] = [
         label: 'EventLog',
         top: 1,
         width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'keymap-help/scopes-and-conflicts',
+    title: 'KeymapHelp / Scopes and Conflicts',
+    description: 'Registered commands grouped by scope with conflicts and disabled state.',
+    mount(parent) {
+      return keymapHelp({
+        box: {
+          border: 'line',
+          height: 12,
+          label: ' Keymap ',
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 66,
+        },
+        data: {
+          commands: [
+            {
+              description: 'Open command palette',
+              id: 'palette',
+              keys: ['C-p'],
+              scope: 'Application',
+            },
+            {
+              description: 'Quit application',
+              id: 'quit',
+              keys: ['q', 'C-c'],
+              scope: 'Application',
+            },
+            { description: 'Save current file', id: 'save', keys: ['C-s'], scope: 'Editor' },
+            { description: 'Sync current file', id: 'sync', keys: ['C-s'], scope: 'Editor' },
+            {
+              description: 'Follow streaming logs',
+              disabled: true,
+              disabledReason: 'Stream paused',
+              id: 'follow',
+              keys: ['f'],
+              scope: 'Logs',
+            },
+          ],
+        },
+        parent,
       });
     },
   }),
