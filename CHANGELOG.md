@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.19.0](https://github.com/ElJijuna/blessed-components/compare/v1.18.0...v1.19.0) (2026-08-13)
+
+### Features
+
+* add command-log component with keyboard and mouse controls, including tests and documentation ([3649ed1](https://github.com/ElJijuna/blessed-components/commit/3649ed1163959aec0ad4301364facc05a33c3164))
+
 ## [1.18.0](https://github.com/ElJijuna/blessed-components/compare/v1.17.0...v1.18.0) (2026-08-12)
 
 ### Features
