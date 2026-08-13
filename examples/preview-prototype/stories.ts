@@ -53,6 +53,7 @@ import {
   errorState,
   fileTree,
   filterBar,
+  footerBar,
   form,
   formField,
   gauge,
@@ -1872,6 +1873,28 @@ export const stories: readonly PreviewStory[] = [
           noun: 'row',
           selectedCount: 3,
           totalCount: 12,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'footer-bar/shortcuts-and-state',
+    title: 'FooterBar / Shortcuts and State',
+    description: 'Persistent application guidance with transient state and responsive shortcuts.',
+    mount(parent) {
+      return footerBar({
+        box: { bottom: 1, left: 2, width: 72 },
+        data: {
+          context: '3 rows selected',
+          message: 'Changes saved',
+          shortcuts: [
+            { key: 'Esc', label: 'clear' },
+            { key: 'E', label: 'export' },
+            { key: '?', label: 'help' },
+          ],
+          tone: 'success',
+          width: 72,
         },
         parent,
       });

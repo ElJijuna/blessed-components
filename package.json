@@ -653,6 +653,16 @@
       "import": "./dist/filter-bar/index.js",
       "require": "./dist/filter-bar/index.cjs"
     },
+    "./footer-bar/blessed": {
+      "types": "./dist/footer-bar/blessed.d.ts",
+      "import": "./dist/footer-bar/blessed.js",
+      "require": "./dist/footer-bar/blessed.cjs"
+    },
+    "./footer-bar": {
+      "types": "./dist/footer-bar/index.d.ts",
+      "import": "./dist/footer-bar/index.js",
+      "require": "./dist/footer-bar/index.cjs"
+    },
     "./form-field/blessed": {
       "types": "./dist/form-field/blessed.d.ts",
       "import": "./dist/form-field/blessed.js",
