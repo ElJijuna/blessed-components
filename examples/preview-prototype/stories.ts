@@ -107,6 +107,7 @@ import {
   renderCandlestickChart,
   renderCarousel,
   renderCodeViewer,
+  renderCommandLog,
   renderCommandOutput,
   renderCommitList,
   renderContextMenu,
@@ -3974,6 +3975,41 @@ export const stories: readonly PreviewStory[] = [
         label: 'EventLog',
         top: 1,
         width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'command-log/deploy-history',
+    title: 'CommandLog / Deploy History',
+    description: 'Executed actions with status, timing, and retry metadata.',
+    mount(parent) {
+      return renderedTextStory(parent, {
+        content: renderCommandLog({
+          activeId: 'deploy',
+          items: [
+            {
+              command: 'npm test',
+              duration: '2.4s',
+              id: 'test',
+              status: 'succeeded',
+              timestamp: '10:00',
+            },
+            {
+              command: 'deploy production',
+              exitCode: 1,
+              id: 'deploy',
+              retry: { attempt: 2, maxAttempts: 3, nextAt: '10:05' },
+              retryable: true,
+              status: 'failed',
+              timestamp: '10:01',
+            },
+          ],
+          width: 54,
+        }),
+        height: 5,
+        label: 'CommandLog',
+        top: 1,
+        width: 62,
       });
     },
   }),

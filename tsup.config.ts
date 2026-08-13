@@ -84,6 +84,8 @@ const entry = {
   'color-swatch/index': 'src/components/data-display/color-swatch/index.ts',
   'combobox/blessed': 'src/adapters/blessed/combobox.ts',
   'combobox/index': 'src/components/input/combobox/index.ts',
+  'command-log/blessed': 'src/adapters/blessed/command-log.ts',
+  'command-log/index': 'src/components/developer-tools/command-log/index.ts',
   'command-output/index': 'src/components/developer-tools/command-output/index.ts',
   'command-palette/blessed': 'src/adapters/blessed/command-palette.ts',
   'command-palette/index': 'src/components/navigation/command-palette/index.ts',

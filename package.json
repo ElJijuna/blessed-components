@@ -443,6 +443,16 @@
       "import": "./dist/combobox/index.js",
       "require": "./dist/combobox/index.cjs"
     },
+    "./command-log/blessed": {
+      "types": "./dist/command-log/blessed.d.ts",
+      "import": "./dist/command-log/blessed.js",
+      "require": "./dist/command-log/blessed.cjs"
+    },
+    "./command-log": {
+      "types": "./dist/command-log/index.d.ts",
+      "import": "./dist/command-log/index.js",
+      "require": "./dist/command-log/index.cjs"
+    },
     "./command-output": {
       "types": "./dist/command-output/index.d.ts",
       "import": "./dist/command-output/index.js",

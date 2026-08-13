@@ -1,6 +1,7 @@
 /** Developer-tool renderers for terminal diagnostics and code workflows. */
 export * from './build-status/index.js';
 export * from './code-viewer/index.js';
+export * from './command-log/index.js';
 export * from './command-output/index.js';
 export * from './commit-list/index.js';
 export * from './dependency-tree/index.js';
