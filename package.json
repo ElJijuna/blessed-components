@@ -788,6 +788,16 @@
       "import": "./dist/inspector/index.js",
       "require": "./dist/inspector/index.cjs"
     },
+    "./job-queue/blessed": {
+      "types": "./dist/job-queue/blessed.d.ts",
+      "import": "./dist/job-queue/blessed.js",
+      "require": "./dist/job-queue/blessed.cjs"
+    },
+    "./job-queue": {
+      "types": "./dist/job-queue/index.d.ts",
+      "import": "./dist/job-queue/index.js",
+      "require": "./dist/job-queue/index.cjs"
+    },
     "./json-viewer/blessed": {
       "types": "./dist/json-viewer/blessed.d.ts",
       "import": "./dist/json-viewer/blessed.js",

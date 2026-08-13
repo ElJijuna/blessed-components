@@ -64,6 +64,7 @@ import {
   histogram,
   iconButton,
   inspector,
+  jobQueue,
   jsonViewer,
   kbd,
   keybindingInput,
@@ -3975,6 +3976,49 @@ export const stories: readonly PreviewStory[] = [
         label: 'EventLog',
         top: 1,
         width: 48,
+      });
+    },
+  }),
+  defineStory({
+    id: 'job-queue/background-jobs',
+    title: 'JobQueue / Background Jobs',
+    description: 'Background jobs with progress, cancellation, retries, and queue summary.',
+    mount(parent) {
+      return jobQueue({
+        box: { height: 7, left: 3, top: 1, width: 66 },
+        data: {
+          activeId: 'export',
+          items: [
+            {
+              cancellable: true,
+              detail: 'Preparing archive',
+              id: 'export',
+              label: 'Export report',
+              progress: 42,
+              status: 'running',
+            },
+            {
+              id: 'email',
+              label: 'Send digest emails',
+              status: 'queued',
+            },
+            {
+              detail: 'Network timeout',
+              id: 'sync',
+              label: 'Sync warehouse',
+              retry: { attempt: 2, maxAttempts: 3, nextAt: '10:05' },
+              retryable: true,
+              status: 'failed',
+            },
+            {
+              id: 'cleanup',
+              label: 'Cleanup temporary files',
+              progress: 100,
+              status: 'succeeded',
+            },
+          ],
+        },
+        parent,
       });
     },
   }),

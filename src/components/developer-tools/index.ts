@@ -9,6 +9,7 @@ export * from './diff-viewer/index.js';
 export * from './environment-table/index.js';
 export * from './event-log/index.js';
 export * from './git-status/index.js';
+export * from './job-queue/index.js';
 export * from './performance-panel/index.js';
 export * from './query-results/index.js';
 export * from './request-inspector/index.js';

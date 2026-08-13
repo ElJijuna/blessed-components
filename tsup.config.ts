@@ -153,6 +153,8 @@ const entry = {
   'image/index': 'src/components/content/image/index.ts',
   'inspector/blessed': 'src/adapters/blessed/inspector.ts',
   'inspector/index': 'src/components/collections/inspector/index.ts',
+  'job-queue/blessed': 'src/adapters/blessed/job-queue.ts',
+  'job-queue/index': 'src/components/developer-tools/job-queue/index.ts',
   'json-viewer/blessed': 'src/adapters/blessed/json-viewer.ts',
   'json-viewer/index': 'src/components/collections/json-viewer/index.ts',
   'kbd/blessed': 'src/adapters/blessed/kbd.ts',
