@@ -30,6 +30,7 @@ import {
   collapsible,
   colorSwatch,
   combobox,
+  commandCenter,
   commandPalette,
   confirmDialog,
   connectionStatus,
@@ -1879,6 +1880,52 @@ export const stories: readonly PreviewStory[] = [
           noun: 'row',
           selectedCount: 3,
           totalCount: 12,
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'command-center/recent-and-search',
+    title: 'CommandCenter / Recent and Search',
+    description: 'Opinionated command surface with recent actions, grouped results, and shortcuts.',
+    mount(parent) {
+      return commandCenter({
+        box: {
+          height: 13,
+          label: ' Command Center ',
+          left: 4,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 68,
+        },
+        data: {
+          items: [
+            {
+              description: 'Deploy production',
+              group: 'Operations',
+              id: 'deploy',
+              label: 'Deploy',
+              shortcut: 'D',
+            },
+            {
+              description: 'Stream service output',
+              group: 'Navigation',
+              id: 'logs',
+              label: 'Open logs',
+              shortcut: 'L',
+            },
+            { group: 'Navigation', id: 'settings', label: 'Open settings', shortcut: ',' },
+            {
+              disabled: true,
+              description: 'No previous release',
+              group: 'Operations',
+              id: 'rollback',
+              label: 'Rollback',
+            },
+            { group: 'Application', id: 'quit', label: 'Quit', shortcut: 'Q' },
+          ],
+          recentIds: ['deploy', 'logs'],
         },
         parent,
       });

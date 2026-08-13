@@ -29,6 +29,7 @@ export * from './blessed/code.js';
 export * from './blessed/collapsible.js';
 export * from './blessed/color-swatch.js';
 export * from './blessed/combobox.js';
+export * from './blessed/command-center.js';
 export * from './blessed/command-log.js';
 export * from './blessed/command-palette.js';
 export * from './blessed/confirm-dialog.js';
