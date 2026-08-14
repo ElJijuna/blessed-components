@@ -2,6 +2,7 @@
  * Components that communicate progress and system feedback.
  */
 export * from './alert/index.js';
+export * from './banner/index.js';
 export * from './callout/index.js';
 export * from './connection-status/index.js';
 export * from './empty-state/index.js';

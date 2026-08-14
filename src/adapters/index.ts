@@ -14,6 +14,7 @@ export * from './blessed/ascii-art.js';
 export * from './blessed/autocomplete.js';
 export * from './blessed/axis.js';
 export * from './blessed/badge.js';
+export * from './blessed/banner.js';
 export * from './blessed/box.js';
 export * from './blessed/breadcrumb.js';
 export * from './blessed/bullet-chart.js';

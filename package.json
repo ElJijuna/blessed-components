@@ -253,6 +253,16 @@
       "import": "./dist/badge/index.js",
       "require": "./dist/badge/index.cjs"
     },
+    "./banner/blessed": {
+      "types": "./dist/banner/blessed.d.ts",
+      "import": "./dist/banner/blessed.js",
+      "require": "./dist/banner/blessed.cjs"
+    },
+    "./banner": {
+      "types": "./dist/banner/index.d.ts",
+      "import": "./dist/banner/index.js",
+      "require": "./dist/banner/index.cjs"
+    },
     "./bar-chart": {
       "types": "./dist/bar-chart/index.d.ts",
       "import": "./dist/bar-chart/index.js",

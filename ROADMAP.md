@@ -372,6 +372,7 @@ These components share bounded values, semantic tones, and live updates.
 | [x] `Spinner`            | Indeterminate activity indicator.                       | Available | P1       |
 | [x] `Status`             | State icon, label, and optional detail.                 | Available | P1       |
 | [x] `Alert`              | Inline information, success, warning, or error message. | Available | P1       |
+| [x] `Banner`             | Full-width persistent alert region for app-level state. | Available | P3       |
 | [x] `Callout`            | Framed explanatory content.                             | Available | P2       |
 | [x] `Toast`              | Timed transient notification stack.                     | Available | P2       |
 | [x] `NotificationCenter` | Persistent notification list and unread state.          | Available | P3       |
@@ -719,7 +720,7 @@ start as examples or documented patterns before becoming package components.
 | feedback | [ ] `OperationStatus` | One operation's lifecycle: queued, running, succeeded, failed, retried. | Build | P2 |
 | feedback | [ ] `ErrorList` | Multiple validation or runtime errors with focusable locations. | Build | P2 |
 | feedback | [ ] `ValidationSummary` | Form-level errors grouped by field and severity. | Build | P2 |
-| feedback | [ ] `Banner` | Full-width persistent alert region for app-level state. | Build | P3 |
+| feedback | [x] `Banner` | Full-width persistent alert region for app-level state. | Available | P3 |
 | feedback | [ ] `SyncStatus` | Last sync, dirty state, conflicts, and retry affordance. | Research | P3 |
 | collections | [ ] `ResourceList` | Opinionated list for named resources with status, tags, and actions. | Pattern first | P2 |
 | collections | [ ] `CommandList` | Action list with shortcuts, grouping, disabled reasons, and search text. | Build | P2 |

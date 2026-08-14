@@ -46,6 +46,8 @@ const entry = {
   'axis/index': 'src/components/visualization/axis/index.ts',
   'badge/blessed': 'src/adapters/blessed/badge.ts',
   'badge/index': 'src/components/data-display/badge/index.ts',
+  'banner/blessed': 'src/adapters/blessed/banner.ts',
+  'banner/index': 'src/components/feedback/banner/index.ts',
   'bar-chart/index': 'src/components/visualization/bar-chart/index.ts',
   'big-text/index': 'src/components/content/big-text/index.ts',
   'box-plot/index': 'src/components/visualization/box-plot/index.ts',

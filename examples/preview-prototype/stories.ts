@@ -10,6 +10,7 @@ import {
   autocomplete,
   axis,
   badge,
+  banner,
   box,
   breadcrumb,
   bulletChart,
@@ -236,6 +237,23 @@ function renderedTextStory(
 }
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'banner/maintenance-notice',
+    title: 'Banner / Maintenance Notice',
+    description: 'Full-width application notice with a semantic tone and action hint.',
+    mount(parent) {
+      return banner({
+        box: { height: 1, left: 2, top: 1, width: 72 },
+        data: {
+          action: 'View status',
+          message: 'Deployments are temporarily paused',
+          title: 'Maintenance',
+          tone: 'warning',
+        },
+        parent,
+      });
+    },
+  }),
   defineStory({
     id: 'alert/semantic-message',
     title: 'Alert / Semantic Message',
