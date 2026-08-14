@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/ElJijuna/blessed-components/compare/v1.20.0...v1.21.0) (2026-08-14)
+
+### Features
+
+* add banner component with, including tests and documentation ([f9c7d51](https://github.com/ElJijuna/blessed-components/commit/f9c7d51c3fa64f1159133b05bdda7777fb668d17))
+* add command-input component with keyboard and mouse controls, including tests and documentation ([2a63bed](https://github.com/ElJijuna/blessed-components/commit/2a63bed963ef52a61df6b51f430e5b527ec2a33d))
+
 ## [1.20.0](https://github.com/ElJijuna/blessed-components/compare/v1.19.0...v1.20.0) (2026-08-13)
 
 ### Features
