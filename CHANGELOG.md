@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/ElJijuna/blessed-components/compare/v1.21.0...v1.22.0) (2026-08-15)
+
+### Features
+
+* add breadcrumb-bar component with, including tests and documentation ([33314fb](https://github.com/ElJijuna/blessed-components/commit/33314fbdbaf9dc5ba962ddb6c5427a6f49304b58))
+* add stepper-form component with, including tests and documentation ([9c99db4](https://github.com/ElJijuna/blessed-components/commit/9c99db4d73607a91c05cb9c2cbd3f5218cf3e0d6))
+
 ## [1.21.0](https://github.com/ElJijuna/blessed-components/compare/v1.20.0...v1.21.0) (2026-08-14)
 
 ### Features
