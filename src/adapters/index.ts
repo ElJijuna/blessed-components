@@ -17,6 +17,7 @@ export * from './blessed/badge.js';
 export * from './blessed/banner.js';
 export * from './blessed/box.js';
 export * from './blessed/breadcrumb.js';
+export * from './blessed/breadcrumb-bar.js';
 export * from './blessed/bullet-chart.js';
 export * from './blessed/button.js';
 export * from './blessed/calendar-heatmap.js';

@@ -53,6 +53,8 @@ const entry = {
   'box-plot/index': 'src/components/visualization/box-plot/index.ts',
   'box/blessed': 'src/adapters/blessed/box.ts',
   'box/index': 'src/components/layout/box/index.ts',
+  'breadcrumb-bar/blessed': 'src/adapters/blessed/breadcrumb-bar.ts',
+  'breadcrumb-bar/index': 'src/components/navigation/breadcrumb-bar/index.ts',
   'breadcrumb/blessed': 'src/adapters/blessed/breadcrumb.ts',
   'breadcrumb/index': 'src/components/data-display/breadcrumb/index.ts',
   'build-status/index': 'src/components/developer-tools/build-status/index.ts',

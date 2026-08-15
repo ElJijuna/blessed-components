@@ -288,6 +288,16 @@
       "import": "./dist/box/index.js",
       "require": "./dist/box/index.cjs"
     },
+    "./breadcrumb-bar/blessed": {
+      "types": "./dist/breadcrumb-bar/blessed.d.ts",
+      "import": "./dist/breadcrumb-bar/blessed.js",
+      "require": "./dist/breadcrumb-bar/blessed.cjs"
+    },
+    "./breadcrumb-bar": {
+      "types": "./dist/breadcrumb-bar/index.d.ts",
+      "import": "./dist/breadcrumb-bar/index.js",
+      "require": "./dist/breadcrumb-bar/index.cjs"
+    },
     "./breadcrumb/blessed": {
       "types": "./dist/breadcrumb/blessed.d.ts",
       "import": "./dist/breadcrumb/blessed.js",

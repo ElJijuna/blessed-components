@@ -13,6 +13,7 @@ import {
   banner,
   box,
   breadcrumb,
+  breadcrumbBar,
   bulletChart,
   button,
   calendarHeatmap,
@@ -5412,6 +5413,33 @@ export const stories: readonly PreviewStory[] = [
             { label: 'blessed-components' },
             { label: 'Navigation' },
           ],
+        },
+        parent,
+      });
+    },
+  }),
+  defineStory({
+    id: 'breadcrumb-bar/resource-navigation',
+    title: 'BreadcrumbBar / Resource Navigation',
+    description: 'Location context with adjacent resources and contextual commands.',
+    mount(parent) {
+      return breadcrumbBar({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 2,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 72,
+        },
+        data: {
+          actions: [
+            { id: 'refresh', label: 'Refresh', shortcut: 'R' },
+            { id: 'settings', label: 'Settings' },
+          ],
+          items: [{ label: 'Projects' }, { label: 'Services' }, { label: 'API' }],
+          nextSibling: { id: 'worker', label: 'Worker' },
+          previousSibling: { id: 'web', label: 'Web' },
         },
         parent,
       });
