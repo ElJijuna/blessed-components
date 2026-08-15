@@ -185,6 +185,7 @@ import {
   status,
   statusBar,
   stepIndicator,
+  stepperForm,
   switchControl,
   tabList,
   table,
@@ -238,6 +239,32 @@ function renderedTextStory(
 }
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'stepper-form/deployment',
+    title: 'StepperForm / Deployment',
+    description: 'Guarded multi-step deployment form flow.',
+    mount(parent) {
+      return stepperForm({
+        box: {
+          border: 'line',
+          height: 5,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 68,
+        },
+        data: {
+          getValues: () => ({ environment: 'production' }),
+          steps: [
+            { id: 'target', label: 'Target' },
+            { id: 'options', label: 'Options' },
+            { id: 'review', label: 'Review' },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
   defineStory({
     id: 'banner/maintenance-notice',
     title: 'Banner / Maintenance Notice',

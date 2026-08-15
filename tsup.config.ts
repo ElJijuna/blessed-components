@@ -297,6 +297,8 @@ const entry = {
   'status/index': 'src/components/feedback/status/index.ts',
   'step-indicator/blessed': 'src/adapters/blessed/step-indicator.ts',
   'step-indicator/index': 'src/components/feedback/step-indicator/index.ts',
+  'stepper-form/blessed': 'src/adapters/blessed/stepper-form.ts',
+  'stepper-form/index': 'src/components/navigation/stepper-form/index.ts',
   'switch/blessed': 'src/adapters/blessed/switch.ts',
   'switch/index': 'src/components/input/switch/index.ts',
   'tab-list/blessed': 'src/adapters/blessed/tab-list.ts',

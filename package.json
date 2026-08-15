@@ -1508,6 +1508,16 @@
       "import": "./dist/step-indicator/index.js",
       "require": "./dist/step-indicator/index.cjs"
     },
+    "./stepper-form/blessed": {
+      "types": "./dist/stepper-form/blessed.d.ts",
+      "import": "./dist/stepper-form/blessed.js",
+      "require": "./dist/stepper-form/blessed.cjs"
+    },
+    "./stepper-form": {
+      "types": "./dist/stepper-form/index.d.ts",
+      "import": "./dist/stepper-form/index.js",
+      "require": "./dist/stepper-form/index.cjs"
+    },
     "./switch/blessed": {
       "types": "./dist/switch/blessed.d.ts",
       "import": "./dist/switch/blessed.js",
