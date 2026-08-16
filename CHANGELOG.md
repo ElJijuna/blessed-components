@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/ElJijuna/blessed-components/compare/v1.24.0...v1.25.0) (2026-08-16)
+
+### Features
+
+* add RouteTabs component with Blessed adapter and documentation ([c4218c7](https://github.com/ElJijuna/blessed-components/commit/c4218c7fc6c335d530556562f8af48f9c325d279))
+* implement story filtering and sorting functionality with tests ([044a37c](https://github.com/ElJijuna/blessed-components/commit/044a37c1734da82a865e22e8dd61aa8c9386464f))
+
 ## [1.24.0](https://github.com/ElJijuna/blessed-components/compare/v1.23.0...v1.24.0) (2026-08-16)
 
 ### Features
