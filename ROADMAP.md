@@ -702,7 +702,7 @@ start as examples or documented patterns before becoming package components.
 | navigation | [ ] `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Research | P3 |
 | navigation | [ ] `HistoryList` | Back/forward stack viewer for navigable terminal apps. | Research | P3 |
 | navigation | [ ] `RecentItems` | Bounded recently opened resources with fuzzy labels. | Build | P3 |
-| input | [ ] `SearchBar` | Search field plus scope, submit, clear, and result count. | Build | P2 |
+| input | [x] `SearchBar` | Search field plus scope, submit, clear, and result count. | Available | P2 |
 | input | [ ] `FilterMenu` | Menu for composing boolean, enum, text, and range filters. | Build | P2 |
 | input | [ ] `SortMenu` | Sort fields and directions for tables and lists. | Build | P3 |
 | input | [ ] `ColumnPicker` | Toggle table column visibility and ordering. | Build | P3 |

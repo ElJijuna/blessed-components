@@ -100,6 +100,7 @@ export * from './blessed/prompt-dialog.js';
 export * from './blessed/quick-switcher.js';
 export * from './blessed/radio-group.js';
 export * from './blessed/scroll-area.js';
+export * from './blessed/search-bar.js';
 export * from './blessed/search-field.js';
 export * from './blessed/select.js';
 export * from './blessed/selection-summary.js';

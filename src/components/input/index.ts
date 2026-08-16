@@ -14,6 +14,7 @@ export * from './multi-select/index.js';
 export * from './number-field/index.js';
 export * from './password-field/index.js';
 export * from './radio-group/index.js';
+export * from './search-bar/index.js';
 export * from './search-field/index.js';
 export * from './select/index.js';
 export * from './slider/index.js';

@@ -261,6 +261,8 @@ const entry = {
   'schedule/index': 'src/components/scheduling/schedule/index.ts',
   'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
   'scroll-area/index': 'src/components/layout/scroll-area/index.ts',
+  'search-bar/blessed': 'src/adapters/blessed/search-bar.ts',
+  'search-bar/index': 'src/components/input/search-bar/index.ts',
   'search-field/blessed': 'src/adapters/blessed/search-field.ts',
   'search-field/index': 'src/components/input/search-field/index.ts',
   'select/blessed': 'src/adapters/blessed/select.ts',

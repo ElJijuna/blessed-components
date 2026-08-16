@@ -240,6 +240,7 @@ const newPureComponentModules = await Promise.all(
     ['resizable', 'renderResizable'],
     ['rich-text', 'renderRichText'],
     ['scatter-plot', 'renderScatterPlot'],
+    ['search-bar', 'renderSearchBar'],
     ['shell-history', 'renderShellHistory'],
     ['stacked-bar-chart', 'renderStackedBarChart'],
     ['task-runner', 'renderTaskRunner'],

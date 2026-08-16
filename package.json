@@ -1328,6 +1328,16 @@
       "import": "./dist/scroll-area/index.js",
       "require": "./dist/scroll-area/index.cjs"
     },
+    "./search-bar/blessed": {
+      "types": "./dist/search-bar/blessed.d.ts",
+      "import": "./dist/search-bar/blessed.js",
+      "require": "./dist/search-bar/blessed.cjs"
+    },
+    "./search-bar": {
+      "types": "./dist/search-bar/index.d.ts",
+      "import": "./dist/search-bar/index.js",
+      "require": "./dist/search-bar/index.cjs"
+    },
     "./search-field/blessed": {
       "types": "./dist/search-field/blessed.d.ts",
       "import": "./dist/search-field/blessed.js",

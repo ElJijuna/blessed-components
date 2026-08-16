@@ -20,6 +20,7 @@ const expectedComponents = [
   'src/components/input/number-field/index.ts',
   'src/components/input/password-field/index.ts',
   'src/components/input/radio-group/index.ts',
+  'src/components/input/search-bar/index.ts',
   'src/components/input/search-field/index.ts',
   'src/components/input/select/index.ts',
   'src/components/input/slider/index.ts',

@@ -170,6 +170,7 @@ import {
   renderVirtualTable,
   renderWaterfallChart,
   scrollArea,
+  searchBar,
   searchField,
   select,
   selectionSummary,
@@ -1172,6 +1173,35 @@ export const stories: readonly PreviewStory[] = [
           field.focus();
         },
       };
+    },
+  }),
+  defineStory({
+    id: 'search-bar/resources',
+    title: 'SearchBar / Resources',
+    description: 'Scoped search with result count and explicit actions.',
+    mount(parent) {
+      return searchBar({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 70,
+        },
+        data: {
+          defaultQuery: 'api',
+          defaultScopeId: 'services',
+          placeholder: 'name or label',
+          resultCount: 12,
+          scopes: [
+            { id: 'all', label: 'All' },
+            { id: 'services', label: 'Services' },
+            { id: 'jobs', label: 'Jobs' },
+          ],
+        },
+        parent,
+      });
     },
   }),
   defineStory({
