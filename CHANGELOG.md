@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.24.0](https://github.com/ElJijuna/blessed-components/compare/v1.23.0...v1.24.0) (2026-08-16)
+
+### Features
+
+* enhance SearchBar and Wizard components with improved keypress handling and navigation options ([35256f5](https://github.com/ElJijuna/blessed-components/commit/35256f5cca4afbb77448ed4a39ec060ad08be41d))
+
 ## [1.23.0](https://github.com/ElJijuna/blessed-components/compare/v1.22.0...v1.23.0) (2026-08-16)
 
 ### Features
