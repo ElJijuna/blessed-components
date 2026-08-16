@@ -99,6 +99,7 @@ const expectedComponents = [
   'src/components/navigation/pager/index.ts',
   'src/components/navigation/pagination/index.ts',
   'src/components/navigation/quick-switcher/index.ts',
+  'src/components/navigation/route-tabs/index.ts',
   'src/components/data-display/stat/index.ts',
   'src/components/data-display/tag/index.ts',
   'src/components/data-display/text/index.ts',

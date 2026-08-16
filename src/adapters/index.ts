@@ -99,6 +99,7 @@ export * from './blessed/progress-stack.js';
 export * from './blessed/prompt-dialog.js';
 export * from './blessed/quick-switcher.js';
 export * from './blessed/radio-group.js';
+export * from './blessed/route-tabs.js';
 export * from './blessed/scroll-area.js';
 export * from './blessed/search-bar.js';
 export * from './blessed/search-field.js';

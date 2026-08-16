@@ -107,6 +107,7 @@ import {
   progressStack,
   promptDialog,
   quickSwitcher,
+  type RouteTabItem,
   radioGroup,
   renderAnsiViewer,
   renderAreaChart,
@@ -169,6 +170,7 @@ import {
   renderTreeTable,
   renderVirtualTable,
   renderWaterfallChart,
+  routeTabs,
   scrollArea,
   searchBar,
   searchField,
@@ -1494,6 +1496,54 @@ export const stories: readonly PreviewStory[] = [
           ],
         },
       });
+    },
+  }),
+  defineStory({
+    id: 'route-tabs/editor-routes',
+    title: 'RouteTabs / Editor Routes',
+    description: 'Route navigation with dirty state and explicit close requests.',
+    mount(parent) {
+      let routeId = 'overview';
+      let items: RouteTabItem[] = [
+        { id: 'overview', label: 'Overview' },
+        { closable: true, dirty: true, id: 'config', label: 'Config' },
+        { closable: true, id: 'logs', label: 'Logs' },
+        { disabled: true, id: 'deploy', label: 'Deploying' },
+      ];
+
+      const sync = (): void => {
+        component.setData({ items, onClose: handleClose, onNavigate: handleNavigate, routeId });
+        parent.screen.render();
+      };
+      const handleNavigate = (nextRouteId: string): void => {
+        routeId = nextRouteId;
+        sync();
+      };
+      const handleClose = (item: RouteTabItem): void => {
+        const index = items.findIndex(({ id }) => id === item.id);
+
+        items = items.filter(({ id }) => id !== item.id);
+
+        if (routeId === item.id) {
+          routeId = items[Math.min(index, items.length - 1)]?.id ?? 'overview';
+        }
+
+        sync();
+      };
+      const component = routeTabs({
+        box: {
+          border: 'line',
+          height: 3,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 2,
+          width: 66,
+        },
+        data: { items, onClose: handleClose, onNavigate: handleNavigate, routeId },
+        parent,
+      });
+
+      return component;
     },
   }),
   defineStory({

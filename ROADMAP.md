@@ -699,7 +699,7 @@ start as examples or documented patterns before becoming package components.
 | navigation | [x] `BreadcrumbBar` | Breadcrumb plus sibling navigation and contextual actions. | Available | P3 |
 | navigation | [x] `StepperForm` | Multi-step form flow with validation and navigation controls. | Available | P2 |
 | navigation | [x] `Wizard` | Modal or page-level guided flow with next/back/cancel contracts. | Available | P2 |
-| navigation | [ ] `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Research | P3 |
+| navigation | [x] `RouteTabs` | Tabs bound to route ids, dirty state, and close behavior. | Available | P3 |
 | navigation | [ ] `HistoryList` | Back/forward stack viewer for navigable terminal apps. | Research | P3 |
 | navigation | [ ] `RecentItems` | Bounded recently opened resources with fuzzy labels. | Build | P3 |
 | input | [x] `SearchBar` | Search field plus scope, submit, clear, and result count. | Available | P2 |

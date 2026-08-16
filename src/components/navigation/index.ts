@@ -22,6 +22,7 @@ export * from './navigation-list/index.js';
 export * from './pager/index.js';
 export * from './pagination/index.js';
 export * from './quick-switcher/index.js';
+export * from './route-tabs/index.js';
 export * from './selection-summary/index.js';
 export * from './stepper-form/index.js';
 export * from './tab-list/index.js';

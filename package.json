@@ -1308,6 +1308,16 @@
       "import": "./dist/rich-text/index.js",
       "require": "./dist/rich-text/index.cjs"
     },
+    "./route-tabs/blessed": {
+      "types": "./dist/route-tabs/blessed.d.ts",
+      "import": "./dist/route-tabs/blessed.js",
+      "require": "./dist/route-tabs/blessed.cjs"
+    },
+    "./route-tabs": {
+      "types": "./dist/route-tabs/index.d.ts",
+      "import": "./dist/route-tabs/index.js",
+      "require": "./dist/route-tabs/index.cjs"
+    },
     "./scatter-plot": {
       "types": "./dist/scatter-plot/index.d.ts",
       "import": "./dist/scatter-plot/index.js",

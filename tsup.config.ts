@@ -257,6 +257,8 @@ const entry = {
   'request-inspector/index': 'src/components/developer-tools/request-inspector/index.ts',
   'resizable/index': 'src/components/layout/resizable/index.ts',
   'rich-text/index': 'src/components/content/rich-text/index.ts',
+  'route-tabs/blessed': 'src/adapters/blessed/route-tabs.ts',
+  'route-tabs/index': 'src/components/navigation/route-tabs/index.ts',
   'scatter-plot/index': 'src/components/visualization/scatter-plot/index.ts',
   'schedule/index': 'src/components/scheduling/schedule/index.ts',
   'scroll-area/blessed': 'src/adapters/blessed/scroll-area.ts',
