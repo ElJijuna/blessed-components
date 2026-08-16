@@ -9,8 +9,11 @@ import { PassThrough } from 'node:stream';
 
 import blessed from 'blessed';
 
+import { type SearchBarData, searchBar } from '@/index.js';
+
+import { filterStories, sortStories, storyCategory } from './catalog.js';
 import { stories } from './stories.js';
-import type { PreviewStoryHandle } from './story.js';
+import type { PreviewStory, PreviewStoryHandle } from './story.js';
 
 interface PreviewOptions {
   smoke?: boolean;
@@ -33,7 +36,8 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     terminal: smoke ? 'xterm-256color' : undefined,
     title: 'Blessed Components — Workbench',
   });
-  const categories = new Set(stories.map(({ id }) => id.split('/')[0])).size;
+  const catalogStories = sortStories(stories);
+  const categories = new Set(catalogStories.map(storyCategory)).size;
   const header = blessed.box({
     content:
       ' {bold}{white-fg}◆ BLESSED COMPONENTS{/white-fg}{/bold}  {cyan-fg}/ TERMINAL WORKBENCH{/cyan-fg}\n' +
@@ -62,9 +66,9 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     alwaysScroll: true,
     bottom: 5,
     border: 'line',
-    items: stories.map(({ title }) => ` ${title}`),
+    items: catalogStories.map(({ title }) => ` ${title}`),
     keys: true,
-    label: ` Catalog · ${stories.length} `,
+    label: ` Catalog · ${catalogStories.length} · grouped A–Z `,
     left: 0,
     mouse: !smoke,
     parent: screen,
@@ -91,7 +95,7 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
         fg: 'white',
       },
     },
-    top: 3,
+    top: 6,
     vi: true,
     width: '31%',
   });
@@ -128,14 +132,22 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
   });
 
   let currentHandle: PreviewStoryHandle | undefined;
+  let currentStory: PreviewStory | undefined;
   let currentIndex = 0;
+  let visibleStories = catalogStories;
 
+  const searchData = (resultCount: number): SearchBarData => ({
+    onQueryChange: updateCatalog,
+    placeholder: 'component, story, or description',
+    resultCount,
+    showSubmit: false,
+  });
   const selectStory = (index: number): void => {
     navigation.select(index);
     renderStory(index);
   };
   const renderStory = (index: number): void => {
-    const story = stories[index];
+    const story = visibleStories[index];
 
     if (story === undefined) {
       return;
@@ -144,15 +156,18 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
     currentHandle?.destroy();
     currentHandle = undefined;
     currentIndex = index;
+    currentStory = story;
 
     try {
       currentHandle = story.mount(viewport);
-      const category = (story.id.split('/')[0] ?? 'component').replaceAll('-', ' ').toUpperCase();
+      const category = storyCategory(story).replaceAll('-', ' ').toUpperCase();
 
       viewport.setLabel(` Preview · ${story.title} `);
-      status.setLabel(` Inspector · ${String(index + 1).padStart(3, '0')}/${stories.length} `);
+      status.setLabel(
+        ` Inspector · ${String(index + 1).padStart(3, '0')}/${visibleStories.length} · ${catalogStories.length} total `,
+      );
       status.setContent(
-        `${category}  ›  ${story.id}\n${story.description}\n↑/↓ or j/k browse · enter/click open · r reload · tab change focus · q quit`,
+        `${category}  ›  ${story.id}\n${story.description}\n/ search · ↑/↓ or j/k browse · r reload · tab change focus · q quit`,
       );
     } catch (error) {
       const message = error instanceof Error ? (error.stack ?? error.message) : String(error);
@@ -162,6 +177,52 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
 
     screen.render();
   };
+  const bindNavigationClicks = (): void => {
+    (navigation as ClickableNavigationList).items.forEach((item, index) => {
+      item.on('click', () => {
+        if (index === currentIndex) {
+          return;
+        }
+
+        selectStory(index);
+      });
+    });
+  };
+
+  function updateCatalog(query: string): void {
+    const previouslySelectedStory = currentStory;
+
+    visibleStories = filterStories(catalogStories, query);
+    navigation.setItems(visibleStories.map(({ title }) => ` ${title}`));
+    navigation.setLabel(
+      query.trim().length === 0
+        ? ` Catalog · ${visibleStories.length} · grouped A–Z `
+        : ` Catalog · ${visibleStories.length}/${catalogStories.length} matches `,
+    );
+    bindNavigationClicks();
+    catalogSearch.setData(searchData(visibleStories.length));
+
+    if (visibleStories.length === 0) {
+      currentHandle?.destroy();
+      currentHandle = undefined;
+      currentStory = undefined;
+      currentIndex = 0;
+      viewport.setLabel(' Preview · no match ');
+      status.setLabel(` Inspector · 0/${catalogStories.length} `);
+      status.setContent(
+        `No components match “${query}”.\nTry a component name, story title, category, or description.\nEsc clear search · tab change focus · q quit`,
+      );
+      screen.render();
+
+      return;
+    }
+
+    const preservedIndex =
+      previouslySelectedStory === undefined ? -1 : visibleStories.indexOf(previouslySelectedStory);
+
+    selectStory(preservedIndex >= 0 ? preservedIndex : 0);
+  }
+
   const destroy = (): void => {
     currentHandle?.destroy();
     screen.destroy();
@@ -170,33 +231,55 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
   navigation.on('select', (_item, index) => {
     renderStory(index);
   });
-  (navigation as ClickableNavigationList).items.forEach((item, index) => {
-    item.on('click', () => {
-      if (index === currentIndex) {
-        return;
-      }
+  bindNavigationClicks();
 
-      selectStory(index);
-    });
+  const catalogSearch = searchBar({
+    box: {
+      border: 'line',
+      height: 3,
+      left: 0,
+      padding: { left: 1, right: 1 },
+      top: 3,
+      width: '31%',
+    },
+    data: searchData(catalogStories.length),
+    parent: screen,
   });
 
-  screen.key(['q', 'C-c'], () => {
+  screen.key('C-c', () => {
     destroy();
   });
 
+  screen.key('q', () => {
+    if (screen.focused !== catalogSearch?.element) {
+      destroy();
+    }
+  });
+
   screen.key('r', () => {
-    renderStory(currentIndex);
+    if (screen.focused !== catalogSearch?.element) {
+      renderStory(currentIndex);
+    }
+  });
+
+  screen.key('/', () => {
+    if (screen.focused !== catalogSearch?.element) {
+      catalogSearch?.focus();
+      screen.render();
+    }
   });
 
   screen.key('tab', () => {
-    if (screen.focused === navigation) {
+    if (screen.focused === catalogSearch?.element) {
+      navigation.focus();
+    } else if (screen.focused === navigation) {
       if (currentHandle?.focus === undefined) {
         viewport.focus();
       } else {
         currentHandle.focus();
       }
     } else {
-      navigation.focus();
+      catalogSearch?.focus();
     }
 
     screen.render();
@@ -210,7 +293,7 @@ export function runPreview({ smoke = false }: PreviewOptions = {}): void {
   selectStory(0);
 
   if (smoke) {
-    for (const [index] of stories.entries()) {
+    for (const [index] of catalogStories.entries()) {
       selectStory(index);
     }
 
