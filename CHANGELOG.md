@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/ElJijuna/blessed-components/compare/v1.22.0...v1.23.0) (2026-08-16)
+
+### Features
+
+* add SearchBar component with Blessed adapter ([5c15b5d](https://github.com/ElJijuna/blessed-components/commit/5c15b5dfa7463d907fd0f153dec8519137d12cf0))
+* add wizard component with implementation, documentation, and tests ([2b930f1](https://github.com/ElJijuna/blessed-components/commit/2b930f18a232f6bbfaa3d9e888bd8a23fe0ed659))
+
 ## [1.22.0](https://github.com/ElJijuna/blessed-components/compare/v1.21.0...v1.22.0) (2026-08-15)
 
 ### Features
