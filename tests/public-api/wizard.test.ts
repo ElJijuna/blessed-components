@@ -57,6 +57,30 @@ describe('Wizard', () => {
     expect(flow.status()).toBe('active');
   });
 
+  it('notifies when updated options replace the active step', () => {
+    const onStepChange = vi.fn();
+    const flow = createWizardState({
+      onStepChange,
+      steps: [
+        { id: 'target', label: 'Target' },
+        { id: 'review', label: 'Review' },
+      ],
+    });
+
+    flow.next();
+    onStepChange.mockClear();
+    flow.setOptions({
+      onStepChange,
+      steps: [
+        { id: 'target', label: 'Target' },
+        { id: 'create', label: 'Create' },
+      ],
+    });
+
+    expect(flow.activeStep().id).toBe('target');
+    expect(onStepChange).toHaveBeenCalledWith('target', 'review');
+  });
+
   it('validates steps and renders safe, bounded page content', () => {
     expect(() => createWizardState({ steps: [] })).toThrow(RangeError);
     expect(() =>
@@ -96,5 +120,19 @@ describe('Wizard', () => {
     expect(rendered).toContain('Complete');
     expect(rendered).not.toContain('\u001b[');
     expect(rendered).not.toContain('{bold}');
+  });
+
+  it('renders an entirely ASCII navigation footer with ASCII markers', () => {
+    const rendered = renderWizard({
+      markers: STEP_INDICATOR_ASCII_MARKERS,
+      steps: [
+        { id: 'target', label: 'Target' },
+        { id: 'review', label: 'Review' },
+      ],
+      width: 48,
+    });
+
+    expect(rendered).toContain('(Back)  Next >');
+    expect(rendered).not.toMatch(/[←→]/u);
   });
 });

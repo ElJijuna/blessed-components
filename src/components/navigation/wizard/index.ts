@@ -1,5 +1,6 @@
 import {
   renderStepIndicator,
+  STEP_INDICATOR_ASCII_MARKERS,
   STEP_INDICATOR_UNICODE_MARKERS,
   type StepIndicatorMarkers,
 } from '@/components/feedback/step-indicator/index.js';
@@ -103,6 +104,18 @@ export interface WizardLabels {
   next?: string;
 }
 
+/** Directional characters used by the Wizard navigation footer. */
+export interface WizardNavigationCharacters {
+  back: string;
+  next: string;
+}
+
+export const WIZARD_UNICODE_NAVIGATION_CHARACTERS: Readonly<WizardNavigationCharacters> =
+  Object.freeze({ back: '←', next: '→' });
+
+export const WIZARD_ASCII_NAVIGATION_CHARACTERS: Readonly<WizardNavigationCharacters> =
+  Object.freeze({ back: '<', next: '>' });
+
 /** Options accepted by {@link renderWizard}. */
 export interface RenderWizardOptions {
   /** Active zero-based step index. */
@@ -111,6 +124,8 @@ export interface RenderWizardOptions {
   height?: number;
   /** Footer labels. */
   labels?: WizardLabels;
+  /** Directional characters used by the navigation footer. */
+  navigationCharacters?: WizardNavigationCharacters;
   /** Step-indicator markers. */
   markers?: StepIndicatorMarkers;
   /** Ordered, non-empty Wizard pages. */
@@ -307,10 +322,16 @@ export function createWizardState(initialOptions: CreateWizardStateOptions): Wiz
     setOptions(nextOptions) {
       assertSteps(nextOptions.steps);
       assertDefaultStep(nextOptions);
+      const previousId = activeId;
+
       options = nextOptions;
 
       if (!options.steps.some(({ id }) => id === activeId)) {
         activeId = options.defaultStepId ?? options.steps[0]?.id ?? '';
+      }
+
+      if (activeId !== previousId) {
+        options.onStepChange?.(activeId, previousId);
       }
     },
     status: () => lifecycle,
@@ -323,6 +344,7 @@ export function renderWizard({
   height,
   labels: labelOverrides,
   markers = STEP_INDICATOR_UNICODE_MARKERS,
+  navigationCharacters,
   steps,
   width,
 }: RenderWizardOptions): string {
@@ -340,6 +362,11 @@ export function renderWizard({
     next: 'Next',
     ...labelOverrides,
   };
+  const directions =
+    navigationCharacters ??
+    (markers === STEP_INDICATOR_ASCII_MARKERS
+      ? WIZARD_ASCII_NAVIGATION_CHARACTERS
+      : WIZARD_UNICODE_NAVIGATION_CHARACTERS);
   const progress = renderStepIndicator({
     markers,
     orientation: 'horizontal',
@@ -362,8 +389,8 @@ export function renderWizard({
       : [activeStep.content];
   const navigation = [
     `[Esc] ${labels.cancel}`,
-    activeIndex > 0 ? `← ${labels.back}` : `(${labels.back})`,
-    activeIndex === steps.length - 1 ? labels.complete : `${labels.next} →`,
+    activeIndex > 0 ? `${directions.back} ${labels.back}` : `(${labels.back})`,
+    activeIndex === steps.length - 1 ? labels.complete : `${labels.next} ${directions.next}`,
   ].join('  ');
   const lines = [
     progress,

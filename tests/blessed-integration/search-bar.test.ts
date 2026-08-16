@@ -107,4 +107,59 @@ describe('Blessed SearchBar adapter', () => {
       screen.destroy();
     }
   });
+
+  it('keeps the composed bar visible and activates controls through real keypresses', async () => {
+    const screen = blessed.screen({
+      input: new PassThrough(),
+      output: new PassThrough(),
+      terminal: 'xterm',
+    });
+    const onClear = vi.fn();
+    const onSubmit = vi.fn();
+
+    try {
+      const component = searchBar({
+        box: { width: 60 },
+        data: {
+          capabilities: { colorLevel: 0, unicode: false },
+          defaultQuery: 'api',
+          onClear,
+          onSubmit,
+          resultCount: 2,
+        },
+        parent: screen,
+      });
+
+      component.focus();
+      await new Promise<void>((resolve) => setImmediate(resolve));
+      component.element.emit('keypress', 'x', { full: 'x', name: 'x' });
+
+      expect(component.query()).toBe('apix');
+      expect(component.element.getContent()).toContain('2 results | x | Search');
+
+      component.element.emit('keypress', undefined, { full: 'left', name: 'left' });
+      component.element.emit('keypress', 'z', { full: 'z', name: 'z' });
+      expect(component.query()).toBe('apizx');
+
+      component.element.emit('keypress', '\t', { full: 'tab', name: 'tab' });
+      component.element.emit('keypress', '\t', { full: 'tab', name: 'tab' });
+      expect(component.activeTarget()).toBe('submit');
+      expect(component.query()).toBe('apizx');
+
+      component.element.emit('keypress', '\r', { full: 'enter', name: 'enter' });
+      expect(onSubmit).toHaveBeenCalledWith({ query: 'apizx' });
+      expect(component.activeTarget()).toBe('submit');
+
+      component.element.emit('keypress', undefined, {
+        full: 'shift-tab',
+        name: 'tab',
+        shift: true,
+      });
+      component.element.emit('keypress', '\r', { full: 'enter', name: 'enter' });
+      expect(component.query()).toBe('');
+      expect(onClear).toHaveBeenCalledOnce();
+    } finally {
+      screen.destroy();
+    }
+  });
 });

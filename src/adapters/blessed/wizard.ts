@@ -7,6 +7,8 @@ import {
   type CreateWizardStateOptions,
   createWizardState,
   renderWizard,
+  WIZARD_ASCII_NAVIGATION_CHARACTERS,
+  WIZARD_UNICODE_NAVIGATION_CHARACTERS,
   type WizardActionResult,
   type WizardLabels,
   type WizardStateModel,
@@ -172,6 +174,9 @@ export function wizard({
         markers: capabilities.unicode
           ? STEP_INDICATOR_UNICODE_MARKERS
           : STEP_INDICATOR_ASCII_MARKERS,
+        navigationCharacters: capabilities.unicode
+          ? WIZARD_UNICODE_NAVIGATION_CHARACTERS
+          : WIZARD_ASCII_NAVIGATION_CHARACTERS,
         steps: data.steps,
         ...(width === undefined ? {} : { width }),
       }),

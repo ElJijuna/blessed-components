@@ -77,8 +77,11 @@ export interface SearchBarHandle
 }
 
 interface Keypress {
+  ctrl?: boolean;
   full?: string;
+  meta?: boolean;
   name?: string;
+  shift?: boolean;
 }
 
 function numericDimension(value: blessed.Widgets.Types.TPosition): number {
@@ -96,15 +99,24 @@ function removeFrom(
   }
 }
 
+function isPrintableText(value: string): boolean {
+  return Array.from(value).every((character) => {
+    const codePoint = character.codePointAt(0) ?? 0;
+
+    return codePoint >= 0x20 && codePoint !== 0x7f;
+  });
+}
+
 /** Creates a scoped, single-line search controller backed by a Blessed textbox. */
 export function searchBar({ box, data: initialData, parent }: SearchBarOptions): SearchBarHandle {
   let data = initialData;
   let active: SearchBarTarget = 'query';
+  let cursorIndex = Array.from(initialData.query ?? initialData.defaultQuery ?? '').length;
 
   const element = blessed.textbox({
     height: 1,
     ...box,
-    inputOnFocus: true,
+    inputOnFocus: false,
     keys: true,
     mouse: true,
     multiline: false,
@@ -158,6 +170,8 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
     if (element.getValue() !== query) {
       element.setValue(query);
     }
+
+    cursorIndex = Math.min(cursorIndex, Array.from(query).length);
   };
   const render = (): void => {
     const capabilities = data.capabilities ?? detectCapabilities();
@@ -221,6 +235,22 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
 
     return result;
   };
+  const editQuery = (nextQuery: string, nextCursorIndex: number): boolean => {
+    const changed = perform(() => state.setQuery(nextQuery));
+
+    if (changed) {
+      cursorIndex = Math.min(nextCursorIndex, Array.from(state.query()).length);
+    }
+
+    return changed;
+  };
+  const insert = (value: string): void => {
+    const query = Array.from(state.query());
+    const inserted = Array.from(value);
+
+    query.splice(cursorIndex, 0, ...inserted);
+    editQuery(query.join(''), cursorIndex + inserted.length);
+  };
   const handle: SearchBarHandle = {
     activateActive() {
       switch (active) {
@@ -246,6 +276,7 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
     focus() {
       if (data.disabled !== true) {
         active = 'query';
+        cursorIndex = Array.from(state.query()).length;
         element.focus();
         render();
       }
@@ -289,13 +320,57 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
 
   element.on('focus', () => {
     active = 'query';
+    cursorIndex = Array.from(state.query()).length;
     syncBlessedValue();
     render();
   });
-  element.on('keypress', (_character: string, key: Keypress) => {
-    switch (key.full ?? key.name) {
+  element.on('keypress', (character: string | undefined, key: Keypress) => {
+    if (data.disabled === true) {
+      return;
+    }
+
+    const keyName = key.full ?? (key.shift && key.name === 'tab' ? 'shift-tab' : key.name);
+
+    switch (keyName) {
+      case 'backspace':
+        if (active === 'query' && cursorIndex > 0) {
+          const query = Array.from(state.query());
+
+          query.splice(cursorIndex - 1, 1);
+          editQuery(query.join(''), cursorIndex - 1);
+        }
+
+        break;
+      case 'delete':
+        if (active === 'query') {
+          const query = Array.from(state.query());
+
+          if (cursorIndex < query.length) {
+            query.splice(cursorIndex, 1);
+            editQuery(query.join(''), cursorIndex);
+          }
+        }
+
+        break;
+      case 'end':
+        if (active === 'query') {
+          cursorIndex = Array.from(state.query()).length;
+        }
+
+        break;
+      case 'enter':
+      case 'return':
+        handle.activateActive();
+        break;
       case 'escape':
         handle.clear();
+        cursorIndex = 0;
+        break;
+      case 'home':
+        if (active === 'query') {
+          cursorIndex = 0;
+        }
+
         break;
       case 'tab':
         handle.next();
@@ -304,13 +379,17 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
         handle.previous();
         break;
       case 'left':
-        if (active !== 'query') {
+        if (active === 'query') {
+          cursorIndex = Math.max(0, cursorIndex - 1);
+        } else {
           handle.previous();
         }
 
         break;
       case 'right':
-        if (active !== 'query') {
+        if (active === 'query') {
+          cursorIndex = Math.min(Array.from(state.query()).length, cursorIndex + 1);
+        } else {
           handle.next();
         }
 
@@ -327,12 +406,23 @@ export function searchBar({ box, data: initialData, parent }: SearchBarOptions):
         }
 
         break;
+
+      default:
+        if (
+          active === 'query' &&
+          character !== undefined &&
+          character.length > 0 &&
+          key.ctrl !== true &&
+          key.meta !== true &&
+          isPrintableText(character)
+        ) {
+          insert(character);
+        }
     }
   });
   element.on('submit', (query: string) => {
-    if (active === 'query') {
-      state.setQuery(query);
-    }
+    state.setQuery(query);
+    cursorIndex = Array.from(state.query()).length;
 
     handle.activateActive();
   });

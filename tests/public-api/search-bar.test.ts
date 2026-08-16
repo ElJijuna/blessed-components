@@ -90,6 +90,35 @@ describe('SearchBar', () => {
     expect(state.submit()).toBe(false);
   });
 
+  it('preserves uncontrolled values when options retain their initial defaults', () => {
+    const state = createSearchBarState({
+      defaultQuery: 'api',
+      defaultScopeId: 'all',
+      scopes,
+    });
+
+    state.setQuery('worker');
+    state.setScope('code');
+    state.setOptions({
+      defaultQuery: 'api',
+      defaultScopeId: 'all',
+      scopes,
+    });
+
+    expect(state.query()).toBe('worker');
+    expect(state.activeScope()?.id).toBe('code');
+  });
+
+  it('rejects multiline initial and updated queries', () => {
+    expect(() => createSearchBarState({ defaultQuery: 'api\nworker' })).toThrow(RangeError);
+    expect(() => createSearchBarState({ query: 'api\nworker' })).toThrow(RangeError);
+
+    const state = createSearchBarState({ defaultQuery: 'api' });
+
+    expect(() => state.setOptions({ defaultQuery: 'api\nworker' })).toThrow(RangeError);
+    expect(state.query()).toBe('api');
+  });
+
   it('sanitizes output, truncates narrow layouts, and validates data', () => {
     const rendered = renderSearchBar({
       characters: SEARCH_BAR_ASCII_CHARACTERS,

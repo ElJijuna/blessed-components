@@ -159,6 +159,12 @@ function assertScopes(scopes: readonly SearchBarScope[]): void {
   }
 }
 
+function assertQueries(options: CreateSearchBarStateOptions): void {
+  if (/\r|\n/u.test(options.defaultQuery ?? '') || /\r|\n/u.test(options.query ?? '')) {
+    throw new RangeError('SearchBar query must fit on one line.');
+  }
+}
+
 function resolveInitialScope(options: CreateSearchBarStateOptions): string | undefined {
   const scopes = options.scopes ?? [];
   const selected = options.scopeId ?? options.defaultScopeId ?? scopes[0]?.id;
@@ -175,6 +181,7 @@ export function createSearchBarState(
   initialOptions: CreateSearchBarStateOptions = {},
 ): SearchBarStateModel {
   assertScopes(initialOptions.scopes ?? []);
+  assertQueries(initialOptions);
 
   let options = initialOptions;
   let uncontrolledQuery = initialOptions.defaultQuery ?? '';
@@ -255,6 +262,7 @@ export function createSearchBarState(
     query: currentQuery,
     setOptions(nextOptions) {
       assertScopes(nextOptions.scopes ?? []);
+      assertQueries(nextOptions);
 
       const previousQuery = currentQuery();
       const previousScopeId = currentScopeId();
@@ -265,9 +273,7 @@ export function createSearchBarState(
       options = nextOptions;
 
       if (!isQueryControlled()) {
-        uncontrolledQuery = queryWasControlled
-          ? previousQuery
-          : (nextOptions.defaultQuery ?? uncontrolledQuery);
+        uncontrolledQuery = queryWasControlled ? previousQuery : uncontrolledQuery;
       }
 
       if (!isScopeControlled()) {
@@ -278,7 +284,7 @@ export function createSearchBarState(
 
         uncontrolledScopeId = scopeWasControlled
           ? (preserved ?? nextOptions.defaultScopeId ?? nextScopes[0]?.id)
-          : (nextOptions.defaultScopeId ?? preserved ?? nextScopes[0]?.id);
+          : (preserved ?? nextOptions.defaultScopeId ?? nextScopes[0]?.id);
       }
     },
     setQuery: requestQuery,
