@@ -245,6 +245,7 @@ const newPureComponentModules = await Promise.all(
     ['task-runner', 'renderTaskRunner'],
     ['tree-table', 'renderTreeTable'],
     ['waterfall-chart', 'renderWaterfallChart'],
+    ['wizard', 'renderWizard'],
   ].map(async ([path, exportName]) => ({
     exportName,
     module: await import(`../dist/${path}/index.js`),

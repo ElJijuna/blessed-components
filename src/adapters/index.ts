@@ -137,4 +137,5 @@ export * from './blessed/trend.js';
 export * from './blessed/types.js';
 export * from './blessed/viewport.js';
 export * from './blessed/virtual-list.js';
+export * from './blessed/wizard.js';
 export * from './blessed/workspace-switcher.js';

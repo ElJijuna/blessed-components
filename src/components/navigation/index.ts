@@ -27,4 +27,5 @@ export * from './stepper-form/index.js';
 export * from './tab-list/index.js';
 export * from './tabs/index.js';
 export * from './toolbar/index.js';
+export * from './wizard/index.js';
 export * from './workspace-switcher/index.js';

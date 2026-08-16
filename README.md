@@ -6,7 +6,7 @@ Composable, typed terminal UI components for
 > **Project status:** early development. `Alert`, `Badge`, `Box`, `Button`, `Card`,
 > `Dialog`, `Divider`, `EmptyState`, `ErrorState`, `Heading`, `Kbd`, `KeyValue`, `Label`, `List`, `MetricBars`, `MutedText`, `ProgressBar`,
 > `ProgressList`, `ProgressStack`, `ScrollArea`, `Sparkline`, `Spinner`, `Stack`, `Stat`, `Status`,
-> `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, `Viewport`,
+> `MenuBar`, `NavigationList`, `Pager`, `Pagination`, `StepIndicator`, `TaskProgress`, `Text`, `Trend`, `Viewport`, `Wizard`,
 > `DateInput`, `TimeInput`, `PromptDialog`, `Tooltip`, `ToastViewport`, `Countdown`, `Schedule`,
 > `CodeViewer`, `DiffViewer`, `StackTrace`, `EnvironmentTable`, `ShortcutRecorder`, `EventLog`,
 > `CommandOutput`, `TerminalPane`, `QrCode`, `SplitPane`, `Skeleton`, `VirtualTable`,
@@ -143,6 +143,7 @@ npx blessed-components create my-terminal-app
 | [`TextField`](./src/components/input/text-field/README.md) | Enter and validate text. | Available |
 | [`Form`](./src/components/input/form/README.md) | Compose terminal inputs. | Available |
 | [`CommandPalette`](./src/components/navigation/command-palette/README.md) | Search and execute commands. | Available |
+| [`Wizard`](./src/components/navigation/wizard/README.md) | Guide a modal or page-level flow with next, back, and cancel contracts. | Available |
 
 ### Overlays
 

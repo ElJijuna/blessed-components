@@ -46,6 +46,7 @@ const expectedComponents = [
   'src/components/navigation/tabs/index.ts',
   'src/components/navigation/breadcrumb-bar/index.ts',
   'src/components/navigation/stepper-form/index.ts',
+  'src/components/navigation/wizard/index.ts',
   'src/components/navigation/carousel/index.ts',
   'src/components/navigation/context-menu/index.ts',
   'src/components/navigation/dropdown-menu/index.ts',

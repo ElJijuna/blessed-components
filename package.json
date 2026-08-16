@@ -1758,6 +1758,16 @@
       "import": "./dist/waterfall-chart/index.js",
       "require": "./dist/waterfall-chart/index.cjs"
     },
+    "./wizard/blessed": {
+      "types": "./dist/wizard/blessed.d.ts",
+      "import": "./dist/wizard/blessed.js",
+      "require": "./dist/wizard/blessed.cjs"
+    },
+    "./wizard": {
+      "types": "./dist/wizard/index.d.ts",
+      "import": "./dist/wizard/index.js",
+      "require": "./dist/wizard/index.cjs"
+    },
     "./workspace-switcher/blessed": {
       "types": "./dist/workspace-switcher/blessed.d.ts",
       "import": "./dist/workspace-switcher/blessed.js",

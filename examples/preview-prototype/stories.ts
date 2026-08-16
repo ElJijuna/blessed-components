@@ -206,6 +206,7 @@ import {
   trend,
   viewport,
   virtualList,
+  wizard,
   workspaceSwitcher,
 } from '@/index.js';
 
@@ -239,6 +240,47 @@ function renderedTextStory(
 }
 
 export const stories: readonly PreviewStory[] = [
+  defineStory({
+    id: 'wizard/cluster-setup',
+    title: 'Wizard / Cluster Setup',
+    description: 'Page-level guided setup with progress and guarded navigation.',
+    mount(parent) {
+      return wizard({
+        box: {
+          border: 'line',
+          height: 12,
+          left: 3,
+          padding: { left: 1, right: 1 },
+          top: 1,
+          width: 68,
+        },
+        data: {
+          id: 'cluster-setup',
+          steps: [
+            {
+              content: 'Choose the cluster region and runtime profile.',
+              id: 'target',
+              label: 'Target',
+              title: 'Choose a target',
+            },
+            {
+              content: 'Review networking and storage defaults.',
+              id: 'options',
+              label: 'Options',
+              title: 'Configure options',
+            },
+            {
+              content: 'Everything is ready to create.',
+              id: 'review',
+              label: 'Review',
+              title: 'Review setup',
+            },
+          ],
+        },
+        parent,
+      });
+    },
+  }),
   defineStory({
     id: 'stepper-form/deployment',
     title: 'StepperForm / Deployment',
